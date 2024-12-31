@@ -3,30 +3,32 @@ import { ArrowRight } from "iconsax-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Body } from "../textComponents/Body";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useAtom } from "jotai";
 import { checkScrollStatus } from "@/store/store";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
+import { usePathname, useRouter } from "next/navigation";
 
 const Navbar = () => {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useAtom(checkScrollStatus);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Check if the scroll position is greater than the viewport height
       setIsScrolled(window.scrollY > window.innerHeight);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const isHomePage = pathname === "/";
+
   return (
     <header
       className={`fixed w-full pr-10 2xl:px-16 py-2 border-b border-gray-300 bg-clip-padding backdrop-filter backdrop-blur-md !z-[9999999999] transition-colors duration-300 h-24 ${
@@ -53,9 +55,12 @@ const Navbar = () => {
               <Link href={"/"}>
                 <Body
                   className={` ${
-                    isScrolled ? "text-black" : "text-white"
+                    isHomePage
+                      ? isScrolled
+                        ? "text-black"
+                        : "text-white"
+                      : "text-black"
                   } transition hover:text-[#8000ff]`}
-                  href="#"
                 >
                   Home
                 </Body>
@@ -67,9 +72,12 @@ const Navbar = () => {
                 <DropdownMenuTrigger className="border-0 p-0">
                   <Body
                     className={` ${
-                      isScrolled ? "text-black" : "text-white"
+                      isHomePage
+                        ? isScrolled
+                          ? "text-black"
+                          : "text-white"
+                        : "text-black"
                     } transition hover:text-[#8000ff]`}
-                    href="#"
                   >
                     Company
                   </Body>
@@ -82,10 +90,10 @@ const Navbar = () => {
                     <Link href="/values">Our Values</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link href="/about">Leadership</Link>
+                    <Link href="/leadership">Leadership</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link href="/about">Why choose use ?</Link>
+                    <Link href="/about">Why choose us?</Link>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -94,9 +102,12 @@ const Navbar = () => {
             <li>
               <Body
                 className={` ${
-                  isScrolled ? "text-black" : "text-white"
+                  isHomePage
+                    ? isScrolled
+                      ? "text-black"
+                      : "text-white"
+                    : "text-black"
                 } transition hover:text-[#8000ff]`}
-                href="#"
               >
                 Services
               </Body>
@@ -105,9 +116,12 @@ const Navbar = () => {
             <li>
               <Body
                 className={` ${
-                  isScrolled ? "text-black" : "text-white"
+                  isHomePage
+                    ? isScrolled
+                      ? "text-black"
+                      : "text-white"
+                    : "text-black"
                 } transition hover:text-[#8000ff]`}
-                href="#"
               >
                 Blog
               </Body>
