@@ -93,7 +93,7 @@ const Navbar = () => {
                     <Link href="/leadership">Leadership</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link href="/about">Why choose us?</Link>
+                    <Link href="/why-choose-us">Why choose us?</Link>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
