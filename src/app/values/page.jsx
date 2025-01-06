@@ -1,6 +1,6 @@
 import Success from "@/components/constants/Success";
 import { Testimonials } from "@/components/Home/Sections/Testimonials";
-import Banner from "@/components/Values/Sections/Banner";
+import { Banner } from "@/components/Values/Sections/Banner";
 import { Client } from "@/components/Values/Sections/Client";
 import { Expertise } from "@/components/Values/Sections/Expertise";
 import ValuesSection from "@/components/Values/Sections/Values";

@@ -3,7 +3,7 @@ import { Body } from "@/components/textComponents/Body";
 import React from "react";
 import Image from "next/image";
 import { LargeHeading } from "@/components/textComponents/LargeHeading";
-import { ArrowRight } from "iconsax-react";
+import { ContactModal } from "@/components/constants/ContactModal";
 
 export const CTA2 = () => {
   return (
@@ -19,22 +19,22 @@ export const CTA2 = () => {
           className="!absolute -left-40 top-32 h-fit w-fit mx-auto object-contain no-repeat scale-125 opacity-20"
         />
         <div className="z-50 flex flex-col justify-center items-center">
-          <LargeHeading className="font-inter font-bold text-5xl text-white text-center max-w-2xl">
+          <LargeHeading
+            data-aos="fade-down"
+            className="font-inter font-bold text-5xl text-white text-center max-w-3xl"
+          >
             Let's Build Something Different
           </LargeHeading>
           <Body
             className={"mt-4 max-w-4xl text-gray-300 !font-light text-center"}
+            data-aos="fade-down"
           >
             Take the first step towards a brighter future and supercharge your
             business with cutting-edge technologies, expert guidance, and
             unparalleled support.
           </Body>
 
-          <button className="rounded-2xl p-4 bg-[#6F36D2] px-5 7xl:px-7 7xl:p-5 py-2.5 text-sm font-medium text-white shadow flex gap-4 items-center w-max mt-7">
-            <Body>Get In Touch</Body>
-
-            <ArrowRight color="#fff" size={24} className="rotate-45" />
-          </button>
+          <ContactModal className={"mt-7"} />
         </div>
 
         <Image
@@ -47,7 +47,7 @@ export const CTA2 = () => {
       </div>
 
       <div className="flex mt-96">
-        <div className="flex absolute -bottom-5 -left-20">
+        <div className="flex absolute -bottom-5 -left-20" data-aos="fade-down">
           <Image
             alt="Application Development"
             src={"/Dummies/Dummy2.png"}

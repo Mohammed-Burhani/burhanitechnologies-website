@@ -7,7 +7,7 @@ import { LargeHeading } from "@/components/textComponents/LargeHeading";
 
 export const Banner = () => {
   return (
-    <div className="bg-white pt-24">
+    <div className="bg-white">
       <Container className="bg-[url(/Banner/Leadership.png)] h-[32rem] w-full relative overflow-hidden bg-cover bg-center">
         <div className="absolute inset-0 bg-[#000] w-full h-full opacity-50" />
         <Image

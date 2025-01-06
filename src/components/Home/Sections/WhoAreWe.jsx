@@ -12,7 +12,10 @@ export const WhoAreWe = () => {
         "bg-white flex justify-between flex-wrap 2xl:flex-nowrap overflow-hidden"
       }
     >
-      <div className="4xl:!sticky !top-44 h-full mb-7 2xl:mb-0">
+      <div
+        className="4xl:!sticky !top-44 h-full mb-7 2xl:mb-0"
+        data-aos="fade-right"
+      >
         <h4 className="uppercase text-[#6622DC] font-extrabold">Who we are</h4>
 
         <Heading className="mt-7">How we help you.</Heading>

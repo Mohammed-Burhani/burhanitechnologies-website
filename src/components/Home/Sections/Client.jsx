@@ -5,8 +5,11 @@ import React from "react";
 
 export const Client = () => {
   return (
-    <Container className="flex flex-wrap 4xl:flex-nowrap justify-between items-center border-t border-[#C2C2C2]/20">
-      <Heading className="max-w-lg 4xl:!text-4xl text-white text-center sm:text-start">
+    <Container className="flex flex-wrap 4xl:flex-nowrap justify-between items-center border-t border-[#C2C2C2]/20 overflow-hidden">
+      <Heading
+        data-aos="fade-right"
+        className="max-w-lg 4xl:!text-4xl text-white text-center sm:text-start"
+      >
         <span className="block whitespace-nowrap">Driving Success</span>
         <span className="block whitespace-nowrap">for Leading Companies</span>
         <span className="block whitespace-nowrap">
@@ -14,7 +17,10 @@ export const Client = () => {
         </span>
       </Heading>
 
-      <div className="grid grid-cols-2 gap-7 2xl:flex 2xl:gap-4 flex-wrap justify-center items-center mt-7 4xl:justify-end">
+      <div
+        className="grid grid-cols-2 gap-7 2xl:flex 2xl:gap-4 flex-wrap justify-center items-center mt-7 4xl:justify-end"
+        data-aos="fade-left"
+      >
         <Image
           alt="Burhani Technologies"
           width={500}

@@ -1,5 +1,4 @@
 "use client";
-import { ArrowRight } from "iconsax-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Body } from "../textComponents/Body";
@@ -12,7 +11,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+import { ContactModal } from "./ContactModal";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -31,8 +31,8 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed w-full pr-10 2xl:px-16 py-2 border-b border-gray-300 bg-clip-padding backdrop-filter backdrop-blur-md !z-[9999999999] transition-colors duration-300 h-24 ${
-        isScrolled ? "bg-white/60" : "!bg-white/10"
+      className={`w-full border-b border-gray-300 bg-clip-padding backdrop-filter backdrop-blur-md !z-[9999999999] transition-colors duration-300 h-32 px-20 py-4 fixed ${
+        isScrolled ? "bg-white/60" : "!bg-white/5"
       }`}
     >
       <div className="flex justify-between items-center">
@@ -42,7 +42,7 @@ const Navbar = () => {
             width={500}
             height={500}
             src={"/BT-Logo.svg"}
-            className="w-52 h-14 md:w-64 md:h-16 7xl:w-72 7xl:h-20"
+            className="w-52 h-14 md:w-80 md:!h-24 7xl:!w-96 7xl:!h-24 -translate-x-4"
           />
         </div>
 
@@ -99,7 +99,7 @@ const Navbar = () => {
               </DropdownMenu>
             </li>
 
-            <li>
+            <Link href="/services">
               <Body
                 className={` ${
                   isHomePage
@@ -111,7 +111,7 @@ const Navbar = () => {
               >
                 Services
               </Body>
-            </li>
+            </Link>
 
             <li>
               <Body
@@ -131,11 +131,7 @@ const Navbar = () => {
 
         <div className="flex items-center gap-4">
           <div className="hidden md:flex sm:gap-4">
-            <button className="rounded-2xl p-4 bg-[#6F36D2] px-5 7xl:px-7 7xl:p-5 py-2.5 text-sm font-medium text-white shadow flex gap-4 items-center w-max">
-              <Body>Get In Touch</Body>
-
-              <ArrowRight color="#fff" size={24} className="rotate-45" />
-            </button>
+            <ContactModal />
           </div>
 
           <button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75 w-full block md:hidden">

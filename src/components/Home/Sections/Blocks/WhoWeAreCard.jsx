@@ -5,7 +5,7 @@ import { ArrowRight } from "iconsax-react";
 
 export const WhoWeAreCard = () => {
   return (
-    <div className="bg-white rounded-2xl shadow-2xl">
+    <div className="bg-white rounded-2xl shadow-2xl" data-aos="fade-left">
       <div className="flex flex-col gap-2 p-4">
         <div className="p-2 rounded-xl bg-[#E3C8FF] flex justify-center items-center w-fit">
           <Image

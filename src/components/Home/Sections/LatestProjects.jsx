@@ -32,7 +32,10 @@ export const LatestProjects = () => {
       }
     >
       {/* SECTION FOR TITLE AND NAVIGATION  */}
-      <div className="4xl:!sticky !top-44 h-full min-w-fit">
+      <div
+        className="4xl:!sticky !top-44 h-full min-w-fit overflow-x-hidden"
+        data-aos="fade-right"
+      >
         <h4 className="uppercase text-[#6622DC] font-bold">our work</h4>
         <Heading className="mt-7">Our Latest Projects</Heading>
         <Body className={"max-w-lg mt-4"}>
@@ -65,7 +68,9 @@ export const LatestProjects = () => {
         </div>
       </div>
 
-      <div className="flex gap-10 relative overflow-hidden">
+      <div
+        className="flex gap-10 relative overflow-x-hidden"
+      >
         {/* SLIDER ANIMATION */}
 
         {/* Render ProjectCards multiple times */}

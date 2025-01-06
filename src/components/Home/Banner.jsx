@@ -9,7 +9,7 @@ import { LargeHeading } from "../textComponents/LargeHeading";
 
 const Banner = () => {
   return (
-    <div className="bg-[url(/Banner/Banner_SVG.svg)] bg-cover h-screen w-full bg-center flex flex-col justify-center">
+    <div className="bg-[url(/Banner/Banner_SVG.svg)] bg-cover h-screen w-full bg-center flex flex-col justify-center overflow-hidden">
       <div className="absolute top-0 mx-auto w-full h-full flex justify-center items-center overflow-hidden">
         {["#AD5AFF"].map((color, index) => (
           <div
@@ -24,14 +24,17 @@ const Banner = () => {
       </div>
 
       <Container className="flex flex-col gap-10 4xl:pt-36">
-        <LargeHeading className="text-subTitle text-white">
+        <LargeHeading
+          className="text-subTitle text-white"
+          data-aos="fade-right"
+        >
           <span className="block">Driving Growth</span>
           <span className="block">Through Customized</span>
           <span className="block">Technology Solutions</span>
         </LargeHeading>
 
         <div className="flex flex-wrap md:flex-nowrap justify-between 4xl:pl-4 gap-7">
-          <div className="flex items-center">
+          <div className="flex items-center" data-aos="fade-up">
             <button className="btn">
               <div className="scroll"> </div>
             </button>
@@ -45,7 +48,10 @@ const Banner = () => {
             </p> */}
           </div>
 
-          <div className="flex flex-col gap-4 2xl:!gap-10">
+          <div
+            className="flex flex-col gap-4 2xl:!gap-10"
+            data-aos="fade-left"
+          >
             <Body className="max-w-xs 4xl:max-w-sm 7xl:max-w-lg text-justify text-white">
               Specializing in Application Development and Process Automation for
               Seamless Operations.

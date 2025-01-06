@@ -20,7 +20,7 @@ export const CTA = () => {
       </div>
 
       <div className="z-50 flex flex-col justify-center items-center">
-        <LargeHeading className="text-center z-50">
+        <LargeHeading className="text-center z-50" data-aos="fade-down">
           <span className="block text-gray-300">
             Unlock 3X Growth with Burhani Technologies:
           </span>
@@ -35,6 +35,7 @@ export const CTA = () => {
         <PrimaryButton
           className="p-4 bg-[#f75201] px-5 py-2.5 text-lg font-medium text-white shadow flex gap-4 items-center !w-1/4 mt-7 z-50"
           title={"About Us"}
+          data-aos="fade-up"
         />
       </div>
     </Container>

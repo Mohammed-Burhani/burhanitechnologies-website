@@ -16,7 +16,10 @@ export const About1 = () => {
         className="!absolute -left-40 top-0 h-full w-fit mx-auto object-contain no-repeat scale-125 opacity-20"
       />
       <div className="z-50 flex flex-col justify-center items-center">
-        <Heading className="font-inter font-bold text-5xl text-white text-center">
+        <Heading
+          className="font-inter font-bold text-5xl text-white text-center"
+          data-aos="fade-down"
+        >
           <span className="block">
             We Are Your Trusted Technology Partners.
           </span>
@@ -26,7 +29,10 @@ export const About1 = () => {
           <span className="block">Technology Expertise</span>
         </Heading>
 
-        <Body className={"mt-4 max-w-5xl text-gray-300 !font-light text-center"}>
+        <Body
+          className={"mt-4 max-w-5xl text-gray-300 !font-light text-center"}
+          data-aos="fade-up"
+        >
           Explore how our passion for technology, 14+ years of experience, and
           dedication to service set us apart in the industry. We are passionate
           about what we do. Our commitment to excellence drives us to go above
@@ -36,6 +42,7 @@ export const About1 = () => {
         <PrimaryButton
           className="p-4 bg-[#f75201] px-5 py-2.5 text-lg font-medium text-white shadow flex gap-4 items-center !w-1/4 mt-7"
           title={"Learn More"}
+          data-aos="fade-up"
         />
       </div>
       <Image

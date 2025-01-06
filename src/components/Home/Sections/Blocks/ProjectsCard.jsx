@@ -5,7 +5,7 @@ import { ArrowLeft, ArrowRight } from "iconsax-react";
 
 export const ProjectCards = () => {
   return (
-    <div className="w-[28rem]">
+    <div className="w-[28rem]" data-aos="fade-left">
       <div className="relative">
         <div className="bg-white p-5 absolute -right-5 -top-5 rounded-full">
           <div className="bg-[#6622DC] p-3 rounded-full">
