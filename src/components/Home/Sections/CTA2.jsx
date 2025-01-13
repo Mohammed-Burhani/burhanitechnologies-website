@@ -21,7 +21,7 @@ export const CTA2 = () => {
         <div className="z-50 flex flex-col justify-center items-center">
           <LargeHeading
             data-aos="fade-down"
-            className="font-inter font-bold text-5xl text-white text-center max-w-3xl"
+            className="font-inter font-bold text-5xl text-white text-center max-w-screen-md"
           >
             Let's Build Something Different
           </LargeHeading>

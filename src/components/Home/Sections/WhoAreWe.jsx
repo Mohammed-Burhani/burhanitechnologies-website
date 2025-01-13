@@ -13,31 +13,31 @@ export const WhoAreWe = () => {
       icon: "/icons/AppDev.svg",
     },
     {
-      title: "Application Development",
-      desc: "We create custom applications tailored to your business needs, ensuring they are user-friendly and effective.",
+      title: "Process Automation",
+      desc: "Our automation solutions simplify repetitive tasks, saving time and reducing errors, so you can focus on what matters.",
       icon: "/icons/AppDev.svg",
     },
     {
-      title: "Application Development",
-      desc: "We create custom applications tailored to your business needs, ensuring they are user-friendly and effective.",
+      title: "Cloud Solutions",
+      desc: "We provide secure cloud services that enhance collaboration and accessibility, allowing your team to work from anywhere.",
       icon: "/icons/AppDev.svg",
     },
   ];
 
   const rightSection = [
     {
-      title: "Application Development",
-      desc: "We create custom applications tailored to your business needs, ensuring they are user-friendly and effective.",
+      title: "DevOps and Maintenance",
+      desc: "Our DevOps services ensure smooth deployment and ongoing maintenance, helping you maintain high performance and reliability.",
       icon: "/icons/AppDev.svg",
     },
     {
-      title: "Application Development",
-      desc: "We create custom applications tailored to your business needs, ensuring they are user-friendly and effective.",
+      title: "Data Analysis and Reporting",
+      desc: "We turn your data into clear insights, enabling informed decisions that drive business success and improve performance.",
       icon: "/icons/AppDev.svg",
     },
     {
-      title: "Application Development",
-      desc: "We create custom applications tailored to your business needs, ensuring they are user-friendly and effective.",
+      title: "UX/UI Design",
+      desc: "Our design services create intuitive interfaces that enhance user experience, making your applications easy to use and visually appealing.",
       icon: "/icons/AppDev.svg",
     },
   ];
@@ -57,7 +57,7 @@ export const WhoAreWe = () => {
         <Body className={"max-w-lg mt-4"}>
           At Burhani Technologies, we offer a range of services designed to help
           businesses 3X their growth. Our highly experienced team can help you
-          achieve business goals and make profit. 
+          achieve business goals and make profit. 
         </Body>
         <PrimaryButton title={"Learn More"} className={"mt-4"} />
       </div>

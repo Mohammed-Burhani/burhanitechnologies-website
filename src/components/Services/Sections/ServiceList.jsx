@@ -147,7 +147,7 @@ const ServiceForm = () => {
       <CardHeader>
         <CardTitle>
           <LargeCaption className={"text-white"}>
-            Request Free Consultation.
+            Request Free Consultation
           </LargeCaption>
         </CardTitle>
         {/* <CardDescription>
