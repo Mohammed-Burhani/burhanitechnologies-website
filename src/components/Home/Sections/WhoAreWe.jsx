@@ -6,6 +6,41 @@ import { PrimaryButton } from "../Blocks/PrimaryButton";
 import { WhoWeAreCard } from "./Blocks/WhoWeAreCard";
 
 export const WhoAreWe = () => {
+  const leftSection = [
+    {
+      title: "Application Development",
+      desc: "We create custom applications tailored to your business needs, ensuring they are user-friendly and effective.",
+      icon: "/icons/AppDev.svg",
+    },
+    {
+      title: "Application Development",
+      desc: "We create custom applications tailored to your business needs, ensuring they are user-friendly and effective.",
+      icon: "/icons/AppDev.svg",
+    },
+    {
+      title: "Application Development",
+      desc: "We create custom applications tailored to your business needs, ensuring they are user-friendly and effective.",
+      icon: "/icons/AppDev.svg",
+    },
+  ];
+
+  const rightSection = [
+    {
+      title: "Application Development",
+      desc: "We create custom applications tailored to your business needs, ensuring they are user-friendly and effective.",
+      icon: "/icons/AppDev.svg",
+    },
+    {
+      title: "Application Development",
+      desc: "We create custom applications tailored to your business needs, ensuring they are user-friendly and effective.",
+      icon: "/icons/AppDev.svg",
+    },
+    {
+      title: "Application Development",
+      desc: "We create custom applications tailored to your business needs, ensuring they are user-friendly and effective.",
+      icon: "/icons/AppDev.svg",
+    },
+  ];
   return (
     <Container
       className={
@@ -31,15 +66,29 @@ export const WhoAreWe = () => {
         <div className="w-[500px] h-[500px] blur-[400px] rounded-full bg-[#8000ff]/30 2xl:bg-[#8000ff] absolute left-0 2xl:left-64 top-72 mx-auto" />
 
         <div className="flex flex-col gap-4 z-10">
-          <WhoWeAreCard />
-          <WhoWeAreCard />
-          <WhoWeAreCard />
+          {leftSection.map((item, i) => {
+            return (
+              <WhoWeAreCard
+                key={i}
+                title={item?.title}
+                desc={item?.desc}
+                icon={item?.icon}
+              />
+            );
+          })}
         </div>
 
         <div className="flex flex-col gap-4 4xl:mt-32 z-10">
-          <WhoWeAreCard />
-          <WhoWeAreCard />
-          <WhoWeAreCard />
+          {rightSection.map((item, i) => {
+            return (
+              <WhoWeAreCard
+                key={i}
+                title={item?.title}
+                desc={item?.desc}
+                icon={item?.icon}
+              />
+            );
+          })}
         </div>
       </div>
     </Container>
