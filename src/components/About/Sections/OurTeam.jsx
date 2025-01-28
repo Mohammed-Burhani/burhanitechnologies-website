@@ -98,9 +98,7 @@ const OurTeam = () => {
         <LargeHeading>Our Experts</LargeHeading>
 
         <Body className={"max-w-4xl"}>
-          Our success is a result of teamwork and building upon our technical
-          expertise and creative style providing a full-service solution to our
-          clients.
+        Our success stems from seamless teamwork, blending technical expertise with creative flair to deliver comprehensive solutions tailored to our clients' needs.
         </Body>
       </div>
 

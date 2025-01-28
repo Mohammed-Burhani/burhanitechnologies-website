@@ -8,17 +8,27 @@ const FAQ = () => {
   // Define an array of FAQ items
   const faqItems = [
     {
-      question: "Lorem ipsum dolor sit amet consectetur adipisicing?",
+      question: "What services does Burhani Technologies offer??",
       answer:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis molestias culpa in, recusandae laboriosam neque aliquid libero nesciunt voluptate dicta quo officiis explicabo consequuntur distinctio corporis earum similique!",
+        "We offer a wide range of IT solutions, including software development, IT consulting, infrastructure optimization, cloud services, and customized technology solutions tailored to your business needs. ",
     },
     {
-      question: "Another frequently asked question?",
+      question: "How long does it take to complete a project?",
       answer:
-        "This is the answer to the second question. Provide useful and relevant information here to clarify the user's doubts.",
+        "Project timelines vary based on complexity and scope. After an initial consultation, we provide a clear timeline and ensure timely delivery without compromising quality.",
+    },
+    {
+      question: "Do you offer support after project completion?",
+      answer:
+        "Yes, we provide ongoing support and maintenance to ensure the continued success of your solutions. Our team is always available to assist with any updates or issues.",
+    },
+    {
+      question: "How do I get started with Burhani Technologies?",
+      answer:
+        "You can contact us via email, phone, or our website. We’ll schedule an initial consultation to understand your needs and provide a tailored solution for your business.",
     },
     // Add more items as needed
-  ];
+  ];  
 
   return (
     <Container className="flex justify-between items-center bg-white gap-24">

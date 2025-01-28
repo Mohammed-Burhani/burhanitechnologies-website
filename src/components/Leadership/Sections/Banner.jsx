@@ -30,10 +30,7 @@ export const Banner = () => {
               "mt-4 max-w-5xl text-gray-300 !font-light text-center z-10"
             }
           >
-            Explore how our passion for technology, 14+ years of experience, and
-            dedication to service set us apart in the industry. We are
-            passionate about what we do. Our commitment to excellence drives us
-            to go above and beyond, delivering the best results for our clients.
+            "Driven by Passion, United as One | Meet the Team Behind Our Success."
           </Body>
         </div>
         <Image
