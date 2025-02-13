@@ -15,12 +15,12 @@ export const WhoAreWe = () => {
     {
       title: "Process Automation",
       desc: "Our automation solutions simplify repetitive tasks, saving time and reducing errors, so you can focus on what matters.",
-      icon: "/icons/AppDev.svg",
+      icon: "/icons/icon2.svg",
     },
     {
       title: "Cloud Solutions",
       desc: "We provide secure cloud services that enhance collaboration and accessibility, allowing your team to work from anywhere.",
-      icon: "/icons/AppDev.svg",
+      icon: "/icons/icon3.svg",
     },
   ];
 
@@ -28,17 +28,17 @@ export const WhoAreWe = () => {
     {
       title: "DevOps and Maintenance",
       desc: "Our DevOps services ensure smooth deployment and ongoing maintenance, helping you maintain high performance and reliability.",
-      icon: "/icons/AppDev.svg",
+      icon: "/icons/icon6.svg",
     },
     {
       title: "Data Analysis and Reporting",
       desc: "We turn your data into clear insights, enabling informed decisions that drive business success and improve performance.",
-      icon: "/icons/AppDev.svg",
+      icon: "/icons/icon5.svg",
     },
     {
       title: "UX/UI Design",
       desc: "Our design services create intuitive interfaces that enhance user experience, making your applications easy to use and visually appealing.",
-      icon: "/icons/AppDev.svg",
+      icon: "/icons/icon6.svg",
     },
   ];
   return (
@@ -53,11 +53,10 @@ export const WhoAreWe = () => {
       >
         <h4 className="uppercase text-[#6622DC] font-extrabold">Who we are</h4>
 
-        <Heading className="mt-7">How we help you.</Heading>
+        <Heading className="mt-7"> Innovate | Scale | Succeed</Heading>
         <Body className={"max-w-lg mt-4"}>
-          At Burhani Technologies, we offer a range of services designed to help
-          businesses 3X their growth. Our highly experienced team can help you
-          achieve business goals and make profit. 
+        We deliver cutting-edge solutions to streamline operations, boost market presence, and drive profitability. Our expert team helps businesses scale efficiently with technology-driven strategies.
+        Partner with us to achieve sustainable growth.
         </Body>
         <PrimaryButton title={"Learn More"} className={"mt-4"} />
       </div>

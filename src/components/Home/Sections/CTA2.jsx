@@ -50,35 +50,35 @@ export const CTA2 = () => {
         <div className="flex absolute -bottom-5 -left-20" data-aos="fade-down">
           <Image
             alt="Application Development"
-            src={"/Dummies/Dummy2.png"}
+            src={"/ft/1.png"}
             width={500}
             height={500}
             className="w-[28rem] h-72 -rotate-12"
           />
           <Image
             alt="Application Development"
-            src={"/Dummies/Dummy2.png"}
+            src={"/ft/2.png"}
             width={500}
             height={500}
             className="w-[28rem] h-72 rotate-12"
           />
           <Image
             alt="Application Development"
-            src={"/Dummies/Dummy2.png"}
+            src={"/ft/3.png"}
             width={500}
             height={500}
             className="w-[28rem] h-72 -rotate-12"
           />
           <Image
             alt="Application Development"
-            src={"/Dummies/Dummy2.png"}
+            src={"/ft/4.png"}
             width={500}
             height={500}
             className="w-[28rem] h-72 rotate-12"
           />
           <Image
             alt="Application Development"
-            src={"/Dummies/Dummy2.png"}
+            src={"/ft/1.png"}
             width={500}
             height={500}
             className="w-[28rem] h-72 -rotate-12"
