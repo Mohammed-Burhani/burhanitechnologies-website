@@ -13,7 +13,7 @@ export const LatestProjects = () => {
   const projects = [
     {
       title: "Drive X",
-      desc: "A powerful customer relationship management tool that helps businesses streamline communication, manage leads, and track sales efficiently.",
+      desc: "Drive X : We helped the inhouse team build and maintain the Distribution Management System(DMS) and also supported in setting up the current CMS based website. Technology used Angular 2.0, ReactJS, SQLServer, Node and .Net RestAPI",
       image: "/projectW/image (2).png",
       redirectTo: "/projects/bizflow-crm",
       redirectTo2: "https://bizflowcrm.com",
@@ -60,7 +60,6 @@ export const LatestProjects = () => {
       redirectTo: "/projects/greenfleet",
       redirectTo2: "https://greenfleet.com",
     },
-    
   ];
 
   const nextSlide = () => {
@@ -89,7 +88,10 @@ export const LatestProjects = () => {
         <h4 className="uppercase text-[#6622DC] font-bold">our work</h4>
         <Heading className="mt-7">Innovation at Work</Heading>
         <Body className={"max-w-lg mt-4"}>
-        Every project we undertake is a blend of creativity, technology, and strategy. We build solutions that drive growth, enhance efficiency, and create lasting impact. Explore our work and see innovation in action.
+          Every project we undertake is a blend of creativity, technology, and
+          strategy. We build solutions that drive growth, enhance efficiency,
+          and create lasting impact. Explore our work and see innovation in
+          action.
         </Body>
 
         <div className="flex items-center gap-4 mt-4">
