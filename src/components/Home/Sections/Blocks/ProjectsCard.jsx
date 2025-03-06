@@ -43,7 +43,7 @@ export const ProjectCards = ({
         <h3 className="text-3xl capitalize font-bold font-inter my-2">
           {title}
         </h3>
-        <Body className={"7xl:max-w-md text-wrap text-justify line-clamp-1"}>
+        <Body className={"7xl:max-w-md text-wrap text-justify line-clamp-3"}>
           {desc}
         </Body>
       </div>

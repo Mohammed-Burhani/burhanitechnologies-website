@@ -27,7 +27,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const isHomePage = pathname === "/";
+  const isHomePage = pathname === "/" || /^\/services\/.+/.test(pathname);
 
   return (
     <header

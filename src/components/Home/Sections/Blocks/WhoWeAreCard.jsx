@@ -2,6 +2,8 @@ import { Body } from "@/components/textComponents/Body";
 import Image from "next/image";
 import React from "react";
 import { ArrowRight } from "iconsax-react";
+import Link from "next/link";
+import { slugify } from "@/utils/slugify";
 
 export const WhoWeAreCard = ({ title, desc, icon }) => {
   return (
@@ -22,10 +24,13 @@ export const WhoWeAreCard = ({ title, desc, icon }) => {
         <Body className={"max-w-xs 7xl:max-w-lg"}>{desc}</Body>
       </div>
 
-      <button className="bg-[#6F36D2] p-4 text-white w-full rounded-b-2xl flex justify-between items-center gap-2 mt-4">
+      <Link
+        href={"/services/" + slugify(title)}
+        className="bg-[#6F36D2] p-4 text-white w-full rounded-b-2xl flex justify-between items-center gap-2 mt-4"
+      >
         <Body>Learn More</Body>
         <ArrowRight color="white" size={28} className="rotate-45" />
-      </button>
+      </Link>
     </div>
   );
 };

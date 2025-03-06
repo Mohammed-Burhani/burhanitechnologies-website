@@ -16,6 +16,7 @@ import { Label } from "@/components/ui/label";
 import { Body } from "../textComponents/Body";
 import { ArrowRight } from "iconsax-react";
 import { useToast } from "@/hooks/use-toast";
+import { useEffect } from "react";
 
 const services = [
   "NET Development",
@@ -107,7 +108,8 @@ export function ContactModal({ className }) {
           </DialogDescription>
         </DialogHeader>
         <form
-          action="https://formsubmit.co/el/kotapo"
+          target="_blank"
+          action="https://formsubmit.co/aa2bf27e847ec93b60ee28f2fdf73881"
           method="POST"
           className="flex flex-wrap gap-4"
         >
