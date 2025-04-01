@@ -5,7 +5,8 @@ import { GoToTop } from "./constants/GoToTop";
 import { Footer } from "./constants/Footer";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { ContactModal } from "./constants/ContactModal";
+import ChatBot from "./ChatBot";
+import Script from "next/script";
 
 const ProtectedComponent = ({ children }) => {
   useEffect(() => {
@@ -20,6 +21,31 @@ const ProtectedComponent = ({ children }) => {
       <Navbar />
       <GoToTop />
       {children}
+      {/* <ChatSurvey /> */}
+      {/* <ChatBot /> */}
+      <Script
+        id="engati-widget"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function(e, t, a) {
+              var c = e.head || e.getElementsByTagName("head")[0],
+                  n = e.createElement("script");
+              n.async = true;
+              n.defer = true;
+              n.type = "text/javascript";
+              n.src = t + "/static/js/widget.js?config=" + JSON.stringify(a);
+              c.appendChild(n);
+            })(document, "https://app.engati.com", {
+              bot_key: "d1d660980c6644c2",
+              welcome_msg: true,
+              branding_key: "default",
+              server: "https://app.engati.com",
+              e: "p"
+            });
+          `,
+        }}
+      />
       <Footer />
     </div>
   );

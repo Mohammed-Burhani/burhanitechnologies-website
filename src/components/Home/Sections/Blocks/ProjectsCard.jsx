@@ -1,6 +1,6 @@
 import { Body } from "@/components/textComponents/Body";
 import React from "react";
-import { ArrowLeft, ArrowRight } from "iconsax-react";
+import { ArrowLeft, ArrowRight, ArrowUp } from "iconsax-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -15,9 +15,9 @@ export const ProjectCards = ({
     <div className="w-[28rem]" data-aos="fade-left">
       <div className="relative">
         <div className="bg-white p-5 absolute -right-5 -top-5 rounded-full">
-          <div className="bg-[#6622DC] p-3 rounded-full">
+          <div className="bg-orange-600 p-3 rounded-full">
             <Link href={redirectTo}>
-              <ArrowLeft color="white" size={32} />
+              <ArrowRight color="white" size={32} />
             </Link>
           </div>
         </div>
@@ -32,9 +32,9 @@ export const ProjectCards = ({
 
         <div className="bg-white p-5 absolute -left-5 -bottom-5 rounded-full">
           <div className="bg-[#6622DC] p-3 rounded-full">
-            <Link href={redirectTo2}>
-              <ArrowLeft color="white" size={32} />
-            </Link>
+            <a href={redirectTo2} target="_blank" rel="noreferrer">
+              <ArrowUp color="white" size={32} className="rotate-45" />
+            </a>
           </div>
         </div>
       </div>

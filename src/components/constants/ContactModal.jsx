@@ -76,17 +76,15 @@ export function ContactModal({ className }) {
           method="POST"
           className="flex flex-wrap gap-4"
         >
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="text" name="_honey" style={{ display: "none" }} />
-
           {/* Name Input */}
           <div className="grid w-full gap-2">
             <Label htmlFor="name">Name</Label>
-            <Input
+            <input
               required
               id="name"
               name="name"
               placeholder="Enter your name"
+              className="p-2 px-4 border rounded-lg border-indigo-500"
             />
           </div>
 
@@ -94,21 +92,23 @@ export function ContactModal({ className }) {
           <div className="flex w-full gap-4">
             <div className="grid flex-1 gap-2">
               <Label htmlFor="email">Email</Label>
-              <Input
+              <input
                 required
                 id="email"
                 name="email"
                 type="email"
+                className="p-2 px-4 border rounded-lg border-indigo-500"
                 placeholder="Enter your email"
               />
             </div>
             <div className="grid flex-1 gap-2">
               <Label htmlFor="contactNumber">Phone/Contact No</Label>
-              <Input
+              <input
                 required
                 id="contactNumber"
                 name="phoneNumber"
                 placeholder="Enter your Phone Number"
+                className="p-2 px-4 border rounded-lg border-indigo-500"
               />
             </div>
           </div>
@@ -116,33 +116,36 @@ export function ContactModal({ className }) {
           {/* Company Website */}
           <div className="grid w-full gap-2">
             <Label htmlFor="companyWebsite">Company Website</Label>
-            <Input
+            <input
               required
               id="companyWebsite"
               name="companyWebsite"
               placeholder="Enter your Company Website"
+              className="p-2 px-4 border rounded-lg border-indigo-500"
             />
           </div>
 
           {/* Subject */}
           <div className="grid w-full gap-2">
             <Label htmlFor="challenge">Subject</Label>
-            <Input
+            <input
               required
               id="challenge"
               name="challenge"
               placeholder="What's your current biggest challenge"
+              className="p-2 px-4 border rounded-lg border-indigo-500"
             />
           </div>
 
           {/* Project Description */}
           <div className="grid w-full gap-2">
             <Label htmlFor="desc">Project Description</Label>
-            <Input
+            <input
               required
               id="desc"
               name="desc"
               placeholder="Describe your project briefly"
+              className="p-2 px-4 border rounded-lg border-indigo-500"
             />
           </div>
 
