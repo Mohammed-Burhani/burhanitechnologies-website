@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./constants/Navbar";
 import { GoToTop } from "./constants/GoToTop";
 import { Footer } from "./constants/Footer";
@@ -9,6 +9,8 @@ import ChatBot from "./ChatBot";
 import Script from "next/script";
 
 const ProtectedComponent = ({ children }) => {
+  const [loading, setLoading] = useState(false)
+
   useEffect(() => {
     AOS.init({
       easing: "ease-out-cubic",
@@ -16,7 +18,15 @@ const ProtectedComponent = ({ children }) => {
       offset: 50,
     });
   }, []);
+
+  useEffect(() => {
+    setLoading(true);
+  }, []);
+
   return (
+    // {!loading ?
+    //   : ""
+    // }
     <div>
       <Navbar />
       <GoToTop />

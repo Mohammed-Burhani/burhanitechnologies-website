@@ -13,7 +13,7 @@ export const LatestProjects = () => {
   const projects = [
     {
       title: "Drive X",
-      desc: "For DriveX, a premium vehicle rental service, we built a dynamic and engaging website that simplifies car and bike rentals. The website features a modern design, user-friendly booking system, and seamless browsing experience, making it easier for customers to explore and rent their desired vehicles. Our work ensures DriveX stays ahead in the competitive automotive rental industry.",
+      desc: "We built a dynamic website for DriveX, featuring easy booking, seamless browsing, and a modern rental experience.",
       image: "/projectW/image (2).png",
       // redirectTo: "/projects/bizflow-crm",
       redirectTo: "https://www.drivex.in/",
@@ -21,7 +21,7 @@ export const LatestProjects = () => {
     },
     {
       title: "KAG Tiles",
-      desc: "We designed and developed a feature-rich e-commerce platform for KAG Tiles, a leading brand in the tile industry. Our solution includes an intuitive product catalog, seamless navigation, and a secure checkout process, ensuring a smooth shopping experience for customers. With an elegant UI and optimized performance, the website enhances KAG Tiles' online presence and sales potential.",
+      desc: "We built a user-friendly e-commerce platform for KAG Tiles, ensuring seamless shopping for their premium tile collection.",
       image: "/projectW/image (3).png",
       // redirectTo: "/projects/taskmaster-pro",
       redirectTo: "https://www.kagindia.com/",
@@ -29,7 +29,7 @@ export const LatestProjects = () => {
     },
     {
       title: "RBC Bearings",
-      desc: "We provided a complete digital transformation for RBC Bearings, an industrial leader in high-quality bearings. From designing a professional website to implementing an online business platform, we enabled RBC Bearings to reach a broader audience, showcase their products effectively, and improve customer engagement through an interactive interface.",
+      desc: "We developed a CMS-based website for RBC Bearings, providing a strong digital presence for their industrial product offerings.",
       image: "/projectW/image (8).png",
       // redirectTo: "/projects/fintrack",
       redirectTo: "https://rbcbearings.in/",
@@ -37,7 +37,7 @@ export const LatestProjects = () => {
     },
     {
       title: "Mirakare",
-      desc: "For MIRAKARE, a trusted healthcare brand, we built a strong online presence through a well-structured and engaging website. Our design ensures easy access to their services, improved user experience, and enhanced brand credibility, helping them connect with their clients more efficiently.",
+      desc: "MiraKare is an advanced healthcare platform for managing vitals, journaling activities, scheduling appointments, and tracking patient records.",
       image: "/projectW/image (7).png",
       // redirectTo: "/projects/edusmart-lms",
       redirectTo: "https://mirakare.com/",
@@ -45,7 +45,7 @@ export const LatestProjects = () => {
     },
     {
       title: "PBHR Homeopathy Hospital",
-      desc: "We developed a professional and informative website for PBHR Homeopathy Hospital, ensuring an easy-to-navigate platform for patients seeking homeopathic treatments. The website includes detailed service pages, appointment booking features, and educational content, making it a valuable resource for those looking for holistic healthcare solutions.",
+      desc: "We digitized patient records for PBHR Homeopathy Hospital, making homeopathic healthcare services more accessible and efficiently managed online.",
       image: "/projectW/image (9).png",
       // redirectTo: "/projects/greenfleet",
       redirectTo: "https://pbhrc.in/",
@@ -53,7 +53,7 @@ export const LatestProjects = () => {
     },
     {
       title: "Lehry Valves",
-      desc: "For Lehry Valves, we created a high-performance website tailored to showcase their wide range of industrial valve solutions. The website features detailed product descriptions, technical specifications, and a user-friendly design, making it easy for engineers, businesses, and suppliers to explore their offerings and make informed decisions.",
+      desc: "We developed a supply chain and CRM software solution for Lehry Valves, optimizing their business operations and efficiency.",
       image: "/projectW/image (4).png",
       // redirectTo: "/projects/shopease",
       redirectTo: "https://lehryvalves.com/",
@@ -61,7 +61,7 @@ export const LatestProjects = () => {
     },
     {
       title: "Anitha Industries",
-      desc: "We crafted a visually appealing and responsive website for Anitha Home Appliances, an industry leader in home and kitchen solutions. The website highlights their product range, brand story, and key features, ensuring customers get an engaging and informative online shopping experience.",
+      desc: "We implemented and customized ZipERP software for Anitha Industries, streamlining retail, factory, and production management operations.",
       image: "/projectW/image (5).png",
       // redirectTo: "/projects/healthsync",
       redirectTo: "https://anithahomeappliances.com/",
