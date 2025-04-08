@@ -47,13 +47,33 @@ function ContactForm() {
     services: [],
   };
 
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = async (values, { resetForm }) => {
     console.log(values);
-    toast({
-      title: "Form submitted successfully!",
-      description: "We'll get back to you soon.",
-    });
-    resetForm();
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast({
+          title: "Form submitted successfully!",
+          description: "We'll get back to you soon.",
+        });
+        resetForm();
+      } else {
+        // Show error message
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      // Show error message
+    }
   };
 
   return (
