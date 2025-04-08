@@ -2,18 +2,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-// Type for the form data
-type ContactFormData = {
-  name: string;
-  email: string;
-  contactNumber: string;
-  companyWebsite: string;
-  challenge: string;
-  desc: string;
-  services: string[];
-};
-
-async function sendEmail(mailOptions: any) {
+async function sendEmail(mailOptions) {
   try {
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
@@ -33,9 +22,9 @@ async function sendEmail(mailOptions: any) {
   }
 }
 
-export async function POST(request: NextRequest) {
+export async function POST(request) {
   try {
-    const formData: ContactFormData = await request.json();
+    const formData = await request.json();
     const {
       name,
       email,
