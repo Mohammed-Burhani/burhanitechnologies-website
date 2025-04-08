@@ -63,7 +63,7 @@ Thank you for reaching out to us. We have received your business inquiry and wil
 A member of our team will contact you shortly to discuss how we can assist with your needs.
 
 Best regards,
-Your Company Team
+Team Burhani Technologies
       `,
       html: `<!DOCTYPE html>
 <html lang="en">
