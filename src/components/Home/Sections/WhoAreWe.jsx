@@ -1,11 +1,14 @@
+"use client"
 import Container from "@/components/constants/Container";
 import { Body } from "@/components/textComponents/Body";
 import { Heading } from "@/components/textComponents/Heading";
 import React from "react";
 import { PrimaryButton } from "../Blocks/PrimaryButton";
 import { WhoWeAreCard } from "./Blocks/WhoWeAreCard";
+import { useRouter } from "next/navigation";
 
 export const WhoAreWe = () => {
+  const router = useRouter()
   const leftSection = [
     {
       title: "Application Development",
@@ -55,10 +58,16 @@ export const WhoAreWe = () => {
 
         <Heading className="mt-7"> Innovate | Scale | Succeed</Heading>
         <Body className={"max-w-lg mt-4"}>
-        We deliver cutting-edge solutions to streamline operations, boost market presence, and drive profitability. Our expert team helps businesses scale efficiently with technology-driven strategies.
-        Partner with us to achieve sustainable growth.
+          We deliver cutting-edge solutions to streamline operations, boost
+          market presence, and drive profitability. Our expert team helps
+          businesses scale efficiently with technology-driven strategies.
+          Partner with us to achieve sustainable growth.
         </Body>
-        <PrimaryButton title={"Learn More"} className={"mt-4"} />
+        <PrimaryButton
+          title={"Learn More"}
+          className={"mt-4"}
+          onClick={() => router.push("/services")}
+        />
       </div>
 
       <div className="flex flex-wrap 4xl:flex-nowrap gap-10 relative">

@@ -1,11 +1,14 @@
+"use client"
 import Container from "@/components/constants/Container";
 import { Body } from "@/components/textComponents/Body";
 import React from "react";
 import { PrimaryButton } from "../Blocks/PrimaryButton";
 import { Heading } from "@/components/textComponents/Heading";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export const About1 = () => {
+  const router = useRouter();
   return (
     <Container className="bg-[#2B1343] h-full w-full relative overflow-hidden">
       <Image
@@ -43,6 +46,7 @@ export const About1 = () => {
           className="p-4 bg-[#f75201] px-5 py-2.5 text-lg font-medium text-white shadow flex gap-4 items-center !w-1/4 mt-7"
           title={"Learn More"}
           data-aos="fade-up"
+          onClick={() => router.push("/values")}
         />
       </div>
       <Image

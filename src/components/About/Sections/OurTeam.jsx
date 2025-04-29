@@ -10,44 +10,29 @@ import React from "react";
 const OurTeam = () => {
   const team = [
     {
-      name: "Sarah Johnson",
+      name: "Yusuf Shabbir",
       role: "CEO & Founder",
-      image: "/About/Team/team1.png",
-      instagram: "https://instagram.com/sarahjohnson",
-      facebook: "https://facebook.com/sarahjohnson",
-      whatsapp: "https://wa.me/1234567890",
+      image: "/team/yusuf.png",
     },
     {
-      name: "Michael Lee",
+      name: "Aliasgar Ghadiyali",
       role: "CTO",
-      image: "/About/Team/team1.png",
-      instagram: "https://instagram.com/michaellee",
-      facebook: "https://facebook.com/michaellee",
-      whatsapp: "https://wa.me/1234567891",
+      image: "/team/ali.png",
     },
     {
-      name: "Emily Davis",
-      role: "Lead Designer",
-      image: "/About/Team/team1.png",
-      instagram: "https://instagram.com/emilydavis",
-      facebook: "https://facebook.com/emilydavis",
-      whatsapp: "https://wa.me/1234567892",
+      name: "Suresh Babu",
+      role: "Lead Designed",
+      image: "/team/suresh.png",
     },
     {
-      name: "James Anderson",
-      role: "Senior Developer",
-      image: "/About/Team/team1.png",
-      instagram: "https://instagram.com/jamesanderson",
-      facebook: "https://facebook.com/jamesanderson",
-      whatsapp: "https://wa.me/1234567893",
+      name: "Shivann Kannan",
+      role: "UX Director",
+      image: "/team/shivann.png",
     },
     {
-      name: "Sophia Martinez",
-      role: "Marketing Manager",
-      image: "/About/Team/team1.png",
-      instagram: "https://instagram.com/sophiamartinez",
-      facebook: "https://facebook.com/sophiamartinez",
-      whatsapp: "https://wa.me/1234567894",
+      name: "Sadiq Ali",
+      role: "Backend Developer",
+      image: "/team/sadiq.png",
     },
     // {
     //   name: "Daniel White",
@@ -127,7 +112,7 @@ const TeamCard = ({ name, role, image, facebook, instagram, whatsapp }) => {
   return (
     <div className="flex flex-col">
       <div className="relative">
-        <div className="flex flex-col gap-4 absolute bottom-5 right-5">
+        {/* <div className="flex flex-col gap-4 absolute bottom-5 right-5">
           <div className="bg-black p-3 rounded-full">
             <Link href={facebook}>
               <Facebook color="white" size={20} />
@@ -143,7 +128,7 @@ const TeamCard = ({ name, role, image, facebook, instagram, whatsapp }) => {
               <Whatsapp color="white" size={20} />
             </Link>
           </div>
-        </div>
+        </div> */}
 
         <Image
           alt="Team"

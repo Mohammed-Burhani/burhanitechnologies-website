@@ -7,9 +7,10 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import ChatBot from "./ChatBot";
 import Script from "next/script";
+import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 
 const ProtectedComponent = ({ children }) => {
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     AOS.init({
@@ -31,9 +32,13 @@ const ProtectedComponent = ({ children }) => {
       <Navbar />
       <GoToTop />
       {children}
+      <ProgressBar
+        height="4px"
+        color="#4f39f6"
+      />
       {/* <ChatSurvey /> */}
       {/* <ChatBot /> */}
-      <Script
+      {/* <Script
         id="engati-widget"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
@@ -55,7 +60,7 @@ const ProtectedComponent = ({ children }) => {
             });
           `,
         }}
-      />
+      /> */}
       <Footer />
     </div>
   );

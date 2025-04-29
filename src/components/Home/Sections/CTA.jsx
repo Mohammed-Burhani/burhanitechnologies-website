@@ -1,12 +1,13 @@
+"use client";
 import Container from "@/components/constants/Container";
-import { Body } from "@/components/textComponents/Body";
 import React from "react";
 import { PrimaryButton } from "../Blocks/PrimaryButton";
-import { Heading } from "@/components/textComponents/Heading";
 import Image from "next/image";
 import { LargeHeading } from "@/components/textComponents/LargeHeading";
+import { useRouter } from "next/navigation";
 
 export const CTA = () => {
+  const router = useRouter()
   return (
     <Container className="h-full w-full relative bg-[#2B1343]">
       <div className="flex justify-center items-center">
@@ -36,6 +37,7 @@ export const CTA = () => {
           className="p-4 bg-[#f75201] px-5 py-2.5 text-lg font-medium text-white shadow flex gap-4 items-center !w-1/4 mt-7 z-50"
           title={"About Us"}
           data-aos="fade-up"
+          onClick={() => router.push("/leadership")}
         />
       </div>
     </Container>
