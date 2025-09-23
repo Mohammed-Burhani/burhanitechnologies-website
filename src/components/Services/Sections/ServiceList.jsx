@@ -95,7 +95,7 @@ const ServiceList = () => {
   }, []);
 
   return (
-    <Container className="flex flex-col items-center bg-white gap-24">
+    <Container className="flex flex-col items-center bg-white gap-10">
       {/* <div className="4xl:!sticky !top-44 h-full mb-7 2xl:mb-0 min-w-fit"> */}
       <div className="mb-7 2xl:mb-0 min-w-fit">
         <h4
@@ -116,7 +116,7 @@ const ServiceList = () => {
         {/* <ServiceForm /> */}
       </div>
 
-      <div className="grid grid-cols-1 xl:grid-cols-2 items-center gap-7 gap-y-20">
+      <div className="grid grid-cols-1 xl:grid-cols-2 items-center gap-7 gap-y-10">
         {services.map((item, index) => (
           <ServiceItem
             key={index}
@@ -146,7 +146,7 @@ const ServiceItem = ({
     <div
       className={`flex items-center gap-7 ${isReversed ? "flex-row-reverse" : ""}`}
     >
-      <div className="bg-[#E3C8FF] p-7 w-96 h-[26rem] flex flex-col justify-center">
+      <div className="bg-[#E3C8FF] p-7 w-96 h-80 flex flex-col justify-center">
         <Image
           alt={question}
           src={
@@ -161,7 +161,7 @@ const ServiceItem = ({
           {question}
         </SmallCaption>
 
-        <PortableSmallBody className="mt-4 leading-relaxed text-gray-700 max-w-4xl line-clamp-4">
+        <PortableSmallBody className="mt-4 leading-relaxed text-gray-700 max-w-4xl line-clamp-2">
           <PortableText value={answer} components={components} />
         </PortableSmallBody>
 

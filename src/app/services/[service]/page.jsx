@@ -44,7 +44,7 @@ const Service = ({ params }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await client.fetch(`*[_type == "services"]`);
+        const result = await client.fetch(`*[_type == "services"][0...6]`);
         setServices(result);
       } catch (error) {
         console.error("Error fetching data:", error);
