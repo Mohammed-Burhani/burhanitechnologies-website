@@ -1,6 +1,6 @@
 import Container from "@/components/constants/Container";
 import { Body } from "@/components/textComponents/Body";
-import { Heading } from "@/components/textComponents/Heading";
+import { SecondaryHeading } from "@/components/textComponents/SecondaryHeading";
 import { ArrowRight } from "iconsax-react";
 import Image from "next/image";
 import React from "react";
@@ -12,7 +12,7 @@ const WorkWithUs = () => {
         <div className="">
           <h4 className="uppercase text-[#6622DC] font-extrabold">Join Us</h4>
 
-          <Heading className="mt-4 max-w-3xl">Why work with us ?</Heading>
+          <SecondaryHeading className="mt-4 max-w-3xl">Why work with us ?</SecondaryHeading>
 
           <div className="relative flex scale-75 2xl:scale-100 -translate-x-14 2xl:-translate-x-0 w-[28rem] h-[28rem] 2xl:mt-7">
             <Image
@@ -59,9 +59,9 @@ const Points = ({ title, h_title, desc }) => {
     <div className="">
       <div className="flex gap-2 items-center">
         <ArrowRight color="black" size={40} variant="Broken" />
-        <Heading className="max-w-3xl capitalize leading-none">
+        <SecondaryHeading className="max-w-3xl capitalize leading-none">
           {title} <span className="text-[#6622DC]">{h_title}</span>
-        </Heading>
+        </SecondaryHeading>
       </div>
       <Body className={"max-w-4xl leading-none mt-4"}>{desc}</Body>
     </div>

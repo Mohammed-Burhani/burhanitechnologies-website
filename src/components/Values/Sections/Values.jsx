@@ -1,6 +1,6 @@
 import Container from "@/components/constants/Container";
 import { Body } from "@/components/textComponents/Body";
-import { Heading } from "@/components/textComponents/Heading";
+import { SecondaryHeading } from "@/components/textComponents/SecondaryHeading";
 import { LargeCaption } from "@/components/textComponents/LargeCaption";
 import React from "react";
 
@@ -8,7 +8,7 @@ const ValuesSection = () => {
   return (
     <Container className="bg-white">
       <div className="">
-        <Heading className="">Our Values</Heading>
+        <SecondaryHeading className="">Our Values</SecondaryHeading>
 
         <Body className="">Here's what sets us apart from others...</Body>
       </div>

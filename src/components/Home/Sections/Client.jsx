@@ -1,5 +1,5 @@
 import Container from "@/components/constants/Container";
-import { Heading } from "@/components/textComponents/Heading";
+import { SecondaryHeading } from "@/components/textComponents/SecondaryHeading";
 import Image from "next/image";
 import React from "react";
 import Marquee from "react-fast-marquee";
@@ -8,7 +8,7 @@ export const Client = () => {
   return (
     <div className="flex gap-8">
       <Container className="flex flex-wrap 4xl:flex-nowrap justify-between items-center border-t border-[#C2C2C2]/20 overflow-hidden">
-        <Heading
+        <SecondaryHeading
           data-aos="fade-right"
           className="max-w-lg 4xl:!text-4xl text-white text-center sm:text-start"
         >
@@ -17,7 +17,7 @@ export const Client = () => {
           <span className="block whitespace-nowrap">
             Through Smart Technology.
           </span>
-        </Heading>
+        </SecondaryHeading>
       </Container>
 
       {/* <div
@@ -26,35 +26,35 @@ export const Client = () => {
         > */}
       <Marquee className="">
         <Image
-          alt="Burhani Technologies"
+          alt="Technology Stack - Programming Languages and Frameworks"
           width={500}
           height={500}
           src={"/TechIcon/1.png"}
           className="bg-white object-contain w-64 h-20 p-4 rounded-xl mr-4"
         />
         <Image
-          alt="Burhani Technologies"
+          alt="Technology Stack - Programming Languages and Frameworks"
           width={500}
           height={500}
           src={"/TechIcon/2.png"}
           className="bg-white object-contain w-64 h-20 p-4 rounded-xl mr-4"
         />
         <Image
-          alt="Burhani Technologies"
+          alt="Technology Stack - Programming Languages and Frameworks"
           width={500}
           height={500}
           src={"/TechIcon/3.png"}
           className="bg-white object-contain w-64 h-20 p-4 rounded-xl mr-4"
         />
         <Image
-          alt="Burhani Technologies"
+          alt="Technology Stack - Programming Languages and Frameworks"
           width={500}
           height={500}
           src={"/TechIcon/4.png"}
           className="bg-white object-contain w-64 h-20 p-4 rounded-xl mr-4"
         />
         <Image
-          alt="Burhani Technologies"
+          alt="Technology Stack - Programming Languages and Frameworks"
           width={500}
           height={500}
           src={"/TechIcon/5.png"}

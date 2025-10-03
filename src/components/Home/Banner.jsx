@@ -7,6 +7,7 @@ import { PrimaryButton } from "./Blocks/PrimaryButton";
 import { Body } from "../textComponents/Body";
 import Container from "../constants/Container";
 import { LargeHeading } from "../textComponents/LargeHeading";
+import { Heading } from "../textComponents/Heading";
 import { useRouter } from "next/navigation";
 
 const Banner = () => {
@@ -27,14 +28,14 @@ const Banner = () => {
       </div>
 
       <Container className="flex flex-col gap-10 4xl:pt-36">
-        <LargeHeading
-          className="text-subTitle text-white"
+        <Heading
+          className="text-white !text-xlcaptionLarge sm:!text-mdsubTitle 7xl:!text-title !font-extrabold"
           data-aos="fade-right"
         >
           <span className="block">Driving Growth</span>
           <span className="block">Through Customized</span>
           <span className="block">Technology Solutions</span>
-        </LargeHeading>
+        </Heading>
 
         <div className="flex flex-wrap md:flex-nowrap justify-between 4xl:pl-4 gap-7">
           <div className="flex items-center" data-aos="fade-up">

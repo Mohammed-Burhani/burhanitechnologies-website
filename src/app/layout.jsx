@@ -19,7 +19,7 @@ export const metadata = {
   title:
     "Burhani Technologies | Custom Software Development",
   description:
-    "Leading software development company in Chennai specializing in Custom ERP, AI/ML Automation, DevOps/Azure, and Business Process Automation. Transform your business with tailored technology solutions.",
+    "Leading software development company in Chennai specializing in Custom ERP, AI/ML Automation, DevOps/Azure, and Business Process Automation.",
   keywords: [
     "custom software development Chennai",
     "ERP implementation",
@@ -77,6 +77,9 @@ export const metadata = {
   },
   verification: {
     google: "UP_wON5lYN_QqtZzPogE3GooUQ7Clqzy6nIsqoYpCcg",
+  },
+  alternates: {
+    canonical: "https://burhanitechnologies.com",
   },
 };
 

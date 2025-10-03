@@ -1,5 +1,5 @@
 import Container from "@/components/constants/Container";
-import { Heading } from "@/components/textComponents/Heading";
+import { SecondaryHeading } from "@/components/textComponents/SecondaryHeading";
 import { LargeCaption } from "@/components/textComponents/LargeCaption";
 import Image from "next/image";
 import React from "react";
@@ -20,14 +20,14 @@ const FeaturePoint = ({ title, url }) => {
   return (
     <div className="flex gap-4 items-center">
       <Image
-        alt="Expert Team"
+        alt={`${title} - Feature Icon`}
         width={500}
         height={500}
         src={url}
         className="w-32 h-32 md:w-40 md:h-40"
       />
 
-      <Heading className="text-white !max-w-72">{title}</Heading>
+      <SecondaryHeading className="text-white !max-w-72">{title}</SecondaryHeading>
     </div>
   );
 };

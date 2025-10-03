@@ -2,7 +2,7 @@ import Container from "@/components/constants/Container";
 import { PrimaryButton } from "@/components/Home/Blocks/PrimaryButton";
 import { WhoWeAreCard } from "@/components/Home/Sections/Blocks/WhoWeAreCard";
 import { Body } from "@/components/textComponents/Body";
-import { Heading } from "@/components/textComponents/Heading";
+import { SecondaryHeading } from "@/components/textComponents/SecondaryHeading";
 import React from "react";
 
 export const Services = () => {
@@ -50,9 +50,9 @@ export const Services = () => {
       <div className="4xl:!sticky !top-44 h-full mb-7 2xl:mb-0">
         <h4 className="uppercase text-[#6622DC] font-extrabold">Services</h4>
 
-        <Heading className="mt-7">
+        <SecondaryHeading className="mt-7">
           Tailored IT Solutions with a Competitive Edge
-        </Heading>
+        </SecondaryHeading>
         <Body className={"max-w-lg mt-4"}>
           Our expertise in IT consulting sets us apart, enabling us to deliver
           customized solutions and valuable insights. This distinctive advantage

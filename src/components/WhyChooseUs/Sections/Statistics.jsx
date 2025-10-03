@@ -1,6 +1,6 @@
 import Container from "@/components/constants/Container";
 import { Body } from "@/components/textComponents/Body";
-import { Heading } from "@/components/textComponents/Heading";
+import { SecondaryHeading } from "@/components/textComponents/SecondaryHeading";
 import { LargeHeading } from "@/components/textComponents/LargeHeading";
 import React from "react";
 
@@ -9,9 +9,9 @@ const Statistics = () => {
     <Container className={"bg-white"}>
       <div className="flex flex-wrap 2xl:flex-nowrap justify-between items-center gap-7">
         <div className="flex flex-col gap-4">
-          <Heading className={" max-w-screen-lg"}>
+          <SecondaryHeading className={" max-w-screen-lg"}>
             More Than a Company, A Partner in Innovation
-          </Heading>
+          </SecondaryHeading>
           <Body
             className={"text-[#656565]  max-w-screen-lg"}
           >
