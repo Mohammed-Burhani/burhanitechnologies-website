@@ -17,7 +17,7 @@ const inter = Inter({
 export const metadata = {
   metadataBase: new URL("https://burhanitechnologies.com"),
   title:
-    "Burhani Technologies | Custom Software Development & Business Automation Services Chennai",
+    "Burhani Technologies | Custom Software Development",
   description:
     "Leading software development company in Chennai specializing in Custom ERP, AI/ML Automation, DevOps/Azure, and Business Process Automation. Transform your business with tailored technology solutions.",
   keywords: [
@@ -45,7 +45,7 @@ export const metadata = {
     url: "https://burhanitechnologies.com",
     siteName: "Burhani Technologies",
     title:
-      "Burhani Technologies | Custom Software Development & Business Automation",
+      "Burhani Technologies | Custom Software Development",
     description:
       "Leading software development company in Chennai specializing in Custom ERP, AI/ML Automation, DevOps/Azure, and Business Process Automation.",
     images: [
