@@ -6,9 +6,38 @@ import { CTA2 } from "@/components/Home/Sections/CTA2";
 import { LatestProjects } from "@/components/Home/Sections/LatestProjects";
 import { Testimonials } from "@/components/Home/Sections/Testimonials";
 import { WhoAreWe } from "@/components/Home/Sections/WhoAreWe";
-import { FAQ, faqData } from "@/components/Home/Sections/FAQ";
+import { FAQ } from "@/components/Home/Sections/FAQ";
 import Script from "next/script";
 import { generateFAQSchema } from "@/utils/schema";
+
+// FAQ data for schema markup
+const homepageFAQs = [
+  {
+    question: "What's your typical project timeline?",
+    answer:
+      "Our Agile approach delivers initial working versions in 4-6 weeks, with full implementations ranging from 15-90 days depending on complexity and integration requirements.",
+  },
+  {
+    question: "Do you work with existing systems or only build new ones?",
+    answer:
+      "Both. We specialize in integrating custom solutions with your existing ERP, CRM, and legacy systems—whether it's Tally, SAP, Salesforce, or proprietary software.",
+  },
+  {
+    question: "What's your pricing model for enterprise projects?",
+    answer:
+      "Our projects typically range from USD 7,500 to USD 15,000+ based on scope. We provide transparent fixed-price quotes after a discovery phase, with flexible payment milestones.",
+  },
+  {
+    question: "What cloud platforms do you work with?",
+    answer:
+      "We're certified in Azure cloud services and Microsoft Power Platform, and also work with AWS, Google Cloud, and hybrid cloud architectures based on your needs.",
+  },
+  {
+    question: "What industries do you serve?",
+    answer:
+      "Healthcare startups, manufacturing, automotive, construction, and finance/operations teams needing custom software, ERP systems, or process automation.",
+  },
+];
 
 export const metadata = {
   metadataBase: new URL("https://burhanitechnologies.com"),
