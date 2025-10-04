@@ -109,15 +109,10 @@ export const metadata = {
   },
 };
 
-export default function Home() {
-  // Generate FAQ schema for homepage
-  const faqSchema = generateFAQSchema(
-    faqData.map((faq) => ({
-      question: faq.question,
-      answer: faq.answer,
-    }))
-  );
+// Generate FAQ schema
+const faqSchema = generateFAQSchema(homepageFAQs);
 
+export default function Home() {
   return (
     <>
       {/* FAQ Schema for Homepage */}
