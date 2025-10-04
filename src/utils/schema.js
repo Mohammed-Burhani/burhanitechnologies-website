@@ -8,7 +8,8 @@ export const organizationSchema = {
   url: "https://burhanitechnologies.com",
   logo: "https://burhanitechnologies.com/BT-Logo.svg",
   description:
-    "Leading software development company specializing in Custom ERP, AI/ML Automation, DevOps/Azure, and Business Process Automation services.",
+    "Leading software development company with 14+ years of expertise specializing in Custom ERP Implementation, AI/ML Automation, Microsoft Power Platform, DevOps/Azure, and Business Process Automation services. Serving healthcare, manufacturing, automotive, and construction industries globally.",
+  foundingDate: "2010",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Chennai",
@@ -20,7 +21,37 @@ export const organizationSchema = {
     telephone: "+91-72990-02152",
     contactType: "Customer Service",
     availableLanguage: ["English"],
+    areaServed: ["IN", "US", "AE", "AU"],
   },
+  areaServed: [
+    {
+      "@type": "Country",
+      name: "India",
+    },
+    {
+      "@type": "Country",
+      name: "United States",
+    },
+    {
+      "@type": "Country",
+      name: "United Arab Emirates",
+    },
+    {
+      "@type": "Country",
+      name: "Australia",
+    },
+  ],
+  knowsAbout: [
+    "Custom Software Development",
+    "ERP Implementation",
+    "Business Process Automation",
+    "AI/ML Automation",
+    "Microsoft Power Platform",
+    "DevOps",
+    "Azure Cloud Services",
+    "RPA Solutions",
+    "UX/UI Design",
+  ],
   sameAs: [
     // Add social media URLs here when available
     // "https://www.facebook.com/burhanitechnologies",
