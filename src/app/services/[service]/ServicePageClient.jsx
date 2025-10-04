@@ -153,9 +153,9 @@ const ServicePageClient = ({ service }) => {
                   <div className="relative w-96 h-96">
                     <div className="absolute inset-0 bg-[#15223d]/80 w-full h-full" />
                     <div className="absolute inset-0 w-full h-full flex flex-col justify-center items-center p-4 gap-2">
-                      <h6 className="text-white font-bold text-3xl">
+                      <h3 className="text-white font-bold text-3xl">
                         Need any help?
-                      </h6>
+                      </h3>
                       <p className="text-white text-center max-w-xs font-medium">
                         We are here to help our customer any time. You can call
                         on 24/7 To Answer Your Question.
