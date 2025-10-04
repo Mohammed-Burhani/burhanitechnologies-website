@@ -28,28 +28,24 @@ const Banner = () => {
       </div>
 
       <Container className="flex flex-col gap-10 4xl:pt-36">
-        <Heading
-          className="text-white !text-xlcaptionLarge sm:!text-mdsubTitle 7xl:!text-title !font-extrabold"
+        <h1
+          className="text-white text-xlcaptionLarge sm:text-mdsubTitle 7xl:text-title font-extrabold font-inter leading-snug"
           data-aos="fade-right"
         >
           <span className="block">Driving Growth</span>
           <span className="block">Through Customized</span>
           <span className="block">Technology Solutions</span>
-        </Heading>
+        </h1>
 
         <div className="flex flex-wrap md:flex-nowrap justify-between 4xl:pl-4 gap-7">
           <div className="flex items-center" data-aos="fade-up">
-            <button className="btn">
+            <button className="btn" aria-label="Scroll down">
               <div className="scroll"> </div>
             </button>
 
             <p className="rotate-90 font-inter text-gray-400 italic text-xs !tracking-widest">
               SCROLL
             </p>
-            {/* <p>
-              <span className="block">Scroll down</span>
-              <span className="block">to see more</span>
-            </p> */}
           </div>
 
           <div className="flex flex-col gap-4 2xl:!gap-10" data-aos="fade-left">

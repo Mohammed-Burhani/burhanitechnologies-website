@@ -54,7 +54,7 @@ export const WhoAreWe = () => {
         className="4xl:!sticky !top-44 h-full mb-7 2xl:mb-0"
         data-aos="fade-right"
       >
-        <h4 className="uppercase text-[#6622DC] font-extrabold">Who we are</h4>
+        <h2 className="uppercase text-[#6622DC] font-extrabold text-sm tracking-wider">Who we are</h2>
 
         <Heading className="mt-7"> Innovate | Scale | Succeed</Heading>
         <Body className={"max-w-lg mt-4"}>

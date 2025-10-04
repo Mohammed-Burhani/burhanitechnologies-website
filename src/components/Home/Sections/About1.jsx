@@ -19,8 +19,8 @@ export const About1 = () => {
         className="!absolute -left-40 top-0 h-full w-fit mx-auto object-contain no-repeat scale-125 opacity-20"
       />
       <div className="z-50 flex flex-col justify-center items-center">
-        <Heading
-          className="font-inter font-bold text-5xl text-white text-center"
+        <h2
+          className="font-inter font-bold text-5xl text-white text-center leading-snug"
           data-aos="fade-down"
         >
           <span className="block">
@@ -30,7 +30,7 @@ export const About1 = () => {
             Empowering Organizations with Cutting-Edge
           </span>
           <span className="block">Technology Expertise</span>
-        </Heading>
+        </h2>
 
         <Body
           className={"mt-4 max-w-5xl text-gray-300 !font-light text-center"}
