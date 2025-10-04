@@ -2,15 +2,22 @@ import React from "react";
 import Script from "next/script";
 import { client } from "@/sanity/lib/client";
 import { generateServiceMetadata } from "@/utils/metadata";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/utils/schema";
+import {
+  generateServiceSchema,
+  generateBreadcrumbSchema,
+  generateFAQSchema,
+} from "@/utils/schema";
 import ServicePageClient from "./ServicePageClient";
 import { unslugify } from "@/utils/slugify";
 import { getServiceFAQs } from "@/utils/serviceFAQs";
+import { LatestProjects } from "@/components/Home/Sections/LatestProjects";
+import { Testimonials } from "@/components/Home/Sections/Testimonials";
+import { CTA2 } from "@/components/Home/Sections/CTA2";
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }) {
   const { service } = await params;
-  
+
   // Fetch service details from Sanity
   const serviceData = await client.fetch(
     `*[_type == "services" && slug.current == $slug] [0]{ title, body }`,
@@ -19,7 +26,7 @@ export async function generateMetadata({ params }) {
 
   // Use predefined metadata or generate from service data
   const metadata = generateServiceMetadata(service);
-  
+
   if (serviceData) {
     return {
       ...metadata,
@@ -34,7 +41,7 @@ export async function generateMetadata({ params }) {
 // Generate static params for all services (optional, for static generation)
 export async function generateStaticParams() {
   const services = await client.fetch(`*[_type == "services"]{ slug }`);
-  
+
   return services.map((service) => ({
     service: service.slug.current,
   }));
@@ -42,7 +49,7 @@ export async function generateStaticParams() {
 
 const Service = async ({ params }) => {
   const { service } = await params;
-  
+
   // Fetch service data for schema markup
   const serviceData = await client.fetch(
     `*[_type == "services" && slug.current == $slug] [0]{ title, slug, body }`,
@@ -53,17 +60,22 @@ const Service = async ({ params }) => {
   const breadcrumbs = [
     { name: "Home", url: "https://burhanitechnologies.com" },
     { name: "Services", url: "https://burhanitechnologies.com/services" },
-    { name: serviceData?.title || unslugify(service), url: `https://burhanitechnologies.com/services/${service}` },
+    {
+      name: serviceData?.title || unslugify(service),
+      url: `https://burhanitechnologies.com/services/${service}`,
+    },
   ];
 
   const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs);
 
   // Generate service schema
-  const serviceSchema = serviceData ? generateServiceSchema({
-    title: serviceData.title,
-    slug: service,
-    description: serviceData.title,
-  }) : null;
+  const serviceSchema = serviceData
+    ? generateServiceSchema({
+        title: serviceData.title,
+        slug: service,
+        description: serviceData.title,
+      })
+    : null;
 
   // Generate FAQ schema
   const faqs = getServiceFAQs(service);
@@ -80,7 +92,7 @@ const Service = async ({ params }) => {
         }}
         strategy="beforeInteractive"
       />
-      
+
       {/* Service Schema */}
       {serviceSchema && (
         <Script
@@ -106,6 +118,10 @@ const Service = async ({ params }) => {
       )}
 
       <ServicePageClient service={service} />
+
+      <LatestProjects />
+      <Testimonials />
+      <CTA2 />
     </>
   );
 };
