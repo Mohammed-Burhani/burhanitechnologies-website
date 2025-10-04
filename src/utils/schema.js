@@ -84,6 +84,8 @@ export const localBusinessSchema = {
   "@id": "https://burhanitechnologies.com",
   url: "https://burhanitechnologies.com",
   telephone: "+91-72990-02152",
+  description:
+    "Professional software development company providing custom ERP, AI automation, and enterprise solutions with 14+ years of experience.",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Chennai",
@@ -92,7 +94,6 @@ export const localBusinessSchema = {
   },
   geo: {
     "@type": "GeoCoordinates",
-    // Add actual coordinates if available
     latitude: 13.0827,
     longitude: 80.2707,
   },
@@ -102,7 +103,55 @@ export const localBusinessSchema = {
     opens: "09:00",
     closes: "18:00",
   },
-  priceRange: "$$",
+  priceRange: "$$$$",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Software Development Services",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Custom Software Development",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "ERP Implementation",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Business Process Automation",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "AI/ML Automation",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Microsoft Power Platform",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "DevOps & Azure Services",
+        },
+      },
+    ],
+  },
 };
 
 // Service Schema Generator
