@@ -14,7 +14,7 @@ const ServiceFAQ = ({ faqs, serviceName }) => {
 
   return (
     <Container className="bg-gray-50">
-      <div className="max-w-4xl mx-auto">
+      <div className="mx-auto">
         <h2 className="text-center text-[#6622DC] font-extrabold uppercase mb-2">
           FAQ
         </h2>
