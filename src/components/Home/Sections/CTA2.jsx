@@ -19,12 +19,12 @@ export const CTA2 = () => {
           className="!absolute -left-40 top-32 h-fit w-fit mx-auto object-contain no-repeat scale-125 opacity-20"
         />
         <div className="z-50 flex flex-col justify-center items-center">
-          <LargeHeading
+          <h2
             data-aos="fade-down"
-            className="font-inter font-bold text-5xl text-white text-center max-w-screen-md"
+            className="font-inter font-bold text-5xl text-white text-center max-w-screen-md leading-snug"
           >
             Let's Build Something Different
-          </LargeHeading>
+          </h2>
           <Body
             className={"mt-4 max-w-4xl text-gray-300 !font-light text-center"}
             data-aos="fade-down"
