@@ -63,9 +63,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Burhani Technologies | Custom Software Development",
+    title: "Burhani Technologies | Custom Software Development & Enterprise Automation",
     description:
-      "Leading software development company specializing in Custom ERP, AI/ML Automation, and Business Process Automation.",
+      "Leading software development company with 14+ years of expertise specializing in Custom ERP, AI/ML Automation, Microsoft Power Platform, and Business Process Automation.",
     images: ["/BT-Logo.svg"],
   },
   robots: {
