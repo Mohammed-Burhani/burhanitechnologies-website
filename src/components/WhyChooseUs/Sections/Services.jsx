@@ -64,7 +64,7 @@ export const Services = () => {
 
       <div className="flex flex-wrap 4xl:flex-nowrap gap-10 relative">
         <div className="w-[500px] h-[500px] blur-[400px] rounded-full bg-[#8000ff]/30 2xl:bg-[#8000ff] absolute left-0 2xl:left-64 top-72 mx-auto" />
-        <div className="flex flex-col gap-4 z-10">
+        <div className="flex flex-col z-10">
           {leftSection.map((item, i) => {
             return (
               <WhoWeAreCard
@@ -77,7 +77,7 @@ export const Services = () => {
           })}
         </div>
 
-        <div className="flex flex-col gap-4 4xl:mt-32 z-10">
+        <div className="flex flex-col 4xl:mt-32 z-10">
           {rightSection.map((item, i) => {
             return (
               <WhoWeAreCard
