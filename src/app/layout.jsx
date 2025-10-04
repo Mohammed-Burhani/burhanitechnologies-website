@@ -49,9 +49,9 @@ export const metadata = {
     url: "https://burhanitechnologies.com",
     siteName: "Burhani Technologies",
     title:
-      "Burhani Technologies | Custom Software Development",
+      "Burhani Technologies | Custom Software Development & Enterprise Automation",
     description:
-      "Leading software development company in Chennai specializing in Custom ERP, AI/ML Automation, DevOps/Azure, and Business Process Automation.",
+      "Leading software development company in Chennai with 14+ years of expertise in Custom ERP Implementation, AI/ML Automation, Microsoft Power Platform, DevOps/Azure, and Business Process Automation.",
     images: [
       {
         url: "/BT-Logo.svg",
