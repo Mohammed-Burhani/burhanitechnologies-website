@@ -113,9 +113,9 @@ const ServicePageClient = ({ service }) => {
                 </div>
 
                 <div className="mt-8 lg:w-1/4 lg:mt-0 lg:px-6">
-                  <h3 className="text-[#180030] capitalize text-xl font-semibold">
-                    Explore Our Services...
-                  </h3>
+                  <h2 className="text-[#180030] capitalize text-xl font-semibold">
+                    Explore Our Services
+                  </h2>
                   {serviceDetails.serviceImage ? (
                     services.map((item, index) => {
                       return (
