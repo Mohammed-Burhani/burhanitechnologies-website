@@ -19,6 +19,18 @@ export function ContactModal({ className }) {
     formik.setFieldValue("services", selectedServices);
   };
 
+  const generateRandomLabel = () => {
+    const labels = [
+      "Get In Touch",
+      "Contact Us",
+      "Talk to Us",
+      "Get Free Consultation",
+      "Let us Help You!",
+      "Reach out to Us",
+    ];
+    return labels[Math.floor(Math.random() * labels.length)];
+  };
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -26,14 +38,14 @@ export function ContactModal({ className }) {
           className={`rounded-2xl p-4 bg-[#6F36D2] px-5 7xl:px-7 7xl:p-5 py-2.5 text-sm font-medium text-white shadow flex gap-4 items-center w-max ${className}`}
           data-aos="fade-up"
         >
-          <Body>Get In Touch</Body>
+          <Body>{generateRandomLabel()}</Body>
           <ArrowRight color="#fff" size={24} className="rotate-45" />
         </button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-5xl z-[99999999999]">
         <DialogHeader className={"flex flex-col justify-center items-center"}>
           <DialogTitle className="text-mdcaptionLarge text-center">
-            Get In Touch With Us
+            {generateRandomLabel()}
           </DialogTitle>
           <DialogDescription className="max-w-xl text-center">
             We build software and web development solutions for global
