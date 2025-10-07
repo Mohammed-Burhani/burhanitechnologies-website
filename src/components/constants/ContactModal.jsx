@@ -1,4 +1,5 @@
 "use client";
+import { useState, useEffect } from "react";
 import {
   Dialog,
   DialogContent,
@@ -12,14 +13,11 @@ import ContactForm from "../form/ContactForm";
 import { Body } from "../textComponents/Body";
 
 export function ContactModal({ className }) {
-  const handleCheckboxChange = (service) => {
-    const selectedServices = formik.values.services.includes(service)
-      ? formik.values.services.filter((item) => item !== service)
-      : [...formik.values.services, service];
-    formik.setFieldValue("services", selectedServices);
-  };
+  const [randomLabel, setRandomLabel] = useState("Get In Touch"); // Default fallback
+  const [isClient, setIsClient] = useState(false);
 
-  const generateRandomLabel = () => {
+  useEffect(() => {
+    setIsClient(true);
     const labels = [
       "Get In Touch",
       "Contact Us",
@@ -28,7 +26,14 @@ export function ContactModal({ className }) {
       "Let us Help You!",
       "Reach out to Us",
     ];
-    return labels[Math.floor(Math.random() * labels.length)];
+    setRandomLabel(labels[Math.floor(Math.random() * labels.length)]);
+  }, []);
+
+  const handleCheckboxChange = (service) => {
+    const selectedServices = formik.values.services.includes(service)
+      ? formik.values.services.filter((item) => item !== service)
+      : [...formik.values.services, service];
+    formik.setFieldValue("services", selectedServices);
   };
 
   return (
@@ -38,14 +43,14 @@ export function ContactModal({ className }) {
           className={`rounded-2xl p-4 bg-[#6F36D2] px-5 7xl:px-7 7xl:p-5 py-2.5 text-sm font-medium text-white shadow flex gap-4 items-center w-max ${className}`}
           data-aos="fade-up"
         >
-          <Body>{generateRandomLabel()}</Body>
+          <Body>{randomLabel}</Body>
           <ArrowRight color="#fff" size={24} className="rotate-45" />
         </button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-5xl z-[99999999999]">
         <DialogHeader className={"flex flex-col justify-center items-center"}>
           <DialogTitle className="text-mdcaptionLarge text-center">
-            {generateRandomLabel()}
+            {randomLabel}
           </DialogTitle>
           <DialogDescription className="max-w-xl text-center">
             We build software and web development solutions for global

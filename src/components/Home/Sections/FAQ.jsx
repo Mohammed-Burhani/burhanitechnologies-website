@@ -79,7 +79,7 @@ export const FAQ = () => {
           </Body>
         </div>
 
-        <div className="max-w-4xl mx-auto" data-aos="fade-up">
+        <div className="mx-auto" data-aos="fade-up">
           {faqData.map((faq, index) => (
             <FAQItem
               key={index}
