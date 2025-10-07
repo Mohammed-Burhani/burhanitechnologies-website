@@ -18,36 +18,48 @@ export const About1 = () => {
         height={500}
         className="!absolute -left-40 top-0 h-full w-fit mx-auto object-contain no-repeat scale-125 opacity-20"
       />
-      <div className="z-50 flex flex-col justify-center items-center">
+      <div className="z-50 flex flex-col justify-center items-center text-center">
         <Heading
-          className="font-inter font-bold text-5xl text-white text-center"
+          className="font-inter font-bold text-5xl text-white"
           data-aos="fade-down"
         >
-          <span className="block">
-            We Are Your Trusted Technology Partners.
-          </span>
-          <span className="block">
-            Empowering Organizations with Cutting-Edge
-          </span>
-          <span className="block">Technology Expertise</span>
+          Your Trusted Technology Partner
         </Heading>
 
         <Body
           className={"mt-4 max-w-5xl text-gray-300 !font-light text-center"}
           data-aos="fade-up"
         >
-          Explore how our passion for technology, 14+ years of experience, and
-          dedication to service set us apart in the industry. We are passionate
-          about what we do. Our commitment to excellence drives us to go above
-          and beyond, delivering the best results for our clients.
+          Burhani Technologies delivers custom software solutions and enterprise
+          automation to CTOs, operations leaders, and project managers across
+          healthcare, manufacturing, automotive, and construction sectors. Based
+          in Chennai with partnerships across Pune, Bangalore, UAE, US, and
+          Australia, we've helped 200+ enterprises modernize their operations
+          with cloud platforms, Power Platform automation, and bespoke ERP
+          systems.
         </Body>
 
-        <PrimaryButton
-          className="p-4 bg-[#f75201] px-5 py-2.5 text-lg font-medium text-white shadow flex gap-4 items-center !w-1/4 mt-7"
-          title={"Learn More"}
+        <div
+          className="flex flex-wrap justify-center gap-8 mt-8"
           data-aos="fade-up"
-          onClick={() => router.push("/values")}
-        />
+        >
+          <div className="text-center">
+            <p className="text-white text-lg font-semibold">
+              Microsoft Partner
+            </p>
+          </div>
+          <div className="text-center">
+            <p className="text-white text-lg font-semibold">Azure Certified</p>
+          </div>
+          <div className="text-center">
+            <p className="text-white text-lg font-semibold">200+ Clients</p>
+          </div>
+          <div className="text-center">
+            <p className="text-white text-lg font-semibold">
+              14+ Years of Experience
+            </p>
+          </div>
+        </div>
       </div>
       <Image
         alt="Burhani Technologies"

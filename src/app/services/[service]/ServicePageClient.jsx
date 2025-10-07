@@ -11,14 +11,14 @@ import { Body } from "@/components/textComponents/Body";
 import { Heading } from "@/components/textComponents/Heading";
 import { urlForImage } from "@/sanity/lib/image";
 import { PortableBody } from "@/components/textComponents/PortableBody";
-import { ArrowRight } from "iconsax-react";
-import ServiceFAQ from "@/components/Services/ServiceFAQ";
-import { getServiceFAQs } from "@/utils/serviceFAQs";
+import { ServiceIntroduction } from "@/components/Services/Sections/ServiceIntroduction";
+import { Challenges } from "@/components/Services/Sections/Challenges";
+import { Methodology } from "@/components/Services/Sections/Methodology";
+import { Benefits } from "@/components/Services/Sections/Benefits";
+import { CallToActionFAQ } from "@/components/Home/Sections/CallToActionFAQ";
 
 const ServicePageClient = ({ service }) => {
-  const [serviceDetails, setServiceDetails] = useState([]);
-  const [services, setServices] = useState([]);
-  const faqs = getServiceFAQs(service);
+  const [serviceDetails, setServiceDetails] = useState(null);
 
   // Search Single Service
   useEffect(() => {
@@ -38,158 +38,94 @@ const ServicePageClient = ({ service }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [service]);
 
-  // Search All Products
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await client.fetch(`*[_type == "services"][0...6]`);
-        setServices(result);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [service]);
 
-    fetchData();
-  }, []);
+  // Hardcoded content based on the framework
+  const serviceContent = {
+    subtext:
+      "From concept to deployment, we create secure and scalable applications tailored to your business needs, ensuring speed, reliability, and long-term success.",
+    industries:
+      "Healthcare product companies, manufacturing operations, finance departments, construction management, and automotive systems.",
+    challenges: [
+      "Off-the-shelf software doesn't fit your business, forcing you to change your proven processes.",
+      "Legacy systems are limiting growth and can't integrate with modern tools.",
+      "Slow development cycles with rigid requirements and minimal flexibility.",
+      "New systems can't communicate with existing ERP, CRM, or databases, creating data silos.",
+    ],
+    methodology: {
+      steps: [
+        {
+          title: "Discovery & Architecture Design",
+          description:
+            "Understand your business processes, define technical requirements, and design scalable architecture with security and integration in mind.",
+        },
+        {
+          title: "Agile Development",
+          description:
+            "Build in 2-week sprints with regular demos, continuous feedback, and flexibility to adjust requirements as needed.",
+        },
+        {
+          title: "DevOps & CI/CD Implementation",
+          description:
+            "Set up automated testing, code quality checks, and deployment pipelines for consistent, reliable releases.",
+        },
+        {
+          title: "Cloud Deployment & Integration",
+          description:
+            "Deploy to Azure, AWS, or on-premise infrastructure, and integrate with existing systems and databases.",
+        },
+      ],
+      techStack:
+        ".NET Core, Node.js, React, Angular, Python, Docker, Kubernetes, Azure DevOps, Jenkins, PostgreSQL, MongoDB, REST APIs, microservices architecture",
+    },
+    benefits: [
+      {
+        title: "Solutions That Fit Your Business",
+        description:
+          "Custom-built to match your exact workflows, not forcing you to adapt to generic software limitations.",
+      },
+      {
+        title: "Faster Time-to-Market",
+        description:
+          "Agile methodology and DevOps automation deliver working software in weeks, not months, with continuous improvements.",
+      },
+      {
+        title: "Scalability Built-In",
+        description:
+          "Cloud-native architecture that grows with your business without costly rewrites or infrastructure overhauls.",
+      },
+      {
+        title: "Seamless Integration",
+        description:
+          "Connect with existing ERP systems (SAP, Tally), CRM platforms (Salesforce), databases, and third-party APIs.",
+      },
+    ],
+  };
 
   return (
     <div>
-      <Banner title={serviceDetails?.title} desc={serviceDetails?.body} />
-
+      <Banner
+        title={serviceDetails?.title || "Service"}
+        subtext={serviceContent.subtext}
+      />
       {serviceDetails && (
-        <Container className="bg-white text-black">
-          <section className="">
-            <div className="container px-6 py-10 mx-auto">
-              <div className="lg:flex lg:-mx-6">
-                <div className="lg:w-3/4 lg:px-6">
-                  {serviceDetails.serviceImage ? (
-                    <Image
-                      className="object-cover object-center w-full h-80 xl:h-[28rem] rounded-3xl bg-no-repeat bg-white"
-                      width={500}
-                      height={500}
-                      alt={serviceDetails?.title}
-                      src={urlForImage(serviceDetails.serviceImage)}
-                    />
-                  ) : (
-                    <div className="w-full h-80 xl:h-[28rem] rounded-xl bg-gray-200 animate-pulse">
-                      {/* Loading {serviceDetails.title} Image */}
-                    </div>
-                  )}
-
-                  <div>
-                    <Heading className="max-w-screen-lg mt-4 text-[#180030]">
-                      {serviceDetails.title}
-                    </Heading>
-
-                    {serviceDetails.body ? (
-                      <PortableBody>
-                        <PortableText
-                          value={serviceDetails.body}
-                          components={components}
-                        />
-                      </PortableBody>
-                    ) : (
-                      <>
-                        <div className="w-full h-3 bg-gray-200 animate-pulse my-3 rounded-sm" />
-                        <div className="w-full h-3 bg-gray-200 animate-pulse my-3 rounded-sm" />
-                        <div className="w-full h-3 bg-gray-200 animate-pulse my-3 rounded-sm" />
-                        <div className="w-full h-3 bg-gray-200 animate-pulse my-3 rounded-sm" />
-                      </>
-                    )}
-                  </div>
-
-                  <Heading className="max-w-screen-lg text-[#180030] mt-20">
-                    {serviceDetails.benefitTitle}
-                  </Heading>
-
-                  {serviceDetails.benefitDescription && (
-                    <PortableBody className={"text-justify"}>
-                      <PortableText
-                        value={serviceDetails.benefitDescription}
-                        components={components}
-                      />
-                    </PortableBody>
-                  )}
-                </div>
-
-                <div className="mt-8 lg:w-1/4 lg:mt-0 lg:px-6">
-                  <h3 className="text-[#180030] capitalize text-xl font-semibold">
-                    Explore Our Services...
-                  </h3>
-                  {serviceDetails.serviceImage ? (
-                    services.map((item, index) => {
-                      return (
-                        <div key={index} className="my-5">
-                          <Link
-                            href={"/services/" + item.slug.current}
-                            className="flex gap-2 items-center justify-between bg-indigo-200 group hover:bg-indigo-800 p-4 transition-all duration-500 ease-linear"
-                          >
-                            <div className="block font-medium text-black group-hover:text-white text-xl line-clamp-2 transition-all duration-500 ease-in-out">
-                              {item.title}
-                            </div>
-
-                            <ArrowRight
-                              size={28}
-                              className="stroke-black group-hover:stroke-white transition-all duration-500 ease-in-out"
-                            />
-                          </Link>
-                        </div>
-                      );
-                    })
-                  ) : (
-                    <div className="flex gap-3 items-center">
-                      <div className="min-w-[5rem] h-20 rounded-xl animate-pulse bg-gray-200"></div>
-
-                      <div className="">
-                        <span className="w-full h-3 bg-gray-300 animate-pulse block" />
-                        <span className="w-full h-3 bg-gray-300 animate-pulse block" />
-                        <span className="w-full h-3 bg-gray-300 animate-pulse block" />
-                      </div>
-                    </div>
-                  )}
-
-                  <hr className="my-6 border-gray-200 dark:border-gray-700" />
-
-                  <div className="relative w-96 h-96">
-                    <div className="absolute inset-0 bg-[#15223d]/80 w-full h-full" />
-                    <div className="absolute inset-0 w-full h-full flex flex-col justify-center items-center p-4 gap-2">
-                      <h6 className="text-white font-bold text-3xl">
-                        Need any help?
-                      </h6>
-                      <p className="text-white text-center max-w-xs font-medium">
-                        We are here to help our customer any time. You can call
-                        on 24/7 To Answer Your Question.
-                      </p>
-
-                      <p className="text-white text-center max-w-xs font-medium mt-2 text-lg">
-                        Call us at :-
-                      </p>
-                      <a
-                        href="tel:+917299002152"
-                        className="text-white text-center max-w-xs font-medium text-xl bg-indigo-600 p-2 rounded px-4"
-                      >
-                        +91 72990 02152
-                      </a>
-                    </div>
-                    <Image
-                      src={"/Banner/ServiceDetailFormBanner.png"}
-                      alt="Services"
-                      width={500}
-                      height={500}
-                      className="w-96 h-96 object-cover object-center"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </Container>
+        <ServiceIntroduction industries={serviceContent.industries}>
+          <PortableBody>
+            <PortableText
+              value={serviceDetails.body}
+              components={components}
+            />
+          </PortableBody>
+        </ServiceIntroduction>
       )}
-
-      {/* FAQ Section */}
-      {faqs.length > 0 && (
-        <ServiceFAQ faqs={faqs} serviceName={serviceDetails?.title || service} />
-      )}
+      <Challenges challenges={serviceContent.challenges} />
+      <Methodology
+        steps={serviceContent.methodology.steps}
+        techStack={serviceContent.methodology.techStack}
+      />
+      <Benefits benefits={serviceContent.benefits} />
+      <CallToActionFAQ />
     </div>
   );
 };

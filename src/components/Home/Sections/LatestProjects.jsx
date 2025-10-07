@@ -12,60 +12,26 @@ export const LatestProjects = () => {
 
   const projects = [
     {
-      title: "Drive X",
-      desc: "We built a dynamic website for DriveX, featuring easy booking, seamless browsing, and a modern rental experience.",
-      image: "/projectW/image (2).png",
-      // redirectTo: "/projects/bizflow-crm",
-      redirectTo: "https://www.drivex.in/",
-      redirectTo2: "https://www.drivex.in/",
-    },
-    {
-      title: "KAG Tiles",
-      desc: "We built a user-friendly e-commerce platform for KAG Tiles, ensuring seamless shopping for their premium tile collection.",
-      image: "/projectW/image (3).png",
-      // redirectTo: "/projects/taskmaster-pro",
-      redirectTo: "https://www.kagindia.com/",
-      redirectTo2: "https://www.kagindia.com/",
-    },
-    {
-      title: "RBC Bearings",
-      desc: "We developed a CMS-based website for RBC Bearings, providing a strong digital presence for their industrial product offerings.",
-      image: "/projectW/image (8).png",
-      // redirectTo: "/projects/fintrack",
-      redirectTo: "https://rbcbearings.in/",
-      redirectTo2: "https://rbcbearings.in/",
-    },
-    {
-      title: "Mirakare",
-      desc: "MiraKare is an advanced healthcare platform for managing vitals, journaling activities, scheduling appointments, and tracking patient records.",
-      image: "/projectW/image (7).png",
-      // redirectTo: "/projects/edusmart-lms",
-      redirectTo: "https://mirakare.com/",
-      redirectTo2: "https://mirakare.com/",
-    },
-    {
-      title: "PBHR Homeopathy Hospital",
-      desc: "We digitized patient records for PBHR Homeopathy Hospital, making homeopathic healthcare services more accessible and efficiently managed online.",
-      image: "/projectW/image (9).png",
-      // redirectTo: "/projects/greenfleet",
-      redirectTo: "https://pbhrc.in/",
-      redirectTo2: "https://pbhrc.in/",
-    },
-    {
-      title: "Lehry Valves",
-      desc: "We developed a supply chain and CRM software solution for Lehry Valves, optimizing their business operations and efficiency.",
-      image: "/projectW/image (4).png",
-      // redirectTo: "/projects/shopease",
-      redirectTo: "https://lehryvalves.com/",
-      redirectTo2: "https://lehryvalves.com/",
-    },
-    {
-      title: "Anitha Industries",
-      desc: "We implemented and customized ZipERP software for Anitha Industries, streamlining retail, factory, and production management operations.",
+      title: "Custom ERP for Manufacturing",
+      challenge:
+        "A leading manufacturer was struggling with disconnected systems for inventory, production, and sales, leading to operational inefficiencies and delays.",
+      solution:
+        "We developed a custom ERP system that integrated all business processes into a single platform, providing real-time data and automated workflows.",
+      outcome:
+        "Reduced production lead times by 30%, improved inventory accuracy by 95%, and provided a unified view of the business for better decision-making.",
       image: "/projectW/image (5).png",
-      // redirectTo: "/projects/healthsync",
-      redirectTo: "https://anithahomeappliances.com/",
-      redirectTo2: "https://anithahomeappliances.com/",
+      redirectTo: "/services",
+    },
+    {
+      title: "AI-Powered Automation for Healthcare",
+      challenge:
+        "A healthcare provider needed to automate patient data entry and appointment scheduling to reduce administrative workload and minimize errors.",
+      solution:
+        "We implemented an AI-powered process automation solution using Microsoft Power Platform to automate data capture and streamline scheduling.",
+      outcome:
+        "Saved over 40 hours per week in administrative tasks, reduced data entry errors by 99%, and improved patient satisfaction with faster scheduling.",
+      image: "/projectW/image (7).png",
+      redirectTo: "/services",
     },
   ];
 
@@ -138,10 +104,11 @@ export const LatestProjects = () => {
           >
             <ProjectCards
               title={item?.title}
-              desc={item?.desc}
+              challenge={item?.challenge}
+              solution={item?.solution}
+              outcome={item?.outcome}
               image={item?.image}
               redirectTo={item?.redirectTo}
-              redirectTo2={item?.redirectTo2}
             />
           </motion.div>
         ))}

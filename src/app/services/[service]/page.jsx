@@ -5,14 +5,9 @@ import { generateServiceMetadata } from "@/utils/metadata";
 import {
   generateServiceSchema,
   generateBreadcrumbSchema,
-  generateFAQSchema,
 } from "@/utils/schema";
 import ServicePageClient from "./ServicePageClient";
 import { unslugify } from "@/utils/slugify";
-import { getServiceFAQs } from "@/utils/serviceFAQs";
-import { LatestProjects } from "@/components/Home/Sections/LatestProjects";
-import { Testimonials } from "@/components/Home/Sections/Testimonials";
-import { CTA2 } from "@/components/Home/Sections/CTA2";
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }) {
@@ -77,10 +72,6 @@ const Service = async ({ params }) => {
       })
     : null;
 
-  // Generate FAQ schema
-  const faqs = getServiceFAQs(service);
-  const faqSchema = faqs.length > 0 ? generateFAQSchema(faqs) : null;
-
   return (
     <>
       {/* Breadcrumb Schema */}
@@ -105,23 +96,7 @@ const Service = async ({ params }) => {
         />
       )}
 
-      {/* FAQ Schema */}
-      {faqSchema && (
-        <Script
-          id="faq-schema"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(faqSchema),
-          }}
-          strategy="beforeInteractive"
-        />
-      )}
-
       <ServicePageClient service={service} />
-
-      <LatestProjects />
-      <Testimonials />
-      <CTA2 />
     </>
   );
 };

@@ -1,13 +1,11 @@
 import Container from "@/components/constants/Container";
 import { Heading } from "@/components/textComponents/Heading";
-import { PortableBody } from "@/components/textComponents/PortableBody";
-import { components } from "@/utils/components";
-import { PortableText } from "next-sanity";
+import { Body } from "@/components/textComponents/Body";
 import React from "react";
 
-const Banner = ({ title, desc }) => {
+const Banner = ({ title, subtext }) => {
   return (
-    <div className="bg-[url(/Banner/Banner_SVG.svg)] bg-cover h-[48rem] w-full bg-center flex flex-col justify-center overflow-hidden border-b border-gray-800">
+    <div className="bg-[url(/Banner/Banner_SVG.svg)] bg-cover h-[32rem] w-full bg-center flex flex-col justify-center overflow-hidden border-b border-gray-800">
       <div className="absolute top-0 mx-auto w-full h-full flex justify-center items-center overflow-hidden">
         {["#AD5AFF"].map((color, index) => (
           <div
@@ -21,13 +19,11 @@ const Banner = ({ title, desc }) => {
         ))}
       </div>
 
-      <Container className="flex flex-col justify-center items-center gap-4 4xl:pt-36">
-        <Heading className="text-white text-center" data-aos="fade-right">
+      <Container className="flex flex-col justify-center items-center gap-4 4xl:pt-36 text-center">
+        <Heading className="text-white" data-aos="fade-right">
           {title}
         </Heading>
-        <PortableBody className={"text-gray-300 max-w-screen-sm text-center"}>
-          <PortableText value={desc} components={components} />
-        </PortableBody>
+        <Body className={"text-gray-300 max-w-screen-md"}>{subtext}</Body>
       </Container>
     </div>
   );

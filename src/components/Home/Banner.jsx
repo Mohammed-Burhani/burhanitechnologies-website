@@ -32,9 +32,9 @@ const Banner = () => {
           className="text-white !text-xlcaptionLarge sm:!text-mdsubTitle 7xl:!text-title !font-extrabold"
           data-aos="fade-right"
         >
-          <span className="block">Driving Growth</span>
-          <span className="block">Through Customized</span>
-          <span className="block">Technology Solutions</span>
+          <span className="block">Building Scalable Digital</span>
+          <span className="block">Solutions for</span>
+          <span className="block">Your Business</span>
         </Heading>
 
         <div className="flex flex-wrap md:flex-nowrap justify-between 4xl:pl-4 gap-7">
@@ -54,13 +54,13 @@ const Banner = () => {
 
           <div className="flex flex-col gap-4 2xl:!gap-10" data-aos="fade-left">
             <Body className="max-w-xs 4xl:max-w-sm 7xl:max-w-lg text-justify text-white">
-              Specializing in Application Development and Process Automation for
-              Seamless Operations.
+              We help you design, develop, and deploy enterprise-grade software
+              that accelerates growth, reduces costs, and adapts to change.
             </Body>
             <PrimaryButton
               className="rounded-lg p-4 bg-[#6F36D2] px-5 py-2.5 text-lg font-medium text-white shadow flex gap-4 items-center w-fit"
-              title={"Explore Our Services Now"}
-              onClick={() => router.push('/services')}
+              title={"Talk to Us"}
+              onClick={() => router.push('/contact')}
             />
           </div>
         </div>
