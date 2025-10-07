@@ -9,6 +9,7 @@ import { WhoAreWe } from "@/components/Home/Sections/WhoAreWe";
 import { FAQ } from "@/components/Home/Sections/FAQ";
 import Script from "next/script";
 import { generateFAQSchema } from "@/utils/schema";
+import { Differentiators } from "@/components/Home/Sections/differentiators";
 
 // FAQ data for schema markup
 const homepageFAQs = [
@@ -131,6 +132,7 @@ export default function Home() {
         <About1 />
         <WhoAreWe />
         <CTA />
+        <Differentiators />
         <LatestProjects />
         <Testimonials />
         <FAQ />
