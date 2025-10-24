@@ -9,6 +9,13 @@ export default async function sitemap() {
     _updatedAt 
   }`);
 
+  // Fetch all blogs from Sanity
+  const blogs = await client.fetch(`*[_type == "blog"]{ 
+    slug, 
+    _updatedAt,
+    publishedAt
+  }`);
+
   // Static pages
   const staticPages = [
     {
@@ -47,6 +54,12 @@ export default async function sitemap() {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
   ];
 
   // Dynamic service pages
@@ -57,5 +70,13 @@ export default async function sitemap() {
     priority: 0.8,
   }));
 
-  return [...staticPages, ...servicePages];
+  // Dynamic blog pages
+  const blogPages = blogs.map((blog) => ({
+    url: `${baseUrl}/blog/${blog.slug.current}`,
+    lastModified: new Date(blog._updatedAt || blog.publishedAt),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...servicePages, ...blogPages];
 }

@@ -14,6 +14,7 @@ import { PortableBody } from "@/components/textComponents/PortableBody";
 import { ArrowRight } from "iconsax-react";
 import ServiceFAQ from "@/components/Services/ServiceFAQ";
 import { getServiceFAQs } from "@/utils/serviceFAQs";
+import RelatedBlogs from "@/components/Services/RelatedBlogs";
 
 const ServicePageClient = ({ service }) => {
   const [serviceDetails, setServiceDetails] = useState([]);
@@ -190,6 +191,9 @@ const ServicePageClient = ({ service }) => {
       {faqs.length > 0 && (
         <ServiceFAQ faqs={faqs} serviceName={serviceDetails?.title || service} />
       )}
+
+      {/* Related Blogs Section */}
+      <RelatedBlogs serviceTitle={serviceDetails?.title} />
     </div>
   );
 };
