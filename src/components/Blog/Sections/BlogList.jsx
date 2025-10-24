@@ -104,90 +104,109 @@ const BlogCard = ({ blog, featured = false }) => {
       href={`/blog/${blog.slug.current}`}
       className={`group block ${
         featured ? "lg:col-span-1" : ""
-      } hover:shadow-2xl transition-shadow duration-300 rounded-lg overflow-hidden border border-gray-200`}
+      } relative bg-white rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-gray-100`}
     >
-      <div className="relative overflow-hidden">
-        {blog.mainImage ? (
-          <Image
-            src={urlForImage(blog.mainImage)}
-            alt={blog.title}
-            width={800}
-            height={featured ? 500 : 400}
-            className={`w-full ${
-              featured ? "h-80" : "h-64"
-            } object-cover group-hover:scale-105 transition-transform duration-300`}
-          />
-        ) : (
-          <div
-            className={`w-full ${
-              featured ? "h-80" : "h-64"
-            } bg-gradient-to-br from-purple-400 to-indigo-600 flex items-center justify-center`}
-          >
-            <span className="text-white text-4xl font-bold">
-              {blog.title.charAt(0)}
-            </span>
-          </div>
-        )}
-        {featured && (
-          <div className="absolute top-4 left-4 bg-[#6622DC] text-white px-3 py-1 rounded-full text-sm font-semibold">
-            Featured
-          </div>
-        )}
-      </div>
-
-      <div className="p-6">
-        {/* Categories */}
-        {blog.categories && blog.categories.length > 0 && (
-          <div className="flex flex-wrap gap-2 mb-3">
-            {blog.categories.slice(0, 2).map((category, index) => (
-              <span
-                key={index}
-                className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded"
-              >
-                {category}
+      {/* Gradient Border Effect */}
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-300 blur" />
+      
+      <div className="relative bg-white rounded-2xl overflow-hidden">
+        <div className="relative overflow-hidden">
+          {blog.mainImage ? (
+            <Image
+              src={urlForImage(blog.mainImage)}
+              alt={blog.title}
+              width={800}
+              height={featured ? 500 : 400}
+              className={`w-full ${
+                featured ? "h-80" : "h-64"
+              } object-cover group-hover:scale-110 transition-transform duration-500`}
+            />
+          ) : (
+            <div
+              className={`w-full ${
+                featured ? "h-80" : "h-64"
+              } bg-gradient-to-br from-[#6622DC] via-[#391C6C] to-[#180030] flex items-center justify-center`}
+            >
+              <span className="text-white text-5xl font-bold">
+                {blog.title.charAt(0)}
               </span>
-            ))}
-          </div>
-        )}
-
-        <h3
-          className={`font-bold text-[#180030] mb-3 group-hover:text-[#6622DC] transition-colors ${
-            featured ? "text-2xl" : "text-xl"
-          } line-clamp-2`}
-        >
-          {blog.title}
-        </h3>
-
-        {blog.excerpt && (
-          <p className="text-gray-600 mb-4 line-clamp-3">{blog.excerpt}</p>
-        )}
-
-        <div className="flex items-center justify-between text-sm text-gray-500">
-          <div className="flex items-center gap-4">
-            {blog.publishedAt && (
-              <div className="flex items-center gap-1">
-                <Calendar size={16} />
-                <span>{format(new Date(blog.publishedAt), "MMM dd, yyyy")}</span>
-              </div>
-            )}
-            {blog.readTime && (
-              <div className="flex items-center gap-1">
-                <Clock size={16} />
-                <span>{blog.readTime} min</span>
-              </div>
-            )}
-          </div>
+            </div>
+          )}
+          
+          {/* Overlay Gradient */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          
+          {featured && (
+            <div className="absolute top-4 left-4 bg-gradient-to-r from-[#6622DC] to-[#391C6C] text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+              ⭐ Featured
+            </div>
+          )}
         </div>
 
-        {blog.author && (
-          <div className="mt-4 pt-4 border-t border-gray-200">
-            <p className="text-sm text-gray-600">By {blog.author}</p>
-          </div>
-        )}
+        <div className="p-6">
+          {/* Categories */}
+          {blog.categories && blog.categories.length > 0 && (
+            <div className="flex flex-wrap gap-2 mb-3">
+              {blog.categories.slice(0, 2).map((category, index) => (
+                <span
+                  key={index}
+                  className="text-xs bg-gradient-to-r from-purple-100 to-indigo-100 text-[#391C6C] px-3 py-1 rounded-full font-medium"
+                >
+                  {category}
+                </span>
+              ))}
+            </div>
+          )}
 
-        <div className="mt-4 flex items-center text-[#6622DC] font-semibold group-hover:gap-2 transition-all">
-          <span>Read More</span>
-          <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+          <h3
+            className={`font-bold text-[#180030] mb-3 group-hover:text-[#6622DC] transition-colors ${
+              featured ? "text-2xl" : "text-xl"
+            } line-clamp-2 leading-tight`}
+          >
+            {blog.title}
+          </h3>
+
+          {blog.excerpt && (
+            <p className="text-gray-600 mb-4 line-clamp-3 leading-relaxed">{blog.excerpt}</p>
+          )}
+
+          <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+            <div className="flex items-center gap-4">
+              {blog.publishedAt && (
+                <div className="flex items-center gap-1.5">
+                  <Calendar size={16} className="text-[#6622DC]" />
+                  <span className="font-medium">{format(new Date(blog.publishedAt), "MMM dd, yyyy")}</span>
+                </div>
+              )}
+              {blog.readTime && (
+                <div className="flex items-center gap-1.5">
+                  <Clock size={16} className="text-[#6622DC]" />
+                  <span className="font-medium">{blog.readTime} min</span>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {blog.author && (
+            <div className="flex items-center gap-3 mb-4 pb-4 border-b border-gray-100">
+              <div className="w-10 h-10 bg-gradient-to-br from-[#6622DC] to-[#391C6C] rounded-full flex items-center justify-center text-white font-bold text-sm">
+                {blog.author.charAt(0)}
+              </div>
+              <div>
+                <p className="text-xs text-gray-500">Written by</p>
+                <p className="text-sm font-semibold text-gray-700">{blog.author}</p>
+              </div>
+            </div>
+          )}
+
+          <div className="flex items-center justify-between">
+            <span className="text-[#6622DC] font-bold text-sm group-hover:text-[#391C6C] transition-colors">
+              Read Article
+            </span>
+            <div className="w-8 h-8 bg-[#6622DC] group-hover:bg-[#391C6C] rounded-full flex items-center justify-center transition-all">
+              <ArrowRight size={16} className="text-white group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
         </div>
       </div>
     </Link>

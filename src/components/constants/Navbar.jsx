@@ -113,7 +113,7 @@ const Navbar = () => {
               </Body>
             </Link>
 
-            <li>
+            <Link href="/blog">
               <Body
                 className={` ${
                   isHomePage
@@ -125,7 +125,7 @@ const Navbar = () => {
               >
                 Blog
               </Body>
-            </li>
+            </Link>
           </ul>
         </nav>
 

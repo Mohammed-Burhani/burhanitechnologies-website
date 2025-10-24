@@ -115,25 +115,31 @@ const BlogPageClient = ({ slug }) => {
 
   return (
     <div className="bg-white">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-br from-[#180030] to-[#391C6C] text-white py-16">
-        <Container>
-          <div className="max-w-4xl mx-auto">
+      {/* Hero Section with Centered Content */}
+      <div className="relative bg-gradient-to-br from-[#180030] via-[#391C6C] to-[#6622DC] text-white py-20 overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-10 w-72 h-72 bg-white rounded-full blur-3xl" />
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-purple-300 rounded-full blur-3xl" />
+        </div>
+        
+        <Container className="relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
             <Link
               href="/blog"
-              className="text-white/80 hover:text-white flex items-center gap-2 mb-6 transition-colors"
+              className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-8 transition-colors"
             >
               <ArrowLeft size={20} />
-              Back to Blog
+              <span>Back to Blog</span>
             </Link>
 
             {/* Categories */}
             {blogDetails.categories && blogDetails.categories.length > 0 && (
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-2 mb-6 justify-center">
                 {blogDetails.categories.map((category, index) => (
                   <span
                     key={index}
-                    className="bg-white/20 text-white px-3 py-1 rounded-full text-sm"
+                    className="bg-white/20 backdrop-blur-sm text-white px-4 py-1.5 rounded-full text-sm font-medium"
                   >
                     {category}
                   </span>
@@ -141,25 +147,29 @@ const BlogPageClient = ({ slug }) => {
               </div>
             )}
 
-            <Heading className="text-white mb-6">{blogDetails.title}</Heading>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+              {blogDetails.title}
+            </h1>
 
             {blogDetails.excerpt && (
-              <p className="text-xl text-gray-200 mb-6">
+              <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed">
                 {blogDetails.excerpt}
               </p>
             )}
 
             {/* Meta Information */}
-            <div className="flex flex-wrap items-center gap-6 text-gray-200">
+            <div className="flex flex-wrap items-center justify-center gap-6 text-gray-200">
               {blogDetails.author && (
                 <div className="flex items-center gap-2">
-                  <User size={20} />
-                  <span>{blogDetails.author}</span>
+                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                    <User size={20} />
+                  </div>
+                  <span className="font-medium">{blogDetails.author}</span>
                 </div>
               )}
               {blogDetails.publishedAt && (
                 <div className="flex items-center gap-2">
-                  <Calendar size={20} />
+                  <Calendar size={18} />
                   <span>
                     {format(new Date(blogDetails.publishedAt), "MMMM dd, yyyy")}
                   </span>
@@ -167,7 +177,7 @@ const BlogPageClient = ({ slug }) => {
               )}
               {blogDetails.readTime && (
                 <div className="flex items-center gap-2">
-                  <Clock size={20} />
+                  <Clock size={18} />
                   <span>{blogDetails.readTime} min read</span>
                 </div>
               )}
@@ -176,50 +186,107 @@ const BlogPageClient = ({ slug }) => {
         </Container>
       </div>
 
-      {/* Main Content */}
+      {/* Main Content with Sidebar Layout */}
       <Container className="py-16">
-        <div className="max-w-4xl mx-auto">
-          {/* Featured Image */}
-          {blogDetails.mainImage && (
-            <Image
-              src={urlForImage(blogDetails.mainImage)}
-              alt={blogDetails.title}
-              width={1200}
-              height={600}
-              className="w-full h-auto rounded-2xl mb-12 shadow-lg"
-            />
-          )}
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            {/* Main Content Area */}
+            <div className="lg:col-span-2">
+              {/* Featured Image with Modern Styling */}
+              {blogDetails.mainImage && (
+                <div className="relative mb-12 group">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-300" />
+                  <Image
+                    src={urlForImage(blogDetails.mainImage)}
+                    alt={blogDetails.title}
+                    width={1200}
+                    height={600}
+                    className="relative w-full h-auto rounded-2xl shadow-2xl"
+                  />
+                </div>
+              )}
 
-          {/* Blog Content */}
-          <article className="prose prose-lg max-w-none">
-            {blogDetails.body ? (
-              <PortableBody>
-                <PortableText
-                  value={blogDetails.body}
-                  components={components}
-                />
-              </PortableBody>
-            ) : (
-              <p className="text-gray-600">No content available.</p>
-            )}
-          </article>
+              {/* Blog Content with Better Typography */}
+              <article className="prose prose-lg max-w-none prose-headings:text-[#180030] prose-headings:font-bold prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-[#6622DC] prose-a:no-underline hover:prose-a:underline prose-strong:text-[#391C6C] prose-img:rounded-xl prose-img:shadow-lg">
+                {blogDetails.body ? (
+                  <PortableBody>
+                    <PortableText
+                      value={blogDetails.body}
+                      components={components}
+                    />
+                  </PortableBody>
+                ) : (
+                  <p className="text-gray-600">No content available.</p>
+                )}
+              </article>
 
-          {/* Tags */}
-          {blogDetails.tags && blogDetails.tags.length > 0 && (
-            <div className="mt-12 pt-8 border-t border-gray-200">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Tags</h3>
-              <div className="flex flex-wrap gap-2">
-                {blogDetails.tags.map((tag, index) => (
-                  <span
-                    key={index}
-                    className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm hover:bg-gray-200 transition-colors"
-                  >
-                    #{tag}
-                  </span>
-                ))}
+              {/* Tags */}
+              {blogDetails.tags && blogDetails.tags.length > 0 && (
+                <div className="mt-12 pt-8 border-t-2 border-gray-200">
+                  <h3 className="text-xl font-bold text-[#180030] mb-4">Related Topics</h3>
+                  <div className="flex flex-wrap gap-3">
+                    {blogDetails.tags.map((tag, index) => (
+                      <span
+                        key={index}
+                        className="bg-gradient-to-r from-purple-100 to-indigo-100 text-[#391C6C] px-4 py-2 rounded-full text-sm font-medium hover:from-purple-200 hover:to-indigo-200 transition-all cursor-pointer"
+                      >
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Sidebar */}
+            <div className="lg:col-span-1">
+              <div className="sticky top-8 space-y-8">
+                {/* Author Card */}
+                {blogDetails.author && (
+                  <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-6 border border-purple-100">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="w-16 h-16 bg-gradient-to-br from-[#6622DC] to-[#391C6C] rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                        {blogDetails.author.charAt(0)}
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-600 mb-1">Written by</p>
+                        <h4 className="font-bold text-[#180030] text-lg">{blogDetails.author}</h4>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Share Section */}
+                <div className="bg-white rounded-2xl p-6 border-2 border-gray-200 shadow-sm">
+                  <h4 className="font-bold text-[#180030] text-lg mb-4">Share this article</h4>
+                  <div className="flex gap-3">
+                    <button className="flex-1 bg-[#6622DC] hover:bg-[#391C6C] text-white py-2 px-4 rounded-lg transition-colors text-sm font-medium">
+                      Share
+                    </button>
+                  </div>
+                </div>
+
+                {/* Table of Contents Placeholder */}
+                <div className="bg-gradient-to-br from-[#180030] to-[#391C6C] rounded-2xl p-6 text-white">
+                  <h4 className="font-bold text-lg mb-3">Quick Info</h4>
+                  <div className="space-y-3 text-sm">
+                    {blogDetails.readTime && (
+                      <div className="flex items-center gap-2">
+                        <Clock size={16} />
+                        <span>{blogDetails.readTime} minutes read</span>
+                      </div>
+                    )}
+                    {blogDetails.publishedAt && (
+                      <div className="flex items-center gap-2">
+                        <Calendar size={16} />
+                        <span>{format(new Date(blogDetails.publishedAt), "MMM dd, yyyy")}</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
-          )}
+          </div>
         </div>
       </Container>
 
