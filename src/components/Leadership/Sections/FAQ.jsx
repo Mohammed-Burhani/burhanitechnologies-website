@@ -31,7 +31,7 @@ const FAQ = () => {
   ];  
 
   return (
-    <Container className="flex justify-between items-center bg-white gap-24">
+    <Container className="flex flex-wrap justify-between items-center bg-white gap-24">
       <div className="4xl:!sticky !top-44 h-full mb-7 2xl:mb-0 min-w-fit">
         <h4 className="uppercase text-[#6622DC] font-extrabold">FAQs</h4>
 

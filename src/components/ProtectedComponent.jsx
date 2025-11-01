@@ -8,6 +8,7 @@ import "aos/dist/aos.css";
 import ChatBot from "./ChatBot";
 import Script from "next/script";
 import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
+import { Toaster } from "@/components/ui/toaster";
 
 const ProtectedComponent = ({ children }) => {
   const [loading, setLoading] = useState(false);
@@ -62,6 +63,7 @@ const ProtectedComponent = ({ children }) => {
         }}
       /> */}
       <Footer />
+      <Toaster />
     </div>
   );
 };

@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Body } from "../textComponents/Body";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAtom } from "jotai";
 import { checkScrollStatus } from "@/store/store";
 import {
@@ -17,6 +17,8 @@ import { ContactModal } from "./ContactModal";
 const Navbar = () => {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useAtom(checkScrollStatus);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isCompanyDropdownOpen, setIsCompanyDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,16 +29,35 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Prevent background scrolling when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
   const isHomePage = pathname === "/" || /^\/services\/.+/.test(pathname);
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+    setIsCompanyDropdownOpen(false);
+  };
 
   return (
     <header
-      className={`w-full border-b border-gray-300 bg-clip-padding backdrop-filter backdrop-blur-md !z-[9999999999] transition-colors duration-300 h-32 px-20 py-4 fixed ${
-        isScrolled ? "bg-white/60" : "!bg-white/5"
+      className={`w-full border-b border-gray-100 bg-clip-padding backdrop-filter backdrop-blur-md !z-[9999999999] transition-colors duration-300 h-fit sm:h-32 pr-5 sm:px-20 py-4 fixed ${
+        isScrolled ? "bg-white/60" : "!bg-white/50"
       }`}
     >
-      <div className="flex justify-between items-center">
-        <div className="">
+      <div className="flex !justify-between items-center">
+        <div className="bg-white px-10 rounded-xl">
           <Image
             alt="Burhani Technologies"
             width={500}
@@ -54,13 +75,15 @@ const Navbar = () => {
             <li>
               <Link href={"/"}>
                 <Body
-                  className={` ${
-                    isHomePage
+                  className={`px-4 py-2 rounded-lg transition ${
+                    pathname === "/"
+                      ? "bg-purple-100 text-[#6F36D2]"
+                      : isHomePage
                       ? isScrolled
-                        ? "text-black"
-                        : "text-white"
-                      : "text-black"
-                  } transition hover:text-[#8000ff]`}
+                        ? "text-black hover:bg-purple-50 hover:text-[#8000ff]"
+                        : "text-white hover:bg-white/10 hover:text-[#8000ff]"
+                      : "text-black hover:bg-purple-50 hover:text-[#8000ff]"
+                  }`}
                 >
                   Home
                 </Body>
@@ -71,13 +94,15 @@ const Navbar = () => {
               <DropdownMenu>
                 <DropdownMenuTrigger className="border-0 p-0">
                   <Body
-                    className={` ${
-                      isHomePage
+                    className={`px-4 py-2 rounded-lg transition ${
+                      ["/about", "/values", "/leadership", "/why-choose-us"].includes(pathname)
+                        ? "bg-purple-100 text-[#6F36D2]"
+                        : isHomePage
                         ? isScrolled
-                          ? "text-black"
-                          : "text-white"
-                        : "text-black"
-                    } transition hover:text-[#8000ff]`}
+                          ? "text-black hover:bg-purple-50 hover:text-[#8000ff]"
+                          : "text-white hover:bg-white/10 hover:text-[#8000ff]"
+                        : "text-black hover:bg-purple-50 hover:text-[#8000ff]"
+                    }`}
                   >
                     Company
                   </Body>
@@ -101,13 +126,15 @@ const Navbar = () => {
 
             <Link href="/services">
               <Body
-                className={` ${
-                  isHomePage
+                className={`px-4 py-2 rounded-lg transition ${
+                  pathname === "/services" || pathname.startsWith("/services/")
+                    ? "bg-purple-100 text-[#6F36D2]"
+                    : isHomePage
                     ? isScrolled
-                      ? "text-black"
-                      : "text-white"
-                    : "text-black"
-                } transition hover:text-[#8000ff]`}
+                      ? "text-black hover:bg-purple-50 hover:text-[#8000ff]"
+                      : "text-white hover:bg-white/10 hover:text-[#8000ff]"
+                    : "text-black hover:bg-purple-50 hover:text-[#8000ff]"
+                }`}
               >
                 Services
               </Body>
@@ -115,13 +142,15 @@ const Navbar = () => {
 
             <Link href="/blog">
               <Body
-                className={` ${
-                  isHomePage
+                className={`px-4 py-2 rounded-lg transition ${
+                  pathname === "/blog" || pathname.startsWith("/blog/")
+                    ? "bg-purple-100 text-[#6F36D2]"
+                    : isHomePage
                     ? isScrolled
-                      ? "text-black"
-                      : "text-white"
-                    : "text-black"
-                } transition hover:text-[#8000ff]`}
+                      ? "text-black hover:bg-purple-50 hover:text-[#8000ff]"
+                      : "text-white hover:bg-white/10 hover:text-[#8000ff]"
+                    : "text-black hover:bg-purple-50 hover:text-[#8000ff]"
+                }`}
               >
                 Blog
               </Body>
@@ -134,7 +163,10 @@ const Navbar = () => {
             <ContactModal />
           </div>
 
-          <button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75 w-full block md:hidden">
+          <button 
+            onClick={() => setIsMobileMenuOpen(true)}
+            className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75 w-full block md:hidden"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="size-5"
@@ -152,6 +184,168 @@ const Navbar = () => {
           </button>
         </div>
       </div>
+
+      {/* Mobile Drawer */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-[99999999999] md:hidden">
+          {/* Drawer - Full Screen White Background */}
+          <div className="absolute inset-0 w-full h-screen bg-white overflow-y-auto animate-in slide-in-from-right duration-300">
+            {/* Header */}
+            <div className="flex items-center justify-between p-6 border-b border-gray-200 bg-white">
+              <Image
+                alt="Burhani Technologies"
+                width={200}
+                height={60}
+                src={"/BT-Logo.svg"}
+                className="w-40 h-12"
+              />
+              <button
+                onClick={closeMobileMenu}
+                className="p-2 rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-6 h-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            {/* Navigation */}
+            <div className="flex flex-col min-h-[calc(100vh-88px)] bg-white">
+              <nav className="flex-1 px-6 py-8 bg-white">
+                <ul className="space-y-6">
+                  <li>
+                    <Link 
+                      href="/" 
+                      onClick={closeMobileMenu}
+                      className={`block text-lg font-medium transition-colors py-3 ${
+                        pathname === "/" 
+                          ? "text-[#6F36D2] bg-purple-50 px-4 rounded-lg" 
+                          : "text-gray-900 hover:text-[#6F36D2]"
+                      }`}
+                    >
+                      Home
+                    </Link>
+                  </li>
+
+                  <li>
+                    <div>
+                      <button
+                        onClick={() => setIsCompanyDropdownOpen(!isCompanyDropdownOpen)}
+                        className="flex items-center justify-between w-full text-lg font-medium text-gray-900 hover:text-[#6F36D2] transition-colors py-3"
+                      >
+                        Company
+                        <svg
+                          className={`w-5 h-5 transition-transform ${isCompanyDropdownOpen ? 'rotate-180' : ''}`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </button>
+                      
+                      {isCompanyDropdownOpen && (
+                        <div className="ml-4 mt-2 space-y-3 animate-in slide-in-from-top duration-200">
+                          <Link
+                            href="/about"
+                            onClick={closeMobileMenu}
+                            className={`block transition-colors py-2 px-3 rounded ${
+                              pathname === "/about"
+                                ? "text-[#6F36D2] bg-purple-50"
+                                : "text-gray-600 hover:text-[#6F36D2]"
+                            }`}
+                          >
+                            About
+                          </Link>
+                          <Link
+                            href="/values"
+                            onClick={closeMobileMenu}
+                            className={`block transition-colors py-2 px-3 rounded ${
+                              pathname === "/values"
+                                ? "text-[#6F36D2] bg-purple-50"
+                                : "text-gray-600 hover:text-[#6F36D2]"
+                            }`}
+                          >
+                            Our Values
+                          </Link>
+                          <Link
+                            href="/leadership"
+                            onClick={closeMobileMenu}
+                            className={`block transition-colors py-2 px-3 rounded ${
+                              pathname === "/leadership"
+                                ? "text-[#6F36D2] bg-purple-50"
+                                : "text-gray-600 hover:text-[#6F36D2]"
+                            }`}
+                          >
+                            Leadership
+                          </Link>
+                          <Link
+                            href="/why-choose-us"
+                            onClick={closeMobileMenu}
+                            className={`block transition-colors py-2 px-3 rounded ${
+                              pathname === "/why-choose-us"
+                                ? "text-[#6F36D2] bg-purple-50"
+                                : "text-gray-600 hover:text-[#6F36D2]"
+                            }`}
+                          >
+                            Why choose us?
+                          </Link>
+                        </div>
+                      )}
+                    </div>
+                  </li>
+
+                  <li>
+                    <Link 
+                      href="/services" 
+                      onClick={closeMobileMenu}
+                      className={`block text-lg font-medium transition-colors py-3 ${
+                        pathname === "/services" || pathname.startsWith("/services/")
+                          ? "text-[#6F36D2] bg-purple-50 px-4 rounded-lg" 
+                          : "text-gray-900 hover:text-[#6F36D2]"
+                      }`}
+                    >
+                      Services
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link 
+                      href="/blog" 
+                      onClick={closeMobileMenu}
+                      className={`block text-lg font-medium transition-colors py-3 ${
+                        pathname === "/blog" || pathname.startsWith("/blog/")
+                          ? "text-[#6F36D2] bg-purple-50 px-4 rounded-lg" 
+                          : "text-gray-900 hover:text-[#6F36D2]"
+                      }`}
+                    >
+                      Blog
+                    </Link>
+                  </li>
+                </ul>
+              </nav>
+
+              {/* Contact Button */}
+              <div className="p-6 border-t border-gray-200 bg-white mt-auto">
+                <div onClick={closeMobileMenu}>
+                  <ContactModal className="w-full justify-center" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

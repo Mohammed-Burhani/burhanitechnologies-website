@@ -13,7 +13,7 @@ import { useRouter } from "next/navigation";
 const Banner = () => {
   const router = useRouter();
   return (
-    <div className="bg-[url(/Banner/Banner_SVG.svg)] bg-cover h-screen w-full bg-center flex flex-col justify-center overflow-hidden">
+    <div className="bg-[url(/Banner/Banner_SVG.svg)] bg-cover h-full w-full bg-center flex flex-col justify-center overflow-hidden">
       <div className="absolute top-0 mx-auto w-full h-full flex justify-center items-center overflow-hidden">
         {["#AD5AFF"].map((color, index) => (
           <div
@@ -27,9 +27,9 @@ const Banner = () => {
         ))}
       </div>
 
-      <Container className="flex flex-col gap-10 4xl:pt-36">
+      <Container className="flex flex-col gap-10 pt-32 lg:pt-0">
         <h1
-          className="text-white text-xlcaptionLarge sm:text-mdsubTitle 7xl:text-title font-extrabold font-inter leading-snug"
+          className="text-white text-xlcaptionLarge sm:text-mdsubTitle 7xl:text-title font-extrabold font-inter leading-snug lg:!translate-y-32"
           data-aos="fade-right"
         >
           <span className="block">Driving Growth</span>
@@ -38,7 +38,7 @@ const Banner = () => {
         </h1>
 
         <div className="flex flex-wrap md:flex-nowrap justify-between 4xl:pl-4 gap-7">
-          <div className="flex items-center" data-aos="fade-up">
+          <div className="flex items-center lg:!translate-y-20" data-aos="fade-up">
             <button className="btn" aria-label="Scroll down">
               <div className="scroll"> </div>
             </button>
@@ -54,7 +54,7 @@ const Banner = () => {
               Seamless Operations.
             </Body>
             <PrimaryButton
-              className="rounded-lg p-4 bg-[#6F36D2] px-5 py-2.5 text-lg font-medium text-white shadow flex gap-4 items-center w-fit"
+              className="rounded-lg p-4 bg-[#6F36D2] px-5 py-2.5 text-lg font-medium text-white shadow flex gap-4 items-center w-fit sm:mb-0"
               title={"Explore Our Services Now"}
               onClick={() => router.push('/services')}
             />

@@ -1,16 +1,8 @@
 "use client";
-// Inspired by react-hot-toast library
 import * as React from "react"
 
 const TOAST_LIMIT = 1
-const TOAST_REMOVE_DELAY = 1000000
-
-const actionTypes = {
-  ADD_TOAST: "ADD_TOAST",
-  UPDATE_TOAST: "UPDATE_TOAST",
-  DISMISS_TOAST: "DISMISS_TOAST",
-  REMOVE_TOAST: "REMOVE_TOAST"
-}
+const TOAST_REMOVE_DELAY = 5000
 
 let count = 0
 
@@ -21,7 +13,7 @@ function genId() {
 
 const toastTimeouts = new Map()
 
-const addToRemoveQueue = (toastId) => {
+const addToRemoveQueue = (toastId, dispatch) => {
   if (toastTimeouts.has(toastId)) {
     return
   }
@@ -37,7 +29,7 @@ const addToRemoveQueue = (toastId) => {
   toastTimeouts.set(toastId, timeout)
 }
 
-export const reducer = (state, action) => {
+const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_TOAST":
       return {
@@ -54,16 +46,6 @@ export const reducer = (state, action) => {
 
     case "DISMISS_TOAST": {
       const { toastId } = action
-
-      // ! Side effects ! - This could be extracted into a dismissToast() action,
-      // but I'll keep it here for simplicity
-      if (toastId) {
-        addToRemoveQueue(toastId)
-      } else {
-        state.toasts.forEach((toast) => {
-          addToRemoveQueue(toast.id)
-        })
-      }
 
       return {
         ...state,
@@ -87,69 +69,59 @@ export const reducer = (state, action) => {
         ...state,
         toasts: state.toasts.filter((t) => t.id !== action.toastId),
       };
-  }
-}
-
-const listeners = []
-
-let memoryState = { toasts: [] }
-
-function dispatch(action) {
-  memoryState = reducer(memoryState, action)
-  listeners.forEach((listener) => {
-    listener(memoryState)
-  })
-}
-
-function toast({
-  ...props
-}) {
-  const id = genId()
-
-  const update = (props) =>
-    dispatch({
-      type: "UPDATE_TOAST",
-      toast: { ...props, id },
-    })
-  const dismiss = () => dispatch({ type: "DISMISS_TOAST", toastId: id })
-
-  dispatch({
-    type: "ADD_TOAST",
-    toast: {
-      ...props,
-      id,
-      open: true,
-      onOpenChange: (open) => {
-        if (!open) dismiss()
-      },
-    },
-  })
-
-  return {
-    id: id,
-    dismiss,
-    update,
+    default:
+      return state;
   }
 }
 
 function useToast() {
-  const [state, setState] = React.useState(memoryState)
+  const [state, dispatch] = React.useReducer(reducer, { toasts: [] })
 
-  React.useEffect(() => {
-    listeners.push(setState)
-    return () => {
-      const index = listeners.indexOf(setState)
-      if (index > -1) {
-        listeners.splice(index, 1)
-      }
-    };
-  }, [state])
+  const toast = React.useCallback(({ ...props }) => {
+    const id = genId()
+
+    const update = (props) =>
+      dispatch({
+        type: "UPDATE_TOAST",
+        toast: { ...props, id },
+      })
+    
+    const dismiss = () => {
+      dispatch({ type: "DISMISS_TOAST", toastId: id })
+      addToRemoveQueue(id, dispatch)
+    }
+
+    dispatch({
+      type: "ADD_TOAST",
+      toast: {
+        ...props,
+        id,
+        open: true,
+        onOpenChange: (open) => {
+          if (!open) dismiss()
+        },
+      },
+    })
+
+    return {
+      id: id,
+      dismiss,
+      update,
+    }
+  }, [])
+
+  const dismiss = React.useCallback((toastId) => {
+    dispatch({ type: "DISMISS_TOAST", toastId })
+    if (toastId) {
+      addToRemoveQueue(toastId, dispatch)
+    }
+  }, [])
 
   return {
     ...state,
     toast,
-    dismiss: (toastId) => dispatch({ type: "DISMISS_TOAST", toastId }),
+    dismiss,
   };
 }
 
-export { useToast, toast }
+export { useToast }
