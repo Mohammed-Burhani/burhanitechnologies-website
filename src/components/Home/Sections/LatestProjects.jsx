@@ -6,6 +6,7 @@ import { Body } from "@/components/textComponents/Body";
 import { Heading } from "@/components/textComponents/Heading";
 import { ArrowLeft, ArrowRight } from "iconsax-react";
 import { ProjectCards } from "./Blocks/ProjectsCard";
+import { SmallCaption } from "@/components/textComponents/SmallCaption";
 
 export const LatestProjects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -93,7 +94,7 @@ export const LatestProjects = () => {
         data-aos="fade-right"
       >
         <h4 className="uppercase text-[#6622DC] font-bold">our work</h4>
-        <Heading className="mt-7">Innovation at Work</Heading>
+        <SmallCaption className="!text-captionLarge xl:!text-mdcaptionLarge 4xl:!text-lgcaptionLarge 7xl:!mdtext-captionLarge !leading-snug mt-2">Innovation at Work</SmallCaption>
         <Body className={"max-w-lg mt-4"}>
           Every project we undertake is a blend of creativity, technology, and
           strategy. We build solutions that drive growth, enhance efficiency,

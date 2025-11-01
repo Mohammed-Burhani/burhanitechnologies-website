@@ -21,6 +21,9 @@ export const metadata = {
       "Meet the experienced leadership team driving innovation at Burhani Technologies.",
     url: "https://burhanitechnologies.com/leadership",
   },
+  alternates: {
+    canonical: "https://burhanitechnologies.com/leadership",
+  },
 };
 
 const Leadership = () => {

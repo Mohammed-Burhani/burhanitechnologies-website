@@ -278,6 +278,9 @@ export function generateServiceMetadata(slug) {
         title: metadata.title,
         description: metadata.description,
       },
+      alternates: {
+        canonical: `https://burhanitechnologies.com/services/${slug}`,
+      },
     };
   }
   
@@ -285,5 +288,8 @@ export function generateServiceMetadata(slug) {
   return {
     title: "Services | Burhani Technologies",
     description: "Explore our comprehensive range of software development and automation services.",
+    alternates: {
+      canonical: `https://burhanitechnologies.com/services/${slug}`,
+    },
   };
 }

@@ -24,6 +24,9 @@ export const metadata = {
       "Choose Burhani Technologies for proven expertise in Custom ERP, AI Automation, and DevOps. We deliver measurable results.",
     url: "https://burhanitechnologies.com/why-choose-us",
   },
+  alternates: {
+    canonical: "https://burhanitechnologies.com/why-choose-us",
+  },
 };
 
 const WhyChooseUs = () => {

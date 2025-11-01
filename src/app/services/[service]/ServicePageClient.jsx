@@ -8,7 +8,6 @@ import Banner from "@/components/Services/Sections/ServiceBanner";
 import { PortableText } from "next-sanity";
 import { components } from "@/utils/components";
 import { Body } from "@/components/textComponents/Body";
-import { Heading } from "@/components/textComponents/Heading";
 import { urlForImage } from "@/sanity/lib/image";
 import { PortableBody } from "@/components/textComponents/PortableBody";
 import { ArrowRight } from "iconsax-react";
@@ -78,9 +77,9 @@ const ServicePageClient = ({ service }) => {
                   )}
 
                   <div>
-                    <Heading className="max-w-screen-lg mt-4 text-[#180030]">
+                    <h2 className="font-inter text-captionLarge xl:text-mdcaptionLarge 4xl:text-lgcaptionLarge 7xl:mdtext-captionLarge leading-snug font-bold max-w-screen-lg mt-4 text-[#180030]">
                       {serviceDetails.title}
-                    </Heading>
+                    </h2>
 
                     {serviceDetails.body ? (
                       <PortableBody>
@@ -99,9 +98,9 @@ const ServicePageClient = ({ service }) => {
                     )}
                   </div>
 
-                  <Heading className="max-w-screen-lg text-[#180030] mt-20">
+                  <h2 className="font-inter text-captionLarge xl:text-mdcaptionLarge 4xl:text-lgcaptionLarge 7xl:mdtext-captionLarge leading-snug font-bold max-w-screen-lg text-[#180030] mt-20">
                     {serviceDetails.benefitTitle}
-                  </Heading>
+                  </h2>
 
                   {serviceDetails.benefitDescription && (
                     <PortableBody className={"text-justify"}>

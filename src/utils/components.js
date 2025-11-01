@@ -21,7 +21,7 @@ export const components = {
   // hardBreak: <br />,
   block: {
     // Ex. 1: customizing common block types
-    h1: ({ children }) => <h1 className="text-2xl">{children}</h1>,
+    h1: ({ children }) => <h2 className="text-2xl">{children}</h2>,
     blockquote: ({ children }) => (
       <blockquote className="border-l-purple-500">{children}</blockquote>
     ),

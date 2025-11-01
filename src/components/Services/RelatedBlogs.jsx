@@ -7,7 +7,6 @@ import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
 import { Calendar, Clock, ArrowRight } from "iconsax-react";
 import { format } from "date-fns";
-import { Heading } from "@/components/textComponents/Heading";
 
 const RelatedBlogs = ({ serviceTitle }) => {
   const [blogs, setBlogs] = useState([]);
@@ -46,7 +45,7 @@ const RelatedBlogs = ({ serviceTitle }) => {
     return (
       <Container className="bg-gray-50 py-16">
         <div className="max-w-6xl mx-auto">
-          <Heading className="text-[#180030] mb-8">Related Blog Posts</Heading>
+          <h2 className="font-inter text-captionLarge xl:text-mdcaptionLarge 4xl:text-lgcaptionLarge 7xl:mdtext-captionLarge leading-snug font-bold text-[#180030] mb-8">Related Blog Posts</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[1, 2, 3].map((i) => (
               <div key={i} className="animate-pulse">
@@ -69,7 +68,7 @@ const RelatedBlogs = ({ serviceTitle }) => {
     <Container className="bg-gray-50 py-16">
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center justify-between mb-8">
-          <Heading className="text-[#180030]">Related Blog Posts</Heading>
+          <h2 className="font-inter text-captionLarge xl:text-mdcaptionLarge 4xl:text-lgcaptionLarge 7xl:mdtext-captionLarge leading-snug font-bold text-[#180030]">Related Blog Posts</h2>
           <Link
             href="/blog"
             className="text-[#6622DC] hover:underline flex items-center gap-2 font-semibold"

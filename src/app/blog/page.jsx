@@ -24,6 +24,9 @@ export const metadata = {
       "Stay updated with the latest trends in software development, AI automation, DevOps, and business process automation.",
     url: "https://burhanitechnologies.com/blog",
   },
+  alternates: {
+    canonical: "https://burhanitechnologies.com/blog",
+  },
 };
 
 const Blog = () => {

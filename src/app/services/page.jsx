@@ -25,6 +25,9 @@ export const metadata = {
       "Comprehensive software development services: Custom ERP, AI/ML Automation, DevOps & Azure, Mobile/Web Apps, and Business Process Automation.",
     url: "https://burhanitechnologies.com/services",
   },
+  alternates: {
+    canonical: "https://burhanitechnologies.com/services",
+  },
 };
 
 const services = () => {

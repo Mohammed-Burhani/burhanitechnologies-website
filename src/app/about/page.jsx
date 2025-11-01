@@ -22,6 +22,9 @@ export const metadata = {
       "Learn about Burhani Technologies - Chennai's trusted partner for custom software development, ERP implementation, and business automation.",
     url: "https://burhanitechnologies.com/about",
   },
+  alternates: {
+    canonical: "https://burhanitechnologies.com/about",
+  },
 };
 
 const About = () => {

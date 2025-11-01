@@ -24,6 +24,9 @@ export const metadata = {
       "Discover the core values that guide Burhani Technologies: Innovation, Quality, Client Success, and Excellence.",
     url: "https://burhanitechnologies.com/values",
   },
+  alternates: {
+    canonical: "https://burhanitechnologies.com/values",
+  },
 };
 
 const Values = () => {

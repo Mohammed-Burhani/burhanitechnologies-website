@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import { Heading } from "@/components/textComponents/Heading";
 import { Body } from "@/components/textComponents/Body";
 import Container from "@/components/constants/Container";
 import { ChevronDown, ChevronUp } from "lucide-react";
@@ -18,9 +17,9 @@ const ServiceFAQ = ({ faqs, serviceName }) => {
         <h2 className="text-center text-[#6622DC] font-extrabold uppercase mb-2">
           FAQ
         </h2>
-        <Heading className="text-center mb-4">
+        <h2 className="font-inter text-captionLarge xl:text-mdcaptionLarge 4xl:text-lgcaptionLarge 7xl:mdtext-captionLarge leading-snug font-bold text-center mb-4">
           Frequently Asked Questions About {serviceName}
-        </Heading>
+        </h2>
         <Body className="text-center mb-10 max-w-2xl mx-auto">
           Get answers to common questions about our {serviceName} services
         </Body>

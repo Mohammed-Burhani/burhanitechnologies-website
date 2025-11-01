@@ -39,12 +39,18 @@ export async function generateMetadata({ params }) {
         publishedTime: blogData.publishedAt,
         authors: [blogData.author],
       },
+      alternates: {
+        canonical: `https://burhanitechnologies.com/blog/${slug}`,
+      },
     };
   }
 
   return {
     title: "Blog Post | Burhani Technologies",
     description: "Read our latest blog post on software development and technology.",
+    alternates: {
+      canonical: `https://burhanitechnologies.com/blog/${slug}`,
+    },
   };
 }
 
