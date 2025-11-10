@@ -39,7 +39,7 @@ export const WhoAreWe = () => {
       icon: "/icons/icon5.svg",
     },
     {
-      title: "UX/UI Design",
+      title: "UX UI Design",
       desc: "Our design services create intuitive interfaces that enhance user experience, making your applications easy to use and visually appealing.",
       icon: "/icons/icon6.svg",
     },
