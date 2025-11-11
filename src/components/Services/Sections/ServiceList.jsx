@@ -20,7 +20,7 @@ const ServiceList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await client.fetch(`*[_type == "services"]`);
+        const result = await client.fetch(`*[_type == "services"]{ title, body, serviceIcon, serviceImage, slug }`);
         setServices(result);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -57,6 +57,7 @@ const ServiceList = () => {
             key={index}
             question={item.title}
             answer={item.body}
+            slug={item.slug?.current}
             isOpen={index === 0} // Keep the first item open by default
             isReversed={Math.floor(index / 2) % 2 !== 0} // Reverse every 3rd and 4th item
             serviceIcon={item?.serviceIcon}
@@ -73,6 +74,7 @@ export default ServiceList;
 const ServiceItem = ({
   question,
   answer,
+  slug,
   serviceIcon,
   isReversed,
   serviceImage,
@@ -101,7 +103,7 @@ const ServiceItem = ({
         </PortableSmallBody>
 
         <Link
-          href={"/services/" + slugify(question)}
+          href={"/services/" + (slug || slugify(question))}
           className="mt-7 text-[#391C6C] flex gap-2 items-center"
         >
           <span>Find Out More</span>
