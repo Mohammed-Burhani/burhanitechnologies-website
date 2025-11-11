@@ -13,6 +13,10 @@ export const metadata = {
   openGraph: {
     title: "Contact Us | Burhani Technologies",
     description: "Get in touch with our expert team for custom software development and enterprise automation solutions.",
+    url: "https://burhanitechnologies.com/contact",
+  },
+  alternates: {
+    canonical: "https://burhanitechnologies.com/contact",
   },
 };
 
