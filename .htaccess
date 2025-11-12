@@ -1,0 +1,36 @@
+# Block all subdomain access - only allow main domain
+# This prevents spam subdomains from affecting SEO
+
+RewriteEngine On
+
+# Check if the request is coming from a subdomain
+# This regex matches any subdomain (anything before burhanitechnologies.com)
+RewriteCond %{HTTP_HOST} ^(.+)\.burhanitechnologies\.com$ [NC]
+
+# Reject all subdomain requests with 403 Forbidden
+RewriteRule ^ - [F,L]
+
+# Alternative: Redirect subdomains to main domain (uncomment if preferred)
+# RewriteCond %{HTTP_HOST} ^(.+)\.burhanitechnologies\.com$ [NC]
+# RewriteRule ^(.*)$ https://burhanitechnologies.com/$1 [R=301,L]
+
+# Allow only www and non-www main domain
+RewriteCond %{HTTP_HOST} !^burhanitechnologies\.com$ [NC]
+RewriteCond %{HTTP_HOST} !^www\.burhanitechnologies\.com$ [NC]
+RewriteRule ^ - [F,L]
+
+# Optional: Force HTTPS (recommended for SEO)
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} ^(www\.)?burhanitechnologies\.com$ [NC]
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# Optional: Redirect www to non-www (or vice versa for consistency)
+# Uncomment one of these blocks based on your preference:
+
+# Redirect www to non-www
+# RewriteCond %{HTTP_HOST} ^www\.burhanitechnologies\.com$ [NC]
+# RewriteRule ^(.*)$ https://burhanitechnologies.com/$1 [R=301,L]
+
+# OR redirect non-www to www
+# RewriteCond %{HTTP_HOST} ^burhanitechnologies\.com$ [NC]
+# RewriteRule ^(.*)$ https://www.burhanitechnologies.com/$1 [R=301,L]
