@@ -57,7 +57,7 @@ const Navbar = () => {
       }`}
     >
       <div className="flex !justify-between items-center">
-        <div className="bg-white px-10 rounded-xl">
+        <div className="bg-white lg:px-10 rounded-xl ml-4 lg:ml-0">
           <Image
             alt="Burhani Technologies"
             width={500}

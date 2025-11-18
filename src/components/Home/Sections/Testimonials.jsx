@@ -70,7 +70,7 @@ export const Testimonials = () => {
         </Body>
       </div>
 
-      <Marquee className="flex-1 w-full" direction="right" speed={70}>
+      <Marquee className="flex-1 w-full" direction="left" speed={70} pauseOnHover pauseOnClick>
         <div className="flex gap-10 mr-10" data-aos="fade-up">
           {testimonials.map((item, i) => {
             return (

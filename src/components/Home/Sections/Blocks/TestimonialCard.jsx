@@ -5,10 +5,9 @@ import { ArrowRight, Star, Star1 } from "iconsax-react";
 
 export const TestimonialCard = ({title, desc, client}) => {
   return (
-    <div className="bg-[#9933FF] rounded-2xl border border-white max-w-md 7xl:!max-w-lg">
+    <div className="bg-[#9933FF] rounded-2xl border border-white w-64 lg:max-w-md lg:w-auto 7xl:!max-w-lg">
       <div className="flex flex-col gap-2 p-4">
         <div className="flex items-center gap-4">
-          <Star1 color="white" size={24} variant="Bold" />
           <Star1 color="white" size={24} variant="Bold" />
           <Star1 color="white" size={24} variant="Bold" />
           <Star1 color="white" size={24} variant="Bold" />

@@ -27,7 +27,7 @@ export const ProjectCards = ({
           width={500}
           height={500}
           alt=""
-          className={`object-cover no-repeat object-center rounded-[3rem] w-[28rem] h-[28rem]`}
+          className={`object-cover no-repeat object-center rounded-[3rem] w-80 h-80 lg:w-[28rem] lg:h-[28rem]`}
         />
 
         <div className="bg-white p-5 absolute -left-5 -bottom-5 rounded-full">
@@ -43,7 +43,7 @@ export const ProjectCards = ({
         <h3 className="text-3xl capitalize font-bold font-inter my-2">
           {title}
         </h3>
-        <Body className={"7xl:max-w-md text-wrap text-justify line-clamp-5"}>
+        <Body className={"w-72 lg:w-[24rem] text-wrap text-justify line-clamp-5"}>
           {desc}
         </Body>
       </div>

@@ -81,7 +81,7 @@ const ServiceItem = ({
 }) => {
   return (
     <div
-      className={`flex items-center ${isReversed ? "flex-row-reverse" : ""}`}
+      className={`flex flex-wrap items-center ${isReversed ? "flex-row-reverse" : ""}`}
     >
       <div className="bg-[#E3C8FF] p-4 w-full h-80 flex flex-col justify-center">
         <Image
@@ -98,7 +98,7 @@ const ServiceItem = ({
           {question}
         </SmallCaption>
 
-        <PortableSmallBody className="mt-4 leading-relaxed text-gray-700 max-w-4xl line-clamp-2">
+        <PortableSmallBody className="mt-2 leading-relaxed text-gray-700 max-w-4xl line-clamp-4">
           <PortableText value={answer} components={components} />
         </PortableSmallBody>
 
@@ -116,7 +116,7 @@ const ServiceItem = ({
         height={500}
         alt={question}
         src={urlForImage(serviceImage)}
-        className="w-72 xl:w-96 5xl:w-full h-80 object-cover object-center"
+        className="w-80 xl:w-96 5xl:w-full h-80 object-cover object-center"
       />
     </div>
   );
