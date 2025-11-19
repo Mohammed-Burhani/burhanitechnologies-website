@@ -140,6 +140,22 @@ const Navbar = () => {
               </Body>
             </Link>
 
+            <Link href="/services">
+              <Body
+                className={`px-4 py-2 rounded-lg transition ${
+                  pathname === "/case-studies" || pathname.startsWith("/case-studies/")
+                    ? "bg-purple-100 text-[#6F36D2]"
+                    : isHomePage
+                    ? isScrolled
+                      ? "text-black hover:bg-purple-50 hover:text-[#8000ff]"
+                      : "text-white hover:bg-white/10 hover:text-[#8000ff]"
+                    : "text-black hover:bg-purple-50 hover:text-[#8000ff]"
+                }`}
+              >
+                Case Studies
+              </Body>
+            </Link>
+
             <Link href="/blog">
               <Body
                 className={`px-4 py-2 rounded-lg transition ${
