@@ -2,8 +2,8 @@ import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
 import { notFound } from "next/navigation";
 import { GoalChallengeOutcome } from "@/components/CaseStudies/Sections/GoalChallengeOutcome";
-import { MainCaseStudyContent } from "@/components/CaseStudies/Sections/MainCaseStudyContent";
-import { CaseStudyTestimonial } from "@/components/CaseStudies/Sections/CaseStudyTestimonial";
+import { ProcessesSection } from "@/components/CaseStudies/Sections/ProcessesSection";
+import { Testimonials } from "@/components/Home/Sections/Testimonials";
 import { CTA2 } from "@/components/Home/Sections/CTA2";
 import Container from "@/components/constants/Container";
 import { LargeHeading } from "@/components/textComponents/LargeHeading";
@@ -22,11 +22,7 @@ async function getCaseStudy(slug) {
     goal,
     challenge,
     outcome,
-    mainContent,
-    caseStudyImage,
-    testimonial,
-    technologies,
-    projectDuration,
+    processes,
     publishedAt
   }`;
 
@@ -116,51 +112,11 @@ export default async function CaseStudyPage({ params }) {
         outcome={caseStudy.outcome}
       />
 
-      {/* Main Content Section */}
-      <MainCaseStudyContent
-        title={caseStudy.title}
-        content={caseStudy.mainContent}
-        image={caseStudy.caseStudyImage}
-      />
+      {/* Processes Section with Scrollspy */}
+      <ProcessesSection processes={caseStudy.processes} />
 
-      {/* Testimonial Section */}
-      {caseStudy.testimonial && (
-        <CaseStudyTestimonial testimonial={caseStudy.testimonial} />
-      )}
-
-      {/* Technologies & Duration */}
-      {(caseStudy.technologies?.length > 0 || caseStudy.projectDuration) && (
-        <Container className="bg-gray-50 py-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {caseStudy.technologies?.length > 0 && (
-              <div data-aos="fade-right">
-                <h3 className="text-2xl font-bold font-inter text-gray-900 mb-6">
-                  Technologies Used
-                </h3>
-                <div className="flex flex-wrap gap-3">
-                  {caseStudy.technologies.map((tech, index) => (
-                    <span
-                      key={index}
-                      className="px-4 py-2 bg-white rounded-full text-gray-700 font-medium shadow-sm"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {caseStudy.projectDuration && (
-              <div data-aos="fade-left">
-                <h3 className="text-2xl font-bold font-inter text-gray-900 mb-6">
-                  Project Duration
-                </h3>
-                <p className="text-xl text-gray-700">{caseStudy.projectDuration}</p>
-              </div>
-            )}
-          </div>
-        </Container>
-      )}
+      {/* Testimonials Section */}
+      <Testimonials />
 
       <CTA2 />
     </>

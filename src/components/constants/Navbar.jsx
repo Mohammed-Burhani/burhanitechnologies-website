@@ -140,7 +140,7 @@ const Navbar = () => {
               </Body>
             </Link>
 
-            <Link href="/services">
+            <Link href="/case-studies">
               <Body
                 className={`px-4 py-2 rounded-lg transition ${
                   pathname === "/case-studies" || pathname.startsWith("/case-studies/")

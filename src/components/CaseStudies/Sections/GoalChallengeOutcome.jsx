@@ -1,6 +1,5 @@
 import Container from "@/components/constants/Container";
 import { Body } from "@/components/textComponents/Body";
-import { LargeHeading } from "@/components/textComponents/LargeHeading";
 
 export const GoalChallengeOutcome = ({ goal, challenge, outcome }) => {
   const sections = [
