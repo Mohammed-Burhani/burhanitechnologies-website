@@ -26,8 +26,23 @@ async function getCaseStudy(slug) {
     publishedAt
   }`;
 
-  const caseStudy = await client.fetch(query, { slug });
+  const caseStudy = await client.fetch(query, { slug }, {
+    next: { revalidate: 60 } // Revalidate every 60 seconds
+  });
   return caseStudy;
+}
+
+export const dynamicParams = true; // Allow dynamic params not in generateStaticParams
+
+export async function generateStaticParams() {
+  const query = `*[_type == "caseStudy" && defined(slug.current)] {
+    "slug": slug.current
+  }`;
+
+  const caseStudies = await client.fetch(query);
+  return caseStudies.map((caseStudy) => ({
+    slug: caseStudy.slug,
+  }));
 }
 
 export async function generateMetadata({ params }) {

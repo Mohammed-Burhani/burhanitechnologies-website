@@ -27,7 +27,9 @@ async function getCaseStudies() {
     featured
   }`;
 
-  const caseStudies = await client.fetch(query);
+  const caseStudies = await client.fetch(query, {}, {
+    next: { revalidate: 60 } // Revalidate every 60 seconds
+  });
   return caseStudies;
 }
 
