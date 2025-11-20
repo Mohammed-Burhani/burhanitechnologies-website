@@ -10,6 +10,9 @@ import { LargeHeading } from "@/components/textComponents/LargeHeading";
 import { Body } from "@/components/textComponents/Body";
 import Image from "next/image";
 
+export const revalidate = 0; // Always fetch fresh data
+export const dynamicParams = true; // Allow dynamic params not in generateStaticParams
+
 async function getCaseStudy(slug) {
   const query = `*[_type == "caseStudy" && slug.current == $slug][0] {
     _id,
@@ -27,22 +30,15 @@ async function getCaseStudy(slug) {
   }`;
 
   const caseStudy = await client.fetch(query, { slug }, {
-    next: { revalidate: 60 } // Revalidate every 60 seconds
+    cache: 'no-store' // Don't cache, always fetch fresh
   });
   return caseStudy;
 }
 
-export const dynamicParams = true; // Allow dynamic params not in generateStaticParams
-
 export async function generateStaticParams() {
-  const query = `*[_type == "caseStudy" && defined(slug.current)] {
-    "slug": slug.current
-  }`;
-
-  const caseStudies = await client.fetch(query);
-  return caseStudies.map((caseStudy) => ({
-    slug: caseStudy.slug,
-  }));
+  // Return empty array to not pre-render any pages at build time
+  // All pages will be generated on-demand
+  return [];
 }
 
 export async function generateMetadata({ params }) {

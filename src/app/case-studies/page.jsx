@@ -14,6 +14,8 @@ export const metadata = {
     "Explore our success stories and discover how we've helped businesses transform their operations with innovative technology solutions.",
 };
 
+export const revalidate = 0; // Always fetch fresh data
+
 async function getCaseStudies() {
   const query = `*[_type == "caseStudy"] | order(publishedAt desc) {
     _id,
@@ -28,7 +30,7 @@ async function getCaseStudies() {
   }`;
 
   const caseStudies = await client.fetch(query, {}, {
-    next: { revalidate: 60 } // Revalidate every 60 seconds
+    cache: 'no-store' // Don't cache, always fetch fresh
   });
   return caseStudies;
 }
