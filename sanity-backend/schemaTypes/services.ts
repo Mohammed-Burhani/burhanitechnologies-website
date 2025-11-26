@@ -74,6 +74,180 @@ export default defineType({
       type: 'array',
       of: [{type: 'block'}],
     }),
+    // Hero Section
+    defineField({
+      name: 'heroDescription',
+      title: 'Hero Description',
+      type: 'text',
+      description: 'Short description shown in the hero section',
+    }),
+    
+    // Intro Section
+    defineField({
+      name: 'introText',
+      title: 'Intro Text',
+      type: 'array',
+      of: [{type: 'block'}],
+      description: 'Introduction paragraphs (3 recommended)',
+    }),
+    
+    // Service Offerings Section
+    defineField({
+      name: 'offerings',
+      title: 'Service Offerings',
+      type: 'array',
+      description: 'Interactive service offerings (4 recommended)',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'title',
+              title: 'Offering Title',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: 'description',
+              title: 'Description',
+              type: 'text',
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: 'tags',
+              title: 'Tags',
+              type: 'array',
+              of: [{type: 'string'}],
+              description: 'Service tags/features (3 recommended)',
+            },
+          ],
+          preview: {
+            select: {
+              title: 'title',
+              subtitle: 'description',
+            },
+          },
+        },
+      ],
+    }),
+    
+    // Credibility Section
+    defineField({
+      name: 'capabilities',
+      title: 'Capabilities',
+      type: 'array',
+      description: 'Key capabilities and strengths (6 recommended)',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'title',
+              title: 'Capability Title',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: 'description',
+              title: 'Description',
+              type: 'text',
+              validation: (Rule) => Rule.required(),
+            },
+          ],
+          preview: {
+            select: {
+              title: 'title',
+              subtitle: 'description',
+            },
+          },
+        },
+      ],
+    }),
+    
+    // Process/Why Section
+    // defineField({
+    //   name: 'processTitle',
+    //   title: 'Process Section Title',
+    //   type: 'string',
+    //   description: 'Main heading for the process/why section',
+    // }),
+    // defineField({
+    //   name: 'processHighlights',
+    //   title: 'Process Highlights',
+    //   type: 'array',
+    //   description: 'Key stats/highlights (4 recommended)',
+    //   of: [
+    //     {
+    //       type: 'object',
+    //       fields: [
+    //         {
+    //           name: 'icon',
+    //           title: 'Icon/Emoji',
+    //           type: 'string',
+    //           description: 'Emoji or icon (e.g., ⚡, 👥, 🏆)',
+    //         },
+    //         {
+    //           name: 'text',
+    //           title: 'Text',
+    //           type: 'string',
+    //           validation: (Rule) => Rule.required(),
+    //         },
+    //       ],
+    //       preview: {
+    //         select: {
+    //           title: 'text',
+    //           subtitle: 'icon',
+    //         },
+    //       },
+    //     },
+    //   ],
+    // }),
+    // defineField({
+    //   name: 'processContent',
+    //   title: 'Process Content',
+    //   type: 'array',
+    //   of: [{type: 'block'}],
+    //   description: 'Detailed process description (3 paragraphs recommended)',
+    // }),
+    
+    // Development Processes Section
+    defineField({
+      name: 'developmentProcesses',
+      title: 'Development Processes',
+      type: 'array',
+      description: 'Software development process steps (6 recommended)',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'title',
+              title: 'Process Title',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: 'description',
+              title: 'Description',
+              type: 'text',
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: 'icon',
+              title: 'Icon/Emoji',
+              type: 'string',
+              description: 'Emoji or icon (e.g., 👥, 📋, 🏗️)',
+            },
+          ],
+          preview: {
+            select: {
+              title: 'title',
+              subtitle: 'icon',
+            },
+          },
+        },
+      ],
+    }),
   ],
   preview: {
     select: {
