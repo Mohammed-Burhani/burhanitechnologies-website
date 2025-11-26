@@ -118,9 +118,6 @@ const Service = async ({ params }) => {
       )}
 
       <ServicePageClient service={service} />
-
-      <LatestProjects />
-      <Testimonials />
       <CTA2 />
     </>
   );
