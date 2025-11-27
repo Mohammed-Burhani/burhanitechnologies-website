@@ -22,10 +22,6 @@ export const ServiceDetails = ({ service }) => {
             ))}
           </div>
         )}
-        <button className="text-white font-semibold hover:underline flex items-center gap-2 group">
-          Learn more
-          <span className="group-hover:translate-x-2 transition-transform duration-300">→</span>
-        </button>
       </div>
     </div>
   );

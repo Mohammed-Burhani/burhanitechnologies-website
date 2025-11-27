@@ -3,7 +3,7 @@ import { Heading } from "@/components/textComponents/Heading";
 import { CompanyLogo } from "./CompanyLogo";
 import { TestimonialCard } from "./TestimonialCard";
 
-export const ServiceSocialProof = () => {
+export const ServiceSocialProof = ({ title }) => {
   // Using placeholder company names - you can add actual logos later
   const companies = [
     { name: "Microsoft", logo: null },
@@ -38,11 +38,13 @@ export const ServiceSocialProof = () => {
       <div className="absolute inset-0 bg-[#000] w-full h-full opacity-30" />
       
       <div className="relative z-10">
-        <div className="mb-16" data-aos="fade-up">
-          <Heading className="text-white text-4xl md:text-5xl mb-6 text-center">
-            Trusted by the World's Leading Companies
-          </Heading>
-        </div>
+        {title && (
+          <div className="mb-16" data-aos="fade-up">
+            <Heading className="text-white text-4xl md:text-5xl mb-6 text-center">
+              {title}
+            </Heading>
+          </div>
+        )}
 
         {/* Company Logos Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-16">

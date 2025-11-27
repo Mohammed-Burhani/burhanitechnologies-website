@@ -2,12 +2,10 @@
 import React, { useEffect, useState } from "react";
 import { client } from "@/sanity/lib/client";
 import { ServiceHero } from "@/components/Services/ServiceDetail/ServiceHero";
-import { ServiceIntro } from "@/components/Services/ServiceDetail/ServiceIntro";
 import { ServiceOfferings } from "@/components/Services/ServiceDetail/ServiceOfferings";
 import { ServiceCredibility } from "@/components/Services/ServiceDetail/ServiceCredibility";
 import { ServiceSocialProof } from "@/components/Services/ServiceDetail/ServiceSocialProof";
 import { ServiceCaseStudies } from "@/components/Services/ServiceDetail/ServiceCaseStudies";
-import { ServiceProcess } from "@/components/Services/ServiceDetail/ServiceProcess";
 import { ServiceProcesses } from "@/components/Services/ServiceDetail/ServiceProcesses";
 import RelatedBlogs from "@/components/Services/RelatedBlogs";
 
@@ -24,11 +22,16 @@ const ServicePageClient = ({ service }) => {
             body,
             heroDescription,
             introText,
+            offeringsTitle,
+            offeringsDescription,
             offerings,
+            capabilitiesTitle,
             capabilities,
-            processTitle,
-            processHighlights,
-            processContent,
+            socialProofTitle,
+            caseStudiesTitle,
+            caseStudiesDescription,
+            processesTitle,
+            processesDescription,
             developmentProcesses,
             benefitTitle,
             benefitDescription
@@ -70,35 +73,39 @@ const ServicePageClient = ({ service }) => {
         description={serviceDetails.heroDescription || serviceDetails.benefitTitle || "Transform your business with our cutting-edge solutions"}
       />
 
-      {/* 2. Intro Text */}
-      <ServiceIntro content={serviceDetails.introText} />
+      {/* 2. Services Section */}
+      <ServiceOfferings 
+        title={serviceDetails.offeringsTitle}
+        description={serviceDetails.offeringsDescription}
+        offerings={serviceDetails.offerings} 
+      />
 
-      {/* 3. Services Section */}
-      <ServiceOfferings offerings={serviceDetails.offerings} />
+      {/* 3. Credibility */}
+      <ServiceCredibility 
+        title={serviceDetails.capabilitiesTitle}
+        capabilities={serviceDetails.capabilities} 
+      />
 
-      {/* 4. Credibility */}
-      <ServiceCredibility capabilities={serviceDetails.capabilities} />
+      {/* 4. Social Proof - Trusted by section */}
+      <ServiceSocialProof title={serviceDetails.socialProofTitle} />
 
-      {/* 5. Social Proof - Trusted by section */}
-      <ServiceSocialProof />
+      {/* 5. Case Studies */}
+      <ServiceCaseStudies 
+        title={serviceDetails.caseStudiesTitle}
+        description={serviceDetails.caseStudiesDescription}
+      />
 
-      {/* 6. Case Studies */}
-      <ServiceCaseStudies />
+      {/* 6. Processes - Development Process */}
+      <ServiceProcesses 
+        title={serviceDetails.processesTitle}
+        description={serviceDetails.processesDescription}
+        processes={serviceDetails.developmentProcesses} 
+      />
 
-      {/* 7. Process / Why */}
-      {/* <ServiceProcess 
-        title={serviceDetails.processTitle}
-        highlights={serviceDetails.processHighlights}
-        content={serviceDetails.processContent}
-      /> */}
-
-      {/* 7b. Processes - Development Process */}
-      <ServiceProcesses processes={serviceDetails.developmentProcesses} />
-
-      {/* 8. Blog Posts */}
+      {/* 7. Blog Posts */}
       <RelatedBlogs serviceTitle={serviceDetails.title} />
 
-      {/* 9. CTA - Already in parent page.jsx */}
+      {/* 8. CTA - Already in parent page.jsx */}
     </div>
   );
 };

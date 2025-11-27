@@ -93,6 +93,18 @@ export default defineType({
     
     // Service Offerings Section
     defineField({
+      name: 'offeringsTitle',
+      title: 'Offerings Section Title',
+      type: 'string',
+      description: 'Main heading for offerings section',
+    }),
+    defineField({
+      name: 'offeringsDescription',
+      title: 'Offerings Section Description',
+      type: 'text',
+      description: 'Description text for offerings section',
+    }),
+    defineField({
       name: 'offerings',
       title: 'Service Offerings',
       type: 'array',
@@ -132,6 +144,34 @@ export default defineType({
     }),
     
     // Credibility Section
+    defineField({
+      name: 'capabilitiesTitle',
+      title: 'Capabilities Section Title',
+      type: 'string',
+      description: 'Main heading for capabilities section',
+    }),
+    
+    // Social Proof Section
+    defineField({
+      name: 'socialProofTitle',
+      title: 'Social Proof Section Title',
+      type: 'string',
+      description: 'Main heading for trusted companies section',
+    }),
+    
+    // Case Studies Section
+    defineField({
+      name: 'caseStudiesTitle',
+      title: 'Case Studies Section Title',
+      type: 'string',
+      description: 'Main heading for case studies section',
+    }),
+    defineField({
+      name: 'caseStudiesDescription',
+      title: 'Case Studies Section Description',
+      type: 'text',
+      description: 'Description text for case studies section',
+    }),
     defineField({
       name: 'capabilities',
       title: 'Capabilities',
@@ -211,6 +251,18 @@ export default defineType({
     // }),
     
     // Development Processes Section
+    defineField({
+      name: 'processesTitle',
+      title: 'Processes Section Title',
+      type: 'string',
+      description: 'Main heading for development processes section',
+    }),
+    defineField({
+      name: 'processesDescription',
+      title: 'Processes Section Description',
+      type: 'text',
+      description: 'Description text for development processes section',
+    }),
     defineField({
       name: 'developmentProcesses',
       title: 'Development Processes',

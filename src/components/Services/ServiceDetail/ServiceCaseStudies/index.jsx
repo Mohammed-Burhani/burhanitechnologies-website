@@ -8,7 +8,7 @@ import { CaseStudyContent } from "./CaseStudyContent";
 import { CaseStudyImage } from "./CaseStudyImage";
 import { CarouselControls } from "./CarouselControls";
 
-export const ServiceCaseStudies = () => {
+export const ServiceCaseStudies = ({ title, description }) => {
   const [caseStudies, setCaseStudies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -78,14 +78,20 @@ export const ServiceCaseStudies = () => {
 
   return (
     <Container className="bg-gradient-to-b from-purple-50 to-white py-20">
-      <div className="mb-16" data-aos="fade-up">
-        <Heading className="text-[#180030] text-4xl md:text-5xl mb-4">
-          Case Studies
-        </Heading>
-        <Body className="text-gray-600 text-lg max-w-4xl">
-          Discover the many ways in which our clients have embraced the benefits of the Burhani Technologies way of engineering.
-        </Body>
-      </div>
+      {(title || description) && (
+        <div className="mb-16" data-aos="fade-up">
+          {title && (
+            <Heading className="text-[#180030] text-4xl md:text-5xl mb-4">
+              {title}
+            </Heading>
+          )}
+          {description && (
+            <Body className="text-gray-600 text-lg max-w-4xl">
+              {description}
+            </Body>
+          )}
+        </div>
+      )}
 
       {/* Case Study Carousel */}
       <div className="relative">

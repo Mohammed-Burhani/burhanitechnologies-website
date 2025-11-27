@@ -35,7 +35,7 @@ export const ServiceHero = ({ title, description }) => {
               {description}
             </Body>
 
-            <div className="mt-10" data-aos="fade-up" data-aos-delay="200">
+            <div className="mt-10 w-fit mx-auto" data-aos="fade-up" data-aos-delay="200">
               <ContactModal />
             </div>
           </div>
