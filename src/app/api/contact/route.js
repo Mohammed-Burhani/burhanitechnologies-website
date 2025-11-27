@@ -84,7 +84,7 @@ Team Burhani Technologies
     <p>Thank you for reaching out to us. We have received your business inquiry and will review the details you've shared with us.</p>
     <p>A member of our team will contact you shortly to discuss how we can assist with your needs.</p>
     <p>Best regards,</p>
-    <p><strong>Your Company Team</strong></p>
+    <p><strong>Burhani Technologies</strong></p>
   </div>
 </body>
 </html>
