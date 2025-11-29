@@ -2,6 +2,7 @@
 import React from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -38,6 +39,7 @@ const validationSchema = Yup.object({
 
 function ContactForm() {
   const { toast } = useToast();
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const [submitStatus, setSubmitStatus] = React.useState(null);
 
   const initialValues = {
@@ -55,12 +57,29 @@ function ContactForm() {
 
     try {
       setSubmitting(true);
+
+      // Execute reCAPTCHA
+      if (!executeRecaptcha) {
+        toast({
+          title: "reCAPTCHA not ready",
+          description: "Please wait a moment and try again.",
+          variant: "destructive",
+        });
+        setSubmitting(false);
+        return;
+      }
+
+      const recaptchaToken = await executeRecaptcha("contact_form");
+
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(values),
+        body: JSON.stringify({
+          ...values,
+          recaptchaToken,
+        }),
       });
 
       const data = await response.json();
