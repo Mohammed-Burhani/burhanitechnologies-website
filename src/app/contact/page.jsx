@@ -1,5 +1,4 @@
-import ContactPageContent from "@/components/contact/ContactPageContent";
-import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
+import ContactPageWrapper from "@/components/contact/ContactPageWrapper";
 
 export const metadata = {
   title: "Contact Us | Burhani Technologies - Get In Touch",
@@ -24,11 +23,5 @@ export const metadata = {
 };
 
 export default function ContactPage() {
-  return (
-    <GoogleReCaptchaProvider
-      reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ""}
-    >
-      <ContactPageContent />
-    </GoogleReCaptchaProvider>
-  );
+  return <ContactPageWrapper />;
 }
