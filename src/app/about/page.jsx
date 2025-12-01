@@ -1,6 +1,8 @@
+import { ContactModal } from "@/components/constants/ContactModal";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata = {
   title: "About Burhani Technologies | Software Development Experts Chennai",
@@ -37,7 +39,7 @@ export default function About() {
           />
         </div>
         <div className="bg-gradient-to-b from-gray-900/50 to-black/60 absolute inset-0 w-full h-full" />
-        <div className="relative z-10 container mx-auto px-4 max-w-4xl text-center pt-20">
+        <div className="relative z-10 container mx-auto px-4 max-w-4xl text-center pt-20 flex flex-col justify-center items-center">
           <p className="text-sm md:text-base font-semibold text-white mb-4 uppercase tracking-wide">
             The Mission & Vision
           </p>
@@ -51,9 +53,7 @@ export default function About() {
             exceptional results and create new opportunities for efficiency and
             growth.
           </p>
-          <Button className="bg-[#6f36d2] hover:bg-[#5a2ba8] text-white font-bold px-8 py-3 rounded-lg">
-            Talk to Us
-          </Button>
+          <ContactModal />
         </div>
       </section>
 
@@ -62,7 +62,7 @@ export default function About() {
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-12">
             <p className="text-sm md:text-base font-semibold text-gray-600 mb-4 uppercase tracking-wide">
-              The Mission & Vision
+              Our Core Values
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               The Principles That Drive Us
@@ -435,7 +435,7 @@ export default function About() {
             groundwork for the exceptional solutions we deliver today.
           </p>
           <Button className="bg-[#6f36d2] hover:bg-[#5a2ba8] text-white font-bold px-8 py-3 rounded-lg">
-            Explore our services →
+            <Link href="/services">Explore our services →</Link>
           </Button>
         </div>
       </section>

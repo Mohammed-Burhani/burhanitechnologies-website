@@ -100,7 +100,7 @@ const Navbar = () => {
                       : "text-black hover:bg-purple-50 hover:text-[#8000ff]"
                 }`}
               >
-                About
+                Why Burhani
               </Body>
             </Link>
 
