@@ -262,10 +262,10 @@ export default function About() {
           {/* Culture Background Image */}
           <div className="relative w-full h-64 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden mb-12">
             <Image
-              src="/assets/about-middle.jpg"
+              src="/assets/about-middle.png"
               alt="Culture background"
-              width={500}
-              height={500}
+              width={5000}
+              height={5000}
               className="w-full h-full object-cover"
             />
           </div>

@@ -267,6 +267,21 @@ const Navbar = () => {
 
                   <li>
                     <Link
+                      href="/case-studies"
+                      onClick={closeMobileMenu}
+                      className={`block text-lg font-medium transition-colors py-3 ${
+                        pathname === "/case-studies" ||
+                        pathname.startsWith("/case-studies/")
+                          ? "text-[#6F36D2] bg-purple-50 px-4 rounded-lg"
+                          : "text-gray-900 hover:text-[#6F36D2]"
+                      }`}
+                    >
+                      Case Studies
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
                       href="/blog"
                       onClick={closeMobileMenu}
                       className={`block text-lg font-medium transition-colors py-3 ${
