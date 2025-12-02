@@ -30,10 +30,44 @@ export const metadata = {
   },
 };
 
+const ServicesStats = () => {
+  const stats = [
+    { value: "14+", label: "Years of Excellence" },
+    { value: "200+", label: "Projects Delivered" },
+    { value: "50+", label: "Happy Clients" },
+    { value: "24/7", label: "Support Available" },
+  ];
+
+  return (
+    <div className="bg-gradient-to-br from-[#2B1343] to-[#1a0a2e] py-16 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          {stats.map((stat, index) => (
+            <div
+              key={index}
+              className="text-center"
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+            >
+              <div className="text-4xl md:text-5xl font-bold text-white mb-2">
+                {stat.value}
+              </div>
+              <div className="text-gray-300 text-sm md:text-base">
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const services = () => {
   return (
     <div>
       <Banner />
+      <ServicesStats />
       <ServiceList />
       <LatestProjects />
       <Testimonials />
