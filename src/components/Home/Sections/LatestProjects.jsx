@@ -138,7 +138,7 @@ const ProjectCard = ({ project, index }) => {
             className="flex items-center gap-2 bg-white text-[#6622DC] px-6 py-3 rounded-full font-medium hover:bg-[#6622DC] hover:text-white transition-all duration-300 transform translate-y-4 group-hover:translate-y-0"
           >
             <span>Visit Site</span>
-            <ExternalDrive size={18} />
+            <ArrowRight size={18} color="currentColor" />
           </a>
         </div>
       </div>

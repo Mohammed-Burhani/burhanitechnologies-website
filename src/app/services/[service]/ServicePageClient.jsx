@@ -8,6 +8,7 @@ import { ServiceSocialProof } from "@/components/Services/ServiceDetail/ServiceS
 import { ServiceCaseStudies } from "@/components/Services/ServiceDetail/ServiceCaseStudies";
 import { ServiceProcesses } from "@/components/Services/ServiceDetail/ServiceProcesses";
 import RelatedBlogs from "@/components/Services/RelatedBlogs";
+import { Testimonials } from "@/components/Home/Sections/Testimonials";
 
 const ServicePageClient = ({ service }) => {
   const [serviceDetails, setServiceDetails] = useState(null);
@@ -68,42 +69,47 @@ const ServicePageClient = ({ service }) => {
   return (
     <div>
       {/* 1. Hero Section with H1 */}
-      <ServiceHero 
+      <ServiceHero
         title={serviceDetails.title}
-        description={serviceDetails.heroDescription || serviceDetails.benefitTitle || "Transform your business with our cutting-edge solutions"}
-      />
-
-      {/* 2. Services Section */}
-      <ServiceOfferings 
-        title={serviceDetails.offeringsTitle}
-        description={serviceDetails.offeringsDescription}
-        offerings={serviceDetails.offerings} 
+        description={
+          serviceDetails.heroDescription ||
+          serviceDetails.benefitTitle ||
+          "Transform your business with our cutting-edge solutions"
+        }
       />
 
       {/* 3. Credibility */}
-      <ServiceCredibility 
+      <ServiceCredibility
         title={serviceDetails.capabilitiesTitle}
-        capabilities={serviceDetails.capabilities} 
+        capabilities={serviceDetails.capabilities}
       />
 
-      {/* 4. Social Proof - Trusted by section */}
-      <ServiceSocialProof title={serviceDetails.socialProofTitle} />
+      {/* 2. Services Section */}
+      <ServiceOfferings
+        title={serviceDetails.offeringsTitle}
+        description={serviceDetails.offeringsDescription}
+        offerings={serviceDetails.offerings}
+      />
 
       {/* 5. Case Studies */}
-      <ServiceCaseStudies 
+      <ServiceCaseStudies
         title={serviceDetails.caseStudiesTitle}
         description={serviceDetails.caseStudiesDescription}
       />
 
       {/* 6. Processes - Development Process */}
-      <ServiceProcesses 
+      <ServiceProcesses
         title={serviceDetails.processesTitle}
         description={serviceDetails.processesDescription}
-        processes={serviceDetails.developmentProcesses} 
+        processes={serviceDetails.developmentProcesses}
       />
 
       {/* 7. Blog Posts */}
       <RelatedBlogs serviceTitle={serviceDetails.title} />
+      
+      {/* 4. Social Proof - Trusted by section */}
+      {/* <ServiceSocialProof title={serviceDetails.socialProofTitle} /> */}
+      <Testimonials />
 
       {/* 8. CTA - Already in parent page.jsx */}
     </div>
