@@ -26,11 +26,11 @@ export const LatestProjects = () => {
       redirectTo: "https://www.kagindia.com/",
     },
     {
-      title: "RBC Bearings",
-      desc: "We developed a CMS-based website for RBC Bearings, providing a strong digital presence for their industrial product offerings.",
+      title: "ABTEKS",
+      desc: "We built a modern, dynamic website for Abteks Flow Solutions LLP, showcasing their premium flow control products and technical expertise. The platform delivers a seamless experience, making it easy for clients to explore products and connect with Abteks.",
       image: "/projectW/image (8).png",
-      category: "CMS Development",
-      redirectTo: "https://rbcbearings.in/",
+      category: "Website Revamp",
+      redirectTo: "https://abteks.com/",
     },
     {
       title: "Mirakare",
