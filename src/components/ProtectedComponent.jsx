@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./constants/Navbar";
 import { GoToTop } from "./constants/GoToTop";
+import { WhatsAppFAB } from "./constants/WhatsAppFAB";
 import { Footer } from "./constants/Footer";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -31,6 +32,7 @@ const ProtectedComponent = ({ children }) => {
     // }
     <div>
       <Navbar />
+      <WhatsAppFAB />
       <GoToTop />
       {children}
       <ProgressBar
