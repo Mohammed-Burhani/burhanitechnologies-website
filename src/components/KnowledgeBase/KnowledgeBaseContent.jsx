@@ -50,7 +50,7 @@ const CategoryCard = ({ category, isActive, onClick, faqCount }) => {
             {category.icon}
           </span>
         )}
-        <h3 className="font-semibold text-lg mb-2 text-left">{category.title}</h3>
+        <h3 className="font-semibold text-lg mb-2 text-center">{category.title}</h3>
       </div>
       {isActive && (
         <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent pointer-events-none" />
