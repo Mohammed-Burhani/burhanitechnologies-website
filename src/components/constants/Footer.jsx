@@ -99,6 +99,12 @@ export const Footer = () => {
             </li>
 
             <li>
+              <a className="text-white transition hover:text-white/75" href="/knowledge-base">
+                <Body>Help</Body>
+              </a>
+            </li>
+
+            <li>
               <a className="text-white transition hover:text-white/75" href="/contact">
                 <Body>Contact</Body>
               </a>
