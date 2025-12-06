@@ -51,9 +51,6 @@ const CategoryCard = ({ category, isActive, onClick, faqCount }) => {
           </span>
         )}
         <h3 className="font-semibold text-lg mb-2 text-left">{category.title}</h3>
-        <p className={`text-sm text-left ${isActive ? 'text-purple-100' : 'text-gray-500'}`}>
-          {faqCount} article{faqCount !== 1 ? 's' : ''}
-        </p>
       </div>
       {isActive && (
         <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent pointer-events-none" />
