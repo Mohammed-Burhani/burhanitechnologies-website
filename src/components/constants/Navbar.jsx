@@ -152,6 +152,22 @@ const Navbar = () => {
                 Blog
               </Body>
             </Link>
+
+            <Link href="/knowledge-base">
+              <Body
+                className={`px-4 py-2 rounded-lg transition ${
+                  pathname === "/knowledge-base" || pathname.startsWith("/knowledge-base/")
+                    ? "bg-purple-100 text-[#6F36D2]"
+                    : isHomePage
+                      ? isScrolled
+                        ? "text-black hover:bg-purple-50 hover:text-[#8000ff]"
+                        : "text-white hover:bg-white/10 hover:text-[#8000ff]"
+                      : "text-black hover:bg-purple-50 hover:text-[#8000ff]"
+                }`}
+              >
+                Help
+              </Body>
+            </Link>
           </ul>
         </nav>
 
@@ -291,6 +307,20 @@ const Navbar = () => {
                       }`}
                     >
                       Blog
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
+                      href="/knowledge-base"
+                      onClick={closeMobileMenu}
+                      className={`block text-lg font-medium transition-colors py-3 ${
+                        pathname === "/knowledge-base" || pathname.startsWith("/knowledge-base/")
+                          ? "text-[#6F36D2] bg-purple-50 px-4 rounded-lg"
+                          : "text-gray-900 hover:text-[#6F36D2]"
+                      }`}
+                    >
+                      Help
                     </Link>
                   </li>
                 </ul>
