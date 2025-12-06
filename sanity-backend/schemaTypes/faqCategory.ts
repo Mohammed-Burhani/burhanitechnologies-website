@@ -24,9 +24,18 @@ export default defineType({
     }),
     defineField({
       name: 'icon',
-      title: 'Icon',
+      title: 'Icon (Emoji)',
       type: 'string',
-      description: 'Icon name or emoji (e.g., 📚, 🎯, 💳)',
+      description: 'Icon emoji (e.g., 📚, 🎯, 💳) - Used as fallback if no image is uploaded',
+    }),
+    defineField({
+      name: 'iconImage',
+      title: 'Icon Image',
+      type: 'image',
+      description: 'Upload an icon image (recommended size: 64x64px). This will be used instead of emoji if provided.',
+      options: {
+        hotspot: true,
+      },
     }),
     defineField({
       name: 'order',

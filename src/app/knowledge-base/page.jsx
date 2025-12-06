@@ -29,6 +29,10 @@ async function getFAQData() {
       title,
       slug,
       icon,
+      "iconImage": iconImage.asset->{
+        _id,
+        url
+      },
       order,
       description
     },

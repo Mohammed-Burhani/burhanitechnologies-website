@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { ChevronDown, Search, MessageCircle, HelpCircle, Sparkles } from "lucide-react";
+import { ChevronDown, Search, MessageCircle, HelpCircle } from "lucide-react";
 import Container from "../constants/Container";
 
 const FAQItem = ({ question, answer, isOpen, onClick }) => {
@@ -34,46 +34,41 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
   );
 };
 
-const CategoryCard = ({ category, isActive, onClick, faqCount }) => {
+const CategoryCard = ({ category, isActive, onClick, iconUrl, faqCount }) => {
   return (
     <button
       onClick={onClick}
-      className={`group relative overflow-hidden rounded-2xl p-6 transition-all duration-300 flex-1 ${
+      className={`group relative overflow-hidden rounded-2xl p-4 transition-all duration-300 text-center lg:flex-1 w-full ${
         isActive
-          ? "bg-gradient-to-br from-[#6F36D2] to-[#5a2bb0] text-white shadow-xl scale-105"
-          : "bg-white text-gray-700 hover:shadow-lg border-2 border-gray-100 hover:border-[#6F36D2]/30"
+          ? "bg-gradient-to-br from-[#6F36D2] to-[#5a2bb0] text-white shadow-lg"
+          : "bg-white text-gray-700 hover:shadow-md border border-gray-200 hover:border-[#6F36D2]/30"
       }`}
     >
       <div className="relative z-10">
-        {category.icon && (
-          <span className={`text-3xl mb-3 block transition-transform group-hover:scale-110 ${isActive ? '' : 'grayscale'}`}>
+        {iconUrl ? (
+          <img 
+            src={iconUrl} 
+            alt={category.title}
+            className={`w-12 h-12 object-contain mx-auto mb-3 transition-all ${isActive ? '' : 'opacity-70 group-hover:opacity-100'}`}
+          />
+        ) : category.icon && (
+          <span className={`text-4xl mb-3 block transition-transform group-hover:scale-110 ${isActive ? '' : 'opacity-70'}`}>
             {category.icon}
           </span>
         )}
-        <h3 className="font-semibold text-lg mb-2 text-center">{category.title}</h3>
+        <h3 className="font-semibold text-base mb-1">{category.title}</h3>
+        {/* <p className={`text-xs ${isActive ? 'text-purple-100' : 'text-gray-500'}`}>
+          {faqCount} article{faqCount !== 1 ? 's' : ''}
+        </p> */}
       </div>
       {isActive && (
-        <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
       )}
     </button>
   );
 };
 
-const StatCard = ({ number, label, icon: Icon }) => {
-  return (
-    <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all hover:-translate-y-1">
-      <div className="flex items-center gap-4">
-        <div className="bg-gradient-to-br from-[#6F36D2] to-[#5a2bb0] rounded-xl p-3">
-          <Icon className="w-6 h-6 text-white" />
-        </div>
-        <div>
-          <div className="text-3xl font-bold text-gray-900">{number}</div>
-          <div className="text-sm text-gray-600">{label}</div>
-        </div>
-      </div>
-    </div>
-  );
-};
+
 
 export const KnowledgeBaseContent = ({ categories = [], faqs = [] }) => {
   // Listen for search events from hero
@@ -115,7 +110,7 @@ export const KnowledgeBaseContent = ({ categories = [], faqs = [] }) => {
 
   return (
     <Container className="bg-gradient-to-b from-gray-50 to-white">
-      <div className="mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto">
         {hasNoContent ? (
           <div className="text-center py-20">
             <div className="mx-auto">
@@ -133,20 +128,23 @@ export const KnowledgeBaseContent = ({ categories = [], faqs = [] }) => {
             {/* Category Cards Grid */}
             <div className="mb-16">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Browse by Category</h2>
-              <div className="flex flex-wrap gap-4">
-                {categories.map((category) => (
-                  <CategoryCard
-                    key={category._id}
-                    category={category}
-                    isActive={activeCategory === category._id}
-                    onClick={() => {
-                      setActiveCategory(category._id);
-                      setSearchQuery("");
-                      setOpenFAQIndex(null);
-                    }}
-                    faqCount={getCategoryFaqCount(category._id)}
-                  />
-                ))}
+              <div className="bg-gradient-to-br from-indigo-100 to-indigo-200 rounded-3xl shadow-sm border border-gray-200 p-6 md:p-8">
+                <div className="flex flex-wrap gap-4">
+                  {categories.map((category) => (
+                    <CategoryCard
+                      key={category._id}
+                      category={category}
+                      isActive={activeCategory === category._id}
+                      onClick={() => {
+                        setActiveCategory(category._id);
+                        setSearchQuery("");
+                        setOpenFAQIndex(null);
+                      }}
+                      iconUrl={category.iconImage?.asset?.url}
+                      faqCount={getCategoryFaqCount(category._id)}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
 
