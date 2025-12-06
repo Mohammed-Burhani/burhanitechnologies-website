@@ -35,7 +35,7 @@ export const KnowledgeBaseHero = () => {
   };
 
   return (
-    <div className="relative bg-gradient-to-br from-[#0a0014] via-[#1a0a2e] to-[#0a0014] py-24 md:py-40 overflow-hidden">
+    <Container className="relative bg-gradient-to-br from-[#0a0014] via-[#1a0a2e] to-[#0a0014] overflow-hidden !pb-0">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute w-[600px] h-[600px] blur-[150px] rounded-full bg-[#6F36D2]/20 -top-48 -left-48 animate-pulse" />
@@ -51,7 +51,7 @@ export const KnowledgeBaseHero = () => {
       </div>
 
       <Container className="relative z-10">
-        <div className="max-w-5xl mx-auto text-center">
+        <div className="mx-auto text-center">
           <div data-aos="fade-down">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#6F36D2]/10 border border-[#6F36D2]/20 mb-8">
@@ -105,22 +105,6 @@ export const KnowledgeBaseHero = () => {
               </div>
             </div>
           </form>
-
-          {/* Quick stats */}
-          <div className="grid grid-cols-3 gap-6 max-w-2xl mx-auto mt-16" data-aos="fade-up" data-aos-delay="200">
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">50+</div>
-              <div className="text-sm text-gray-400">Articles</div>
-            </div>
-            <div className="text-center border-x border-white/10">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">5</div>
-              <div className="text-sm text-gray-400">Categories</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">24/7</div>
-              <div className="text-sm text-gray-400">Support</div>
-            </div>
-          </div>
         </div>
       </Container>
 
@@ -140,6 +124,6 @@ export const KnowledgeBaseHero = () => {
           animation: float-delayed 8s ease-in-out infinite;
         }
       `}</style>
-    </div>
+    </Container>
   );
 };
