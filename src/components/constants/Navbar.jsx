@@ -320,7 +320,7 @@ const Navbar = () => {
                           : "text-gray-900 hover:text-[#6F36D2]"
                       }`}
                     >
-                      Help
+                      Work we do
                     </Link>
                   </li>
                 </ul>
