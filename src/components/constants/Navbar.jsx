@@ -4,13 +4,6 @@ import Link from "next/link";
 import { Body } from "../textComponents/Body";
 import { useEffect, useState } from "react";
 import { useAtom } from "jotai";
-import { checkScrollStatus } from "@/store/store";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
 import { usePathname } from "next/navigation";
 import { ContactModal } from "./ContactModal";
 
@@ -165,7 +158,7 @@ const Navbar = () => {
                       : "text-black hover:bg-purple-50 hover:text-[#8000ff]"
                 }`}
               >
-                Help
+                Work we do
               </Body>
             </Link>
           </ul>
