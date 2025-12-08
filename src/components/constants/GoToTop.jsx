@@ -2,10 +2,20 @@
 import { checkScrollStatus } from "@/store/store";
 import { ArrowUp2 } from "iconsax-react";
 import { useAtom } from "jotai";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export const GoToTop = () => {
   const [isScrolled] = useAtom(checkScrollStatus);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
+
   return (
     <div
       className={` ${isScrolled ? "fixed" : "hidden"}  right-7 bottom-24 z-50`}

@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useAtom } from "jotai";
 import { usePathname } from "next/navigation";
 import { ContactModal } from "./ContactModal";
+import { checkScrollStatus } from "@/store/store";
 
 const Navbar = () => {
   const pathname = usePathname();
