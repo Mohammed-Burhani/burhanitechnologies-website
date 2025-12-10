@@ -46,26 +46,26 @@ const Navbar = () => {
 
   return (
     <header
-      className={`w-full border-b border-gray-100 bg-clip-padding backdrop-filter backdrop-blur-md !z-[9999999999] transition-colors duration-300 h-fit sm:h-32 pr-5 sm:px-20 py-4 fixed ${
+      className={`w-full border-b border-gray-100 bg-clip-padding backdrop-filter backdrop-blur-md !z-[9999999999] transition-colors duration-300 h-fit sm:h-20 lg:h-24 pr-3 sm:px-5 2xl:px-20 py-3 lg:py-4 fixed ${
         isScrolled ? "bg-white/60" : "!bg-white/50"
       }`}
     >
       <div className="flex !justify-between items-center">
-        <div className="bg-white lg:px-10 rounded-xl ml-4 lg:ml-0">
+        <div className="bg-white lg:pl-6 xl:px-10 rounded-xl ml-2 sm:ml-4 lg:ml-0">
           <Image
             alt="Burhani Technologies"
             width={500}
             height={500}
             src={"/BT-Logo.svg"}
-            className="w-52 h-14 md:w-80 md:!h-24 7xl:!w-96 7xl:!h-24 -translate-x-4"
+            className="w-32 h-8 sm:w-40 sm:h-10 md:w-48 md:h-12 lg:w-56 lg:h-14 xl:w-64 xl:h-16 -translate-x-2 sm:-translate-x-4"
           />
         </div>
 
         <nav
           aria-label="Global"
-          className="hidden md:flex w-full justify-center items-center"
+          className="hidden lg:flex w-full justify-center items-center"
         >
-          <ul className="flex items-center gap-10 text-sm">
+          <ul className="flex items-center gap-4 xl:gap-6 2xl:gap-8 text-sm">
             <Link href={"/"}>
               <Body
                 className={`px-4 py-2 rounded-lg transition ${
@@ -165,8 +165,97 @@ const Navbar = () => {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-4">
-          <div className="hidden md:flex sm:gap-4">
+        {/* Medium screen navigation (tablets/small laptops) */}
+        <nav
+          aria-label="Global"
+          className="hidden md:flex lg:hidden w-full justify-center items-center"
+        >
+          <ul className="flex items-center gap-2 text-xs">
+            <Link href={"/"}>
+              <Body
+                className={`px-2 py-1 rounded-lg transition text-xs ${
+                  pathname === "/"
+                    ? "bg-purple-100 text-[#6F36D2]"
+                    : isHomePage
+                      ? isScrolled
+                        ? "text-black hover:bg-purple-50 hover:text-[#8000ff]"
+                        : "text-white hover:bg-white/10 hover:text-[#8000ff]"
+                      : "text-black hover:bg-purple-50 hover:text-[#8000ff]"
+                }`}
+              >
+                Home
+              </Body>
+            </Link>
+
+            <Link href="/about">
+              <Body
+                className={`px-2 py-1 rounded-lg transition text-xs ${
+                  pathname === "/about" || pathname.startsWith("/about/")
+                    ? "bg-purple-100 text-[#6F36D2]"
+                    : isHomePage
+                      ? isScrolled
+                        ? "text-black hover:bg-purple-50 hover:text-[#8000ff]"
+                        : "text-white hover:bg-white/10 hover:text-[#8000ff]"
+                      : "text-black hover:bg-purple-50 hover:text-[#8000ff]"
+                }`}
+              >
+                About
+              </Body>
+            </Link>
+
+            <Link href="/services">
+              <Body
+                className={`px-2 py-1 rounded-lg transition text-xs ${
+                  pathname === "/services" || pathname.startsWith("/services/")
+                    ? "bg-purple-100 text-[#6F36D2]"
+                    : isHomePage
+                      ? isScrolled
+                        ? "text-black hover:bg-purple-50 hover:text-[#8000ff]"
+                        : "text-white hover:bg-white/10 hover:text-[#8000ff]"
+                      : "text-black hover:bg-purple-50 hover:text-[#8000ff]"
+                }`}
+              >
+                Services
+              </Body>
+            </Link>
+
+            <Link href="/case-studies">
+              <Body
+                className={`px-2 py-1 rounded-lg transition text-xs ${
+                  pathname === "/case-studies" ||
+                  pathname.startsWith("/case-studies/")
+                    ? "bg-purple-100 text-[#6F36D2]"
+                    : isHomePage
+                      ? isScrolled
+                        ? "text-black hover:bg-purple-50 hover:text-[#8000ff]"
+                        : "text-white hover:bg-white/10 hover:text-[#8000ff]"
+                      : "text-black hover:bg-purple-50 hover:text-[#8000ff]"
+                }`}
+              >
+                Cases
+              </Body>
+            </Link>
+
+            <Link href="/knowledge-base">
+              <Body
+                className={`px-2 py-1 rounded-lg transition text-xs ${
+                  pathname === "/knowledge-base" || pathname.startsWith("/knowledge-base/")
+                    ? "bg-purple-100 text-[#6F36D2]"
+                    : isHomePage
+                      ? isScrolled
+                        ? "text-black hover:bg-purple-50 hover:text-[#8000ff]"
+                        : "text-white hover:bg-white/10 hover:text-[#8000ff]"
+                      : "text-black hover:bg-purple-50 hover:text-[#8000ff]"
+                }`}
+              >
+                Work
+              </Body>
+            </Link>
+          </ul>
+        </nav>
+
+        <div className="flex items-center gap-2 lg:gap-4">
+          <div className="hidden md:flex sm:gap-2 lg:gap-4">
             <ContactModal />
           </div>
 
@@ -198,13 +287,13 @@ const Navbar = () => {
           {/* Drawer - Full Screen White Background */}
           <div className="absolute inset-0 w-full h-screen bg-white overflow-y-auto animate-in slide-in-from-right duration-300">
             {/* Header */}
-            <div className="flex items-center justify-between p-6 border-b border-gray-200 bg-white">
+            <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200 bg-white">
               <Image
                 alt="Burhani Technologies"
                 width={200}
                 height={60}
                 src={"/BT-Logo.svg"}
-                className="w-40 h-12"
+                className="w-32 h-10 sm:w-40 sm:h-12"
               />
               <button
                 onClick={closeMobileMenu}
