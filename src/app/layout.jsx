@@ -134,6 +134,20 @@ export default function RootLayout({ children }) {
           src="https://www.googletagmanager.com/gtag/js?id=G-3B1EB1YBXX"
           strategy="afterInteractive"
         />
+        {/* Marketing Manager Tracking Code Start */}
+        <Script id="marketing-manager-tracking" strategy="afterInteractive">
+          {`!function () { var e, t; e = document.createElement("script"), e.type = "text/javascript",e.async = !0, e.defer = !0, e.src ="https://mkmpages.burhanitechnologies.com/6666?isnew=1&pdn=mkmpages.burhanitechnologies.com&v=" + String((new Date).getMonth() + 1) + String((new Date).getFullYear()) +String(Math.round(parseInt((new Date).getDate() / 7), 0) + 1) +"&encsid=71DEnjHXXHQ,&enccid=xGvuWINf1Fg,&wsid=NzM0&dHJhY2tpbmdVcmw=2PtuCvDuCGT5LwTmxa5wjl35YCAFpwehX6VzxWewIgs,", t =document.getElementsByTagName("head")[0], t.appendChild(e, t) }();`}
+        </Script>
+        <noscript>
+          <p>
+            <img
+              src="https://mkmpages.burhanitechnologies.com/7777?idsite=734"
+              style={{ border: 0 }}
+              alt=""
+            />
+          </p>
+        </noscript>
+        {/* Marketing Manager Tracking Code End */}
       </body>
     </html>
   );
