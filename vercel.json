@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd .migration-backup && npm install --legacy-peer-deps && npm run build",
+  "outputDirectory": ".migration-backup/.next",
+  "installCommand": "cd .migration-backup && npm install --legacy-peer-deps",
+  "framework": "nextjs"
+}
