@@ -17,7 +17,7 @@ export const CaseStudyContent = ({ study }) => {
       </h3>
       
       <Body className="text-gray-700 mb-4">
-        {study.excerpt || study.goal}
+        {study.outcome || study.goal}
       </Body>
 
       <Body className="text-[#6F36D2] font-semibold mb-6">

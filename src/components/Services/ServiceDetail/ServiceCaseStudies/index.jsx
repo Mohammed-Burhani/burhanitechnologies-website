@@ -24,6 +24,7 @@ export const ServiceCaseStudies = ({ title, description }) => {
           client,
           industry,
           excerpt,
+          outcome,
           bannerImage,
           goal
         }`;
