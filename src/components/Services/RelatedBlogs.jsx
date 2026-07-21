@@ -1,5 +1,4 @@
-"use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Container from "@/components/constants/Container";
@@ -8,57 +7,27 @@ import { urlForImage } from "@/sanity/lib/image";
 import { Calendar, Clock, ArrowRight } from "iconsax-react";
 import { format } from "date-fns";
 
-const RelatedBlogs = ({ serviceTitle }) => {
-  const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
+async function getRelatedBlogs() {
+  const query = `*[_type == "blog"] | order(publishedAt desc) [0...3]{
+    _id,
+    title,
+    slug,
+    excerpt,
+    mainImage,
+    author,
+    publishedAt,
+    readTime,
+    categories
+  }`;
 
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        // Fetch blogs that might be related to the service
-        // You can customize the query based on your needs
-        const result = await client.fetch(
-          `*[_type == "blog"] | order(publishedAt desc) [0...3]{
-            _id,
-            title,
-            slug,
-            excerpt,
-            mainImage,
-            author,
-            publishedAt,
-            readTime,
-            categories
-          }`
-        );
-        setBlogs(result);
-      } catch (error) {
-        console.error("Error fetching related blogs:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const blogs = await client.fetch(query, {}, {
+    cache: 'no-store' // Don't cache, always fetch fresh
+  });
+  return blogs;
+}
 
-    fetchBlogs();
-  }, [serviceTitle]);
-
-  if (loading) {
-    return (
-      <Container className="bg-gray-50 py-16">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="font-inter text-captionLarge xl:text-mdcaptionLarge 4xl:text-lgcaptionLarge 7xl:mdtext-captionLarge leading-snug font-bold text-[#180030] mb-8">Related Blog Posts</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="animate-pulse">
-                <div className="bg-gray-200 h-48 rounded-lg mb-4" />
-                <div className="h-4 bg-gray-200 rounded w-3/4 mb-2" />
-                <div className="h-4 bg-gray-200 rounded w-1/2" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </Container>
-    );
-  }
+const RelatedBlogs = async ({ serviceTitle }) => {
+  const blogs = await getRelatedBlogs();
 
   if (blogs.length === 0) {
     return null;

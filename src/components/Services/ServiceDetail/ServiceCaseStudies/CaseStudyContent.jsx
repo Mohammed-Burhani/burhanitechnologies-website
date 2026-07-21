@@ -17,11 +17,11 @@ export const CaseStudyContent = ({ study }) => {
       </h3>
       
       <Body className="text-gray-700 mb-4">
-        {study.outcome || study.goal}
+        {study.excerpt || study.goal}
       </Body>
 
       <Body className="text-[#6F36D2] font-semibold mb-6">
-        Reduced the order fulfillment lead time by 70% and got visibility of inventory levels across 200+ fulfillment partners having 5000+ product SKUs.
+        {study.outcome}
       </Body>
 
       <Link

@@ -1,5 +1,4 @@
-"use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Heading } from "@/components/textComponents/Heading";
 import { Body } from "@/components/textComponents/Body";
 import Container from "@/components/constants/Container";
@@ -14,21 +13,24 @@ import { slugify } from "@/utils/slugify";
 import { ArrowRight } from "iconsax-react";
 import { urlForImage } from "@/sanity/lib/image";
 
-const ServiceList = () => {
-  const [services, setServices] = useState([]);
+async function getServices() {
+  const query = `*[_type == "services"] | order(_createdAt desc) {
+    _id,
+    title,
+    body,
+    serviceIcon,
+    serviceImage,
+    slug
+  }`;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await client.fetch(`*[_type == "services"]{ title, body, serviceIcon, serviceImage, slug }`);
-        setServices(result);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
+  const services = await client.fetch(query, {}, {
+    cache: 'no-store' // Don't cache, always fetch fresh
+  });
+  return services;
+}
 
-    fetchData();
-  }, []);
+const ServiceList = async () => {
+  const services = await getServices();
 
   return (
     <Container className="flex flex-col items-center bg-white gap-16 relative overflow-hidden">

@@ -42,7 +42,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const caseStudy = await getCaseStudy(params.slug);
+  const resolvedParams = await params;
+  const caseStudy = await getCaseStudy(resolvedParams.slug);
 
   if (!caseStudy) {
     return {
@@ -57,7 +58,8 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function CaseStudyPage({ params }) {
-  const caseStudy = await getCaseStudy(params.slug);
+  const resolvedParams = await params;
+  const caseStudy = await getCaseStudy(resolvedParams.slug);
 
   if (!caseStudy) {
     notFound();
