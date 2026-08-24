@@ -21,7 +21,14 @@ const BlogList = () => {
             title,
             slug,
             excerpt,
-            mainImage,
+            mainImage {
+              asset->{
+                _id,
+                url
+              },
+              alt,
+              caption
+            },
             author,
             publishedAt,
             readTime,
@@ -111,7 +118,7 @@ const BlogCard = ({ blog, featured = false }) => {
       
       <div className="relative bg-white rounded-2xl overflow-hidden">
         <div className="relative overflow-hidden">
-          {blog.mainImage ? (
+          {blog.mainImage && urlForImage(blog.mainImage) ? (
             <Image
               src={urlForImage(blog.mainImage)}
               alt={blog.title}

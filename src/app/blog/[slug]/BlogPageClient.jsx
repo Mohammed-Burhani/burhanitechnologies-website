@@ -28,7 +28,14 @@ const BlogPageClient = ({ slug }) => {
             slug,
             excerpt,
             body,
-            mainImage,
+            mainImage {
+              asset->{
+                _id,
+                url
+              },
+              alt,
+              caption
+            },
             author,
             publishedAt,
             readTime,
@@ -59,7 +66,14 @@ const BlogPageClient = ({ slug }) => {
               title,
               slug,
               excerpt,
-              mainImage,
+              mainImage {
+                asset->{
+                  _id,
+                  url
+                },
+                alt,
+                caption
+              },
               publishedAt,
               readTime
             }`,
@@ -193,7 +207,7 @@ const BlogPageClient = ({ slug }) => {
             {/* Main Content Area */}
             <div className="lg:col-span-2">
               {/* Featured Image with Modern Styling */}
-              {blogDetails.mainImage && (
+              {blogDetails.mainImage && urlForImage(blogDetails.mainImage) && (
                 <div className="relative mb-12 group">
                   <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-300" />
                   <Image
@@ -317,7 +331,7 @@ const RelatedBlogCard = ({ blog }) => {
       href={`/blog/${blog.slug.current}`}
       className="group block bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow"
     >
-      {blog.mainImage ? (
+      {blog.mainImage && urlForImage(blog.mainImage) ? (
         <Image
           src={urlForImage(blog.mainImage)}
           alt={blog.title}

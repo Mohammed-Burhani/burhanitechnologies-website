@@ -13,7 +13,14 @@ async function getRelatedBlogs() {
     title,
     slug,
     excerpt,
-    mainImage,
+    mainImage {
+      asset->{
+        _id,
+        url
+      },
+      alt,
+      caption
+    },
     author,
     publishedAt,
     readTime,
@@ -66,7 +73,7 @@ const BlogCard = ({ blog }) => {
       className="group block bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
     >
       <div className="relative overflow-hidden">
-        {blog.mainImage ? (
+        {blog.mainImage && urlForImage(blog.mainImage) ? (
           <Image
             src={urlForImage(blog.mainImage)}
             alt={blog.title}

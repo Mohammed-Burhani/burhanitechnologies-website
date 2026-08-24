@@ -10,11 +10,18 @@ export async function generateMetadata({ params }) {
 
   // Fetch blog details from Sanity
   const blogData = await client.fetch(
-    `*[_type == "blog" && slug.current == $slug] [0]{ 
-      title, 
-      excerpt, 
+    `*[_type == "blog" && slug.current == $slug] [0]{
+      title,
+      excerpt,
       author,
-      mainImage,
+      mainImage {
+        asset->{
+          _id,
+          url
+        },
+        alt,
+        caption
+      },
       publishedAt
     }`,
     { slug }
@@ -68,13 +75,20 @@ const BlogPost = async ({ params }) => {
 
   // Fetch blog data for schema markup
   const blogData = await client.fetch(
-    `*[_type == "blog" && slug.current == $slug] [0]{ 
-      title, 
-      slug, 
+    `*[_type == "blog" && slug.current == $slug] [0]{
+      title,
+      slug,
       excerpt,
       author,
       publishedAt,
-      mainImage
+      mainImage {
+        asset->{
+          _id,
+          url
+        },
+        alt,
+        caption
+      }
     }`,
     { slug }
   );
