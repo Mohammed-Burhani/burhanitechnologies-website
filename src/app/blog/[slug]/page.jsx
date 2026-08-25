@@ -15,10 +15,7 @@ export async function generateMetadata({ params }) {
       excerpt,
       author,
       mainImage {
-        asset->{
-          _id,
-          url
-        },
+        asset,
         alt,
         caption
       },
@@ -82,10 +79,7 @@ const BlogPost = async ({ params }) => {
       author,
       publishedAt,
       mainImage {
-        asset->{
-          _id,
-          url
-        },
+        asset,
         alt,
         caption
       }

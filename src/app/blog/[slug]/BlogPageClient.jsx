@@ -29,10 +29,7 @@ const BlogPageClient = ({ slug }) => {
             excerpt,
             body,
             mainImage {
-              asset->{
-                _id,
-                url
-              },
+              asset,
               alt,
               caption
             },
@@ -67,10 +64,7 @@ const BlogPageClient = ({ slug }) => {
               slug,
               excerpt,
               mainImage {
-                asset->{
-                  _id,
-                  url
-                },
+                asset,
                 alt,
                 caption
               },

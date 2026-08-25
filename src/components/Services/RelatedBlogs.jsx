@@ -14,10 +14,7 @@ async function getRelatedBlogs() {
     slug,
     excerpt,
     mainImage {
-      asset->{
-        _id,
-        url
-      },
+      asset,
       alt,
       caption
     },
