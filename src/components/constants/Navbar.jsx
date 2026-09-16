@@ -1,419 +1,159 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { Body } from "../textComponents/Body";
+import { List, X } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useAtom } from "jotai";
 import { usePathname } from "next/navigation";
 import { ContactModal } from "./ContactModal";
 import { checkScrollStatus } from "@/store/store";
 
+const NAV_LINKS = [
+  { href: "/", label: "Home", match: (p) => p === "/" },
+  { href: "/about", label: "Why Burhani", match: (p) => p === "/about" || p.startsWith("/about/") },
+  { href: "/services", label: "Services", match: (p) => p === "/services" || p.startsWith("/services/") },
+  { href: "/case-studies", label: "Case Studies", match: (p) => p === "/case-studies" || p.startsWith("/case-studies/") },
+  { href: "/blog", label: "Blog", match: (p) => p === "/blog" || p.startsWith("/blog/") },
+  { href: "/knowledge-base", label: "Work we do", match: (p) => p === "/knowledge-base" || p.startsWith("/knowledge-base/") },
+];
+
 const Navbar = () => {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useAtom(checkScrollStatus);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isCompanyDropdownOpen, setIsCompanyDropdownOpen] = useState(false);
+
+  const isHomePage = pathname === "/" || /^\/services\/.+/.test(pathname);
+  const isDarkSurface = isHomePage && !isScrolled;
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > window.innerHeight);
     };
-
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [setIsScrolled]);
 
-  // Prevent background scrolling when mobile menu is open
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-
-    // Cleanup on unmount
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "unset";
     return () => {
       document.body.style.overflow = "unset";
     };
   }, [isMobileMenuOpen]);
 
-  const isHomePage = pathname === "/" || /^\/services\/.+/.test(pathname);
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-    setIsCompanyDropdownOpen(false);
+  const linkClasses = (active) => {
+    if (active) return "bg-[#6F36D2]/10 text-[#6F36D2]";
+    if (isDarkSurface) return "text-white/80 hover:bg-white/10 hover:text-white";
+    return "text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900";
   };
 
   return (
     <header
-      className={`w-full border-b border-gray-100 bg-clip-padding backdrop-filter backdrop-blur-md !z-[9999999999] transition-colors duration-300 h-fit sm:h-20 lg:h-24 pr-3 sm:px-5 2xl:px-20 py-3 lg:py-4 fixed ${
-        isScrolled ? "bg-white/60" : "!bg-white/50"
+      className={`fixed inset-x-0 top-0 z-50 h-16 border-b backdrop-blur-md transition-colors duration-300 lg:h-[72px] ${
+        isDarkSurface
+          ? "border-white/10 bg-black/30"
+          : "border-zinc-200 bg-white/80"
       }`}
     >
-      <div className="flex !justify-between items-center">
-        <div className="bg-white lg:pl-6 xl:px-10 rounded-xl ml-2 sm:ml-4 lg:ml-0">
+      <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-4 sm:px-6 2xl:px-10">
+        <Link href="/" className="flex shrink-0 items-center" onClick={closeMobileMenu}>
           <Image
             alt="Burhani Technologies"
-            width={500}
-            height={500}
-            src={"/BT-Logo.svg"}
-            className="w-32 h-8 sm:w-40 sm:h-10 md:w-48 md:h-12 lg:w-56 lg:h-14 xl:w-64 xl:h-16 -translate-x-2 sm:-translate-x-4"
+            width={180}
+            height={44}
+            priority
+            src="/BT-Logo.svg"
+            className={`h-8 w-auto sm:h-9 lg:h-10 ${isDarkSurface ? "" : ""}`}
           />
-        </div>
+        </Link>
 
-        <nav
-          aria-label="Global"
-          className="hidden lg:flex w-full justify-center items-center"
-        >
-          <ul className="flex items-center gap-4 xl:gap-6 2xl:gap-8 text-sm">
-            <Link href={"/"}>
-              <Body
-                className={`px-4 py-2 rounded-lg transition ${
-                  pathname === "/"
-                    ? "bg-purple-100 text-[#6F36D2]"
-                    : isHomePage
-                      ? isScrolled
-                        ? "text-black hover:bg-purple-50 hover:text-[#8000ff]"
-                        : "text-white hover:bg-white/10 hover:text-[#8000ff]"
-                      : "text-black hover:bg-purple-50 hover:text-[#8000ff]"
-                }`}
-              >
-                Home
-              </Body>
-            </Link>
-
-            <Link href="/about">
-              <Body
-                className={`px-4 py-2 rounded-lg transition ${
-                  pathname === "/about" || pathname.startsWith("/about/")
-                    ? "bg-purple-100 text-[#6F36D2]"
-                    : isHomePage
-                      ? isScrolled
-                        ? "text-black hover:bg-purple-50 hover:text-[#8000ff]"
-                        : "text-white hover:bg-white/10 hover:text-[#8000ff]"
-                      : "text-black hover:bg-purple-50 hover:text-[#8000ff]"
-                }`}
-              >
-                Why Burhani
-              </Body>
-            </Link>
-
-            <Link href="/services">
-              <Body
-                className={`px-4 py-2 rounded-lg transition ${
-                  pathname === "/services" || pathname.startsWith("/services/")
-                    ? "bg-purple-100 text-[#6F36D2]"
-                    : isHomePage
-                      ? isScrolled
-                        ? "text-black hover:bg-purple-50 hover:text-[#8000ff]"
-                        : "text-white hover:bg-white/10 hover:text-[#8000ff]"
-                      : "text-black hover:bg-purple-50 hover:text-[#8000ff]"
-                }`}
-              >
-                Services
-              </Body>
-            </Link>
-
-            <Link href="/case-studies">
-              <Body
-                className={`px-4 py-2 rounded-lg transition ${
-                  pathname === "/case-studies" ||
-                  pathname.startsWith("/case-studies/")
-                    ? "bg-purple-100 text-[#6F36D2]"
-                    : isHomePage
-                      ? isScrolled
-                        ? "text-black hover:bg-purple-50 hover:text-[#8000ff]"
-                        : "text-white hover:bg-white/10 hover:text-[#8000ff]"
-                      : "text-black hover:bg-purple-50 hover:text-[#8000ff]"
-                }`}
-              >
-                Case Studies
-              </Body>
-            </Link>
-
-            <Link href="/blog">
-              <Body
-                className={`px-4 py-2 rounded-lg transition ${
-                  pathname === "/blog" || pathname.startsWith("/blog/")
-                    ? "bg-purple-100 text-[#6F36D2]"
-                    : isHomePage
-                      ? isScrolled
-                        ? "text-black hover:bg-purple-50 hover:text-[#8000ff]"
-                        : "text-white hover:bg-white/10 hover:text-[#8000ff]"
-                      : "text-black hover:bg-purple-50 hover:text-[#8000ff]"
-                }`}
-              >
-                Blog
-              </Body>
-            </Link>
-
-            <Link href="/knowledge-base">
-              <Body
-                className={`px-4 py-2 rounded-lg transition ${
-                  pathname === "/knowledge-base" || pathname.startsWith("/knowledge-base/")
-                    ? "bg-purple-100 text-[#6F36D2]"
-                    : isHomePage
-                      ? isScrolled
-                        ? "text-black hover:bg-purple-50 hover:text-[#8000ff]"
-                        : "text-white hover:bg-white/10 hover:text-[#8000ff]"
-                      : "text-black hover:bg-purple-50 hover:text-[#8000ff]"
-                }`}
-              >
-                Work we do
-              </Body>
-            </Link>
+        <nav aria-label="Global" className="hidden lg:flex">
+          <ul className="flex items-center gap-1 text-sm font-medium">
+            {NAV_LINKS.map((link) => {
+              const active = link.match(pathname);
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`rounded-lg px-3.5 py-2 transition-colors duration-200 ${linkClasses(active)}`}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
 
-        {/* Medium screen navigation (tablets/small laptops) */}
-        <nav
-          aria-label="Global"
-          className="hidden md:flex lg:hidden w-full justify-center items-center"
-        >
-          <ul className="flex items-center gap-2 text-xs">
-            <Link href={"/"}>
-              <Body
-                className={`px-2 py-1 rounded-lg transition text-xs ${
-                  pathname === "/"
-                    ? "bg-purple-100 text-[#6F36D2]"
-                    : isHomePage
-                      ? isScrolled
-                        ? "text-black hover:bg-purple-50 hover:text-[#8000ff]"
-                        : "text-white hover:bg-white/10 hover:text-[#8000ff]"
-                      : "text-black hover:bg-purple-50 hover:text-[#8000ff]"
-                }`}
-              >
-                Home
-              </Body>
-            </Link>
-
-            <Link href="/about">
-              <Body
-                className={`px-2 py-1 rounded-lg transition text-xs ${
-                  pathname === "/about" || pathname.startsWith("/about/")
-                    ? "bg-purple-100 text-[#6F36D2]"
-                    : isHomePage
-                      ? isScrolled
-                        ? "text-black hover:bg-purple-50 hover:text-[#8000ff]"
-                        : "text-white hover:bg-white/10 hover:text-[#8000ff]"
-                      : "text-black hover:bg-purple-50 hover:text-[#8000ff]"
-                }`}
-              >
-                About
-              </Body>
-            </Link>
-
-            <Link href="/services">
-              <Body
-                className={`px-2 py-1 rounded-lg transition text-xs ${
-                  pathname === "/services" || pathname.startsWith("/services/")
-                    ? "bg-purple-100 text-[#6F36D2]"
-                    : isHomePage
-                      ? isScrolled
-                        ? "text-black hover:bg-purple-50 hover:text-[#8000ff]"
-                        : "text-white hover:bg-white/10 hover:text-[#8000ff]"
-                      : "text-black hover:bg-purple-50 hover:text-[#8000ff]"
-                }`}
-              >
-                Services
-              </Body>
-            </Link>
-
-            <Link href="/case-studies">
-              <Body
-                className={`px-2 py-1 rounded-lg transition text-xs ${
-                  pathname === "/case-studies" ||
-                  pathname.startsWith("/case-studies/")
-                    ? "bg-purple-100 text-[#6F36D2]"
-                    : isHomePage
-                      ? isScrolled
-                        ? "text-black hover:bg-purple-50 hover:text-[#8000ff]"
-                        : "text-white hover:bg-white/10 hover:text-[#8000ff]"
-                      : "text-black hover:bg-purple-50 hover:text-[#8000ff]"
-                }`}
-              >
-                Cases
-              </Body>
-            </Link>
-
-            <Link href="/knowledge-base">
-              <Body
-                className={`px-2 py-1 rounded-lg transition text-xs ${
-                  pathname === "/knowledge-base" || pathname.startsWith("/knowledge-base/")
-                    ? "bg-purple-100 text-[#6F36D2]"
-                    : isHomePage
-                      ? isScrolled
-                        ? "text-black hover:bg-purple-50 hover:text-[#8000ff]"
-                        : "text-white hover:bg-white/10 hover:text-[#8000ff]"
-                      : "text-black hover:bg-purple-50 hover:text-[#8000ff]"
-                }`}
-              >
-                Work
-              </Body>
-            </Link>
-          </ul>
-        </nav>
-
-        <div className="flex items-center gap-2 lg:gap-4">
-          <div className="hidden md:flex sm:gap-2 lg:gap-4">
+        <div className="flex items-center gap-3">
+          <div className="hidden md:block">
             <ContactModal />
           </div>
 
           <button
+            type="button"
             onClick={() => setIsMobileMenuOpen(true)}
-            className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75 w-full block md:hidden"
+            aria-label="Open menu"
+            className={`inline-flex items-center justify-center rounded-lg p-2 transition-colors duration-200 lg:hidden ${
+              isDarkSurface
+                ? "text-white hover:bg-white/10"
+                : "text-zinc-700 hover:bg-zinc-100"
+            }`}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="size-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
+            <List size={22} weight="bold" />
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-[99999999999] md:hidden">
-          {/* Drawer - Full Screen White Background */}
-          <div className="absolute inset-0 w-full h-screen bg-white overflow-y-auto animate-in slide-in-from-right duration-300">
-            {/* Header */}
-            <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200 bg-white">
+        <div className="fixed inset-0 z-50 lg:hidden">
+          <div className="absolute inset-0 flex h-[100dvh] flex-col overflow-y-auto bg-white">
+            <div className="flex items-center justify-between border-b border-zinc-200 p-4 sm:p-6">
               <Image
                 alt="Burhani Technologies"
-                width={200}
-                height={60}
-                src={"/BT-Logo.svg"}
-                className="w-32 h-10 sm:w-40 sm:h-12"
+                width={160}
+                height={40}
+                src="/BT-Logo.svg"
+                className="h-8 w-auto sm:h-9"
               />
               <button
+                type="button"
                 onClick={closeMobileMenu}
-                className="p-2 rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors"
+                aria-label="Close menu"
+                className="rounded-lg p-2 text-zinc-600 transition-colors duration-200 hover:bg-zinc-100"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-6 h-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
+                <X size={22} weight="bold" />
               </button>
             </div>
 
-            {/* Navigation */}
-            <div className="flex flex-col min-h-[calc(100vh-88px)] bg-white">
-              <nav className="flex-1 px-6 py-8 bg-white">
-                <ul className="space-y-6">
-                  <li>
-                    <Link
-                      href="/"
-                      onClick={closeMobileMenu}
-                      className={`block text-lg font-medium transition-colors py-3 ${
-                        pathname === "/"
-                          ? "text-[#6F36D2] bg-purple-50 px-4 rounded-lg"
-                          : "text-gray-900 hover:text-[#6F36D2]"
-                      }`}
-                    >
-                      Home
-                    </Link>
-                  </li>
+            <nav className="flex-1 px-6 py-6">
+              <ul className="space-y-1">
+                {NAV_LINKS.map((link) => {
+                  const active = link.match(pathname);
+                  return (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        onClick={closeMobileMenu}
+                        className={`block rounded-lg px-4 py-3 text-base font-medium transition-colors duration-200 ${
+                          active
+                            ? "bg-[#6F36D2]/10 text-[#6F36D2]"
+                            : "text-zinc-900 hover:bg-zinc-50"
+                        }`}
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </nav>
 
-                  <li>
-                    <Link
-                      href="/about"
-                      onClick={closeMobileMenu}
-                      className={`block text-lg font-medium transition-colors py-3 ${
-                        pathname === "/about" ||
-                        pathname.startsWith("/about/")
-                          ? "text-[#6F36D2] bg-purple-50 px-4 rounded-lg"
-                          : "text-gray-900 hover:text-[#6F36D2]"
-                      }`}
-                    >
-                      About
-                    </Link>
-                  </li>
-
-                  <li>
-                    <Link
-                      href="/services"
-                      onClick={closeMobileMenu}
-                      className={`block text-lg font-medium transition-colors py-3 ${
-                        pathname === "/services" ||
-                        pathname.startsWith("/services/")
-                          ? "text-[#6F36D2] bg-purple-50 px-4 rounded-lg"
-                          : "text-gray-900 hover:text-[#6F36D2]"
-                      }`}
-                    >
-                      Services
-                    </Link>
-                  </li>
-
-                  <li>
-                    <Link
-                      href="/case-studies"
-                      onClick={closeMobileMenu}
-                      className={`block text-lg font-medium transition-colors py-3 ${
-                        pathname === "/case-studies" ||
-                        pathname.startsWith("/case-studies/")
-                          ? "text-[#6F36D2] bg-purple-50 px-4 rounded-lg"
-                          : "text-gray-900 hover:text-[#6F36D2]"
-                      }`}
-                    >
-                      Case Studies
-                    </Link>
-                  </li>
-
-                  <li>
-                    <Link
-                      href="/blog"
-                      onClick={closeMobileMenu}
-                      className={`block text-lg font-medium transition-colors py-3 ${
-                        pathname === "/blog" || pathname.startsWith("/blog/")
-                          ? "text-[#6F36D2] bg-purple-50 px-4 rounded-lg"
-                          : "text-gray-900 hover:text-[#6F36D2]"
-                      }`}
-                    >
-                      Blog
-                    </Link>
-                  </li>
-
-                  <li>
-                    <Link
-                      href="/knowledge-base"
-                      onClick={closeMobileMenu}
-                      className={`block text-lg font-medium transition-colors py-3 ${
-                        pathname === "/knowledge-base" || pathname.startsWith("/knowledge-base/")
-                          ? "text-[#6F36D2] bg-purple-50 px-4 rounded-lg"
-                          : "text-gray-900 hover:text-[#6F36D2]"
-                      }`}
-                    >
-                      Work we do
-                    </Link>
-                  </li>
-                </ul>
-              </nav>
-
-              {/* Contact Button */}
-              <div className="p-6 border-t border-gray-200 bg-white mt-auto">
-                <div onClick={closeMobileMenu}>
-                  <ContactModal className="w-full justify-center" />
-                </div>
+            <div className="mt-auto border-t border-zinc-200 p-6">
+              <div onClick={closeMobileMenu}>
+                <ContactModal className="w-full justify-center" />
               </div>
             </div>
           </div>
