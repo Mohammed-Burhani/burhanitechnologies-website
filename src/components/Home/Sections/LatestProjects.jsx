@@ -1,158 +1,115 @@
 "use client";
-import { useState } from "react";
-import Container from "@/components/constants/Container";
-import { Body } from "@/components/textComponents/Body";
-import { Heading } from "@/components/textComponents/Heading";
-import { ArrowRight, ExternalDrive } from "iconsax-react";
-import Link from "next/link";
+
 import Image from "next/image";
+import { ArrowUpRight } from "@phosphor-icons/react";
 
-export const LatestProjects = () => {
-  const [showAll, setShowAll] = useState(false);
+const clients = [
+  {
+    name: "Lehry Valves",
+    category: "Supply chain & CRM",
+    image: "/projectW/image (4).png",
+    href: "https://lehryvalves.com/",
+  },
+  {
+    name: "KAG Tiles",
+    category: "E-commerce",
+    image: "/projectW/image (3).png",
+    href: "https://www.kagindia.com/",
+  },
+  {
+    name: "ABTEKS",
+    category: "Industrial web",
+    image: "/projectW/image (8).png",
+    href: "https://abteks.com/",
+  },
+  {
+    name: "Mirakare",
+    category: "Healthcare platform",
+    image: "/projectW/image (7).png",
+    href: "https://mirakare.com/",
+  },
+  {
+    name: "PBHR Homeopathy",
+    category: "Healthcare records",
+    image: "/projectW/image (9).png",
+    href: "https://pbhrc.in/",
+  },
+  {
+    name: "DriveX",
+    category: "Rental platform",
+    image: "/projectW/image (2).png",
+    href: "https://www.drivex.in/",
+  },
+];
 
-  const projects = [
-    {
-      title: "Drive X",
-      desc: "We built a dynamic website for DriveX, featuring easy booking, seamless browsing, and a modern rental experience.",
-      image: "/projectW/image (2).png",
-      category: "Web Development",
-      redirectTo: "https://www.drivex.in/",
-    },
-    {
-      title: "KAG Tiles",
-      desc: "We built a user-friendly e-commerce platform for KAG Tiles, ensuring seamless shopping for their premium tile collection.",
-      image: "/projectW/image (3).png",
-      category: "E-Commerce",
-      redirectTo: "https://www.kagindia.com/",
-    },
-    {
-      title: "ABTEKS",
-      desc: "We built a modern, dynamic website for Abteks Flow Solutions LLP, showcasing their premium flow control products and technical expertise. The platform delivers a seamless experience, making it easy for clients to explore products and connect with Abteks.",
-      image: "/projectW/image (8).png",
-      category: "Website Revamp",
-      redirectTo: "https://abteks.com/",
-    },
-    {
-      title: "Mirakare",
-      desc: "MiraKare is an advanced healthcare platform for managing vitals, journaling activities, scheduling appointments, and tracking patient records.",
-      image: "/projectW/image (7).png",
-      category: "Healthcare",
-      redirectTo: "https://mirakare.com/",
-    },
-    {
-      title: "PBHR Homeopathy Hospital",
-      desc: "We digitized patient records for PBHR Homeopathy Hospital, making homeopathic healthcare services more accessible and efficiently managed online.",
-      image: "/projectW/image (9).png",
-      category: "Healthcare",
-      redirectTo: "https://pbhrc.in/",
-    },
-    {
-      title: "Lehry Valves",
-      desc: "We developed a supply chain and CRM software solution for Lehry Valves, optimizing their business operations and efficiency.",
-      image: "/projectW/image (4).png",
-      category: "ERP & CRM",
-      redirectTo: "https://lehryvalves.com/",
-    },
-    {
-      title: "Anitha Industries",
-      desc: "We implemented and customized ZipERP software for Anitha Industries, streamlining retail, factory, and production management operations.",
-      image: "/projectW/image (5).png",
-      category: "ERP & CRM",
-      redirectTo: "https://anithahomeappliances.com/",
-    },
-  ];
-
-  const displayedProjects = showAll ? projects : projects.slice(0, 6);
-
+const ClientReferences = () => {
   return (
-    <Container className="bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="w-[500px] h-[500px] blur-[250px] rounded-full bg-[#6622DC]/10 absolute -right-32 top-0" />
-      
-      {/* Header Section */}
-      <div className="text-center max-w-3xl mx-auto mb-16" data-aos="fade-down">
-        <h4 className="uppercase text-[#6622DC] font-extrabold tracking-wider text-sm mb-4">
-          Our Work
-        </h4>
-        <Heading className="mb-4">Innovation at Work</Heading>
-        <Body className="text-gray-600">
-          Every project we undertake is a blend of creativity, technology, and
-          strategy. We build solutions that drive growth, enhance efficiency,
-          and create lasting impact.
-        </Body>
-      </div>
+    <section className="relative overflow-hidden bg-white py-16 sxl:py-24">
+      {/* Tech-grid backdrop: same restrained-accent language as the hero, not decoration for its own sake */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-[0.35]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgba(111,54,210,0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(111,54,210,0.08) 1px, transparent 1px)",
+          backgroundSize: "48px 48px",
+          maskImage:
+            "radial-gradient(ellipse 80% 60% at 50% 40%, black 40%, transparent 100%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 80% 60% at 50% 40%, black 40%, transparent 100%)",
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-0 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-[#6F36D2]/[0.06] blur-[120px]"
+      />
 
-      {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-        {displayedProjects.map((project, index) => (
-          <ProjectCard key={index} project={project} index={index} />
-        ))}
-      </div>
-
-      {/* View All Button */}
-      {!showAll && projects.length > 6 && (
-        <div className="text-center" data-aos="fade-up">
-          <button
-            onClick={() => setShowAll(true)}
-            className="inline-flex items-center gap-3 bg-[#6622DC] hover:bg-[#7c3ae8] text-white px-8 py-4 rounded-full font-medium transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
-          >
-            <span>View All Projects</span>
-            <ArrowRight size={20} />
-          </button>
-        </div>
-      )}
-    </Container>
-  );
-};
-
-const ProjectCard = ({ project, index }) => {
-  return (
-    <div
-      className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500"
-      data-aos="fade-up"
-      data-aos-delay={index * 100}
-    >
-      {/* Image Container */}
-      <div className="relative h-72 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
-        <Image
-          src={project.image}
-          width={500}
-          height={500}
-          alt={project.title}
-          className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
-        />
-        
-        {/* Category Badge */}
-        <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full">
-          <span className="text-xs font-semibold text-[#6622DC]">
-            {project.category}
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 2xl:px-10">
+        <div className="mb-10 flex flex-col items-center gap-3 sxl:mb-14">
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#6F36D2]/20 bg-[#6F36D2]/[0.05] px-3 py-1 font-inter text-smallText font-medium text-[#6F36D2]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#6F36D2]" />
+            In production today
           </span>
+          <p className="font-inter text-body md:text-mdbody text-center font-medium text-zinc-700">
+            Businesses running on software we built
+          </p>
         </div>
 
-        {/* Overlay with CTA */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8">
-          <a
-            href={project.redirectTo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-white text-[#6622DC] px-6 py-3 rounded-full font-medium hover:bg-[#6622DC] hover:text-white transition-all duration-300 transform translate-y-4 group-hover:translate-y-0"
-          >
-            <span>Visit Site</span>
-            <ArrowRight size={18} color="currentColor" />
-          </a>
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 sxl:grid-cols-6 sxl:gap-5">
+          {clients.map((client) => (
+            <a
+              key={client.name}
+              href={client.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative block overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-[#6F36D2]/40 hover:shadow-lg hover:shadow-[#6F36D2]/[0.08]"
+            >
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-zinc-100">
+                <Image
+                  src={client.image}
+                  alt={client.name}
+                  fill
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
+                  className="object-cover object-top grayscale transition-all duration-300 group-hover:grayscale-0"
+                />
+                <span className="absolute right-2 top-2 flex h-7 w-7 items-center justify-center rounded-full bg-white/90 text-zinc-500 opacity-0 shadow-sm backdrop-blur-sm transition-all duration-200 group-hover:opacity-100 group-hover:text-[#6F36D2]">
+                  <ArrowUpRight size={14} weight="bold" />
+                </span>
+              </div>
+              <div className="flex flex-col gap-0.5 border-t border-zinc-100 px-3 py-2.5">
+                <span className="font-inter text-smallText md:text-mdsmallText font-medium text-zinc-800 transition-colors duration-200 group-hover:text-[#6F36D2]">
+                  {client.name}
+                </span>
+                <span className="font-inter text-[11px] text-zinc-400">
+                  {client.category}
+                </span>
+              </div>
+            </a>
+          ))}
         </div>
       </div>
-
-      {/* Content */}
-      <div className="p-6">
-        <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-[#6622DC] transition-colors">
-          {project.title}
-        </h3>
-        <Body className="text-gray-600 line-clamp-3">{project.desc}</Body>
-      </div>
-
-      {/* Bottom accent line */}
-      <div className="h-1 bg-gradient-to-r from-[#6622DC] to-[#8000FF] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-    </div>
+    </section>
   );
 };
+
+export default ClientReferences;
