@@ -3,13 +3,14 @@ import { About1 } from "@/components/Home/Sections/About1";
 import { Client } from "@/components/Home/Sections/Client";
 import { CTA } from "@/components/Home/Sections/CTA";
 import { CTA2 } from "@/components/Home/Sections/CTA2";
-import { LatestProjects } from "@/components/Home/Sections/LatestProjects";
+import ClientReferences, from "@/components/Home/Sections/LatestProjects";
 import { Testimonials } from "@/components/Home/Sections/Testimonials";
 import { WhoAreWe } from "@/components/Home/Sections/WhoAreWe";
 import { FAQ } from "@/components/Home/Sections/FAQ";
 import Script from "next/script";
 import { generateFAQSchema } from "@/utils/schema";
 import { Differentiators } from "@/components/Home/Sections/differentiators";
+import EngineeringApproach from "@/components/Home/Sections/engineering-approach";
 
 // FAQ data for schema markup
 const homepageFAQs = [
@@ -114,12 +115,14 @@ export default function Home() {
 
       <div className="">
         <Banner />
-        <Client />
+        {/* <TrustStrip /> */}
+        <ClientReferences />
+        {/* <Client /> */}
+        <EngineeringApproach/>
         <About1 />
         <WhoAreWe />
         <CTA />
         <Differentiators />
-        <LatestProjects />
         <Testimonials />
         <FAQ />
         <CTA2 />
