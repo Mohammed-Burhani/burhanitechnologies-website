@@ -42,23 +42,9 @@ const homepageFAQs = [
 
 export const metadata = {
   metadataBase: new URL("https://burhanitechnologies.com"),
-  title: "Burhani Technologies | Custom Software Development & Enterprise Automation",
+  title: "Custom Software Development Company | Burhani Technologies",
   description:
-    "Leading software development company in Chennai specializing in Custom ERP Implementation, AI/ML Automation, DevOps/Azure, and Business Process Automation. 14+ years of expertise serving healthcare, manufacturing, and enterprise clients globally.",
-  keywords: [
-    "custom software development Chennai",
-    "ERP implementation",
-    "business process automation",
-    "AI automation solutions",
-    "DevOps services Chennai",
-    "Azure cloud services",
-    "software development company",
-    "RPA solutions",
-    "workflow automation",
-    "enterprise software development",
-    "Microsoft Power Platform",
-    "custom ERP systems",
-  ],
+    "Custom software engineering since 2010. Burhani builds applications, ERP and automation around your operations, with experience across real client projects.",
   authors: [{ name: "Burhani Technologies" }],
   creator: "Burhani Technologies",
   publisher: "Burhani Technologies",
@@ -72,9 +58,9 @@ export const metadata = {
     locale: "en_IN",
     url: "https://burhanitechnologies.com",
     siteName: "Burhani Technologies",
-    title: "Burhani Technologies | Custom Software Development & Enterprise Automation",
+    title: "Custom Software Development Company | Burhani Technologies",
     description:
-      "Leading software development company in Chennai with 14+ years of expertise in Custom ERP, AI/ML Automation, DevOps/Azure, and Business Process Automation.",
+      "Custom software engineering since 2010. Burhani builds applications, ERP and automation around your operations, with experience across real client projects.",
     images: [
       {
         url: "/BT-Logo.svg",
@@ -86,9 +72,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Burhani Technologies | Custom Software Development",
+    title: "Custom Software Development Company | Burhani Technologies",
     description:
-      "Leading software development company specializing in Custom ERP, AI/ML Automation, and Business Process Automation.",
+      "Custom software engineering since 2010. Burhani builds applications, ERP and automation around your operations, with experience across real client projects.",
     images: ["/BT-Logo.svg"],
   },
   robots: {
