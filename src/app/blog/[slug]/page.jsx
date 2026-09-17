@@ -1,7 +1,6 @@
 import React from "react";
 import Script from "next/script";
 import { client } from "@/sanity/lib/client";
-import { CTA2 } from "@/components/Home/Sections/CTA2";
 import BlogPageClient from "./BlogPageClient";
 
 // Generate metadata for SEO
@@ -165,8 +164,6 @@ const BlogPost = async ({ params }) => {
       />
 
       <BlogPageClient slug={slug} />
-
-      <CTA2 />
     </>
   );
 };
