@@ -11,6 +11,9 @@ import Script from "next/script";
 import { generateFAQSchema } from "@/utils/schema";
 import { Differentiators } from "@/components/Home/Sections/differentiators";
 import EngineeringApproach from "@/components/Home/Sections/engineering-approach";
+import PainPoints from "@/components/Home/Sections/pain-point";
+import ConnectedSystems from "@/components/Home/Sections/connected-systems";
+import WhatWeBuild from "@/components/Home/Sections/what-we-build";
 
 // FAQ data for schema markup
 const homepageFAQs = [
@@ -119,9 +122,12 @@ export default function Home() {
         <ClientReferences />
         {/* <Client /> */}
         <EngineeringApproach/>
-        <About1 />
-        <WhoAreWe />
-        <CTA />
+        <PainPoints />
+        {/* <About1 /> */}
+        {/* <WhoAreWe /> */}
+        <ConnectedSystems/>
+        {/* <CTA /> */}
+        <WhatWeBuild />
         <Differentiators />
         <Testimonials />
         <FAQ />
