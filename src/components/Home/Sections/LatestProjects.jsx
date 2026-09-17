@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { ArrowUpRight } from "@phosphor-icons/react";
+import Container from "@/components/constants/Container";
 
 const clients = [
   {
@@ -64,7 +65,7 @@ const ClientReferences = () => {
         className="pointer-events-none absolute left-1/2 top-0 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-[#6F36D2]/[0.06] blur-[120px]"
       />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 2xl:px-10">
+      <Container className="relative">
         <div className="mb-10 flex flex-col items-center gap-3 sxl:mb-14">
           <span className="inline-flex items-center gap-2 rounded-full border border-[#6F36D2]/20 bg-[#6F36D2]/[0.05] px-3 py-1 font-inter text-smallText font-medium text-[#6F36D2]">
             <span className="h-1.5 w-1.5 rounded-full bg-[#6F36D2]" />
@@ -107,7 +108,7 @@ const ClientReferences = () => {
             </a>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

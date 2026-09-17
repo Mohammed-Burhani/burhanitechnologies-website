@@ -57,7 +57,7 @@ const Navbar = () => {
           : "border-zinc-200 bg-white/80"
       }`}
     >
-      <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-4 sm:px-6 2xl:px-10">
+      <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-7 sm:px-10 xl:px-20">
         <Link href="/" className="flex shrink-0 items-center" onClick={closeMobileMenu}>
           <Image
             alt="Burhani Technologies"
