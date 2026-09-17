@@ -49,3 +49,6 @@ work_*
 # Local Netlify folder
 .netlify
 .netlify/**/.env.local
+
+.agents/skills
+.claude/skills
