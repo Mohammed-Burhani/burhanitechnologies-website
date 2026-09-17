@@ -24,7 +24,9 @@ export default defineType({
     defineField({
       name: 'author',
       title: 'Author',
-      type: 'string',
+      type: 'reference',
+      to: [{type: 'author'}],
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'mainImage',
@@ -38,7 +40,7 @@ export default defineType({
       name: 'categories',
       title: 'Categories',
       type: 'array',
-      of: [{type: 'string'}],
+      of: [{type: 'reference', to: [{type: 'blogCategory'}]}],
     }),
     defineField({
       name: 'tags',
