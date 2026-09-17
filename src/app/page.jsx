@@ -1,12 +1,5 @@
 import Banner from "@/components/Home/Banner";
-import { About1 } from "@/components/Home/Sections/About1";
-import { Client } from "@/components/Home/Sections/Client";
-import { CTA } from "@/components/Home/Sections/CTA";
-import { CTA2 } from "@/components/Home/Sections/CTA2";
-import ClientReferences, from "@/components/Home/Sections/LatestProjects";
-import { Testimonials } from "@/components/Home/Sections/Testimonials";
-import { WhoAreWe } from "@/components/Home/Sections/WhoAreWe";
-import { FAQ } from "@/components/Home/Sections/FAQ";
+import ClientReferences from "@/components/Home/Sections/LatestProjects";
 import Script from "next/script";
 import { generateFAQSchema } from "@/utils/schema";
 import { Differentiators } from "@/components/Home/Sections/differentiators";
@@ -14,33 +7,51 @@ import EngineeringApproach from "@/components/Home/Sections/engineering-approach
 import PainPoints from "@/components/Home/Sections/pain-point";
 import ConnectedSystems from "@/components/Home/Sections/connected-systems";
 import WhatWeBuild from "@/components/Home/Sections/what-we-build";
+import AtAGlance from "@/components/Home/Sections/at-a-glance";
+import ProcessSteps from "@/components/Home/Sections/process-steps";
+import Sectors from "@/components/Home/Sections/sectors";
+import CaseStudiesShowcase from "@/components/Home/Sections/case-studies-showcase";
+import { FAQ } from "@/components/Home/Sections/FAQ";
+import PlanYourProject from "@/components/Home/Sections/plan-your-project";
+import VisitOffice from "@/components/Home/Sections/visit-office";
 
-// FAQ data for schema markup
+// FAQ data for schema markup, kept in sync with the visible copy in
+// components/Home/Sections/FAQ.jsx ("Planning a project with Burhani")
 const homepageFAQs = [
   {
-    question: "What's your typical project timeline?",
+    question: "How long does a project take?",
     answer:
-      "Our Agile approach delivers initial working versions in 4-6 weeks, with full implementations ranging from 15-90 days depending on complexity and integration requirements.",
+      "The schedule depends on the first workflow, data readiness, integrations and review requirements. We agree a dated plan after discovery, with an early working version for your team to assess before the wider rollout.",
   },
   {
-    question: "Do you work with existing systems or only build new ones?",
+    question: "Do you work with the systems we already run?",
     answer:
-      "Both. We specialize in integrating custom solutions with your existing ERP, CRM, and legacy systems—whether it's Tally, SAP, Salesforce, or proprietary software.",
+      "Yes. We integrate with Tally, SAP, Salesforce and in-house software, and connecting systems that were never designed to talk to each other is a large part of what we do. Where a system cannot be modified, we automate at the interface layer instead.",
   },
   {
-    question: "What's your pricing model for enterprise projects?",
+    question: "What does a project cost?",
     answer:
-      "Our projects typically range from USD 7,500 to USD 15,000+ based on scope. We provide transparent fixed-price quotes after a discovery phase, with flexible payment milestones.",
+      "Projects typically run between USD 7,500 and USD 15,000 or above, depending on scope. We quote a fixed price after a discovery phase and bill against milestones, so the figure stays where it started once the scope is agreed.",
   },
   {
-    question: "What cloud platforms do you work with?",
+    question: "Which cloud platforms do you work on?",
     answer:
-      "We're certified in Azure cloud services and Microsoft Power Platform, and also work with AWS, Google Cloud, and hybrid cloud architectures based on your needs.",
+      "We work with Microsoft Azure, AWS, Google Cloud and hybrid setups. Platform choices follow your existing systems, workload, access requirements and operating costs.",
   },
   {
-    question: "What industries do you serve?",
+    question: "Which industries do you build for?",
     answer:
-      "Healthcare startups, manufacturing, automotive, construction, and finance/operations teams needing custom software, ERP systems, or process automation.",
+      "We have delivered systems in healthcare, apparel manufacturing, warehousing, lending, and events and exhibition management. Sector experience matters because compliance rules and floor-level constraints differ, and those constraints usually shape the build more than the technology does.",
+  },
+  {
+    question: "Where is Burhani Technologies located?",
+    answer:
+      "Our office is at 1st Floor, Vanguard House, #48 Moore Street, Parry’s Corner, George Town, Chennai 600001. We are open Monday to Friday 09:00 to 18:00 and Saturday 09:00 to 13:00 IST, and we deliver for clients in India, the US, the UAE and Australia.",
+  },
+  {
+    question: "Do you build custom ERP, or implement an existing product?",
+    answer:
+      "We build custom ERP. Where a packaged product fits your process, we will tell you so on the call. We compare the workflows, integrations, licensing and long-term maintenance before recommending a custom build.",
   },
 ];
 
@@ -118,20 +129,19 @@ export default function Home() {
 
       <div className="">
         <Banner />
-        {/* <TrustStrip /> */}
         <ClientReferences />
-        {/* <Client /> */}
-        <EngineeringApproach/>
+        <EngineeringApproach />
         <PainPoints />
-        {/* <About1 /> */}
-        {/* <WhoAreWe /> */}
-        <ConnectedSystems/>
-        {/* <CTA /> */}
+        <ConnectedSystems />
         <WhatWeBuild />
+        <AtAGlance />
         <Differentiators />
-        <Testimonials />
+        <ProcessSteps />
+        <Sectors />
+        <CaseStudiesShowcase />
         <FAQ />
-        <CTA2 />
+        <PlanYourProject />
+        <VisitOffice />
       </div>
     </>
   );
