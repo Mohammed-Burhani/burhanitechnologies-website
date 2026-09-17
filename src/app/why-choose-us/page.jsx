@@ -1,5 +1,5 @@
 import Success from "@/components/constants/Success";
-import { LatestProjects } from "@/components/Home/Sections/LatestProjects";
+import LatestProjects from "@/components/Home/Sections/LatestProjects";
 import { Expertise } from "@/components/Values/Sections/Expertise";
 import { Banner } from "@/components/WhyChooseUs/Sections/Banner";
 import { Features } from "@/components/WhyChooseUs/Sections/Features";
