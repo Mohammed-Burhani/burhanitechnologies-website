@@ -7,7 +7,7 @@ import { SmallBody } from "../textComponents/SmallBody";
 
 export const Footer = () => {
   return (
-    <footer className="bg-[#180030] h-96">
+    <footer className="bg-[#180030]">
       <Container className="relative bg-[#180030]">
         {/* Map Section */}
         <div className="mb-12">

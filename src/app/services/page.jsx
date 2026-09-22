@@ -1,79 +1,76 @@
-import { CTA2 } from "@/components/Home/Sections/CTA2";
-import LatestProjects from "@/components/Home/Sections/LatestProjects";
-import { Testimonials } from "@/components/Home/Sections/Testimonials";
-import { Banner } from "@/components/Services/Sections/Banner";
-import ServiceList from "@/components/Services/Sections/ServiceList";
-import React from "react";
+import Script from "next/script";
+import ServicesHero from "@/components/Services/Hub/ServicesHero";
+import ChooseTheWork from "@/components/Services/Hub/ChooseTheWork";
+import WhatWeBuildServices from "@/components/Services/Hub/WhatWeBuildServices";
+import ServicesAtAGlance from "@/components/Services/Hub/ServicesAtAGlance";
+import ChoosingWhereToStart from "@/components/Services/Hub/ChoosingWhereToStart";
+import { servicesFaqs } from "@/components/Services/Hub/servicesFaqData";
+import DiscussFirstScope from "@/components/Services/Hub/DiscussFirstScope";
+import PlanYourProject from "@/components/Home/Sections/plan-your-project";
+import { generateBreadcrumbSchema, generateFAQSchema } from "@/utils/schema";
 
 export const metadata = {
-  title: "Software Development Services | ERP, AI Automation, DevOps | Burhani Technologies",
+  title: "Software Development Services | Burhani Technologies",
   description:
-    "Comprehensive software development services: Custom ERP Implementation, AI/ML Automation, DevOps & Azure, Mobile/Web Apps, RPA, and Business Process Automation. Chennai-based, serving clients globally.",
-  keywords: [
-    "software development services",
-    "custom ERP development",
-    "AI automation services",
-    "DevOps consulting",
-    "business automation solutions",
-    "RPA services",
-    "mobile app development",
-    "web application development",
-  ],
+    "Custom software, ERP, automation, cloud and design services. AI-assisted development and connected business workflows, with scope agreed around your needs.",
   openGraph: {
+    type: "website",
+    url: "https://burhanitechnologies.com/services",
+    siteName: "Burhani Technologies",
     title: "Software Development Services | Burhani Technologies",
     description:
-      "Comprehensive software development services: Custom ERP, AI/ML Automation, DevOps & Azure, Mobile/Web Apps, and Business Process Automation.",
-    url: "https://burhanitechnologies.com/services",
+      "Custom software, ERP, automation, cloud and design services. AI-assisted development and connected business workflows, with scope agreed around your needs.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Software Development Services | Burhani Technologies",
+    description:
+      "Custom software, ERP, automation, cloud and design services. AI-assisted development and connected business workflows, with scope agreed around your needs.",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
   alternates: {
     canonical: "https://burhanitechnologies.com/services",
   },
 };
 
-const ServicesStats = () => {
-  const stats = [
-    { value: "14+", label: "Years of Excellence" },
-    { value: "200+", label: "Projects Delivered" },
-    { value: "50+", label: "Happy Clients" },
-    { value: "24/7", label: "Support Available" },
-  ];
+// Structured data stays aligned with the visible copy on this page
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: "Home", url: "https://burhanitechnologies.com" },
+  { name: "Services", url: "https://burhanitechnologies.com/services" },
+]);
 
+const faqSchema = generateFAQSchema(servicesFaqs);
+
+const ServicesPage = () => {
   return (
-    <div className="bg-gradient-to-br from-[#2B1343] to-[#1a0a2e] py-16 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((stat, index) => (
-            <div
-              key={index}
-              className="text-center"
-              data-aos="fade-up"
-              data-aos-delay={index * 100}
-            >
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                {stat.value}
-              </div>
-              <div className="text-gray-300 text-sm md:text-base">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
+    <>
+      <Script
+        id="services-breadcrumb-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        strategy="beforeInteractive"
+      />
+      <Script
+        id="services-faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        strategy="beforeInteractive"
+      />
+
+      <div>
+        <ServicesHero />
+        <ChooseTheWork />
+        <WhatWeBuildServices />
+        <ServicesAtAGlance />
+        <ChoosingWhereToStart />
+        <DiscussFirstScope />
+        <PlanYourProject />
       </div>
-    </div>
+    </>
   );
 };
 
-const services = () => {
-  return (
-    <div>
-      <Banner />
-      <ServicesStats />
-      <ServiceList />
-      <LatestProjects />
-      <Testimonials />
-      <CTA2 />
-    </div>
-  );
-};
-
-export default services;
+export default ServicesPage;
