@@ -5,7 +5,12 @@ import Image from "next/image";
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
 import Link from "next/link";
-import { ArrowRight, Calendar, Clock } from "iconsax-react";
+import {
+  ArrowRight,
+  CalendarBlank,
+  Clock,
+  Article,
+} from "@phosphor-icons/react";
 import { format } from "date-fns";
 
 const BlogList = () => {
@@ -26,10 +31,10 @@ const BlogList = () => {
               alt,
               caption
             },
-            author,
+            author->{name, image},
             publishedAt,
             readTime,
-            categories,
+            categories[]->{title},
             featured
           }`
         );
@@ -46,171 +51,224 @@ const BlogList = () => {
 
   if (loading) {
     return (
-      <Container className="bg-white py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[1, 2, 3, 4, 5, 6].map((i) => (
-            <div key={i} className="animate-pulse">
-              <div className="bg-gray-200 h-64 rounded-lg mb-4" />
-              <div className="h-4 bg-gray-200 rounded w-3/4 mb-2" />
-              <div className="h-4 bg-gray-200 rounded w-1/2" />
-            </div>
-          ))}
-        </div>
-      </Container>
+      <section className="border-t border-white/5 bg-[#0B0B10] py-16 lg:py-20">
+        <Container>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {[1, 2, 3, 4, 5, 6].map((i) => (
+              <div key={i} className="animate-pulse">
+                <div className="mb-4 aspect-video rounded-2xl bg-white/5" />
+                <div className="mb-2 h-4 w-1/3 rounded bg-white/5" />
+                <div className="mb-2 h-4 w-3/4 rounded bg-white/5" />
+                <div className="h-4 w-1/2 rounded bg-white/5" />
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
     );
   }
 
   const featuredBlogs = blogs.filter((blog) => blog.featured);
   const regularBlogs = blogs.filter((blog) => !blog.featured);
 
+  if (blogs.length === 0) {
+    return (
+      <section className="border-t border-white/5 bg-[#0B0B10] py-16 lg:py-20">
+        <Container>
+          <div className="flex flex-col items-center gap-3 py-16 text-center">
+            <Article size={40} weight="light" className="text-zinc-600" />
+            <p className="text-base text-zinc-400">
+              No articles published yet. Check back soon.
+            </p>
+          </div>
+        </Container>
+      </section>
+    );
+  }
+
   return (
-    <Container className="bg-white py-16">
-      {/* Featured Blogs */}
-      {featuredBlogs.length > 0 && (
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-[#180030] mb-8">
-            Featured Articles
+    <section className="border-t border-white/5 bg-[#0B0B10] py-16 lg:py-20">
+      <Container>
+        {featuredBlogs.length > 0 && (
+          <div className="mb-16 lg:mb-20">
+            <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+              Featured articles
+            </h2>
+            <div className="mt-8 flex flex-col gap-6 lg:mt-10">
+              {featuredBlogs.map((blog) => (
+                <FeaturedCard key={blog._id} blog={blog} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        <div>
+          <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+            Latest articles
           </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {featuredBlogs.map((blog) => (
-              <BlogCard key={blog._id} blog={blog} featured />
+          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:mt-10 lg:grid-cols-3">
+            {regularBlogs.map((blog) => (
+              <BlogCard key={blog._id} blog={blog} />
             ))}
           </div>
+          {regularBlogs.length === 0 && featuredBlogs.length > 0 && (
+            <p className="mt-8 text-sm text-zinc-500">
+              More articles are on the way.
+            </p>
+          )}
         </div>
-      )}
-
-      {/* All Blogs */}
-      <div>
-        <h2 className="text-3xl font-bold text-[#180030] mb-8">
-          Latest Articles
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {regularBlogs.map((blog) => (
-            <BlogCard key={blog._id} blog={blog} />
-          ))}
-        </div>
-      </div>
-
-      {blogs.length === 0 && (
-        <div className="text-center py-16">
-          <p className="text-gray-500 text-lg">No blog posts available yet.</p>
-        </div>
-      )}
-    </Container>
+      </Container>
+    </section>
   );
 };
 
 export default BlogList;
 
-const BlogCard = ({ blog, featured = false }) => {
+const CardMedia = ({ blog, className }) => {
+  const image = blog.mainImage && urlForImage(blog.mainImage);
+
+  if (image) {
+    return (
+      <Image
+        src={image}
+        alt={blog.mainImage.alt || blog.title}
+        width={900}
+        height={600}
+        className={`h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 ${className}`}
+      />
+    );
+  }
+
+  return (
+    <div
+      className={`flex h-full w-full items-center justify-center bg-white/[0.03] ${className}`}
+    >
+      <Article size={40} weight="light" className="text-zinc-700" />
+    </div>
+  );
+};
+
+const CardMeta = ({ blog }) => (
+  <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-zinc-500">
+    {blog.publishedAt && (
+      <span className="inline-flex items-center gap-1.5">
+        <CalendarBlank size={14} weight="regular" />
+        {format(new Date(blog.publishedAt), "MMM d, yyyy")}
+      </span>
+    )}
+    {blog.readTime && (
+      <span className="inline-flex items-center gap-1.5">
+        <Clock size={14} weight="regular" />
+        {blog.readTime} min read
+      </span>
+    )}
+  </div>
+);
+
+const AuthorRow = ({ author }) => {
+  if (!author?.name) return null;
+
+  return (
+    <div className="flex items-center gap-2.5">
+      <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#6F36D2]/20 text-xs font-semibold text-[#B79CE8]">
+        {author.name.charAt(0)}
+      </div>
+      <span className="text-sm text-zinc-300">{author.name}</span>
+    </div>
+  );
+};
+
+const FeaturedCard = ({ blog }) => {
+  const category = blog.categories?.[0]?.title;
+
   return (
     <Link
       href={`/blog/${blog.slug.current}`}
-      className={`group block ${
-        featured ? "lg:col-span-1" : ""
-      } relative bg-white rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-gray-100`}
+      className="group grid grid-cols-1 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] transition-all duration-300 hover:-translate-y-1 hover:border-[#6F36D2]/40 hover:bg-white/[0.04] lg:grid-cols-2"
     >
-      {/* Gradient Border Effect */}
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-300 blur" />
-      
-      <div className="relative bg-white rounded-2xl overflow-hidden">
-        <div className="relative overflow-hidden">
-          {blog.mainImage && urlForImage(blog.mainImage) ? (
-            <Image
-              src={urlForImage(blog.mainImage)}
-              alt={blog.title}
-              width={800}
-              height={featured ? 500 : 400}
-              className={`w-full ${
-                featured ? "h-80" : "h-64"
-              } object-cover group-hover:scale-110 transition-transform duration-500`}
+      <div className="relative aspect-[16/10] overflow-hidden lg:aspect-auto">
+        <CardMedia blog={blog} className="absolute inset-0" />
+        <span className="absolute left-4 top-4 rounded-full bg-[#6F36D2] px-3 py-1 text-xs font-medium text-white">
+          Featured
+        </span>
+      </div>
+
+      <div className="flex flex-col justify-center gap-4 p-6 lg:p-10">
+        {category && (
+          <span className="text-xs font-medium uppercase tracking-wide text-[#B79CE8]">
+            {category}
+          </span>
+        )}
+
+        <h3 className="text-xl font-semibold leading-snug text-white transition-colors duration-200 group-hover:text-[#B79CE8] sm:text-2xl">
+          {blog.title}
+        </h3>
+
+        {blog.excerpt && (
+          <p className="line-clamp-3 text-sm leading-relaxed text-zinc-400 sm:text-base">
+            {blog.excerpt}
+          </p>
+        )}
+
+        <CardMeta blog={blog} />
+
+        <div className="flex items-center justify-between border-t border-white/5 pt-4">
+          <AuthorRow author={blog.author} />
+          <span className="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-400 transition-colors duration-200 group-hover:text-[#B79CE8]">
+            Read article
+            <ArrowRight
+              size={14}
+              weight="bold"
+              className="transition-transform duration-200 group-hover:translate-x-0.5"
             />
-          ) : (
-            <div
-              className={`w-full ${
-                featured ? "h-80" : "h-64"
-              } bg-gradient-to-br from-[#6622DC] via-[#391C6C] to-[#180030] flex items-center justify-center`}
-            >
-              <span className="text-white text-5xl font-bold">
-                {blog.title.charAt(0)}
-              </span>
-            </div>
-          )}
-          
-          {/* Overlay Gradient */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          
-          {featured && (
-            <div className="absolute top-4 left-4 bg-gradient-to-r from-[#6622DC] to-[#391C6C] text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
-              ⭐ Featured
-            </div>
-          )}
+          </span>
         </div>
+      </div>
+    </Link>
+  );
+};
 
-        <div className="p-6">
-          {/* Categories */}
-          {blog.categories && blog.categories.length > 0 && (
-            <div className="flex flex-wrap gap-2 mb-3">
-              {blog.categories.slice(0, 2).map((category, index) => (
-                <span
-                  key={index}
-                  className="text-xs bg-gradient-to-r from-purple-100 to-indigo-100 text-[#391C6C] px-3 py-1 rounded-full font-medium"
-                >
-                  {category}
-                </span>
-              ))}
-            </div>
-          )}
+const BlogCard = ({ blog }) => {
+  const category = blog.categories?.[0]?.title;
 
-          <h3
-            className={`font-bold text-[#180030] mb-3 group-hover:text-[#6622DC] transition-colors ${
-              featured ? "text-2xl" : "text-xl"
-            } line-clamp-2 leading-tight`}
-          >
-            {blog.title}
-          </h3>
+  return (
+    <Link
+      href={`/blog/${blog.slug.current}`}
+      className="group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] transition-all duration-300 hover:-translate-y-1 hover:border-[#6F36D2]/40 hover:bg-white/[0.04]"
+    >
+      <div className="relative aspect-video overflow-hidden">
+        <CardMedia blog={blog} className="absolute inset-0" />
+      </div>
 
-          {blog.excerpt && (
-            <p className="text-gray-600 mb-4 line-clamp-3 leading-relaxed">{blog.excerpt}</p>
-          )}
+      <div className="flex flex-1 flex-col gap-3 p-6">
+        {category && (
+          <span className="text-xs font-medium uppercase tracking-wide text-[#B79CE8]">
+            {category}
+          </span>
+        )}
 
-          <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
-            <div className="flex items-center gap-4">
-              {blog.publishedAt && (
-                <div className="flex items-center gap-1.5">
-                  <Calendar size={16} className="text-[#6622DC]" />
-                  <span className="font-medium">{format(new Date(blog.publishedAt), "MMM dd, yyyy")}</span>
-                </div>
-              )}
-              {blog.readTime && (
-                <div className="flex items-center gap-1.5">
-                  <Clock size={16} className="text-[#6622DC]" />
-                  <span className="font-medium">{blog.readTime} min</span>
-                </div>
-              )}
-            </div>
-          </div>
+        <h3 className="line-clamp-2 text-lg font-semibold leading-snug text-white transition-colors duration-200 group-hover:text-[#B79CE8]">
+          {blog.title}
+        </h3>
 
-          {blog.author && (
-            <div className="flex items-center gap-3 mb-4 pb-4 border-b border-gray-100">
-              <div className="w-10 h-10 bg-gradient-to-br from-[#6622DC] to-[#391C6C] rounded-full flex items-center justify-center text-white font-bold text-sm">
-                {blog.author.charAt(0)}
-              </div>
-              <div>
-                <p className="text-xs text-gray-500">Written by</p>
-                <p className="text-sm font-semibold text-gray-700">{blog.author}</p>
-              </div>
-            </div>
-          )}
+        {blog.excerpt && (
+          <p className="line-clamp-2 text-sm leading-relaxed text-zinc-400">
+            {blog.excerpt}
+          </p>
+        )}
 
-          <div className="flex items-center justify-between">
-            <span className="text-[#6622DC] font-bold text-sm group-hover:text-[#391C6C] transition-colors">
-              Read Article
-            </span>
-            <div className="w-8 h-8 bg-[#6622DC] group-hover:bg-[#391C6C] rounded-full flex items-center justify-center transition-all">
-              <ArrowRight size={16} className="text-white group-hover:translate-x-1 transition-transform" />
-            </div>
-          </div>
+        <CardMeta blog={blog} />
+
+        <div className="mt-auto flex items-center justify-between border-t border-white/5 pt-4">
+          <AuthorRow author={blog.author} />
+          <span className="inline-flex items-center gap-1 text-sm font-medium text-zinc-400 transition-colors duration-200 group-hover:text-[#B79CE8]">
+            Read
+            <ArrowRight
+              size={14}
+              weight="bold"
+              className="transition-transform duration-200 group-hover:translate-x-0.5"
+            />
+          </span>
         </div>
       </div>
     </Link>

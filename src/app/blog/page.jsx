@@ -34,8 +34,8 @@ const Blog = () => {
     <div>
       <Banner />
       <BlogList />
-      <Testimonials />
-      <CTA2 />
+      {/* <Testimonials />
+      <CTA2 /> */}
     </div>
   );
 };

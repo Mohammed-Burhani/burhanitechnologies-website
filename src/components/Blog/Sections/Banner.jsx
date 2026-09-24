@@ -1,28 +1,28 @@
 import React from "react";
 import Container from "@/components/constants/Container";
-import { Heading } from "@/components/textComponents/Heading";
-import { Body } from "@/components/textComponents/Body";
 
 export const Banner = () => {
   return (
-    <Container className="bg-gradient-to-br from-[#180030] to-[#391C6C] text-white min-h-[50vh] flex flex-col justify-center items-center">
-      <div className="text-center max-w-4xl">
-        <h4
-          className="uppercase text-[#E3C8FF] font-extrabold text-sm mb-4"
-          data-aos="fade-down"
-        >
-          Our Blog
-        </h4>
+    <section className="relative overflow-hidden bg-[#0B0B10] pt-20 lg:pt-24">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-40 left-1/2 h-[560px] w-[560px] -translate-x-1/2 rounded-full bg-[#6F36D2] opacity-[0.16] blur-[140px]"
+      />
 
-        <Heading data-aos="fade-up" className="text-white">
-          Insights & Innovation
-        </Heading>
+      <Container className="relative z-10 flex flex-col items-center pb-14 text-center lg:pb-20">
+        <span className="text-sm font-medium tracking-wide text-[#B79CE8]">
+          Our blog
+        </span>
 
-        <Body className="mt-4 text-gray-200" data-aos="fade-up">
-          Explore the latest trends, best practices, and expert insights in
-          software development, automation, and digital transformation.
-        </Body>
-      </div>
-    </Container>
+        <h1 className="mt-4 max-w-2xl text-3xl font-semibold leading-[1.15] tracking-tight text-white sm:text-4xl lg:text-[2.75rem] xl:text-5xl">
+          Notes from the engineering team
+        </h1>
+
+        <p className="mt-4 max-w-lg text-sm leading-relaxed text-zinc-400 sm:text-base">
+          Trends, best practices and hands-on lessons from building software,
+          automation and integrations for real client operations.
+        </p>
+      </Container>
+    </section>
   );
 };

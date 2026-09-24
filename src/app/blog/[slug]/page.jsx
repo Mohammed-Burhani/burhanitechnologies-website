@@ -12,7 +12,7 @@ export async function generateMetadata({ params }) {
     `*[_type == "blog" && slug.current == $slug] [0]{
       title,
       excerpt,
-      author,
+      author->{name},
       mainImage {
         asset,
         alt,
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }) {
         url: `https://burhanitechnologies.com/blog/${slug}`,
         type: "article",
         publishedTime: blogData.publishedAt,
-        authors: [blogData.author],
+        authors: [blogData.author?.name].filter(Boolean),
       },
       alternates: {
         canonical: `https://burhanitechnologies.com/blog/${slug}`,
@@ -75,7 +75,7 @@ const BlogPost = async ({ params }) => {
       title,
       slug,
       excerpt,
-      author,
+      author->{name},
       publishedAt,
       mainImage {
         asset,
@@ -95,7 +95,7 @@ const BlogPost = async ({ params }) => {
         description: blogData.excerpt,
         author: {
           "@type": "Person",
-          name: blogData.author || "Burhani Technologies",
+          name: blogData.author?.name || "Burhani Technologies",
         },
         datePublished: blogData.publishedAt,
         publisher: {

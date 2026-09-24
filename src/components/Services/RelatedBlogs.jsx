@@ -18,10 +18,10 @@ async function getRelatedBlogs() {
       alt,
       caption
     },
-    author,
+    author->{name},
     publishedAt,
     readTime,
-    categories
+    categories[]->{title}
   }`;
 
   const blogs = await client.fetch(query, {}, {
@@ -96,7 +96,7 @@ const BlogCard = ({ blog }) => {
                 key={index}
                 className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded"
               >
-                {category}
+                {category.title}
               </span>
             ))}
           </div>

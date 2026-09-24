@@ -44,7 +44,7 @@ export const Testimonials = () => {
    
   ];
   return (
-    <Container className={"bg-[#8000FF] flex flex-col overflow-hidden !px-0"}>
+    <Container className={"bg-[#8000FF] flex flex-col overflow-hidden !px-0 w-full"}>
       <div className="flex flex-col justify-center items-center w-full mb-14 px-7 sm:px-10 4xl:px-20">
         <h4
           className="uppercase text-gray-300 font-extrabold"
