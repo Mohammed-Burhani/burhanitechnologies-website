@@ -39,10 +39,10 @@ const VisitOffice = () => {
                 +91 72990 02152
               </a>
               <a
-                href="mailto:info@burhanitechnologies.com"
+                href="mailto:connect@burhanitechnologies.com"
                 className="transition-colors duration-200 hover:text-[#6F36D2]"
               >
-                info@burhanitechnologies.com
+                connect@burhanitechnologies.com
               </a>
             </p>
           </div>

@@ -91,6 +91,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        {/* Cookiebot Consent Banner - must be first script in head */}
+        <Script
+          id="Cookiebot"
+          src="https://consent.cookiebot.com/uc.js"
+          data-cbid="9f18f071-2c32-4567-a894-d530d7e5c1cb"
+          data-blockingmode="auto"
+          strategy="beforeInteractive"
+        />
         {/* Organization Schema */}
         <Script
           id="organization-schema"

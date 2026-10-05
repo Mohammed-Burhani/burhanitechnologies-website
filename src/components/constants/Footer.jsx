@@ -69,7 +69,7 @@ export const Footer = () => {
             </Body>
 
             <Body className="mt-6 max-w-md text-gray-300 text-center md:text-start">
-              info@burhanitechnologies.com
+              connect@burhanitechnologies.com
             </Body>
           </div>
 

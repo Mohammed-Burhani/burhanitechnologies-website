@@ -37,8 +37,8 @@ export default function ContactPageContent() {
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-gray-900">Email</h3>
                 <Body className="text-gray-600">
-                  <a href="mailto:info@burhanitechnologies.com" className="hover:text-[#6F36D2] transition-colors">
-                    info@burhanitechnologies.com
+                  <a href="mailto:connect@burhanitechnologies.com" className="hover:text-[#6F36D2] transition-colors">
+                    connect@burhanitechnologies.com
                   </a>
                 </Body>
               </div>
