@@ -1,9 +1,14 @@
 # Blog crawlability and initial HTML repair
 
-Date: 7 October 2026 (IST)  
-Author: Akash Sharma <akash@content-whale.com>  
-Repository: Mohammed-Burhani/burhanitechnologies-website  
+Date: 7 October 2026 (IST)
+
+Author: Akash Sharma <akash@content-whale.com>
+
+Repository: Mohammed-Burhani/burhanitechnologies-website
+
 Source baseline: `4b41eb9fb6441e75561ec83f6d86299db7364510`
+
+Review workflow: submit `fix/blog-crawlability-2026-10-07` as a pull request for Mohammed's review. Merge to `main` and production deployment must wait for his confirmation.
 
 ## Problem and observed behavior
 
