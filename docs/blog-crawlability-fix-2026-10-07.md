@@ -36,13 +36,21 @@ No Sanity document, published article text, slug or asset is changed by this rep
 
 ## Dependency repair required for a reproducible build
 
-The original `package.json` declared Next.js `^16.0.7`, while `package-lock.json` resolved Next.js `15.1.1` and omitted two already declared dependencies. A strict clean install failed with that mismatch.
+The original `package.json` declared Next.js `^16.0.7`, while `package-lock.json` resolved Next.js `15.1.1` and omitted two already declared dependencies. The existing `next-sanity` `9.8.58` and its `@sanity/next-loader` dependency declare support for Next.js 14/15, rather than 16.
 
-A separate dependency commit pins Next.js `16.3.8` and synchronizes the npm lock. The lock includes the already declared `@phosphor-icons/react` and `react-google-recaptcha-v3` packages. Matching original direct dependency versions, including React `19.0.0` and Sanity `3.75.1`, are retained. Next.js remains within the originally declared major/range; the selected patch release includes the official September security fixes.
+The Netlify PR preview confirmed that the host uses Node.js `20.9.0` and npm `10.1.0`. Its normal dependency installation rejected a Next.js 16 build with `ERESOLVE` because of those integration peer requirements. The earlier local production build passed, but the workstation's pre-existing npm `legacy-peer-deps=true` setting had allowed that unsupported dependency combination. That install was insufficient proof of compatibility with the host's normal peer resolution. The final isolated host-version checks explicitly disable both legacy peer resolution and force; the workstation's global settings are not changed.
+
+The final dependency repair pins Next.js `15.5.27` and synchronizes the npm lock. This aligns the manifest with the original lock's Next.js 15 lineage and the existing Sanity integration. It deliberately replaces the incompatible declared Next.js 16 range, without introducing a Sanity Studio or hosting Node migration. The selected 15.5 patch release includes the official September security backports.
+
+Normal host-version resolution also exposed the unused root `expo: latest` dependency, which pulled a React Native stack requiring a newer Node runtime and changed React independently of ReactDOM. Source import checks confirmed that the website and Studio do not use Expo; it is removed. The direct `@portabletext/react` dependency is pinned to `4.0.3`, which supports Node `20.9` and the existing React version. The case-study renderer uses its stable `value`/`components` API; blog rendering continues through the existing `next-sanity` renderer.
+
+The lock includes the already declared `@phosphor-icons/react` and `react-google-recaptcha-v3` packages. `next-sanity` `9.8.58`, React/ReactDOM `19.0.0` and Sanity `3.75.1` are retained. Installation is validated with the host's Node/npm versions and normal peer resolution; no `--force` or `--legacy-peer-deps` bypass is introduced.
 
 Deployment should use the committed npm lock with `npm ci`, followed by `npm run build` and the existing production start process. This repair updates the npm lock; it does not validate the repository's older Bun lock or change the hosting configuration.
 
 ## Validation
+
+Final local host-version checks passed on 8 October 2026 (IST): normal installation on Node `20.9.0` / npm `10.1.0`, with `legacy-peer-deps=false` and `force=false`, followed by the Next.js `15.5.27` production build. No engine warnings were emitted. All five initial article responses preserved the 152 source paragraphs and the checks below passed. A real published healthcare case study also preserved all 19 nonempty text blocks across its four process sections with Portable Text `4.0.3` and the existing component mapping.
 
 Validation uses a local production build and raw HTTP responses, rather than relying only on an interactive browser rendering. The final scoped push is checked for:
 
@@ -53,11 +61,11 @@ Validation uses a local production build and raw HTTP responses, rather than rel
 - Generated robots output allowing `/_next/` while continuing to exclude `/api/` and `/admin/`.
 - Existing desktop/mobile article content and layout retained. No new UI or CMS publishing workflow is introduced.
 
-The existing repository-wide lint setup has an unresolved TypeScript configuration dependency. Focused syntax, undefined-name and React-hooks checks are used for the changed files; a full lint pass is not claimed.
+The existing repository-wide lint configuration reports an ESLint parser serialization diagnostic during the host-version build, which still exits successfully. Focused syntax, undefined-name and React-hooks checks passed for the changed files; a full repository lint pass is not claimed.
 
 ## Production verification after deployment
 
-The repository contains no confirmed production deployment workflow or hosting project linkage. A Git push records the source change; it does not by itself prove that the production server has deployed it.
+The GitHub pull request is connected to Netlify's `burhanitechnologies` project and triggers a deploy preview. That linkage was confirmed through the PR and deploy log. A successful PR preview verifies a separate review environment; it does not mean that `main` or the production website has been updated. Mohammed's review and confirmation are required before merge and production deployment.
 
 After the production build is deployed:
 
@@ -76,4 +84,4 @@ If a regression appears, revert the source repair commit with a normal Git rever
 ## References
 
 - [Google: JavaScript rendering, blocked resources and server-side rendering](https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics)
-- [Next.js 16.3.8 release](https://github.com/vercel/next.js/releases/tag/v16.3.8)
+- [Next.js 15.5.27 release](https://github.com/vercel/next.js/releases/tag/v15.5.27)
