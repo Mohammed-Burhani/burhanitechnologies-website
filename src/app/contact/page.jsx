@@ -1,9 +1,9 @@
 import ContactPageWrapper from "@/components/contact/ContactPageWrapper";
 
 export const metadata = {
-  title: "Contact Us | Burhani Technologies - Get In Touch",
+  title: "Contact Burhani Technologies | Discuss Your Project",
   description:
-    "Contact Burhani Technologies for custom software development, ERP implementation, and enterprise automation solutions. Located in Chennai, serving clients globally.",
+    "Discuss your website, e-commerce, invoicing or application project with Burhani Technologies. Share your business problem, desired outcome and service needs.",
   keywords: [
     "contact burhani technologies",
     "software development consultation",
@@ -12,9 +12,9 @@ export const metadata = {
     "Chennai software company contact",
   ],
   openGraph: {
-    title: "Contact Us | Burhani Technologies",
+    title: "Contact Burhani Technologies | Discuss Your Project",
     description:
-      "Get in touch with our expert team for custom software development and enterprise automation solutions.",
+      "Discuss your website, e-commerce, invoicing or application project with Burhani Technologies. Share your business problem, desired outcome and service needs.",
     url: "https://burhanitechnologies.com/contact",
   },
   alternates: {

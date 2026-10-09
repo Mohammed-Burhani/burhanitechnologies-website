@@ -43,19 +43,56 @@ async function verifyRecaptcha(token) {
   }
 }
 
+const SERVICE_LABELS = {
+  "website-development": "Website development",
+  "e-commerce": "E-commerce",
+  invoicing: "Invoicing",
+  "application-development": "Application development",
+  "integration-or-automation": "Integration or business process automation",
+  other: "Other business requirement",
+};
+
+function escapeHtml(value) {
+  return String(value ?? "").replace(
+    /[&<>"']/g,
+    (char) =>
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[
+        char
+      ],
+  );
+}
+
 export async function POST(request) {
   try {
     const formData = await request.json();
     const {
+      service,
+      problem,
+      outcome,
       name,
       email,
-      contactNumber,
-      companyWebsite,
-      challenge,
-      desc,
-      services,
+      company,
+      phone,
+      role,
+      systems,
+      timing,
+      botField,
       recaptchaToken,
     } = formData;
+
+    // Honeypot: bots fill the hidden field. Pretend success and send nothing.
+    if (botField) {
+      return NextResponse.json({ success: true }, { status: 200 });
+    }
+
+    if (!service || !problem || !outcome || !name || !email || !company || !phone) {
+      return NextResponse.json(
+        { error: "Missing required fields" },
+        { status: 400 },
+      );
+    }
+
+    const serviceLabel = SERVICE_LABELS[service] ?? service;
 
     // Verify reCAPTCHA
     const recaptchaResult = await verifyRecaptcha(recaptchaToken);
@@ -72,14 +109,24 @@ export async function POST(request) {
       from: process.env.SMTP_USER,
       to: process.env.SMTP_USER,
       subject: "New Business Inquiry Form Submission",
+      replyTo: email,
       text: `
+Service: ${serviceLabel}
+
+Business problem:
+${problem}
+
+Useful result:
+${outcome}
+
 Name: ${name}
-Email: ${email}
-Contact Number: ${contactNumber}
-Company Website: ${companyWebsite}
-Challenge: ${challenge}
-Description: ${desc}
-Services Requested: ${services.join(", ")}
+Work email: ${email}
+Company: ${company}
+Phone or WhatsApp: ${phone}
+
+Role in project: ${role || "-"}
+Systems already running: ${systems || "-"}
+Expected timeline: ${timing || "-"}
       `,
     };
 
@@ -112,7 +159,7 @@ Team Burhani Technologies
 </head>
 <body>
   <div style="max-width: 600px; margin: 0 auto; background-color: #f8f9fa; padding: 20px; border: 1px solid #e0e0e0;">
-    <h2 style="color: #333; font-size: 24px;">Dear ${name},</h2>
+    <h2 style="color: #333; font-size: 24px;">Dear ${escapeHtml(name)},</h2>
     <p>Thank you for reaching out to us. We have received your business inquiry and will review the details you've shared with us.</p>
     <p>A member of our team will contact you shortly to discuss how we can assist with your needs.</p>
     <p>Best regards,</p>
