@@ -4,10 +4,9 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Container from "@/components/constants/Container";
-import { client } from "@/sanity/lib/client";
 import { PortableText } from "next-sanity";
 import { urlForImage } from "@/sanity/lib/image";
-import { motion, useScroll, useSpring, useReducedMotion } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 import {
   Article,
   ArrowLeft,
@@ -23,58 +22,6 @@ import {
   TwitterLogo,
 } from "@phosphor-icons/react";
 import { format } from "date-fns";
-
-// Schema note: `author` is now a reference to the `author` document and
-// `categories` is an array of references to `blogCategory`. This query
-// dereferences both. Field names assumed on those two schemas: author ->
-// name, image, role; blogCategory -> title, slug. Adjust the arrow-> paths
-// below if those field names differ in the actual schema files.
-const BLOG_QUERY = `*[_type == "blog" && slug.current == $slug][0]{
-  _id,
-  title,
-  slug,
-  excerpt,
-  body,
-  mainImage { asset, alt, caption },
-  "author": author->{ name, image, role, bio, "articleCount": count(*[_type == "blog" && references(^._id)]) },
-  publishedAt,
-  readTime,
-  "categories": categories[]->{ _id, title, "slug": slug.current }[defined(_id)],
-  tags
-}`;
-
-const RELATED_QUERY = `*[
-  _type == "blog" &&
-  slug.current != $slug &&
-  count((categories[]->_id)[@ in $categoryIds]) > 0
-] | order(publishedAt desc) [0...3]{
-  _id,
-  title,
-  slug,
-  excerpt,
-  mainImage { asset, alt, caption },
-  "author": author->{ name, image },
-  "category": categories[0]->{ title },
-  publishedAt,
-  readTime
-}`;
-
-// Fallback used whenever the post has no categories, or no other post
-// shares one: the "Keep reading" section should never just disappear.
-const LATEST_QUERY = `*[
-  _type == "blog" &&
-  slug.current != $slug
-] | order(publishedAt desc) [0...3]{
-  _id,
-  title,
-  slug,
-  excerpt,
-  mainImage { asset, alt, caption },
-  "author": author->{ name, image },
-  "category": categories[0]->{ title },
-  publishedAt,
-  readTime
-}`;
 
 // Local PortableText renderers, scoped to the article body only. This
 // project has no @tailwindcss/typography plugin installed, so the `prose`
@@ -220,53 +167,9 @@ const ReadingProgressBar = () => {
   );
 };
 
-const BlogPageClient = ({ slug }) => {
-  const [blogDetails, setBlogDetails] = useState(null);
-  const [relatedBlogs, setRelatedBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
+const BlogPageClient = ({ blogDetails, relatedBlogs = [] }) => {
   const [activeHeading, setActiveHeading] = useState(null);
   const [copied, setCopied] = useState(false);
-  const shouldReduceMotion = useReducedMotion();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await client.fetch(BLOG_QUERY, { slug });
-        setBlogDetails(result);
-      } catch (error) {
-        console.error("Error fetching blog:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, [slug]);
-
-  useEffect(() => {
-    if (!blogDetails) return;
-
-    const categoryIds = (blogDetails.categories || [])
-      .filter(Boolean)
-      .map((c) => c._id);
-
-    const fetchRelated = async () => {
-      try {
-        let result = categoryIds.length
-          ? await client.fetch(RELATED_QUERY, { slug, categoryIds })
-          : [];
-
-        if (!result?.length) {
-          result = await client.fetch(LATEST_QUERY, { slug });
-        }
-
-        setRelatedBlogs((result || []).filter((b) => b?.slug?.current));
-      } catch (error) {
-        console.error("Error fetching related blogs:", error);
-      }
-    };
-    fetchRelated();
-  }, [blogDetails, slug]);
-
   const tableOfContents = useMemo(() => {
     if (!blogDetails?.body) return [];
     return blogDetails.body
@@ -327,23 +230,6 @@ const BlogPageClient = ({ slug }) => {
     window.open(targets[platform], "_blank", "noopener,noreferrer");
   };
 
-  if (loading) {
-    return (
-      <Container className="bg-white py-16">
-        <div className="mx-auto max-w-4xl animate-pulse">
-          <div className="mb-8 h-96 rounded-2xl bg-zinc-100" />
-          <div className="mb-4 h-8 w-3/4 rounded bg-zinc-100" />
-          <div className="mb-8 h-4 w-1/2 rounded bg-zinc-100" />
-          <div className="space-y-3">
-            <div className="h-4 rounded bg-zinc-100" />
-            <div className="h-4 rounded bg-zinc-100" />
-            <div className="h-4 w-5/6 rounded bg-zinc-100" />
-          </div>
-        </div>
-      </Container>
-    );
-  }
-
   if (!blogDetails) {
     return (
       <Container className="bg-white py-24">
@@ -395,7 +281,7 @@ const BlogPageClient = ({ slug }) => {
 
         <Container className="relative z-10">
           <motion.div
-            initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
