@@ -23,16 +23,22 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useAtom(checkScrollStatus);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const isHomePage = pathname === "/" || /^\/services\/.+/.test(pathname);
+  const isContactPage = pathname === "/contact";
+  const isHomePage =
+    pathname === "/" || /^\/services\/.+/.test(pathname) || isContactPage;
   const isDarkSurface = isHomePage && !isScrolled;
 
   useEffect(() => {
+    // The contact hero is short and the sections below it are light, so its
+    // navbar switches to the light style as soon as the hero scrolls away.
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > window.innerHeight);
+      const threshold = isContactPage ? 160 : window.innerHeight;
+      setIsScrolled(window.scrollY > threshold);
     };
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [setIsScrolled]);
+  }, [setIsScrolled, isContactPage]);
 
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? "hidden" : "unset";
@@ -57,7 +63,7 @@ const Navbar = () => {
           : "border-zinc-200 bg-white/80"
       }`}
     >
-      <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-7 sm:px-10 xl:px-20">
+      <div className="mx-auto flex h-full max-w-[100rem] items-center justify-between px-7 sm:px-10 xl:px-20">
         <Link href="/" className="flex shrink-0 items-center" onClick={closeMobileMenu}>
           <Image
             alt="Burhani Technologies"

@@ -49,6 +49,11 @@ const SERVICE_LABELS = {
   invoicing: "Invoicing",
   "application-development": "Application development",
   "integration-or-automation": "Integration or business process automation",
+  "business-process-automation": "Business Process Automation",
+  "agentic-model-engineering": "Agentic Model Engineering with AI/ML",
+  "bespoke-system-integrations": "Bespoke System Integrations",
+  "erp-implementation": "ERP Implementation",
+  "software-and-app-development": "Software and App Development Services",
   other: "Other business requirement",
 };
 

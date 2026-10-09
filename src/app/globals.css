@@ -210,26 +210,3 @@
 .animate-fadeIn {
   animation: fadeIn 0.5s ease-out forwards;
 }
-
-/* Contact page hero */
-.contact-hero-bg {
-  background:
-    radial-gradient(1100px 620px at 78% 12%, rgba(128, 0, 255, 0.3), transparent 62%),
-    radial-gradient(820px 520px at 6% 82%, rgba(102, 34, 220, 0.26), transparent 66%),
-    linear-gradient(160deg, #0a0014, #180030 46%, #2b1343);
-}
-
-.contact-grid-lines {
-  position: relative;
-}
-
-.contact-grid-lines::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(173, 90, 255, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(173, 90, 255, 0.055) 1px, transparent 1px);
-  background-size: 64px 64px, 64px 64px;
-}
