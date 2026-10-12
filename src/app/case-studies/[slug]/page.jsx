@@ -1,14 +1,12 @@
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
 import { notFound } from "next/navigation";
-import { GoalChallengeOutcome } from "@/components/CaseStudies/Sections/GoalChallengeOutcome";
-import { ProcessesSection } from "@/components/CaseStudies/Sections/ProcessesSection";
-import { Testimonials } from "@/components/Home/Sections/Testimonials";
-import { CTA2 } from "@/components/Home/Sections/CTA2";
-import Container from "@/components/constants/Container";
-import { LargeHeading } from "@/components/textComponents/LargeHeading";
-import { Body } from "@/components/textComponents/Body";
-import Image from "next/image";
+
+import CaseStudyHero from "@/components/CaseStudies/Detail/CaseStudyHero";
+import GoalChallengeOutcomeCards from "@/components/CaseStudies/Detail/GoalChallengeOutcomeCards";
+import ProcessesSectionRevised from "@/components/CaseStudies/Detail/ProcessesSectionRevised";
+import CaseStudyCTA from "@/components/CaseStudies/Detail/CaseStudyCTA";
+import TestimonialsRevised from "@/components/Home/Sections/TestimonialsRevised";
 
 export const revalidate = 0; // Always fetch fresh data
 export const dynamicParams = true; // Allow dynamic params not in generateStaticParams
@@ -65,73 +63,46 @@ export default async function CaseStudyPage({ params }) {
     notFound();
   }
 
+  const bannerImage = caseStudy.bannerImage
+    ? urlForImage(caseStudy.bannerImage)
+    : null;
+
+  // Resolve all images to URLs in server component
+  const processesWithResolvedImages = caseStudy.processes?.map((process) => ({
+    ...process,
+    content: process.content?.map((block) => {
+      if (block._type === "image") {
+        return {
+          ...block,
+          url: urlForImage(block),
+        };
+      }
+      return block;
+    }),
+    images: process.images?.map((image) => urlForImage(image)),
+  }));
+
   return (
-    <>
-      {/* Banner Section */}
-      <div className="bg-white pt-32">
-        <Container className="relative overflow-hidden">
-          {caseStudy.bannerImage && (
-            <div className="relative h-[32rem] w-full rounded-lg overflow-hidden">
-              <Image
-                src={urlForImage(caseStudy.bannerImage)}
-                alt={caseStudy.title}
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+    <main id="main">
+      <CaseStudyHero
+        title={caseStudy.title}
+        client={caseStudy.client}
+        industry={caseStudy.industry}
+        excerpt={caseStudy.excerpt}
+        bannerImage={bannerImage}
+      />
 
-              <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-12">
-                {caseStudy.industry && (
-                  <span className="text-sm text-gray-300 font-semibold uppercase tracking-wide mb-2 block">
-                    {caseStudy.industry}
-                  </span>
-                )}
-                <LargeHeading className="font-inter font-bold text-white mb-4">
-                  {caseStudy.title}
-                </LargeHeading>
-                {caseStudy.client && (
-                  <Body className="text-gray-200">
-                    Client: {caseStudy.client}
-                  </Body>
-                )}
-              </div>
-            </div>
-          )}
-
-          {!caseStudy.bannerImage && (
-            <div className="py-20 text-center">
-              {caseStudy.industry && (
-                <span className="text-sm text-[#6F36D2] font-semibold uppercase tracking-wide mb-2 block">
-                  {caseStudy.industry}
-                </span>
-              )}
-              <LargeHeading className="font-inter font-bold text-gray-900 mb-4">
-                {caseStudy.title}
-              </LargeHeading>
-              {caseStudy.client && (
-                <Body className="text-gray-600">
-                  Client: {caseStudy.client}
-                </Body>
-              )}
-            </div>
-          )}
-        </Container>
-      </div>
-
-      {/* Goal, Challenge, Outcome Section */}
-      <GoalChallengeOutcome
+      <GoalChallengeOutcomeCards
         goal={caseStudy.goal}
         challenge={caseStudy.challenge}
         outcome={caseStudy.outcome}
       />
 
-      {/* Processes Section with Scrollspy */}
-      <ProcessesSection processes={caseStudy.processes} />
+      <ProcessesSectionRevised processes={processesWithResolvedImages} />
 
-      {/* Testimonials Section */}
-      <Testimonials />
+      <TestimonialsRevised />
 
-      <CTA2 />
-    </>
+      <CaseStudyCTA />
+    </main>
   );
 }
