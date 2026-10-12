@@ -5,13 +5,21 @@ This directory contains all components for the Case Studies feature.
 ## Structure
 
 ### Pages
-- `/case-studies` - Listing page showing all case studies in a grid
+- `/case-studies` - Listing page: dark hero, industry filter, featured study and card grid
 - `/case-studies/[slug]` - Individual case study detail page
 
 ### Components
 
-#### CaseStudyBanner.jsx
-Banner component for the case studies listing page with company branding.
+#### Listing/
+Components for the listing page, styled to match the home and contact pages
+(dark brand hero, light body, double-bezel cards, purple accent).
+- `CaseStudiesHero.jsx` - hero with up to three delivered-project images
+- `CaseStudyBrowser.jsx` - client component: industry filter chips (derived from the
+  `industry` field in Sanity), featured spotlight, grid and empty state
+- `FeaturedCaseStudy.jsx` - full-width spotlight (the `featured` study, else the newest)
+- `CaseStudyCard.jsx` - grid card
+- `caseStudyMeta.js` - industry icons and the 7/5 + 4/4/4 grid planner that avoids orphan cells
+- `Bezel.jsx` - double-bezel container
 
 #### Sections/GoalChallengeOutcome.jsx
 Displays three sections specific to each case study:

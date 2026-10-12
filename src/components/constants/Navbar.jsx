@@ -24,21 +24,25 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const isContactPage = pathname === "/contact";
+  // Only the listing has a dark hero; case study detail pages stay light.
+  const isCaseStudiesListing = pathname === "/case-studies";
+  const hasShortDarkHero = isContactPage || isCaseStudiesListing;
   const isHomePage =
-    pathname === "/" || /^\/services\/.+/.test(pathname) || isContactPage;
+    pathname === "/" || /^\/services\/.+/.test(pathname) || hasShortDarkHero;
   const isDarkSurface = isHomePage && !isScrolled;
 
   useEffect(() => {
-    // The contact hero is short and the sections below it are light, so its
-    // navbar switches to the light style as soon as the hero scrolls away.
+    // Contact and case study listing heroes are short and the sections below
+    // them are light, so their navbar switches to the light style as soon as
+    // the hero scrolls away.
     const handleScroll = () => {
-      const threshold = isContactPage ? 160 : window.innerHeight;
+      const threshold = hasShortDarkHero ? 160 : window.innerHeight;
       setIsScrolled(window.scrollY > threshold);
     };
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [setIsScrolled, isContactPage]);
+  }, [setIsScrolled, hasShortDarkHero]);
 
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? "hidden" : "unset";
