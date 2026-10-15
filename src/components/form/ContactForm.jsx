@@ -15,14 +15,6 @@ import {
 import { useToast } from "@/hooks/use-toast";
 
 const services = [
-  { value: "website-development", label: "Website development" },
-  { value: "e-commerce", label: "E-commerce" },
-  { value: "invoicing", label: "Invoicing" },
-  { value: "application-development", label: "Application development" },
-  {
-    value: "integration-or-automation",
-    label: "Integration or business process automation",
-  },
   { value: "business-process-automation", label: "Business Process Automation" },
   {
     value: "agentic-model-engineering",
@@ -34,7 +26,6 @@ const services = [
     value: "software-and-app-development",
     label: "Software and App Development Services",
   },
-  { value: "other", label: "Other business requirement" },
 ];
 
 const validationSchema = Yup.object({
