@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { Body } from "../textComponents/Body";
 import Container from "./Container";
@@ -14,7 +15,7 @@ export const Footer = () => {
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold text-white mb-2">Visit Our Office</h3>
             <Body className="text-gray-300">
-              Located in the heart of Chennai's business district
+              Located in the heart of Chennai&apos;s business district
             </Body>
           </div>
           
@@ -64,7 +65,7 @@ export const Footer = () => {
             </div>
 
             <Body className="mt-6 max-w-xl text-gray-300 text-center md:text-start">
-              1st Floor, Vanguard House, #48, Moore St, Parry's Corner, George
+              1st Floor, Vanguard House, #48, Moore St, Parry&apos;s Corner, George
               Town, Chennai, Tamil Nadu 600001
             </Body>
 
@@ -81,27 +82,27 @@ export const Footer = () => {
             </li>
 
             <li>
-              <a className="text-white transition hover:text-white/75" href="/services">
+              <Link className="text-white transition hover:text-white/75" href="/services">
                 <Body>Services</Body>
-              </a>
+              </Link>
             </li>
 
             <li>
-              <a className="text-white transition hover:text-white/75" href="/#projects">
+              <Link className="text-white transition hover:text-white/75" href="/#projects">
                 <Body>Projects</Body>
-              </a>
+              </Link>
             </li>
 
             <li>
-              <a className="text-white transition hover:text-white/75" href="/blog">
+              <Link className="text-white transition hover:text-white/75" href="/blog">
                 <Body>Blog</Body>
-              </a>
+              </Link>
             </li>
 
             <li>
-              <a className="text-white transition hover:text-white/75" href="/knowledge-base">
+              <Link className="text-white transition hover:text-white/75" href="/knowledge-base">
                 <Body>Help</Body>
-              </a>
+              </Link>
             </li>
 
             <li>

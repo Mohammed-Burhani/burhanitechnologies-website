@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import ProtectedComponent from "@/components/ProtectedComponent";
+import ConsentLinkGuard from "@/components/ConsentLinkGuard";
 import Script from "next/script";
 import {
   organizationSchema,
@@ -100,31 +101,28 @@ export default function RootLayout({ children }) {
           strategy="beforeInteractive"
         />
         {/* Organization Schema */}
-        <Script
+        <script
           id="organization-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
+            __html: JSON.stringify(organizationSchema).replace(/</g, "\\u003c"),
           }}
-          strategy="beforeInteractive"
         />
         {/* Website Schema */}
-        <Script
+        <script
           id="website-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(websiteSchema),
+            __html: JSON.stringify(websiteSchema).replace(/</g, "\\u003c"),
           }}
-          strategy="beforeInteractive"
         />
         {/* Local Business Schema */}
-        <Script
+        <script
           id="local-business-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(localBusinessSchema),
+            __html: JSON.stringify(localBusinessSchema).replace(/</g, "\\u003c"),
           }}
-          strategy="beforeInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
@@ -136,6 +134,7 @@ export default function RootLayout({ children }) {
         </Script>
       </head>
       <body className={`${inter.variable} antialiased bg-black`}>
+        <ConsentLinkGuard />
         <ProtectedComponent>{children}</ProtectedComponent>
         {/* Google Analytics */}
         <Script

@@ -5,10 +5,13 @@ import Container from "@/components/constants/Container";
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
 import { Calendar, Clock, ArrowRight } from "iconsax-react";
-import { format } from "date-fns";
+import { formatPublicationDate } from "@/lib/publicationDate";
+import { getServiceArticleSlugs } from "@/lib/serviceArticles";
 
-async function getRelatedBlogs() {
-  const query = `*[_type == "blog"] | order(publishedAt desc) [0...3]{
+async function getRelatedBlogs(serviceSlug) {
+  const slugs = getServiceArticleSlugs(serviceSlug);
+  const query = `*[_type == "blog" && !(_id in path("drafts.**")) && defined(slug.current)
+    && slug.current in $slugs]{
     _id,
     title,
     slug,
@@ -24,14 +27,13 @@ async function getRelatedBlogs() {
     categories[]->{title}
   }`;
 
-  const blogs = await client.fetch(query, {}, {
-    cache: 'no-store' // Don't cache, always fetch fresh
-  });
-  return blogs;
+  if (!slugs.length) return [];
+  const blogs = await client.fetch(query, { slugs }, { next: { revalidate: 60 } });
+  return slugs.map((slug) => blogs.find((blog) => blog.slug?.current === slug)).filter(Boolean);
 }
 
-const RelatedBlogs = async ({ serviceTitle }) => {
-  const blogs = await getRelatedBlogs();
+const RelatedBlogs = async ({ serviceSlug }) => {
+  const blogs = await getRelatedBlogs(serviceSlug);
 
   if (blogs.length === 0) {
     return null;
@@ -118,7 +120,7 @@ const BlogCard = ({ blog }) => {
               <div className="flex items-center gap-1">
                 <Calendar size={14} />
                 <span className="text-xs">
-                  {format(new Date(blog.publishedAt), "MMM dd, yyyy")}
+                  {formatPublicationDate(blog.publishedAt, "short")}
                 </span>
               </div>
             )}

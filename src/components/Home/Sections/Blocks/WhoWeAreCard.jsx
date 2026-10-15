@@ -5,7 +5,7 @@ import { ArrowRight } from "iconsax-react";
 import Link from "next/link";
 import { slugify } from "@/utils/slugify";
 
-export const WhoWeAreCard = ({ title, desc, icon }) => {
+export const WhoWeAreCard = ({ title, desc, icon, href }) => {
   return (
     <div className="bg-white rounded-2xl shadow-2xl" data-aos="fade-left">
       <div className="flex flex-col gap-2 p-4">
@@ -25,7 +25,7 @@ export const WhoWeAreCard = ({ title, desc, icon }) => {
       </div>
 
       <Link
-        href={"/services/" + slugify(title)}
+        href={href || "/services/" + slugify(title)}
         className="bg-[#6F36D2] p-4 text-white w-full rounded-b-2xl flex justify-between items-center gap-2 mt-4"
       >
         <Body>Learn More</Body>

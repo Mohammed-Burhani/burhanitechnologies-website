@@ -1,6 +1,8 @@
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
 import { notFound } from "next/navigation";
+import { generateCaseStudyMetadata } from "@/utils/metadata";
+import { generateBreadcrumbSchema } from "@/utils/schema";
 
 import CaseStudyHero from "@/components/CaseStudies/Detail/CaseStudyHero";
 import GoalChallengeOutcomeCards from "@/components/CaseStudies/Detail/GoalChallengeOutcomeCards";
@@ -44,15 +46,10 @@ export async function generateMetadata({ params }) {
   const caseStudy = await getCaseStudy(resolvedParams.slug);
 
   if (!caseStudy) {
-    return {
-      title: "Case Study Not Found",
-    };
+    notFound();
   }
 
-  return {
-    title: `${caseStudy.title} | Case Study | Burhani Technologies`,
-    description: caseStudy.excerpt || caseStudy.goal,
-  };
+  return generateCaseStudyMetadata(caseStudy, urlForImage(caseStudy.bannerImage));
 }
 
 export default async function CaseStudyPage({ params }) {
@@ -66,6 +63,13 @@ export default async function CaseStudyPage({ params }) {
   const bannerImage = caseStudy.bannerImage
     ? urlForImage(caseStudy.bannerImage)
     : null;
+
+  const canonical = `https://burhanitechnologies.com/case-studies/${caseStudy.slug.current}`;
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "https://burhanitechnologies.com" },
+    { name: "Case Studies", url: "https://burhanitechnologies.com/case-studies" },
+    { name: caseStudy.title.trim(), url: canonical },
+  ]);
 
   // Resolve all images to URLs in server component
   const processesWithResolvedImages = caseStudy.processes?.map((process) => ({
@@ -84,6 +88,13 @@ export default async function CaseStudyPage({ params }) {
 
   return (
     <main id="main">
+      <script
+        id="case-study-breadcrumb-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c"),
+        }}
+      />
       <CaseStudyHero
         title={caseStudy.title}
         client={caseStudy.client}

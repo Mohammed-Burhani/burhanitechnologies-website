@@ -30,7 +30,7 @@ export const Banner = () => {
               "mt-4 max-w-5xl text-gray-300 !font-light text-center z-10"
             }
           >
-            "Driven by Passion, United as One | Meet the Team Behind Our Success."
+            &quot;Driven by Passion, United as One | Meet the Team Behind Our Success.&quot;
           </Body>
         </div>
         <Image

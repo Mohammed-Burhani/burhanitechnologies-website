@@ -1,5 +1,4 @@
 import React from "react";
-import Script from "next/script";
 import { client } from "@/sanity/lib/client";
 import { generateServiceMetadata } from "@/utils/metadata";
 import {
@@ -60,18 +59,12 @@ export async function generateMetadata({ params }) {
   // Fetch service details from Sanity
   const serviceData = await getServiceDetails(service);
 
-  // Use predefined metadata or generate from service data
-  const metadata = generateServiceMetadata(service);
-
-  if (serviceData) {
-    return {
-      ...metadata,
-      title: metadata.title || `${serviceData.title} | Burhani Technologies`,
-      description: metadata.description || serviceData.title,
-    };
+  if (!serviceData) {
+    notFound();
   }
 
-  return metadata;
+  // Use the catalog for known services and approved CMS copy for future services.
+  return generateServiceMetadata(service, serviceData);
 }
 
 // Generate static params for all services (optional, for static generation)
@@ -120,34 +113,31 @@ const Service = async ({ params }) => {
   return (
     <>
       {/* Breadcrumb Schema */}
-      <Script
+      <script
         id="breadcrumb-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbSchema),
+          __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c"),
         }}
-        strategy="beforeInteractive"
       />
 
       {/* Service Schema */}
-      <Script
+      <script
         id="service-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(serviceSchema),
+          __html: JSON.stringify(serviceSchema).replace(/</g, "\\u003c"),
         }}
-        strategy="beforeInteractive"
       />
 
       {/* FAQ Schema */}
       {faqSchema && (
-        <Script
+        <script
           id="faq-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(faqSchema),
+            __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c"),
           }}
-          strategy="beforeInteractive"
         />
       )}
 
@@ -188,7 +178,7 @@ const Service = async ({ params }) => {
       />
 
       {/* 7. Blog Posts */}
-      <RelatedBlogs serviceTitle={serviceDetails.title} />
+      <RelatedBlogs serviceSlug={service} serviceTitle={serviceDetails.title} />
       
       {/* 4. Social Proof - Trusted by section */}
       <Testimonials />

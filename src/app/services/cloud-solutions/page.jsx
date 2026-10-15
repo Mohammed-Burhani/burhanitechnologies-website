@@ -1,4 +1,4 @@
-import Script from "next/script";
+import RelatedBlogs from "@/components/Services/RelatedBlogs";
 import Hero from "@/components/Services/CloudSolutions/Hero";
 import ChangingDemand from "@/components/Services/CloudSolutions/ChangingDemand";
 import PlanTheMove from "@/components/Services/CloudSolutions/PlanTheMove";
@@ -54,17 +54,15 @@ const faqSchema = generateFAQSchema(cloudSolutionsFaqs);
 const CloudSolutionsPage = () => {
   return (
     <>
-      <Script
+      <script
         id="cloud-solutions-breadcrumb-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c") }}
       />
-      <Script
+      <script
         id="cloud-solutions-faq-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }}
       />
 
       <div>
@@ -78,6 +76,7 @@ const CloudSolutionsPage = () => {
         <TechStack />
         <CaseStudyFeature />
         <FAQ />
+        <RelatedBlogs serviceSlug="cloud-solutions" />
         <CTA />
       </div>
     </>

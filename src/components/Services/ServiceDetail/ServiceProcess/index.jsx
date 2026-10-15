@@ -1,5 +1,5 @@
 import Container from "@/components/constants/Container";
-import { Heading } from "@/components/textComponents/Heading";
+import { ServiceSectionHeading as Heading } from "../ServiceSectionHeading";
 import { HighlightCard } from "./HighlightCard";
 import { ContentCard } from "./ContentCard";
 import { PortableText } from "next-sanity";

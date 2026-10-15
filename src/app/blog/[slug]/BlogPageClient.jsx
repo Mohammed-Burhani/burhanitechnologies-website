@@ -21,7 +21,7 @@ import {
   Tag,
   TwitterLogo,
 } from "@phosphor-icons/react";
-import { format } from "date-fns";
+import { formatPublicationDate } from "@/lib/publicationDate";
 
 // Local PortableText renderers, scoped to the article body only. This
 // project has no @tailwindcss/typography plugin installed, so the `prose`
@@ -249,9 +249,7 @@ const BlogPageClient = ({ blogDetails, relatedBlogs = [] }) => {
     );
   }
 
-  const publishedLabel =
-    blogDetails.publishedAt &&
-    format(new Date(blogDetails.publishedAt), "MMMM dd, yyyy");
+  const publishedLabel = formatPublicationDate(blogDetails.publishedAt);
 
   return (
     <div className="bg-white">
@@ -731,8 +729,7 @@ const BlogPageClient = ({ blogDetails, relatedBlogs = [] }) => {
 export default BlogPageClient;
 
 const RelatedBlogCard = ({ blog }) => {
-  const publishedLabel =
-    blog.publishedAt && format(new Date(blog.publishedAt), "MMM dd, yyyy");
+  const publishedLabel = formatPublicationDate(blog.publishedAt, "short");
 
   return (
     <Link

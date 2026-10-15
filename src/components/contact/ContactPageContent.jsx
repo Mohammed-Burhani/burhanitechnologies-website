@@ -349,7 +349,7 @@ export default function ContactPageContent() {
                 </h2>
                 <p className="mt-5 max-w-[46ch] font-inter text-base leading-relaxed text-zinc-600">
                   See the{" "}
-                  <Link href="/book-a-consultation" className={inlineLink}>
+                  <Link href="#consultation-agenda" className={inlineLink}>
                     consultation agenda
                   </Link>{" "}
                   and our{" "}
@@ -364,7 +364,7 @@ export default function ContactPageContent() {
               </Reveal>
             </div>
 
-            <div className="lg:col-span-7">
+            <div id="consultation-agenda" className="scroll-mt-28 lg:col-span-7">
               <ProcessTimeline />
             </div>
           </div>

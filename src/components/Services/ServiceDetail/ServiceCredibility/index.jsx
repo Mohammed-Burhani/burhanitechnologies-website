@@ -1,5 +1,5 @@
 import Container from "@/components/constants/Container";
-import { Heading } from "@/components/textComponents/Heading";
+import { ServiceSectionHeading as Heading } from "../ServiceSectionHeading";
 import { CapabilityCard } from "./CapabilityCard";
 
 export const ServiceCredibility = ({ title, capabilities }) => {

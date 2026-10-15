@@ -1,4 +1,4 @@
-import Script from "next/script";
+import RelatedBlogs from "@/components/Services/RelatedBlogs";
 import Hero from "@/components/Services/ApplicationDevelopment/Hero";
 import WhySwitch from "@/components/Services/ApplicationDevelopment/WhySwitch";
 import WorkflowApplications from "@/components/Services/ApplicationDevelopment/WorkflowApplications";
@@ -54,17 +54,15 @@ const faqSchema = generateFAQSchema(applicationDevelopmentFaqs);
 const ApplicationDevelopmentPage = () => {
   return (
     <>
-      <Script
+      <script
         id="application-development-breadcrumb-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c") }}
       />
-      <Script
+      <script
         id="application-development-faq-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }}
       />
 
       <div>
@@ -78,6 +76,7 @@ const ApplicationDevelopmentPage = () => {
         <TechStack />
         <CaseStudyFeature />
         <FAQ />
+        <RelatedBlogs serviceSlug="application-development" />
         <CTA />
       </div>
     </>

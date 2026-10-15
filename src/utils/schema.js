@@ -8,12 +8,14 @@ export const organizationSchema = {
   url: "https://burhanitechnologies.com",
   logo: "https://burhanitechnologies.com/BT-Logo.svg",
   description:
-    "Leading software development company with 14+ years of expertise specializing in Custom ERP Implementation, AI/ML Automation, Microsoft Power Platform, DevOps/Azure, and Business Process Automation services. Serving healthcare, manufacturing, automotive, and construction industries globally.",
+    "Custom software engineering since 2010. Burhani builds applications, ERP and automation around business operations, with experience across real client projects.",
   foundingDate: "2010",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "1st Floor, Vanguard House, #48, Moore St, Parry's Corner, George Town",
     addressLocality: "Chennai",
     addressRegion: "Tamil Nadu",
+    postalCode: "600001",
     addressCountry: "IN",
   },
   contactPoint: {
@@ -68,11 +70,6 @@ export const websiteSchema = {
   url: "https://burhanitechnologies.com",
   description:
     "Custom software development and business automation services",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: "https://burhanitechnologies.com/search?q={search_term_string}",
-    "query-input": "required name=search_term_string",
-  },
 };
 
 // Local Business Schema
@@ -85,25 +82,26 @@ export const localBusinessSchema = {
   url: "https://burhanitechnologies.com",
   telephone: "+91-72990-02152",
   description:
-    "Professional software development company providing custom ERP, AI automation, and enterprise solutions with 14+ years of experience.",
+    "Software engineering since 2010: custom applications, ERP implementation and business process automation.",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "1st Floor, Vanguard House, #48, Moore St, Parry's Corner, George Town",
     addressLocality: "Chennai",
     addressRegion: "Tamil Nadu",
+    postalCode: "600001",
     addressCountry: "IN",
   },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 13.0827,
-    longitude: 80.2707,
-  },
-  openingHoursSpecification: {
+  openingHoursSpecification: [{
     "@type": "OpeningHoursSpecification",
     dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
     opens: "09:00",
     closes: "18:00",
-  },
-  priceRange: "$$$$",
+  }, {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Saturday"],
+    opens: "09:00",
+    closes: "13:00",
+  }],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Software Development Services",

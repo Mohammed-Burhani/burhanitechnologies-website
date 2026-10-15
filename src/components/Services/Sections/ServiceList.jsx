@@ -51,7 +51,7 @@ const ServiceList = async () => {
         </Heading>
         <Body className="max-w-2xl mt-4 text-center text-gray-600" data-aos="fade-up">
           Explore a wide range of services tailored to meet your unique business
-          requirements. From development to automation, we've got you covered.
+          requirements. From development to automation, we&apos;ve got you covered.
         </Body>
       </div>
 

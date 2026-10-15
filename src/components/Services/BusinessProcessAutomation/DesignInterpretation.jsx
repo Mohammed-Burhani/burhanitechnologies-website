@@ -97,7 +97,7 @@ const DesignInterpretation = () => {
               deterministic validation where the task requires them. An
               invoice may become a structured record, pass required-field
               and duplicate checks, then move into the approval queue. A
-              model's interpretation supplies information; the business
+              model&apos;s interpretation supplies information; the business
               rules determine what can proceed.
             </p>
             <p className="max-w-2xl text-sm leading-relaxed text-zinc-500 sm:text-base">

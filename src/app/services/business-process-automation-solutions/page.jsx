@@ -1,4 +1,4 @@
-import Script from "next/script";
+import RelatedBlogs from "@/components/Services/RelatedBlogs";
 import Hero from "@/components/Services/BusinessProcessAutomation/Hero";
 import ManualProcessing from "@/components/Services/BusinessProcessAutomation/ManualProcessing";
 import ConnectCapture from "@/components/Services/BusinessProcessAutomation/ConnectCapture";
@@ -55,17 +55,15 @@ const faqSchema = generateFAQSchema(businessProcessAutomationFaqs);
 const BusinessProcessAutomationPage = () => {
   return (
     <>
-      <Script
+      <script
         id="bpa-breadcrumb-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c") }}
       />
-      <Script
+      <script
         id="bpa-faq-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }}
       />
 
       <div>
@@ -79,6 +77,7 @@ const BusinessProcessAutomationPage = () => {
         <TechStack />
         <CaseStudyFeature />
         <FAQ />
+        <RelatedBlogs serviceSlug="business-process-automation-solutions" />
         <CTA />
       </div>
     </>

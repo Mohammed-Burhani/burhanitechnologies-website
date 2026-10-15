@@ -1,6 +1,6 @@
 import Container from "@/components/constants/Container";
 import { Body } from "@/components/textComponents/Body";
-import { Heading } from "@/components/textComponents/Heading";
+import { ServiceSectionHeading as Heading } from "./ServiceSectionHeading";
 import { PortableText } from "next-sanity";
 import { components } from "@/utils/components";
 import { PortableBody } from "@/components/textComponents/PortableBody";

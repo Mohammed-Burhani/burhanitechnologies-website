@@ -1,4 +1,4 @@
-import Script from "next/script";
+import RelatedBlogs from "@/components/Services/RelatedBlogs";
 import Hero from "@/components/Services/ErpImplementation/Hero";
 import DifferentRecords from "@/components/Services/ErpImplementation/DifferentRecords";
 import OperationalRecord from "@/components/Services/ErpImplementation/OperationalRecord";
@@ -54,17 +54,15 @@ const faqSchema = generateFAQSchema(erpImplementationFaqs);
 const ErpImplementationPage = () => {
   return (
     <>
-      <Script
+      <script
         id="erp-implementation-breadcrumb-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c") }}
       />
-      <Script
+      <script
         id="erp-implementation-faq-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }}
       />
 
       <div>
@@ -78,6 +76,7 @@ const ErpImplementationPage = () => {
         <TechStack />
         <CaseStudyFeature />
         <FAQ />
+        <RelatedBlogs serviceSlug="erp-implementation" />
         <CTA />
       </div>
     </>

@@ -292,7 +292,7 @@ export default function About() {
               <p className="text-white text-sm md:text-base leading-relaxed">
                 We welcome fresh ideas and creativity. Our environment
                 encourages bold innovation, helping us design and create unique
-                solutions that continually evolve with our clients' changing
+                solutions that continually evolve with our clients&apos; changing
                 needs.
               </p>
             </Card>

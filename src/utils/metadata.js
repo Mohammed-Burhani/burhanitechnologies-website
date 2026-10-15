@@ -127,7 +127,7 @@ export const serviceMetadata = {
     ],
   },
   
-  "mobile-app-development": {
+  "mobile-application-development": {
     title: "Mobile App Development | iOS & Android Apps | Burhani Technologies",
     description:
       "Custom mobile app development for iOS and Android. Native and cross-platform solutions with seamless performance, intuitive UI, and robust backend integration.",
@@ -179,10 +179,10 @@ export const serviceMetadata = {
     ],
   },
   
-  "line-of-business-(lob)-applications": {
+  "line-of-business-lob-applications": {
     title: "Line of Business (LOB) Applications | Custom Business Software | Burhani Technologies",
     description:
-      "Custom LOB applications tailored to your specific operational needs. Inventory management, CRM, project tracking, and departmental solutions that drive productivity.",
+      "Custom line of business applications for internal processes, including inventory, HR, and financial reconciliation, tailored to your operational needs.",
     keywords: [
       "LOB applications",
       "line of business software",
@@ -195,7 +195,7 @@ export const serviceMetadata = {
   "workflow-automation": {
     title: "Workflow Automation Solutions | Process Optimization | Burhani Technologies",
     description:
-      "Intelligent workflow automation to eliminate manual tasks and optimize business processes. Reduce errors by 85% and improve efficiency with custom automation tools.",
+      "Workflow automation to digitize manual, paper-based, and email-driven processes, coordinate tasks between teams and systems, and streamline approvals.",
     keywords: [
       "workflow automation",
       "process automation",
@@ -231,7 +231,7 @@ export const serviceMetadata = {
     ],
   },
   
-  "robotic-process-automation-(rpa)": {
+  "robotic-process-automation-rpa": {
     title: "Robotic Process Automation (RPA) | Bot Development | Burhani Technologies",
     description:
       "RPA solutions to automate repetitive tasks using software bots. Data entry, invoice processing, report generation, and system integration to free up your team for strategic work.",
@@ -256,40 +256,86 @@ export const serviceMetadata = {
       "integration services",
     ],
   },
+
+  "data-analysis-and-reporting": {
+    title: "Data Analysis and Reporting Services | Burhani Technologies",
+    description:
+      "Collect, clean, analyze, and visualize business data to understand market trends, operational efficiency, and customer behavior.",
+    keywords: ["data analysis", "business reporting", "data visualization"],
+  },
+
+  "devops-and-maintenance": {
+    title: "DevOps and Application Maintenance Services | Burhani Technologies",
+    description:
+      "DevOps and application maintenance services covering CI/CD pipelines, infrastructure optimization, deployment automation, and ongoing software support.",
+    keywords: ["DevOps services", "application maintenance", "CI/CD pipelines"],
+  },
+
+  "process-automation": {
+    title: "Process Automation Services | Burhani Technologies",
+    description:
+      "Digitize repetitive, multi-step processes across HR, finance, and operations with custom software, system integration, and automation tools.",
+    keywords: ["process automation", "business workflows", "system integration"],
+  },
+
+  "ux-ui-design": {
+    title: "UX UI Design Services | Burhani Technologies",
+    description:
+      "UX and UI design services for intuitive, accessible digital interfaces, with a design process focused on user needs and business goals.",
+    keywords: ["UX UI design", "user experience design", "interface design"],
+  },
 };
 
 // Generate metadata for dynamic pages
-export function generateServiceMetadata(slug) {
-  const metadata = serviceMetadata[slug];
-  
-  if (metadata) {
-    return {
-      title: metadata.title,
-      description: metadata.description,
-      keywords: metadata.keywords.join(", "),
-      openGraph: {
-        title: metadata.title,
-        description: metadata.description,
-        type: "website",
-        url: `https://burhanitechnologies.com/services/${slug}`,
-      },
-      twitter: {
-        card: "summary_large_image",
-        title: metadata.title,
-        description: metadata.description,
-      },
-      alternates: {
-        canonical: `https://burhanitechnologies.com/services/${slug}`,
-      },
-    };
-  }
-  
-  // Fallback metadata
+export function generateServiceMetadata(slug, serviceData = {}) {
+  const catalogEntry = serviceMetadata[slug];
+  const title =
+    catalogEntry?.title || `${serviceData.title || "Services"} | Burhani Technologies`;
+  const description =
+    catalogEntry?.description ||
+    serviceData.heroDescription ||
+    serviceData.benefitTitle ||
+    serviceData.title;
+  const canonical = `https://burhanitechnologies.com/services/${slug}`;
+
   return {
-    title: "Services | Burhani Technologies",
-    description: "Explore our comprehensive range of software development and automation services.",
-    alternates: {
-      canonical: `https://burhanitechnologies.com/services/${slug}`,
+    title,
+    description,
+    ...(catalogEntry?.keywords && { keywords: catalogEntry.keywords.join(", ") }),
+    openGraph: {
+      title,
+      description,
+      type: "website",
+      siteName: "Burhani Technologies",
+      url: canonical,
+    },
+    twitter: { card: "summary_large_image", title, description },
+    alternates: { canonical },
+  };
+}
+
+export function generateCaseStudyMetadata(caseStudy, imageUrl) {
+  const title = `${caseStudy.title.trim()} | Case Study | Burhani Technologies`;
+  const description = (caseStudy.excerpt || caseStudy.goal || "").trim();
+  const canonical = `https://burhanitechnologies.com/case-studies/${caseStudy.slug.current}`;
+
+  return {
+    title,
+    description,
+    alternates: { canonical },
+    openGraph: {
+      type: "article",
+      siteName: "Burhani Technologies",
+      title,
+      description,
+      url: canonical,
+      ...(imageUrl && { images: [{ url: imageUrl, alt: caseStudy.title.trim() }] }),
+    },
+    twitter: {
+      card: imageUrl ? "summary_large_image" : "summary",
+      title,
+      description,
+      ...(imageUrl && { images: [imageUrl] }),
     },
   };
 }

@@ -1,8 +1,9 @@
-import { CTA2 } from "@/components/Home/Sections/CTA2";
-import { Testimonials } from "@/components/Home/Sections/Testimonials";
 import { Banner } from "@/components/Blog/Sections/Banner";
 import BlogList from "@/components/Blog/Sections/BlogList";
+import { getPublishedBlogCards } from "@/lib/blogDiscovery";
 import React from "react";
+
+export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "Tech Blog | Software Development Insights | Burhani Technologies",
@@ -29,11 +30,13 @@ export const metadata = {
   },
 };
 
-const Blog = () => {
+const Blog = async () => {
+  const blogs = await getPublishedBlogCards();
+
   return (
     <div>
       <Banner />
-      <BlogList />
+      <BlogList blogs={blogs} />
       {/* <Testimonials />
       <CTA2 /> */}
     </div>
