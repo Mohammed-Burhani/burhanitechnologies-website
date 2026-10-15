@@ -82,6 +82,18 @@ export const Footer = () => {
             </li>
 
             <li>
+              <Link className="text-white transition hover:text-white/75" href="/why-choose-us">
+                <Body>Why Burhani</Body>
+              </Link>
+            </li>
+
+            <li>
+              <Link className="text-white transition hover:text-white/75" href="/values">
+                <Body>Values</Body>
+              </Link>
+            </li>
+
+            <li>
               <Link className="text-white transition hover:text-white/75" href="/services">
                 <Body>Services</Body>
               </Link>

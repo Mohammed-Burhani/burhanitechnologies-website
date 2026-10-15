@@ -16,6 +16,7 @@ These changes address those remaining website defects. They do not claim a parti
 - Restore the industry index, four sector pages, four knowledge-base guides and the rapid application development service from the existing approved content. Public fields, body sections, FAQs and CTA wording are preserved; research fields are excluded.
 - Correct the explicit UX/UI service link without changing unrelated slug generation. Point the contact page's consultation-agenda link to its existing process steps rather than an unavailable booking route.
 - Select service-related guides by their existing published slugs rather than showing the same three latest posts for every service. Add those links to the four rewritten service pages.
+- Link the existing Values and Why Burhani pages from the footer so they have discoverable incoming links in the initial HTML.
 - Format publication labels in one explicit India timezone on server and browser, preventing the observed midnight-boundary hydration mismatch.
 - Remove only unresolved Cookiebot DSR placeholder hrefs. Do not change configured destinations or consent controls. A real DSR destination still belongs in the consent-service configuration when provided.
 - Align lint dependencies with the installed Next.js version, declare required peer dependencies, include JSX in lint coverage and preserve rendered copy while fixing the newly exposed entity/internal-link errors.

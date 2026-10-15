@@ -73,6 +73,8 @@ for (const path of destinations) {
   if (response.status >= 400) broken.push({ path, status: response.status, referringPages: pages.filter((page) => page.links.includes(path)).map((page) => page.path) });
 }
 assert.deepEqual(broken, [], "internal content links must resolve");
+const unlinkedSitemapPaths = paths.filter((path) => path !== "/" && !destinations.has(path));
+assert.deepEqual(unlinkedSitemapPaths, [], "all sitemap content must have an incoming initial-HTML link");
 
 const missing = ["/blog/seo-test-missing-article", "/services/seo-test-missing-service", "/case-studies/seo-test-missing-case", "/industries/seo-test-missing-industry", "/knowledge-base/seo-test-missing-guide"];
 for (const path of missing) {
@@ -93,6 +95,7 @@ console.log(JSON.stringify({
   archiveArticlesInInitialHTML: articlePaths.length,
   selfCanonicals: pages.length, initialSchemaPages: pages.length,
   internalDestinationsChecked: destinations.size, brokenInternalDestinations: broken.length,
+  unlinkedSitemapPaths,
   missingRoutesReturn404: missing.length,
   contextualServiceArticleLinks: pages.filter((page) => page.path.startsWith("/services/")).reduce((count, page) => count + page.links.filter((path) => path.startsWith("/blog/")).length, 0),
 }, null, 2));
