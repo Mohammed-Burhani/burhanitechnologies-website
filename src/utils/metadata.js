@@ -267,6 +267,9 @@ export function generateServiceMetadata(slug) {
       title: metadata.title,
       description: metadata.description,
       keywords: metadata.keywords.join(", "),
+      alternates: {
+        canonical: `https://burhanitechnologies.com/services/${slug}`,
+      },
       openGraph: {
         title: metadata.title,
         description: metadata.description,
