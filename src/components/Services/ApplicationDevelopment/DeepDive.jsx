@@ -6,7 +6,7 @@ import Container from "@/components/constants/Container";
 const DeepDive = () => {
   return (
     <section className="relative overflow-hidden bg-white py-16 sxl:py-24">
-      <Container>
+      <Container className="!py-0">
         {/* Three long-form sections stacked vertically, each headed by its own
            numeral rather than split into a headline-left / body-right layout */}
         <div className="mx-auto flex max-w-3xl flex-col divide-y divide-zinc-200">

@@ -12,7 +12,7 @@ const DiscussFirstScope = () => {
         className="pointer-events-none absolute -left-32 bottom-0 h-[380px] w-[380px] rounded-full bg-[#6F36D2]/[0.07] blur-[120px]"
       />
 
-      <Container className="relative">
+      <Container className="relative !py-0">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_0.85fr] lg:gap-16">
           <div className="flex flex-col gap-5">
             <h2 className="max-w-xl text-2xl font-semibold leading-tight tracking-tight text-zinc-900 sm:text-3xl lg:text-4xl">

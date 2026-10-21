@@ -24,7 +24,7 @@ const Hero = () => {
 
       <Container className="relative z-10">
         <nav aria-label="Breadcrumb" className="mb-6">
-          <ol className="flex flex-wrap items-center gap-1.5 font-inter text-smallText text-zinc-500">
+          <ol className="flex flex-wrap items-center gap-1.5 font-inter text-smallText text-zinc-400">
             <li>
               <Link
                 href="/"

@@ -254,14 +254,11 @@ export default function ContactPageContent() {
                   />
                   <div className="relative">
                     <p className="font-inter text-xs font-medium uppercase tracking-[0.18em] text-[#B79CE8]">
-                      Technical leadership
+                      Project enquiries
                     </p>
                     <h2 className="mt-4 font-inter text-2xl font-semibold tracking-tight text-white sm:text-3xl">
                       Yusuf Shabbir
                     </h2>
-                    <p className="mt-1 font-inter text-base text-[#B79CE8]">
-                      CTO
-                    </p>
                     <p className="mt-5 font-inter text-base leading-relaxed text-zinc-300">
                       Our technical team reviews the workflow and systems your
                       project needs to connect. We agree your project contacts
@@ -271,7 +268,7 @@ export default function ContactPageContent() {
                     <div className="mt-7 flex flex-col gap-4 border-t border-white/10 pt-7">
                       <a
                         href="mailto:connect@burhanitechnologies.com"
-                        className={darkContactLink}
+                        className={`${darkContactLink} min-w-0`}
                       >
                         <IconWell dark>
                           <EnvelopeSimple
@@ -280,7 +277,7 @@ export default function ContactPageContent() {
                             aria-hidden="true"
                           />
                         </IconWell>
-                        connect@burhanitechnologies.com
+                        <span className="min-w-0 break-all">connect@burhanitechnologies.com</span>
                       </a>
                       <a href="tel:+917299002152" className={darkContactLink}>
                         <IconWell dark>
@@ -416,7 +413,7 @@ export default function ContactPageContent() {
                   <IconWell>
                     <Phone size={20} weight="regular" aria-hidden="true" />
                   </IconWell>
-                  <div>
+                  <div className="min-w-0">
                     <h2 className="font-inter text-xl font-semibold tracking-tight text-zinc-900">
                       Talk to us
                     </h2>
@@ -426,7 +423,7 @@ export default function ContactPageContent() {
                       </a>
                       <a
                         href="mailto:connect@burhanitechnologies.com"
-                        className={lightLink}
+                        className={`${lightLink} break-all`}
                       >
                         connect@burhanitechnologies.com
                       </a>

@@ -1,5 +1,7 @@
 import CompanyPage from "./CompanyPage";
+import { caseStudyImages } from "@/content/caseStudyImages";
 
 export default function CaseStudyPage({ page }) {
-  return <CompanyPage page={page} schemaType="Article" />;
+  const slug = page.pathname.split("/").pop();
+  return <CompanyPage page={page} schemaType="Article" media={caseStudyImages[slug]} />;
 }

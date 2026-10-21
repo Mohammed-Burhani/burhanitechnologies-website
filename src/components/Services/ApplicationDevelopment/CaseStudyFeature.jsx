@@ -23,7 +23,7 @@ const CaseStudyFeature = () => {
         className="pointer-events-none absolute -left-32 top-0 h-[420px] w-[420px] rounded-full bg-[#6F36D2]/[0.1] blur-[140px]"
       />
 
-      <Container className="relative">
+      <Container className="relative !py-0">
         <span className="font-inter text-smallText font-semibold uppercase tracking-wide text-[#B79CE8]">
           Client project
         </span>
@@ -32,11 +32,11 @@ const CaseStudyFeature = () => {
            deliberately different from the bordered-card pattern used for
            multi-item grids elsewhere on this page */}
         <div className="mt-6 grid grid-cols-1 overflow-hidden rounded-2xl border border-white/10 lg:grid-cols-2">
-          <div className="relative aspect-[16/11] w-full lg:aspect-auto">
+          <div className="relative flex w-full items-center justify-center bg-[#14111d]">
             <img width="800" height="640"
               src="/illustrations/inventory.svg"
               alt="Conceptual illustration: keep stock movements traceable"
-              className="h-full w-full object-contain bg-[#14111d]"
+              className="h-auto max-h-96 w-full object-contain"
               loading="lazy"
             />
           </div>

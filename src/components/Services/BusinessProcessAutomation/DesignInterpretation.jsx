@@ -6,7 +6,7 @@ import Container from "@/components/constants/Container";
 const DesignInterpretation = () => {
   return (
     <section className="relative overflow-hidden bg-white py-16 sxl:py-24">
-      <Container>
+      <Container className="!py-0">
         {/* Alternating text alignment, no numeral rail and no symmetric
            columns, so this reads differently from the equivalent deep-dive
            sections on the other pillar pages */}

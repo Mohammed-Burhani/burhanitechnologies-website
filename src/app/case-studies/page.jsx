@@ -1,6 +1,7 @@
 import CompanyPage from "@/components/ApprovedContent/CompanyPage";
 import { approvedMetadata } from "@/components/ApprovedContent/ApprovedPage";
 import { caseStudyHub, caseStudyPages } from "@/content/caseStudyPages";
+import { caseStudyImages } from "@/content/caseStudyImages";
 import { client } from "@/sanity/lib/client";
 
 export const dynamic = "force-dynamic";
@@ -54,5 +55,5 @@ export default async function CaseStudiesPage() {
     stats: ["6 featured systems", "4 featured sectors", "Clients in India and the United States"],
     sections: [caseStudyHub.sections[0], additionalSection(studies), ...caseStudyHub.sections.slice(1)],
   } : caseStudyHub;
-  return <CompanyPage page={page} schemaType="CollectionPage" />;
+  return <CompanyPage page={page} schemaType="CollectionPage" cardImages={caseStudyImages} />;
 }

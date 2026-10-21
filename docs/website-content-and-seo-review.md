@@ -7,8 +7,12 @@ The page review found 15 missing routes in the original 49-page handoff and 24 p
 - Restores the missing industry pages, knowledge-base guides, author pages, consultation page and utility routes.
 - Replaces generic service content with specific scope, use cases, delivery steps, FAQs and relevant next actions. Clarifies the distinction between workflow automation, robotic process automation, system integration and broader process improvement.
 - Restores the company pages and six detailed case studies. The case-study hub retains those six featured systems and also displays additional published cases without requiring a rebuild.
-- Refines the homepage and service layouts, makes service links visible on mobile, limits long text to a readable width, adds section navigation and improves keyboard access and contrast.
+- Adds a grouped mega menu covering all 18 services, company and industry dropdowns, and a mobile navigation dialog with keyboard focus management. An opaque header maintains legibility while scrolling.
+- Rebuilds the 14 smaller service pages with illustrated headers, sticky section navigation, numbered use cases, expandable scope and delivery sections, and relevant project panels. Refines the four larger service pages by removing duplicate section padding and balancing process grids and illustrations.
+- Corrects the service hub's uneven decision cards and oversized facts section. Improves homepage facts, contact email wrapping, author-page next actions, floating controls and the footer's office directions panel.
 - Replaces random imagery with original lightweight process illustrations and a branded social preview. Replaces unsupported testimonial content with project evidence.
+- Adds matching case-study illustrations to homepage project cards, service-hub cards, industry headers, case-study pages and relevant internal service panels. Responsive image sizing, descriptive alternative text and lazy loading support accessible, efficient rendering; labels identify the images as illustrations.
+- Adds restrained scroll fades and hover feedback. Motion respects reduced-motion preferences, and content remains visible when JavaScript is unavailable.
 - Keeps the current contact form and published articles. Adds contextual links from relevant articles to the services they explain.
 
 ## Search and rendering behavior
@@ -31,6 +35,8 @@ The existing business-enquiry form and separate career-enquiry email link are re
 
 ## Validation
 
-The production build and five SEO regression tests pass. The route audit covers 100 pages, 96 sitemap URLs, 50 published articles, 98 internal destinations and 55 rendering assets. Responsive checks cover desktop, tablet and mobile; representative pages have working navigation, readable illustrations and no horizontal overflow or broken images.
+The production build and five SEO regression tests pass. The route audit covers 100 pages, 96 sitemap URLs, 50 published articles, 98 internal destinations and 53 rendering assets. The 50 content routes were reviewed across desktop and mobile, with additional tablet and 320px reflow checks. Corrected layouts have no horizontal overflow or broken images in the checked viewports. All 36 navigation interaction checks pass; sampled accessibility scans are clear after the final contrast fixes.
+
+Scroll effects run with the normal motion preference and stay disabled with reduced motion. Content and native service disclosures remain available without JavaScript. Source comparisons confirm the service-layout changes retain the approved copy and links.
 
 These checks verify the local build. Production indexing, traffic and real-user performance require measurement after an approved deployment.

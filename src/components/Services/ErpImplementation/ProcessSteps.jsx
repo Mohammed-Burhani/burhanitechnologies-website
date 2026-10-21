@@ -43,20 +43,16 @@ const ProcessSteps = () => {
         className="pointer-events-none absolute -right-32 top-1/4 h-[420px] w-[420px] rounded-full bg-[#6F36D2]/[0.1] blur-[140px]"
       />
 
-      <Container className="relative">
+      <Container className="relative !py-0">
         <h2 className="text-2xl font-semibold leading-tight tracking-tight text-white sm:text-3xl lg:text-4xl">
           From process mapping to ERP rollout
         </h2>
 
-        <div className="relative mt-12 lg:mt-16">
-          <div
-            aria-hidden="true"
-            className="absolute left-[19px] top-2 bottom-2 w-px bg-gradient-to-b from-[#6F36D2]/60 via-white/10 to-transparent sm:left-[23px]"
-          />
+        <div className="mt-10 lg:mt-12">
 
-          <div className="flex flex-col gap-10 sm:gap-12">
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-12 xl:grid-cols-3">
             {steps.map((step) => (
-              <div key={step.index} className="relative flex gap-6 sm:gap-8">
+              <div key={step.index} className="relative flex gap-4">
                 <span className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#6F36D2]/40 bg-[#0B0B10] font-inter text-sm font-semibold text-[#B79CE8] sm:h-12 sm:w-12 sm:text-base">
                   {step.index}
                 </span>
@@ -64,7 +60,7 @@ const ProcessSteps = () => {
                   <h3 className="text-lg font-semibold text-white sm:text-xl">
                     {step.heading}
                   </h3>
-                  <p className="max-w-2xl text-sm leading-relaxed text-zinc-400 sm:text-base">
+                  <p className="max-w-2xl text-sm leading-relaxed text-zinc-300 sm:text-base">
                     {step.body}
                   </p>
                 </div>

@@ -24,7 +24,7 @@ const options = [
 const ConnectAndMaintain = () => {
   return (
     <section className="relative overflow-hidden bg-white py-16 sxl:py-24">
-      <Container>
+      <Container className="!py-0">
         <h2 className="max-w-2xl text-2xl font-semibold leading-tight tracking-tight text-zinc-900 sm:text-3xl lg:text-4xl">
           Connect and maintain your cloud environment
         </h2>
@@ -46,7 +46,7 @@ const ConnectAndMaintain = () => {
                   src={`/illustrations/${option.image}.svg`}
                   width="800" height="640" loading="lazy"
                   alt={`Conceptual process illustration for ${option.heading}`}
-                  className="aspect-[5/4] w-full object-contain"
+                  className="h-auto max-h-80 w-full object-contain"
                 />
                 <div className="relative flex flex-col gap-3 p-6 sm:p-8">
                   <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10">

@@ -16,7 +16,7 @@ return (
 
       {/* Sticky heading rail on desktop, accordion carries the interactive
          content on the right, distinct from the centered layouts elsewhere */}
-      <Container className="relative">
+      <Container className="relative !py-0">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:gap-16">
           <div className="lg:sticky lg:top-28 lg:self-start">
             <h2 className="text-2xl font-semibold leading-tight tracking-tight text-white sm:text-3xl lg:text-4xl">

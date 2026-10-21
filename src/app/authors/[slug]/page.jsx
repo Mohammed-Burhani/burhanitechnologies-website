@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import {
   ApprovedCta,
   ApprovedHero,
@@ -44,14 +45,15 @@ export default async function AuthorPage({ params }) {
     url,
   };
 
-  return <>
+  return <main id="main" className="approved-page">
     <ApprovedPageSchema page={author} pathname={pathname} breadcrumbs={breadcrumbs} type="WebPage" />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(person).replace(/</g, "\\u003c") }} />
     <ApprovedHero title={author.title} eyebrow={author.role} lede={author.bio} breadcrumbs={breadcrumbs} />
     <ApprovedSection>
-      <h2 className="font-inter text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl">Articles by {author.title.split(" ")[0]}</h2>
-      <p className="mt-6 font-inter text-base leading-relaxed text-zinc-600">No articles published yet.</p>
+      <h2 className="font-inter text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl">More from Burhani</h2>
+      <p className="mt-5 max-w-prose font-inter text-base leading-relaxed text-zinc-600">Explore our latest articles on software development, automation and business systems.</p>
+      <Link href="/blog" className="mt-6 inline-flex min-h-11 items-center gap-2 font-medium text-[#6F36D2] underline underline-offset-4">Browse the blog <span aria-hidden="true">→</span></Link>
     </ApprovedSection>
     <ApprovedCta />
-  </>;
+  </main>;
 }

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { deliveryProcess, industryPages } from "@/content/approvedPages";
+import { caseStudyImages } from "@/content/caseStudyImages";
 import { approvedMetadata, ApprovedPageSchema, ApprovedHero, ApprovedSection, ApprovedProblems, ApprovedApproach, ApprovedRelated, ApprovedProcess, ApprovedBody, ApprovedFaq, ApprovedCta } from "@/components/ApprovedContent/ApprovedPage";
 
 export const dynamicParams = false;
@@ -28,7 +29,7 @@ export default async function IndustryPage({ params }) {
 
   return <main id="main">
     <ApprovedPageSchema page={page} pathname={pathname} breadcrumbs={breadcrumbs} schemaName={`${page.navLabel} software development`} audience={page.navLabel} />
-    <ApprovedHero eyebrow="Industry" title={page.title} lede={page.lede} breadcrumbs={breadcrumbs} primaryLabel="Book a free consultation" secondary={{ label: "See the delivered system", href: page.caseStudy.href }} />
+    <ApprovedHero eyebrow="Industry" title={page.title} lede={page.lede} breadcrumbs={breadcrumbs} primaryLabel="Book a free consultation" secondary={{ label: "See the delivered system", href: page.caseStudy.href }} media={caseStudyImages[page.caseStudy.href.split("/").pop()]} />
     <ApprovedProblems heading={page.editorial.problems} items={page.problems} />
     <ApprovedApproach heading={page.editorial.approach} body={page.approach} scope={page.scope} />
     <ApprovedSection>

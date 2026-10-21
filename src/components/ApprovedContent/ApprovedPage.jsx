@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Container from "@/components/constants/Container";
 import { defaultCta } from "@/content/approvedPages";
 
@@ -73,7 +74,7 @@ export function ApprovedPageSchema({ page, pathname, breadcrumbs, type = "Servic
   );
 }
 
-export function ApprovedHero({ eyebrow, title, lede, breadcrumbs, primaryLabel, secondary, stats = [] }) {
+export function ApprovedHero({ eyebrow, title, lede, breadcrumbs, primaryLabel, secondary, stats = [], media }) {
   return (
     <section className="approved-hero relative overflow-hidden bg-[#0B0B10] pt-16 lg:pt-[72px]">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(640px_circle_at_50%_0%,rgba(111,54,210,0.35),transparent_62%)]" />
@@ -89,7 +90,7 @@ export function ApprovedHero({ eyebrow, title, lede, breadcrumbs, primaryLabel, 
               ))}
             </ol>
           </nav>
-          <div className={stats.length ? "grid gap-12 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-end lg:gap-20" : "max-w-4xl"}>
+          <div className={media ? "grid items-center gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-14" : stats.length ? "grid gap-12 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-end lg:gap-20" : "max-w-4xl"}>
           <div>
           <p className="font-inter text-xs font-medium uppercase tracking-[0.18em] text-[#B79CE8]">{eyebrow}</p>
           <h1 className="mt-6 font-inter text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">{title}</h1>
@@ -99,11 +100,16 @@ export function ApprovedHero({ eyebrow, title, lede, breadcrumbs, primaryLabel, 
             {secondary && <Link href={secondary.href} className="rounded-sm font-inter font-medium text-[#D4C2F3] underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#B79CE8]">{secondary.label}</Link>}
           </div>}
           </div>
-          {stats.length > 0 && <aside className="rounded-xl border border-[#B79CE8]/20 bg-[#B79CE8]/[0.05] p-6 lg:mb-1" aria-label="At a glance">
+          {media && <figure className="relative overflow-hidden rounded-xl border border-white/15 bg-[#24212D]">
+            <div className="relative aspect-[4/3]"><Image src={media.src} alt={media.alt} fill sizes="(min-width: 1440px) 560px, (min-width: 1024px) 43vw, 90vw" className="object-cover" /></div>
+            <figcaption className="border-t border-white/10 px-5 py-3 text-xs text-zinc-300">Project illustration</figcaption>
+          </figure>}
+          {!media && stats.length > 0 && <aside className="rounded-xl border border-[#B79CE8]/20 bg-[#B79CE8]/[0.05] p-6 lg:mb-1" aria-label="At a glance">
             <p className="mb-5 border-b border-white/10 pb-4 text-xs font-medium tracking-wide text-[#B79CE8]">At a glance</p>
             <ul className="space-y-5 font-inter text-sm leading-relaxed text-[#D4C2F3]">{stats.map((stat, index) => <li key={stat} className="grid grid-cols-[20px_1fr] gap-3"><span aria-hidden="true" className="pt-0.5 text-xs tabular-nums text-[#B79CE8]">{String(index + 1).padStart(2, "0")}</span><span>{stat}</span></li>)}</ul>
           </aside>}
           </div>
+          {media && stats.length > 0 && <ul aria-label="At a glance" className="mt-10 grid gap-4 border-t border-white/15 pt-6 sm:grid-cols-2 lg:grid-cols-3">{stats.map(stat => <li key={stat} className="border-l-2 border-[#8E61CA] pl-4 text-sm leading-relaxed text-[#D4C2F3]">{stat}</li>)}</ul>}
         </div>
       </Container>
     </section>

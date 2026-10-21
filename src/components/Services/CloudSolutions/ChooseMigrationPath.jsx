@@ -7,7 +7,7 @@ import { Compass, PlugsConnected } from "@phosphor-icons/react";
 const ChooseMigrationPath = () => {
   return (
     <section className="relative overflow-hidden bg-white py-16 sxl:py-24">
-      <Container>
+      <Container className="!py-0">
         {/* Single-column flow with an icon-in-circle marker per block,
            rather than the numeral rail or symmetric column-split used for
            the equivalent two-part explanation on the other pillar pages */}

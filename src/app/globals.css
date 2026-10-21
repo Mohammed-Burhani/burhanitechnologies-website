@@ -17,6 +17,9 @@
 .skip-link:focus { transform: translateY(0); }
 :focus-visible { outline: 2px solid #8050d4; outline-offset: 4px; }
 html { scroll-padding-top: 6rem; }
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
 .approved-page h1, .approved-page h2 { text-wrap: balance; }
 .approved-page p { text-wrap: pretty; }
 .approved-hero { background-image: radial-gradient(ellipse at 80% 20%, #44227155, transparent 65%); }

@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import Container from "@/components/constants/Container";
+import { caseStudyImages } from "@/content/caseStudyImages";
 import {
   ArrowUpRight,
   CloudArrowUp,
@@ -117,13 +119,13 @@ const practices = [
 
 const WhatWeBuildServices = () => {
   return (
-    <section className="relative overflow-hidden border-t border-white/5 bg-[#0B0B10] py-16 sxl:py-24">
+    <section id="service-practices" className="relative overflow-hidden border-t border-white/5 bg-[#0B0B10] py-16 sxl:py-24">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -left-32 top-1/3 h-[420px] w-[420px] rounded-full bg-[#6F36D2]/[0.1] blur-[140px]"
       />
 
-      <Container className="relative">
+      <Container className="relative !py-0">
         <h2 className="text-2xl font-semibold leading-tight tracking-tight text-white sm:text-3xl lg:text-4xl">
           What we build
         </h2>
@@ -134,6 +136,7 @@ const WhatWeBuildServices = () => {
         <div className="mt-10 border-t border-white/10 lg:mt-14">
           {practices.map((practice) => {
             const Icon = practice.icon;
+            const caseImage = caseStudyImages[practice.caseStudy.href.split("/").pop()];
             return (
               <div
                 key={practice.heading}
@@ -181,8 +184,20 @@ const WhatWeBuildServices = () => {
 
                 <Link
                   href={practice.caseStudy.href}
-                  className="group flex flex-col gap-3 rounded-2xl border border-white/10 bg-white/[0.02] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#6F36D2]/40 hover:bg-white/[0.05]"
+                  className="group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] transition-colors duration-300 hover:border-[#6F36D2]/40 hover:bg-white/[0.05]"
                 >
+                  {caseImage && <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#191721]">
+                    <Image
+                      src={caseImage.src}
+                      alt={caseImage.alt}
+                      fill
+                      sizes="(min-width: 1600px) 520px, (min-width: 1024px) 35vw, (min-width: 640px) calc(100vw - 80px), calc(100vw - 56px)"
+                      loading="lazy"
+                      className="object-cover transition-transform duration-300 group-hover:scale-[1.025]"
+                    />
+                    <span className="absolute bottom-3 right-3 rounded bg-[#14111D]/90 px-2.5 py-1.5 text-[11px] font-medium leading-none text-white">Project illustration</span>
+                  </div>}
+                  <div className="flex flex-1 flex-col gap-3 p-5 sm:p-6">
                   <span className="font-inter text-smallText font-medium uppercase tracking-wide text-[#B79CE8]">
                     {practice.caseStudy.tag}
                   </span>
@@ -197,6 +212,7 @@ const WhatWeBuildServices = () => {
                       className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                     />
                   </span>
+                  </div>
                 </Link>
               </div>
             );
