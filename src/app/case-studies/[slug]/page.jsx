@@ -9,8 +9,11 @@ import GoalChallengeOutcomeCards from "@/components/CaseStudies/Detail/GoalChall
 import ProcessesSectionRevised from "@/components/CaseStudies/Detail/ProcessesSectionRevised";
 import CaseStudyCTA from "@/components/CaseStudies/Detail/CaseStudyCTA";
 import TestimonialsRevised from "@/components/Home/Sections/TestimonialsRevised";
+import ApprovedCaseStudyPage from "@/components/ApprovedContent/CaseStudyPage";
+import { approvedMetadata } from "@/components/ApprovedContent/ApprovedPage";
+import { caseStudyPages } from "@/content/caseStudyPages";
 
-export const revalidate = 0; // Always fetch fresh data
+export const revalidate = 0;
 export const dynamicParams = true; // Allow dynamic params not in generateStaticParams
 
 async function getCaseStudy(slug) {
@@ -36,13 +39,13 @@ async function getCaseStudy(slug) {
 }
 
 export async function generateStaticParams() {
-  // Return empty array to not pre-render any pages at build time
-  // All pages will be generated on-demand
-  return [];
+  return Object.keys(caseStudyPages).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }) {
   const resolvedParams = await params;
+  const approvedPage = Object.hasOwn(caseStudyPages, resolvedParams.slug) ? caseStudyPages[resolvedParams.slug] : null;
+  if (approvedPage) return approvedMetadata(approvedPage, approvedPage.pathname, "article");
   const caseStudy = await getCaseStudy(resolvedParams.slug);
 
   if (!caseStudy) {
@@ -54,6 +57,8 @@ export async function generateMetadata({ params }) {
 
 export default async function CaseStudyPage({ params }) {
   const resolvedParams = await params;
+  const approvedPage = Object.hasOwn(caseStudyPages, resolvedParams.slug) ? caseStudyPages[resolvedParams.slug] : null;
+  if (approvedPage) return <ApprovedCaseStudyPage page={approvedPage} />;
   const caseStudy = await getCaseStudy(resolvedParams.slug);
 
   if (!caseStudy) {

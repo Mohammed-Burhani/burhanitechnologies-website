@@ -4,6 +4,7 @@
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": "https://burhanitechnologies.com/#organization",
   name: "Burhani Technologies",
   url: "https://burhanitechnologies.com",
   logo: "https://burhanitechnologies.com/BT-Logo.svg",
@@ -66,10 +67,13 @@ export const organizationSchema = {
 export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": "https://burhanitechnologies.com/#website",
   name: "Burhani Technologies",
   url: "https://burhanitechnologies.com",
   description:
     "Custom software development and business automation services",
+  publisher: { "@id": "https://burhanitechnologies.com/#organization" },
+  inLanguage: "en",
 };
 
 // Local Business Schema
@@ -78,7 +82,7 @@ export const localBusinessSchema = {
   "@type": "ProfessionalService",
   name: "Burhani Technologies",
   image: "https://burhanitechnologies.com/BT-Logo.svg",
-  "@id": "https://burhanitechnologies.com",
+  "@id": "https://burhanitechnologies.com/#organization",
   url: "https://burhanitechnologies.com",
   telephone: "+91-72990-02152",
   description:
@@ -154,24 +158,27 @@ export const localBusinessSchema = {
 
 // Service Schema Generator
 export function generateServiceSchema(service) {
+  const url = `https://burhanitechnologies.com/services/${service.slug}`;
   return {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": `${url}#service`,
     name: service.title,
     provider: {
+      "@id": "https://burhanitechnologies.com/#organization",
       "@type": "Organization",
       name: "Burhani Technologies",
       url: "https://burhanitechnologies.com",
     },
     description: service.description || service.title,
-    url: `https://burhanitechnologies.com/services/${service.slug}`,
+    url,
     areaServed: {
       "@type": "Country",
       name: "India",
     },
     availableChannel: {
       "@type": "ServiceChannel",
-      serviceUrl: `https://burhanitechnologies.com/services/${service.slug}`,
+      serviceUrl: url,
       servicePhone: {
         "@type": "ContactPoint",
         telephone: "+91-72990-02152",

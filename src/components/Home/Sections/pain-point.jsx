@@ -36,7 +36,7 @@ const pains = [
 
 const PainPoints = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-16 sxl:py-24">
+    <section className="relative overflow-hidden bg-white py-5 sm:py-6">
       {/* Tech-grid backdrop, light-mode, same system as the client strip */}
       <div
         aria-hidden="true"
@@ -78,8 +78,8 @@ const PainPoints = () => {
                   <Icon size={20} weight="bold" className="text-[#6F36D2]" />
                 </div>
 
-                <h3 className="relative text-lg font-semibold italic leading-snug text-zinc-900 sm:text-xl">
-                  &ldquo;{pain.quote}&rdquo;
+                <h3 className="relative text-lg font-semibold leading-snug text-zinc-900 sm:text-xl">
+                  {pain.quote}
                 </h3>
                 <p className="relative text-sm leading-relaxed text-zinc-500 sm:text-base">
                   {pain.body}

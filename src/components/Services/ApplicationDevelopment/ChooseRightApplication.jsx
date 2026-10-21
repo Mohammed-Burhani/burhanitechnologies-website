@@ -12,6 +12,12 @@ import {
 
 const options = [
   {
+    icon: FlowArrow,
+    heading: "Rapid Application Development",
+    body: "Turn one business workflow into an application your team can review and use.",
+    href: "/services/rapid-application-development",
+  },
+  {
     icon: Browser,
     heading: "Web Application Development",
     body: "Bring orders, requests, approvals and operational records into a browser application.",

@@ -5,7 +5,7 @@ import { Clock, EnvelopeSimple, MapPin, Phone } from "@phosphor-icons/react";
 
 const VisitOffice = () => {
   return (
-    <section className="relative overflow-hidden border-t border-zinc-200 bg-white py-16 sxl:py-24">
+    <section className="relative overflow-hidden border-t border-zinc-200 bg-white py-5 sm:py-6">
       <Container className="relative">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-8">
           <div className="flex flex-col gap-3">

@@ -30,7 +30,7 @@ const clients = [
     href: "https://mirakare.com/",
   },
   {
-    name: "PBHR Homeopathy",
+    name: "PBHR Homeopathy Hospital",
     category: "Healthcare records",
     image: "/projectW/image (9).png",
     href: "https://pbhrc.in/",
@@ -45,7 +45,7 @@ const clients = [
 
 const ClientReferences = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-16 sxl:py-24">
+    <section className="relative overflow-hidden bg-white py-5 sm:py-6">
       {/* Tech-grid backdrop: same restrained-accent language as the hero, not decoration for its own sake */}
       <div
         aria-hidden="true"
@@ -91,7 +91,7 @@ const ClientReferences = () => {
                   alt={client.name}
                   fill
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
-                  className="object-cover object-top grayscale transition-all duration-300 group-hover:grayscale-0"
+                  className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.025]"
                 />
                 <span className="absolute right-2 top-2 flex h-7 w-7 items-center justify-center rounded-full bg-white/90 text-zinc-500 opacity-0 shadow-sm backdrop-blur-sm transition-all duration-200 group-hover:opacity-100 group-hover:text-[#6F36D2]">
                   <ArrowUpRight size={14} weight="bold" />

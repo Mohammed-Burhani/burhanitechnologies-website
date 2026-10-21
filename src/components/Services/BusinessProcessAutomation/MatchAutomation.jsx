@@ -68,7 +68,7 @@ const MatchAutomation = () => {
                 <p className="text-sm leading-relaxed text-zinc-500">
                   {option.body}
                 </p>
-                <span className="mt-auto inline-flex w-fit items-center gap-1.5 pt-2 text-sm font-medium text-zinc-400 transition-colors duration-200 group-hover:text-[#6F36D2]">
+                <span className="mt-auto inline-flex w-fit items-center gap-1.5 pt-2 text-sm font-medium text-zinc-600 transition-colors duration-200 group-hover:text-[#6F36D2]">
                   Explore
                   <ArrowUpRight
                     size={14}

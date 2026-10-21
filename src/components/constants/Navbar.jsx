@@ -13,9 +13,10 @@ const NAV_LINKS = [
   { href: "/", label: "Home", match: (p) => p === "/" },
   { href: "/about", label: "Why Burhani", match: (p) => p === "/about" || p.startsWith("/about/") },
   { href: "/services", label: "Services", match: (p) => p === "/services" || p.startsWith("/services/") },
+  { href: "/industries", label: "Industries", match: (p) => p === "/industries" || p.startsWith("/industries/") },
   { href: "/case-studies", label: "Case Studies", match: (p) => p === "/case-studies" || p.startsWith("/case-studies/") },
   { href: "/blog", label: "Blog", match: (p) => p === "/blog" || p.startsWith("/blog/") },
-  { href: "/knowledge-base", label: "Work we do", match: (p) => p === "/knowledge-base" || p.startsWith("/knowledge-base/") },
+  { href: "/knowledge-base", label: "Knowledge Base", match: (p) => p === "/knowledge-base" || p.startsWith("/knowledge-base/") },
 ];
 
 const Navbar = () => {
@@ -24,11 +25,11 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const isContactPage = pathname === "/contact";
-  // Only the listing has a dark hero; case study detail pages stay light.
+  // Contact and the case study listing have shorter heroes than the detail pages.
   const isCaseStudiesListing = pathname === "/case-studies";
   const hasShortDarkHero = isContactPage || isCaseStudiesListing;
   const isHomePage =
-    pathname === "/" || /^\/services\/.+/.test(pathname) || hasShortDarkHero;
+    pathname === "/" || /^\/(services|industries|authors|case-studies)\/.+/.test(pathname) || pathname === "/services" || pathname === "/industries" || ["/about", "/leadership", "/values", "/why-choose-us", "/book-a-consultation", "/privacy-policy", "/terms-of-service", "/thank-you"].includes(pathname) || hasShortDarkHero;
   const isDarkSurface = isHomePage && !isScrolled;
 
   useEffect(() => {
@@ -54,7 +55,7 @@ const Navbar = () => {
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   const linkClasses = (active) => {
-    if (active) return "bg-[#6F36D2]/10 text-[#6F36D2]";
+    if (active) return isDarkSurface ? "bg-[#6F36D2]/20 text-[#D4C2F3]" : "bg-[#6F36D2]/10 text-[#5C27BB]";
     if (isDarkSurface) return "text-white/80 hover:bg-white/10 hover:text-white";
     return "text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900";
   };
@@ -79,7 +80,7 @@ const Navbar = () => {
           />
         </Link>
 
-        <nav aria-label="Global" className="hidden lg:flex">
+        <nav aria-label="Global" className="hidden xl:flex">
           <ul className="flex items-center gap-1 text-sm font-medium">
             {NAV_LINKS.map((link) => {
               const active = link.match(pathname);
@@ -87,7 +88,8 @@ const Navbar = () => {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className={`rounded-lg px-3.5 py-2 transition-colors duration-200 ${linkClasses(active)}`}
+                    aria-current={active ? "page" : undefined}
+                    className={`rounded-lg px-2.5 py-2 transition-colors duration-200 ${linkClasses(active)}`}
                   >
                     {link.label}
                   </Link>
@@ -106,7 +108,7 @@ const Navbar = () => {
             type="button"
             onClick={() => setIsMobileMenuOpen(true)}
             aria-label="Open menu"
-            className={`inline-flex items-center justify-center rounded-lg p-2 transition-colors duration-200 lg:hidden ${
+            className={`inline-flex items-center justify-center rounded-lg p-2 transition-colors duration-200 xl:hidden ${
               isDarkSurface
                 ? "text-white hover:bg-white/10"
                 : "text-zinc-700 hover:bg-zinc-100"
@@ -118,7 +120,7 @@ const Navbar = () => {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden">
+        <div className="fixed inset-0 z-50 xl:hidden">
           <div className="absolute inset-0 flex h-[100dvh] flex-col overflow-y-auto bg-white">
             <div className="flex items-center justify-between border-b border-zinc-200 p-4 sm:p-6">
               <Image

@@ -48,15 +48,14 @@ const ChooseTheWork = () => {
         <div className="mt-10 grid grid-cols-1 gap-5 lg:mt-14 lg:grid-cols-2 lg:gap-6">
           <Link
             href="/services/application-development"
-            className="group relative flex min-h-[320px] flex-col justify-end overflow-hidden rounded-2xl lg:row-span-2"
+            className="group relative flex flex-col overflow-hidden rounded-2xl bg-[#14111d] lg:row-span-2"
           >
-            <img
-              src="https://picsum.photos/seed/burhani-custom-build-review/900/1100"
-              alt=""
-              aria-hidden="true"
-              className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+            <img width="800" height="640"
+              src="/illustrations/application.svg"
+              alt="Conceptual illustration connecting records, rules, approvals and reporting"
+              loading="lazy"
+              className="aspect-[5/4] w-full object-contain"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B10]/95 via-[#0B0B10]/50 to-transparent" />
             <div className="relative flex flex-col gap-3 p-6 sm:p-8">
               <h3 className="text-xl font-semibold leading-snug text-white sm:text-2xl">
                 The software we have cannot handle what we do now

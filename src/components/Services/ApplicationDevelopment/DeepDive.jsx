@@ -47,6 +47,11 @@ const DeepDive = () => {
               Connect the application to the work around it
             </h2>
             <p className="text-sm leading-relaxed text-zinc-500 sm:text-base">
+              For a focused engagement built around prototypes and frequent user review, explore our{" "}
+              <Link href="/services/rapid-application-development" className="font-medium text-[#6F36D2] underline decoration-[#6F36D2]/30 underline-offset-2 hover:text-[#4f2496]">rapid application development services</Link>.
+              {" "}The work centres on one agreed first release, with wider application requirements handled through the programme&apos;s scope.
+            </p>
+            <p className="text-sm leading-relaxed text-zinc-500 sm:text-base">
               An application may need to receive an approved invoice, update
               a customer record or return a status to another team. Define
               those connections alongside the main workflow.{" "}

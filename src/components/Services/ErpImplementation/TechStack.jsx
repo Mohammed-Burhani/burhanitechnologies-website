@@ -50,7 +50,7 @@ const TechStack = () => {
         <div className="mt-10 grid grid-cols-1 gap-x-10 gap-y-10 lg:mt-14 lg:grid-cols-2">
           {groups.map((group) => (
             <div key={group.heading} className="flex flex-col gap-4">
-              <h3 className="font-inter text-smallText font-semibold uppercase tracking-wide text-zinc-400">
+              <h3 className="font-inter text-smallText font-semibold uppercase tracking-wide text-zinc-600">
                 {group.heading}
               </h3>
               <div className="flex flex-wrap gap-2.5">

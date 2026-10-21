@@ -35,10 +35,10 @@ const DiscussFirstScope = () => {
           </div>
 
           <div className="relative aspect-[16/11] w-full overflow-hidden rounded-2xl border border-zinc-200">
-            <img
-              src="https://picsum.photos/seed/burhani-scoping-discussion-table/1000/700"
-              alt="A Burhani Technologies scoping discussion around a client workflow"
-              className="h-full w-full object-cover"
+            <img width="800" height="640"
+              src="/illustrations/discovery.svg"
+              alt="Conceptual illustration: start with one business problem"
+              className="h-full w-full object-contain bg-[#14111d]"
               loading="lazy"
             />
           </div>

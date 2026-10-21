@@ -4,7 +4,7 @@ import { defaultCta } from "@/content/approvedPages";
 
 const siteUrl = "https://burhanitechnologies.com";
 const headingClass = "font-inter text-2xl font-semibold leading-tight tracking-tight sm:text-3xl";
-const paragraphClass = "font-inter text-base leading-relaxed";
+const paragraphClass = "font-inter text-base leading-[1.8]";
 const linkClass = "rounded-sm underline decoration-[#6F36D2]/40 underline-offset-4 transition-colors hover:text-[#6F36D2] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#6F36D2]";
 const buttonClass = "inline-flex items-center justify-center rounded-xl bg-[#6F36D2] px-6 py-3.5 font-inter font-medium text-white transition-colors hover:bg-[#5C27BB] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#B79CE8]";
 
@@ -32,7 +32,7 @@ export function approvedMetadata(page, pathname, type = "website") {
 
 export function ApprovedPageSchema({ page, pathname, breadcrumbs, type = "Service", schemaName, serviceType, audience }) {
   const url = siteUrl + pathname;
-  const organization = { "@type": "Organization", name: "Burhani Technologies", url: siteUrl };
+  const organization = { "@type": "Organization", "@id": `${siteUrl}/#organization`, name: "Burhani Technologies", url: siteUrl };
   const graph = [
     {
       "@type": "BreadcrumbList",
@@ -75,10 +75,10 @@ export function ApprovedPageSchema({ page, pathname, breadcrumbs, type = "Servic
 
 export function ApprovedHero({ eyebrow, title, lede, breadcrumbs, primaryLabel, secondary, stats = [] }) {
   return (
-    <section className="relative overflow-hidden bg-[#0B0B10] pt-16 lg:pt-[72px]">
+    <section className="approved-hero relative overflow-hidden bg-[#0B0B10] pt-16 lg:pt-[72px]">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(640px_circle_at_50%_0%,rgba(111,54,210,0.35),transparent_62%)]" />
       <Container className="relative z-10 py-16 sm:py-20 lg:py-24">
-        <div className="max-w-4xl">
+        <div className="max-w-7xl">
           <nav aria-label="Breadcrumb" className="mb-8">
             <ol className="flex flex-wrap items-center gap-x-3 gap-y-2 font-inter text-sm text-zinc-400">
               {breadcrumbs.map((crumb, index) => (
@@ -89,14 +89,21 @@ export function ApprovedHero({ eyebrow, title, lede, breadcrumbs, primaryLabel, 
               ))}
             </ol>
           </nav>
+          <div className={stats.length ? "grid gap-12 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-end lg:gap-20" : "max-w-4xl"}>
+          <div>
           <p className="font-inter text-xs font-medium uppercase tracking-[0.18em] text-[#B79CE8]">{eyebrow}</p>
           <h1 className="mt-6 font-inter text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">{title}</h1>
-          {lede && <p className="mt-6 max-w-3xl font-inter text-lg leading-relaxed text-zinc-300">{lede}</p>}
-          {stats.length > 0 && <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 font-inter text-sm text-[#D4C2F3]">{stats.map(stat => <li key={stat}>{stat}</li>)}</ul>}
+          {lede && <p className="mt-6 max-w-[62ch] font-inter text-lg leading-relaxed text-zinc-300">{lede}</p>}
           {(primaryLabel || secondary) && <div className="mt-9 flex flex-wrap items-center gap-5">
             {primaryLabel && <Link href="/contact" className={buttonClass}>{primaryLabel}</Link>}
             {secondary && <Link href={secondary.href} className="rounded-sm font-inter font-medium text-[#D4C2F3] underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#B79CE8]">{secondary.label}</Link>}
           </div>}
+          </div>
+          {stats.length > 0 && <aside className="rounded-xl border border-[#B79CE8]/20 bg-[#B79CE8]/[0.05] p-6 lg:mb-1" aria-label="At a glance">
+            <p className="mb-5 border-b border-white/10 pb-4 text-xs font-medium tracking-wide text-[#B79CE8]">At a glance</p>
+            <ul className="space-y-5 font-inter text-sm leading-relaxed text-[#D4C2F3]">{stats.map((stat, index) => <li key={stat} className="grid grid-cols-[20px_1fr] gap-3"><span aria-hidden="true" className="pt-0.5 text-xs tabular-nums text-[#B79CE8]">{String(index + 1).padStart(2, "0")}</span><span>{stat}</span></li>)}</ul>
+          </aside>}
+          </div>
         </div>
       </Container>
     </section>
@@ -112,9 +119,15 @@ function InlineContent({ parts }) {
 }
 
 export function ApprovedBody({ blocks }) {
-  return <div className="space-y-6 text-zinc-700">
+  const headings = blocks.flatMap((block, index) => block.type === "heading" ? [{ text: block.text, id: `page-detail-${index}` }] : []);
+  return <div className="mx-auto max-w-[70ch] space-y-6 text-zinc-700">
+    {headings.length > 1 && <nav aria-label="In this guide" className="mb-10 border-y border-[#6F36D2]/20 py-6">
+      <p className="text-xs font-semibold tracking-wide text-[#6F36D2]">In this guide</p>
+      <ol className="mt-4 grid gap-x-8 gap-y-3 sm:grid-cols-2">{headings.map(item => <li key={item.id}><a href={`#${item.id}`} className="inline-block py-1 text-sm leading-relaxed text-zinc-700 underline decoration-[#6F36D2]/30 underline-offset-4 hover:text-[#6F36D2]">{item.text}</a></li>)}</ol>
+    </nav>}
     {blocks.map((block, index) => {
-      if (block.type === "heading") return <h2 key={index} className={`${headingClass} !mt-12 first:!mt-0 text-zinc-900`}>{block.text}</h2>;
+      if (block.type === "heading") return <h2 key={index} id={`page-detail-${index}`} className={`${headingClass} !mt-12 scroll-mt-28 first:!mt-0 text-zinc-900`}>{block.text}</h2>;
+      if (block.type === "subheading") return <h3 key={index} className="!mt-8 font-inter text-xl font-semibold leading-snug text-zinc-900">{block.text}</h3>;
       if (block.type === "list") return <ul key={index} className={`${paragraphClass} list-disc space-y-4 pl-6`}>{block.items.map((parts, itemIndex) => <li key={itemIndex}><InlineContent parts={parts} /></li>)}</ul>;
       return <p key={index} className={paragraphClass}><InlineContent parts={block.parts} /></p>;
     })}
@@ -124,10 +137,10 @@ export function ApprovedBody({ blocks }) {
 export function ApprovedProblems({ heading, items }) {
   return <ApprovedSection>
     <h2 className={`${headingClass} max-w-3xl text-zinc-900`}>{heading}</h2>
-    <div className="mt-10 grid gap-6 md:grid-cols-3">
-      {items.map(item => <div key={item.q} className="rounded-2xl border border-zinc-200 p-6 shadow-sm">
+    <div className="mt-10 divide-y divide-zinc-200 border-y border-zinc-200">
+      {items.map(item => <div key={item.q} className="grid gap-4 py-7 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
         <h3 className="font-inter text-lg font-semibold leading-snug text-zinc-900">{item.q}</h3>
-        <p className={`${paragraphClass} mt-4 text-zinc-600`}>{item.a}</p>
+        <p className={`${paragraphClass} max-w-prose text-zinc-600`}>{item.a}</p>
       </div>)}
     </div>
   </ApprovedSection>;
@@ -139,8 +152,8 @@ export function ApprovedApproach({ heading, body, scope }) {
       <h2 className={headingClass}>{heading}</h2>
       <p className={`${paragraphClass} text-zinc-300`}>{body}</p>
     </div>
-    <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-      {scope.map(item => <div key={item.title} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+    <div className="mt-12 grid gap-x-12 gap-y-8 md:grid-cols-2">
+      {scope.map(item => <div key={item.title} className="border-t border-white/15 pt-6">
         <h3 className="font-inter text-lg font-semibold">{item.title}</h3>
         <p className={`${paragraphClass} mt-3 text-zinc-300`}>{item.body}</p>
       </div>)}

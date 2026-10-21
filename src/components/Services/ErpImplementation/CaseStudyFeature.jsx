@@ -30,10 +30,10 @@ const CaseStudyFeature = () => {
 
         <div className="mt-6 grid grid-cols-1 overflow-hidden rounded-2xl border border-white/10 lg:grid-cols-2">
           <div className="relative aspect-[16/11] w-full lg:aspect-auto">
-            <img
-              src="https://picsum.photos/seed/burhani-apparel-erp-dispatch-floor/900/900"
-              alt="An apparel manufacturer's dispatch floor connected to a centralized ERP"
-              className="h-full w-full object-cover"
+            <img width="800" height="640"
+              src="/illustrations/erp.svg"
+              alt="Conceptual illustration: one connected operational flow"
+              className="h-full w-full object-contain bg-[#14111d]"
               loading="lazy"
             />
           </div>
@@ -46,7 +46,7 @@ const CaseStudyFeature = () => {
             <dl className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               {meta.map((item) => (
                 <div key={item.label} className="flex flex-col gap-1">
-                  <dt className="font-inter text-smallText font-medium uppercase tracking-wide text-zinc-500">
+                  <dt className="font-inter text-smallText font-medium uppercase tracking-wide text-zinc-400">
                     {item.label}
                   </dt>
                   <dd className="text-sm leading-relaxed text-zinc-200">

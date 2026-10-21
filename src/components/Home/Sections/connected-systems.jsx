@@ -37,7 +37,7 @@ const items = [
 
 const ConnectedSystems = () => {
   return (
-    <section className="relative overflow-hidden border-t border-white/5 bg-[#0B0B10] py-16 lg:py-24">
+    <section className="relative overflow-hidden border-t border-white/5 bg-[#0B0B10] py-5 sm:py-6">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -left-32 bottom-0 h-[380px] w-[380px] rounded-full bg-[#6F36D2]/[0.1] blur-[130px]"
@@ -71,7 +71,7 @@ const ConnectedSystems = () => {
                 className="group relative flex flex-col gap-4 border-t border-white/5 py-8 first:border-t-0 first:pt-0 sm:flex-row sm:items-start sm:gap-8 lg:py-10"
               >
                 <div className="relative z-10 flex shrink-0 items-center gap-4 sm:flex-col sm:items-center sm:gap-0">
-                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-white/10 bg-[#0B0B10] font-inter text-sm font-semibold text-zinc-500 transition-colors duration-300 group-hover:border-[#6F36D2]/60 group-hover:text-[#B79CE8] lg:h-16 lg:w-16">
+                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-white/10 bg-[#0B0B10] font-inter text-sm font-semibold text-zinc-400 transition-colors duration-300 group-hover:border-[#6F36D2]/60 group-hover:text-[#B79CE8] lg:h-16 lg:w-16">
                     {item.index}
                   </span>
                 </div>
@@ -90,7 +90,7 @@ const ConnectedSystems = () => {
                     {item.body}
                   </p>
 
-                  <span className="mt-1 inline-flex w-fit items-center gap-1.5 text-sm font-medium text-zinc-500 transition-colors duration-200 group-hover:text-[#B79CE8]">
+                  <span className="mt-1 inline-flex w-fit items-center gap-1.5 text-sm font-medium text-zinc-400 transition-colors duration-200 group-hover:text-[#B79CE8]">
                     See how it works
                     <ArrowRight
                       size={16}

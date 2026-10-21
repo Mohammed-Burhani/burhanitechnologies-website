@@ -36,8 +36,8 @@ const DifferentRecords = () => {
                 i % 2 === 1 ? "bg-zinc-50" : "bg-white"
               } ${i !== signals.length - 1 ? "border-b border-zinc-200" : ""}`}
             >
-              <h3 className="text-lg font-semibold italic leading-snug text-zinc-900 sm:text-xl">
-                &ldquo;{item.quote}&rdquo;
+              <h3 className="text-lg font-semibold leading-snug text-zinc-900 sm:text-xl">
+                {item.quote}
               </h3>
               <p className="text-sm leading-relaxed text-zinc-500 sm:text-base">
                 {item.body}

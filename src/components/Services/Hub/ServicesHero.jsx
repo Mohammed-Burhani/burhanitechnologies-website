@@ -78,13 +78,12 @@ const ServicesHero = () => {
 
           {/* Right: single supporting visual, capped so it never pushes the fold */}
           <div className="relative hidden aspect-[16/11] w-full overflow-hidden rounded-2xl border border-white/10 lg:block xl:aspect-auto xl:h-full xl:max-h-[420px]">
-            <img
-              src="https://picsum.photos/seed/burhani-services-delivery-review/900/1125"
-              alt="Burhani Technologies engineers reviewing a delivery plan with a client team"
-              className="h-full w-full object-cover"
+            <img width="800" height="640"
+              src="/illustrations/discovery.svg"
+              alt="Conceptual illustration: start with one business problem"
+              className="h-full w-full object-contain bg-[#14111d]"
               loading="eager"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B10]/70 via-transparent to-transparent" />
           </div>
         </div>
 

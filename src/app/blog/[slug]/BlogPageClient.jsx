@@ -22,6 +22,7 @@ import {
   TwitterLogo,
 } from "@phosphor-icons/react";
 import { formatPublicationDate } from "@/lib/publicationDate";
+import { getArticleServiceLinks } from "@/lib/serviceArticles";
 
 // Local PortableText renderers, scoped to the article body only. This
 // project has no @tailwindcss/typography plugin installed, so the `prose`
@@ -250,9 +251,10 @@ const BlogPageClient = ({ blogDetails, relatedBlogs = [] }) => {
   }
 
   const publishedLabel = formatPublicationDate(blogDetails.publishedAt);
+  const serviceLinks = getArticleServiceLinks(blogDetails.slug?.current);
 
   return (
-    <div className="bg-white">
+    <main className="bg-white">
       <ReadingProgressBar />
 
       {/* Hero: compact editorial split, breadcrumb + pills + tight headline
@@ -361,7 +363,7 @@ const BlogPageClient = ({ blogDetails, relatedBlogs = [] }) => {
                       </span>
                       <span className="text-xs text-zinc-500">
                         {publishedLabel}
-                        {publishedLabel && blogDetails.readTime && " · "}
+                        {publishedLabel && blogDetails.readTime && " Â· "}
                         {blogDetails.readTime &&
                           `${blogDetails.readTime} min read`}
                       </span>
@@ -675,6 +677,23 @@ const BlogPageClient = ({ blogDetails, relatedBlogs = [] }) => {
         </section>
       )}
 
+      {serviceLinks.length > 0 && (
+        <section aria-labelledby="related-services-heading" className="border-b border-zinc-200 bg-zinc-50 py-10">
+          <Container>
+            <h2 id="related-services-heading" className="text-xl font-semibold text-zinc-900">Explore services related to this guide</h2>
+            <ul className="mt-5 flex flex-wrap gap-3">
+              {serviceLinks.map((service) => (
+                <li key={service.href}>
+                  <Link href={service.href} className="inline-flex items-center gap-2 rounded-lg border border-[#6F36D2]/30 px-4 py-3 font-medium text-[#6330be] transition-colors hover:bg-[#6F36D2]/10">
+                    {service.label}<ArrowUpRight size={18} aria-hidden="true" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Container>
+        </section>
+      )}
+
       {/* Closing CTA, deliberately light: Related Blogs directly above is
          dark, and back-to-back dark sections at the very end of the page
          read as heavy. This mirrors the homepage's own alternating dark/
@@ -722,7 +741,7 @@ const BlogPageClient = ({ blogDetails, relatedBlogs = [] }) => {
           </div>
         </Container>
       </section>
-    </div>
+    </main>
   );
 };
 
@@ -800,7 +819,7 @@ const RelatedBlogCard = ({ blog }) => {
             <span />
           )}
           {publishedLabel && (
-            <span className="shrink-0 text-xs text-zinc-500">
+            <span className="shrink-0 text-xs text-zinc-400">
               {publishedLabel}
             </span>
           )}

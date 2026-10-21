@@ -10,14 +10,14 @@ const options = [
     heading: "DevOps & Maintenance",
     body: "Keep releases, monitoring and maintenance organised as your application evolves.",
     href: "/services/devops-and-maintenance",
-    seed: "burhani-devops-release-pipeline-monitor",
+    image: "devops",
   },
   {
     icon: PlugsConnected,
     heading: "Integration Services",
     body: "Keep records moving between Tally, SAP, Salesforce and your internal software.",
     href: "/services/integration-services",
-    seed: "burhani-integration-systems-connected",
+    image: "integration",
   },
 ];
 
@@ -40,15 +40,14 @@ const ConnectAndMaintain = () => {
               <Link
                 key={option.href}
                 href={option.href}
-                className="group relative flex min-h-[280px] flex-col justify-end overflow-hidden rounded-2xl"
+                className="group relative flex flex-col overflow-hidden rounded-2xl bg-[#14111d]"
               >
                 <img
-                  src={`https://picsum.photos/seed/${option.seed}/900/700`}
-                  alt=""
-                  aria-hidden="true"
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                  src={`/illustrations/${option.image}.svg`}
+                  width="800" height="640" loading="lazy"
+                  alt={`Conceptual process illustration for ${option.heading}`}
+                  className="aspect-[5/4] w-full object-contain"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B10]/95 via-[#0B0B10]/55 to-transparent" />
                 <div className="relative flex flex-col gap-3 p-6 sm:p-8">
                   <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10">
                     <Icon size={20} weight="bold" className="text-white" />

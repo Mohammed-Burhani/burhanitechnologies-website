@@ -200,13 +200,12 @@ export default function ContactPageContent() {
             <Reveal delay={0.24} className="hidden lg:block">
               <div className="rounded-[2rem] bg-white/[0.04] p-1.5 ring-1 ring-white/10">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-[calc(2rem-0.375rem)]">
-                  <img
-                    src="https://picsum.photos/seed/burhani-discovery-call-chennai/900/675"
-                    alt=""
-                    className="h-full w-full object-cover"
+                  <img width="800" height="640"
+                    src="/illustrations/discovery.svg"
+                    alt="Conceptual illustration: start with one business problem"
+                    className="h-full w-full object-contain bg-[#14111d]"
                     loading="eager"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B10]/60 via-transparent to-transparent" />
                   <div className="absolute inset-0 rounded-[inherit] shadow-[inset_0_1px_1px_rgba(255,255,255,0.12)]" />
                 </div>
               </div>

@@ -23,7 +23,7 @@ const pillars = [
 
 const EngineeringApproach = () => {
   return (
-    <section className="relative overflow-hidden border-t border-white/5 bg-[#0B0B10] py-16 lg:py-24">
+    <section className="relative overflow-hidden border-t border-white/5 bg-[#0B0B10] py-5 sm:py-6">
       {/* Tech-grid backdrop, dark-mode counterpart of the client-strip pattern */}
       <div
         aria-hidden="true"

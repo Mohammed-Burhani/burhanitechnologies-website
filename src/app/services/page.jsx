@@ -46,7 +46,7 @@ const faqSchema = generateFAQSchema(servicesFaqs);
 
 const ServicesPage = () => {
   return (
-    <>
+    <main id="main">
       <Script
         id="services-breadcrumb-schema"
         type="application/ld+json"
@@ -69,7 +69,7 @@ const ServicesPage = () => {
         <DiscussFirstScope />
         <PlanYourProject />
       </div>
-    </>
+    </main>
   );
 };
 

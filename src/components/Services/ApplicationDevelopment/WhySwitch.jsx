@@ -39,12 +39,12 @@ const WhySwitch = () => {
               key={item.index}
               className="grid grid-cols-1 gap-3 py-9 sm:grid-cols-[auto_1fr] sm:gap-8 lg:py-12"
             >
-              <span className="font-inter text-4xl font-bold leading-none text-zinc-200 sm:text-5xl">
+              <span className="font-inter text-4xl font-bold leading-none text-zinc-500 sm:text-5xl">
                 {item.index}
               </span>
               <div className="flex flex-col gap-3">
-                <h3 className="text-lg font-semibold italic leading-snug text-zinc-900 sm:text-xl">
-                  &ldquo;{item.quote}&rdquo;
+                <h3 className="text-lg font-semibold leading-snug text-zinc-900 sm:text-xl">
+                  {item.quote}
                 </h3>
                 <p className="max-w-2xl text-sm leading-relaxed text-zinc-500 sm:text-base">
                   {item.body}

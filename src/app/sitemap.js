@@ -1,4 +1,6 @@
 import { getPublishedSitemapContent } from "@/lib/blogDiscovery";
+import { servicePages } from "@/content/servicePages";
+import { caseStudyPages } from "@/content/caseStudyPages";
 
 export const dynamic = "force-dynamic";
 
@@ -18,6 +20,9 @@ const staticRoutes = [
   ["/values", "monthly", 0.7],
   ["/why-choose-us", "monthly", 0.7],
   ["/contact", "monthly", 0.7],
+  ["/book-a-consultation", "monthly", 0.7],
+  ["/authors/aliasgar-ghadiyali", "monthly", 0.6],
+  ["/authors/shivann-kannan", "monthly", 0.6],
   ["/blog", "daily", 0.9],
   ["/case-studies", "weekly", 0.8],
   ["/industries", "monthly", 0.8],
@@ -47,6 +52,16 @@ export default async function sitemap() {
     changeFrequency,
     priority,
   }));
+  const approvedServices = servicePages.map((service) => ({
+    url: `${baseUrl}/services/${service.slug}`,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+  const approvedCaseStudies = Object.values(caseStudyPages).map((caseStudy) => ({
+    url: `${baseUrl}${caseStudy.pathname}`,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
 
   const contentPages = [
     ...services.map((service) => ({
@@ -72,7 +87,7 @@ export default async function sitemap() {
   // Some named service routes also have CMS documents; list their URL only once.
   return [
     ...new Map(
-      [...contentPages, ...staticPages].map((page) => [page.url, page])
+      [...contentPages, ...staticPages, ...approvedServices, ...approvedCaseStudies].map((page) => [page.url, page])
     ).values(),
   ];
 }

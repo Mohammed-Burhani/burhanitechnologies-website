@@ -1,14 +1,10 @@
-// Approved public copy restored from the existing Burhani Astro handover.
-// Sources: src/content/industries/*.md, src/content/kb/*.md,
-// src/content/services/rapid-application-development.md and their page templates;
-// related card text and facts come from the referenced service/case-study entries.
-// Only rendered public fields are retained; research and authoring notes are excluded.
-// Body Markdown is represented as typed blocks so no Markdown parser is needed at runtime.
+// Industry, knowledge-base and service content for the website routes.
+// Typed content blocks keep the rendering independent of a Markdown parser.
 
 export const industryPages = [
   {
     "slug": "healthcare",
-    "title": "Connect patient information with the teams who need it",
+    "title": "Healthcare software development for connected patient workflows",
     "navLabel": "Healthcare",
     "metaTitle": "Healthcare Software Development Services | Burhani",
     "metaDescription": "Custom healthcare software development for clinics and providers, built around clinician workflow and patient data handling.",
@@ -172,10 +168,10 @@ export const industryPages = [
   },
   {
     "slug": "manufacturing",
-    "title": "Connect production, inventory and dispatch in one operational view",
+    "title": "Custom manufacturing ERP for production, inventory and dispatch",
     "navLabel": "Manufacturing",
-    "metaTitle": "ERP Software for Manufacturers | Burhani",
-    "metaDescription": "Custom ERP software for manufacturers, covering production scheduling, stock and dispatch in one system with a working module in weeks.",
+    "metaTitle": "Custom Manufacturing ERP Software | Burhani",
+    "metaDescription": "Custom manufacturing ERP for production scheduling, inventory and dispatch. Connect shop-floor records with the information your teams need to plan.",
     "lede": "Bring production, stock and dispatch records into a shared system. We build ERP and inventory applications around the sequence your teams run, connecting shop-floor activity with the information managers need to plan and respond.",
     "problems": [
       {
@@ -348,10 +344,10 @@ export const industryPages = [
   },
   {
     "slug": "finance",
-    "title": "Connect borrowers and staff through a clearer loan workflow",
+    "title": "Custom finance software for loan applications and staff review",
     "navLabel": "Finance",
-    "metaTitle": "Software for Finance Companies | Burhani",
-    "metaDescription": "Custom software for finance companies, built with approval chains, audit trails and role-based access from the start.",
+    "metaTitle": "Custom Finance Software Development | Burhani",
+    "metaDescription": "Custom finance software for borrower applications, staff approvals and loan status. Plan role-based access, validation and reporting around your workflow.",
     "lede": "Bring borrower applications, staff review and loan status into a connected workflow. We build mobile and administrative systems with structured submission, validation, role-based access and reporting around your finance operation.",
     "problems": [
       {
@@ -523,9 +519,9 @@ export const industryPages = [
   },
   {
     "slug": "events",
-    "title": "Manage visitor attendance and engagement as the event unfolds",
+    "title": "Custom event management software for registration and check-in",
     "navLabel": "Events & Exhibitions",
-    "metaTitle": "Event Management Software | Burhani",
+    "metaTitle": "Custom Event Management Software | Burhani",
     "metaDescription": "Custom event management software for high-volume check-in, visitor tracking and real-time engagement analytics.",
     "lede": "Connect visitor registration, staff check-in and product interest with event reporting. We build mobile and web systems that give organisers a shared view during the event and useful records for follow-up afterwards.",
     "problems": [
@@ -546,7 +542,7 @@ export const industryPages = [
     "scope": [
       {
         "title": "High-volume check-in",
-        "body": "A staff-facing mobile app built to process a crowd arriving inside a short window, without the slowdown a web form shows under real load."
+        "body": "A staff-facing mobile app for check-in at entrances or across the venue. Plan the expected arrival rate, available devices and connectivity, then test the complete check-in flow."
       },
       {
         "title": "Per-visitor interest mapping",

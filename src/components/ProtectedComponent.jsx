@@ -31,10 +31,11 @@ const ProtectedComponent = ({ children }) => {
     //   : ""
     // }
     <div>
+      <a href="#site-content" className="skip-link">Skip to content</a>
       <Navbar />
       <WhatsAppFAB />
       <GoToTop />
-      {children}
+      <div id="site-content" tabIndex={-1}>{children}</div>
       <ProgressBar
         height="4px"
         color="#4f39f6"

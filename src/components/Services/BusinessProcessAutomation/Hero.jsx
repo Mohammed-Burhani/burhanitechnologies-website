@@ -61,8 +61,7 @@ const Hero = () => {
             </span>
 
             <h1 className="max-w-xl text-3xl font-semibold leading-[1.15] tracking-tight text-white sm:text-4xl lg:text-[2.75rem] xl:text-5xl">
-              Automate document handling, approvals and routine business
-              tasks
+              Business process automation for documents, approvals and routine tasks
             </h1>
 
             <p className="max-w-lg text-sm leading-relaxed text-zinc-400 sm:text-base">
@@ -92,13 +91,12 @@ const Hero = () => {
           </div>
 
           <div className="relative hidden aspect-[16/11] w-full overflow-hidden rounded-2xl border border-white/10 lg:block xl:aspect-auto xl:h-full xl:max-h-[420px]">
-            <img
-              src="https://picsum.photos/seed/burhani-document-capture-automation/900/1125"
-              alt="A document capture workflow feeding a business process automation system"
-              className="h-full w-full object-cover"
+            <img width="800" height="640"
+              src="/illustrations/automation.svg"
+              alt="Conceptual illustration: from a document to an action"
+              className="h-full w-full object-contain bg-[#14111d]"
               loading="eager"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B10]/70 via-transparent to-transparent" />
           </div>
         </div>
 

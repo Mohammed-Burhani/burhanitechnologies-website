@@ -22,6 +22,7 @@ export const Footer = () => {
           <div className="relative rounded-2xl overflow-hidden shadow-2xl">
             <div className="aspect-video w-full h-80">
               <iframe
+                title="Burhani Technologies office location in Chennai"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.1418227785625!2d80.28746827569132!3d13.090196912265775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526f458172cdb1%3A0x7218069a220fa332!2sBurhani%20Technologies!5e0!3m2!1sen!2sin!4v1761984836983!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
@@ -74,7 +75,10 @@ export const Footer = () => {
             </Body>
           </div>
 
-          <ul className="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12">
+          <ul className="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:max-w-2xl lg:justify-end lg:gap-8">
+            <li><Link className="text-white transition hover:text-white/75" href="/industries">Industries</Link></li>
+            <li><Link className="text-white transition hover:text-white/75" href="/leadership">Leadership</Link></li>
+            <li><Link className="text-white transition hover:text-white/75" href="/book-a-consultation">Book a consultation</Link></li>
             <li>
               <a className="text-white transition hover:text-white/75" href="/about">
                 <Body>About</Body>
@@ -125,7 +129,8 @@ export const Footer = () => {
           </ul>
         </div>
 
-        <div className="flex justify-between items-center border-t border-gray-700 mt-10 py-7">
+        <div className="mt-10 flex flex-wrap items-center justify-between gap-6 border-t border-gray-700 py-7">
+          <nav aria-label="Legal" className="flex flex-wrap gap-6 text-sm text-zinc-300"><Link href="/privacy-policy" className="hover:text-white">Privacy policy</Link><Link href="/terms-of-service" className="hover:text-white">Terms of service</Link></nav>
           <Body className="text-center text-sm text-white lg:text-right">
             Copyright &copy; {moment().format("YYYY")}. All rights reserved.
           </Body>

@@ -30,21 +30,19 @@ const ChangingDemand = () => {
           When infrastructure struggles with changing demand
         </h2>
 
-        {/* Full-width rows with an oversized watermark numeral behind the
-           text, a fourth distinct treatment for this recurring 3-objection
-           section across the pillar pages */}
+        {/* Numbered examples of infrastructure requirements */}
         <div className="mt-12 divide-y divide-zinc-200 border-t border-zinc-200 lg:mt-16">
           {signals.map((item) => (
             <div key={item.index} className="relative overflow-hidden py-10 lg:py-12">
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute -right-2 -top-6 select-none font-inter text-[7rem] font-bold leading-none text-zinc-100 sm:text-[9rem]"
+                className="mb-4 block font-inter text-sm font-semibold text-[#6F36D2]"
               >
                 {item.index}
               </span>
               <div className="relative max-w-2xl">
-                <h3 className="text-lg font-semibold italic leading-snug text-zinc-900 sm:text-xl">
-                  &ldquo;{item.quote}&rdquo;
+                <h3 className="text-lg font-semibold leading-snug text-zinc-900 sm:text-xl">
+                  {item.quote}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-zinc-500 sm:text-base">
                   {item.body}

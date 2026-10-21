@@ -14,7 +14,7 @@ const stats = [
 
 const AtAGlance = () => {
   return (
-    <section className="relative overflow-hidden border-t border-white/5 bg-[#0B0B10] py-16 lg:py-24">
+    <section className="relative overflow-hidden border-t border-white/5 bg-[#0B0B10] py-5 sm:py-6">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -right-32 bottom-0 h-[380px] w-[380px] rounded-full bg-[#6F36D2]/[0.1] blur-[130px]"

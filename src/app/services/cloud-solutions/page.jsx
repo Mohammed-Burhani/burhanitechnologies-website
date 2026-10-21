@@ -1,3 +1,4 @@
+import { servicePages } from "@/content/servicePages";
 import RelatedBlogs from "@/components/Services/RelatedBlogs";
 import Hero from "@/components/Services/CloudSolutions/Hero";
 import ChangingDemand from "@/components/Services/CloudSolutions/ChangingDemand";
@@ -11,7 +12,7 @@ import CaseStudyFeature from "@/components/Services/CloudSolutions/CaseStudyFeat
 import FAQ from "@/components/Services/CloudSolutions/FAQ";
 import { cloudSolutionsFaqs } from "@/components/Services/CloudSolutions/faqData";
 import CTA from "@/components/Services/CloudSolutions/CTA";
-import { generateBreadcrumbSchema, generateFAQSchema } from "@/utils/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/utils/schema";
 
 export const metadata = {
   title: "Azure Cloud Services and Migration | Burhani",
@@ -26,7 +27,7 @@ export const metadata = {
       "Cloud architecture and migration across Azure, AWS and Google Cloud. Plan capacity, connections, recovery and the support your applications need.",
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Azure Cloud Services and Migration | Burhani",
     description:
       "Cloud architecture and migration across Azure, AWS and Google Cloud. Plan capacity, connections, recovery and the support your applications need.",
@@ -49,11 +50,15 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   },
 ]);
 
+const approvedService = servicePages.find(page => page.slug === "cloud-solutions");
+const serviceSchema = generateServiceSchema({ title: approvedService.navLabel, slug: approvedService.slug, description: approvedService.metaDescription });
+
 const faqSchema = generateFAQSchema(cloudSolutionsFaqs);
 
 const CloudSolutionsPage = () => {
   return (
-    <>
+    <main id="main">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema).replace(/</g, "\\u003c") }} />
       <script
         id="cloud-solutions-breadcrumb-schema"
         type="application/ld+json"
@@ -79,7 +84,7 @@ const CloudSolutionsPage = () => {
         <RelatedBlogs serviceSlug="cloud-solutions" />
         <CTA />
       </div>
-    </>
+    </main>
   );
 };
 

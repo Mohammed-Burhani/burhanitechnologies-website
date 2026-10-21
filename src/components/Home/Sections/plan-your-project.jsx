@@ -6,7 +6,7 @@ import { ArrowUpRight, Sparkle, WhatsappLogo } from "@phosphor-icons/react";
 
 const PlanYourProject = () => {
   return (
-    <section className="relative overflow-hidden bg-[#0B0B10] py-16 sm:py-20">
+    <section className="relative overflow-hidden bg-[#0B0B10] py-5 sm:py-6">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-[0.5]"

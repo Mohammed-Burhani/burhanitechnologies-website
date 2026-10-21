@@ -45,8 +45,8 @@ const ManualProcessing = () => {
                 }`}
               >
                 <Icon size={24} weight="bold" className="text-[#6F36D2]" />
-                <h3 className="text-lg font-semibold italic leading-snug text-zinc-900 sm:text-xl">
-                  &ldquo;{item.quote}&rdquo;
+                <h3 className="text-lg font-semibold leading-snug text-zinc-900 sm:text-xl">
+                  {item.quote}
                 </h3>
                 <p className="text-sm leading-relaxed text-zinc-500 sm:text-base">
                   {item.body}

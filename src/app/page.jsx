@@ -57,7 +57,7 @@ const homepageFAQs = [
 
 export const metadata = {
   metadataBase: new URL("https://burhanitechnologies.com"),
-  title: "Custom Software Development Company | Burhani Technologies",
+  title: "Burhani Technologies | Custom Software Development, Chennai",
   description:
     "Custom software engineering since 2010. Burhani builds applications, ERP and automation around your operations, with experience across real client projects.",
   authors: [{ name: "Burhani Technologies" }],
@@ -73,24 +73,15 @@ export const metadata = {
     locale: "en_IN",
     url: "https://burhanitechnologies.com",
     siteName: "Burhani Technologies",
-    title: "Custom Software Development Company | Burhani Technologies",
+    title: "Burhani Technologies | Custom Software Development, Chennai",
     description:
       "Custom software engineering since 2010. Burhani builds applications, ERP and automation around your operations, with experience across real client projects.",
-    images: [
-      {
-        url: "/BT-Logo.svg",
-        width: 1200,
-        height: 630,
-        alt: "Burhani Technologies Logo",
-      },
-    ],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Custom Software Development Company | Burhani Technologies",
+    card: "summary",
+    title: "Burhani Technologies | Custom Software Development, Chennai",
     description:
       "Custom software engineering since 2010. Burhani builds applications, ERP and automation around your operations, with experience across real client projects.",
-    images: ["/BT-Logo.svg"],
   },
   robots: {
     index: true,
@@ -116,7 +107,7 @@ const faqSchema = generateFAQSchema(homepageFAQs);
 
 export default function Home() {
   return (
-    <>
+    <main id="main">
       {/* FAQ Schema for Homepage */}
       <Script
         id="homepage-faq-schema"
@@ -143,6 +134,6 @@ export default function Home() {
         <PlanYourProject />
         <VisitOffice />
       </div>
-    </>
+    </main>
   );
 }

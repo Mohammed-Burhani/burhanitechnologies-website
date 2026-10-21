@@ -13,7 +13,7 @@ These changes address those remaining website defects. They do not claim a parti
 - Set article-specific case-study canonical and social metadata. Deliver breadcrumb and service/global structured data as literal JSON-LD in the initial HTML.
 - Match service metadata to the real URL slugs. Use approved CMS copy for future service metadata fallbacks and return a real 404 when a record is missing.
 - Give template service pages a meaningful main H1 and lower-level section headings while retaining the existing styles.
-- Restore the industry index, four sector pages, four knowledge-base guides and the rapid application development service from the existing approved content. Public fields, body sections, FAQs and CTA wording are preserved; research fields are excluded.
+- Restore the industry index, four sector pages, four knowledge-base guides and the rapid application development service from the existing approved content.
 - Correct the explicit UX/UI service link without changing unrelated slug generation. Point the contact page's consultation-agenda link to its existing process steps rather than an unavailable booking route.
 - Select service-related guides by their existing published slugs rather than showing the same three latest posts for every service. Add those links to the four rewritten service pages.
 - Link the existing Values and Why Burhani pages from the footer so they have discoverable incoming links in the initial HTML.
@@ -48,7 +48,7 @@ The read-only HTTP check compares sitemap routes with actual responses, canonica
 3. Run Google live checks and normal URL Inspection recrawl requests for the unresolved September exclusions, recording request acceptance separately from confirmed inclusion.
 4. Reinspect crawl dates and selected canonicals after Google processes the new pages. Evaluate organic performance using complete dates after publication and repair; do not interpret old index decisions as a live-template failure.
 
-Search Console processing, conversion measurement and external link-placement verification are operational follow-up, not outcomes this code change can certify.
+Search Console processing and conversion measurement require follow-up after deployment.
 
 ## Framework references
 

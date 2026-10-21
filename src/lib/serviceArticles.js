@@ -23,3 +23,39 @@ const serviceArticles = {
 export function getServiceArticleSlugs(serviceSlug) {
   return serviceArticles[serviceSlug] || [];
 }
+
+const serviceLabels = {
+  "application-development": "Custom software development",
+  "erp-implementation": "Custom ERP implementation",
+  "business-process-automation-solutions": "Business process automation",
+  "cloud-solutions": "Cloud solutions",
+  "integration-services": "System integration services",
+  "web-application-development": "Web application development",
+  "data-analysis-and-reporting": "Data analysis and reporting",
+  "custom-automation-tools": "Custom automation tools",
+  "line-of-business-lob-applications": "Line of business applications",
+  "mobile-application-development": "Mobile application development",
+  "workflow-automation": "Workflow automation",
+  "cross-platform-enterprise-applications": "Cross-platform enterprise applications",
+  "robotic-process-automation-rpa": "Robotic process automation",
+  "devops-and-maintenance": "DevOps and maintenance",
+  "cms-based-website-development": "CMS website development",
+  "process-automation": "Process monitoring and automation",
+  "ux-ui-design": "UI/UX design",
+  "rapid-application-development": "Rapid application development",
+};
+
+export function getArticleServiceLinks(articleSlug) {
+  const matching = Object.entries(serviceArticles)
+    .filter(([, articles]) => articles.includes(articleSlug))
+    .map(([serviceSlug]) => serviceSlug);
+
+  if (articleSlug === "what-is-warehouse-management-system") {
+    matching.push("erp-implementation", "application-development");
+  }
+
+  return [...new Set(matching)].slice(0, 3).map((slug) => ({
+    href: `/services/${slug}`,
+    label: serviceLabels[slug],
+  }));
+}

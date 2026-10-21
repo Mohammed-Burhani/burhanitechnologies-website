@@ -1,9 +1,9 @@
 // SEO-optimized metadata for all pages
 export const pageMetadata = {
   home: {
-    title: "Burhani Technologies | Custom Software Development & Business Automation Services Chennai",
+    title: "Burhani Technologies | Custom Software Development, Chennai",
     description:
-      "Leading software development company in Chennai specializing in Custom ERP, AI/ML Automation, DevOps/Azure, and Business Process Automation. Transform your business with tailored technology solutions.",
+      "Custom software engineering since 2010. Burhani builds applications, ERP and automation around your operations, with experience across real client projects.",
     keywords: [
       "custom software development Chennai",
       "ERP implementation",
@@ -15,9 +15,9 @@ export const pageMetadata = {
   },
   
   about: {
-    title: "About Burhani Technologies | Software Development Experts Since [Year]",
+    title: "About Burhani Technologies | Software Development Since 2010",
     description:
-      "Learn about Burhani Technologies - Chennai's trusted partner for custom software development, ERP implementation, and business automation. Serving Healthcare, Finance, Manufacturing & Construction industries.",
+      "Business software and automation since 2010. Meet Burhani Technologies, explore our work and understand our approach to building useful systems.",
     keywords: [
       "software development company Chennai",
       "IT services Chennai",
@@ -64,7 +64,7 @@ export const pageMetadata = {
   whyChooseUs: {
     title: "Why Choose Burhani Technologies | Proven Software Development Partner",
     description:
-      "Choose Burhani Technologies for proven expertise in Custom ERP, AI Automation, and DevOps. We deliver measurable results with 90-day post-launch support and industry-specific solutions.",
+      "Understand Burhani's approach to custom business software, from workflow discovery and staged reviews to integration, release and support.",
     keywords: [
       "best software development company",
       "ERP implementation partner",
@@ -78,7 +78,7 @@ export const serviceMetadata = {
   "custom-erp-implementation": {
     title: "Custom ERP Implementation Services | Streamline Operations | Burhani Technologies",
     description:
-      "Custom ERP solutions for Healthcare, Finance, Manufacturing & Construction. Integrate inventory, production, finance systems with minimal downtime. 90-day post-launch support included.",
+      "Custom ERP development to connect inventory, production and finance around your workflows, with discovery, integration, testing and staged delivery.",
     keywords: [
       "custom ERP implementation",
       "ERP integration services",
@@ -104,7 +104,7 @@ export const serviceMetadata = {
   "devops-azure-cloud": {
     title: "DevOps & Azure Cloud Services | CI/CD Pipeline Setup | Burhani Technologies",
     description:
-      "Expert DevOps and Azure cloud services: CI/CD pipeline implementation, cloud migration, infrastructure automation, and 24/7 monitoring. Reduce deployment time by 70%.",
+      "DevOps and Azure cloud services covering CI/CD pipelines, cloud migration, infrastructure automation, deployment planning and application maintenance.",
     keywords: [
       "DevOps services",
       "Azure cloud migration",
@@ -309,7 +309,7 @@ export function generateServiceMetadata(slug, serviceData = {}) {
       siteName: "Burhani Technologies",
       url: canonical,
     },
-    twitter: { card: "summary_large_image", title, description },
+    twitter: { card: "summary", title, description },
     alternates: { canonical },
   };
 }
