@@ -1,0 +1,34 @@
+.section { --tile-width:11.5rem; overflow:hidden; padding-block:4rem; background:#fff; color:#302638; }
+.container { width:min(100% - 3rem,80rem); margin-inline:auto; }
+.header { display:flex; align-items:flex-end; justify-content:space-between; gap:1.5rem; }
+.header h2 { margin:0; font-size:clamp(1.75rem,3vw,2.5rem); line-height:1.2; font-weight:600; letter-spacing:-.035em; text-wrap:balance; }
+.intro { margin-top:1rem; color:#6b6274; font-size:1rem; line-height:1.7; }
+.control { display:inline-flex; flex-shrink:0; justify-content:center; align-items:center; gap:.65rem; min-height:2.75rem; padding:.65rem .9rem; border:1px solid #ded5e8; border-radius:.55rem; color:#61428a; background:#fff; font-size:.8125rem; font-weight:500; cursor:pointer; transition:background .2s,border-color .2s; }
+.control:hover { border-color:#bfa5db; background:#f6f1fc; }
+.control:focus-visible { outline:2px solid #7e43ca; outline-offset:4px; }
+.control:disabled { visibility:hidden; }
+.rows { --gap:.875rem; width:min(100% - 3rem,80rem); margin:2rem auto 0; display:grid; gap:var(--gap); }
+.window { border-radius:.65rem; }
+.track { display:flex; width:100%; }
+.group { display:grid; grid-template-columns:repeat(auto-fit,minmax(9rem,1fr)); flex-shrink:0; width:100%; gap:var(--gap); }
+.group[data-copy="1"] { display:none; }
+.item { display:flex; align-items:center; gap:.85rem; min-height:5.25rem; padding:1rem; border:1px solid #e9e3ef; border-radius:.65rem; background:#faf9fc; color:#40364c; font-size:.875rem; font-weight:500; line-height:1.4; }
+.item[data-tech-repeat="true"] { display:none; }
+.item>span:last-child { min-width:0; overflow-wrap:anywhere; }
+.logo { flex-shrink:0; width:2.5rem; height:2.5rem; object-fit:contain; }
+.fallback { display:flex; flex-shrink:0; align-items:center; justify-content:center; width:2.5rem; height:2.5rem; color:#6f36d2; font-weight:600; }
+.motionHint { display:none; margin-top:1rem; color:#6b6274; font-size:.8125rem; }
+.section[data-enhanced="true"] .window { overflow:hidden; mask-image:linear-gradient(to right,transparent,#000 2.5rem,#000 calc(100% - 2.5rem),transparent); }
+.section[data-enhanced="true"] .group { display:flex; width:auto; padding-inline-end:var(--gap); }
+.section[data-enhanced="true"] .group[data-copy="1"] { display:flex; }
+.section[data-enhanced="true"] .item { width:var(--tile-width); }
+.section[data-enhanced="true"] .item[data-tech-repeat="true"] { display:flex; }
+.section[data-enhanced="true"] .track { width:max-content; animation:travel var(--duration) linear infinite; will-change:transform; }
+.section[data-enhanced="true"] [data-direction="right"] .track { animation-direction:reverse; }
+.section[data-paused="true"] .track,.section:focus-within .track { animation-play-state:paused; }
+@keyframes travel { to { transform:translateX(-50%); } }
+@media(hover:hover) { .section:hover .track { animation-play-state:paused; } }
+@media(max-width:639px) { .section { --tile-width:10.25rem; } .header { align-items:flex-start; flex-direction:column; gap:1rem; } .intro { font-size:.9375rem; } .item { min-height:4.75rem; padding:.85rem; gap:.7rem; font-size:.8125rem; } .logo { width:2.1rem; height:2.1rem; } .rows { margin-top:1.5rem; --gap:.65rem; } .section[data-enhanced="true"] .window { mask-image:linear-gradient(to right,transparent,#000 1rem,#000 calc(100% - 1rem),transparent); } }
+@media(min-width:640px) { .container,.rows { width:min(100% - 5rem,80rem); } }
+@media(min-width:1024px) { .section { padding-block:4.5rem; } .container,.rows { width:min(100% - 7rem,80rem); } }
+@media(prefers-reduced-motion:reduce) { .section[data-enhanced="true"] .track { width:100%; animation:none; transform:none; will-change:auto; } .section[data-enhanced="true"] .group { display:grid; width:100%; padding:0; } .section[data-enhanced="true"] .group[data-copy="1"],.section[data-enhanced="true"] .item[data-tech-repeat="true"] { display:none; } .section[data-enhanced="true"] .item { width:auto; } .section[data-enhanced="true"] .window { overflow:visible; mask-image:none; } .control { display:none; transition:none; } .motionHint { display:block; } }

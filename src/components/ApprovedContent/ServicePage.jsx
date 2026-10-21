@@ -2,6 +2,7 @@ import Link from "next/link";
 import { servicePages } from "@/content/servicePages";
 import { serviceDelivery } from "@/content/serviceDelivery";
 import RelatedBlogs from "@/components/Services/RelatedBlogs";
+import TechnologyMarquee from "@/components/TechnologyMarquee";
 import { approvedMetadata, ApprovedPageSchema, ApprovedSection, ApprovedRelated, ApprovedFaq, ApprovedCta } from "./ApprovedPage";
 import { ServiceIntro, ServiceSectionNav, ServiceProblems, ServiceScope, ServiceDetails, ServiceDelivery, ServiceProject } from "./ServiceExperience";
 import styles from "./ServiceExperience.module.css";
@@ -38,11 +39,7 @@ export default function ServicePage({ page, showRelatedArticles = true }) {
     </ApprovedSection></div>}
     {relatedCards.length > 0 && <div data-reveal><ApprovedRelated heading={page.editorial.related} cards={relatedCards} /></div>}
     <ServiceDelivery heading={page.editorial.process} steps={page.process || serviceDelivery.process} slug={page.slug} />
-    {stack.length > 0 && <section className={styles.supportSection} data-reveal><div className={styles.container}>
-      <h2>Technologies we work with</h2>
-      <p className={styles.supportIntro}>Grouped by the layer it sits in.</p>
-      <dl className={styles.stackGrid}>{stack.map(([group, tools]) => <div key={group}><dt>{group}</dt><dd>{tools.join(" · ")}</dd></div>)}</dl>
-    </div></section>}
+    {stack.length > 0 && <TechnologyMarquee technologies={stack.flatMap(([, tools]) => tools)} intro="Tools selected around the requirements of your project." />}
     {page.caseStudy && <ServiceProject page={page} />}
     {(page.tier === "child" || page.engagementIntro) && <section className={`${styles.supportSection} ${styles.tinted}`} data-reveal><div className={styles.container}>
       <h2>How we can work together</h2>

@@ -13,6 +13,7 @@ The page review found 15 missing routes in the original 49-page handoff and 24 p
 - Replaces random imagery with original lightweight process illustrations and a branded social preview. Replaces unsupported testimonial content with project evidence.
 - Adds matching case-study illustrations to homepage project cards, service-hub cards, industry headers, case-study pages and relevant internal service panels. Responsive image sizing, descriptive alternative text and lazy loading support accessible, efficient rendering; labels identify the images as illustrations.
 - Adds restrained scroll fades and hover feedback. Motion respects reduced-motion preferences, and content remains visible when JavaScript is unavailable.
+- Consolidates technology stacks beneath one heading with local logos and three or four continuous rows moving in alternating directions. A pause control, hover/focus pausing and static reduced-motion/JavaScript-disabled layouts keep the technology list usable. Existing technology labels are retained; general categories use original symbols.
 - Keeps the current contact form and published articles. Adds contextual links from relevant articles to the services they explain.
 
 ## Search and rendering behavior
@@ -38,5 +39,7 @@ The existing business-enquiry form and separate career-enquiry email link are re
 The production build and five SEO regression tests pass. The route audit covers 100 pages, 96 sitemap URLs, 50 published articles, 98 internal destinations and 53 rendering assets. The 50 content routes were reviewed across desktop and mobile, with additional tablet and 320px reflow checks. Corrected layouts have no horizontal overflow or broken images in the checked viewports. All 36 navigation interaction checks pass; sampled accessibility scans are clear after the final contrast fixes.
 
 Scroll effects run with the normal motion preference and stay disabled with reduced motion. Content and native service disclosures remain available without JavaScript. Source comparisons confirm the service-layout changes retain the approved copy and links.
+
+The technology carousel passes 109 targeted checks covering original technology labels, local SVG loading, alternating movement, matching loop copies, pause/resume controls, keyboard and hover behaviour, and static fallbacks. Checks include desktop, tablet, 390px and 320px layouts; sampled accessibility scans report no violations.
 
 These checks verify the local build. Production indexing, traffic and real-user performance require measurement after an approved deployment.
