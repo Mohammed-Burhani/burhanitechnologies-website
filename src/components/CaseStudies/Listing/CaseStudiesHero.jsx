@@ -93,7 +93,7 @@ export default function CaseStudiesHero({ images = [] }) {
             </Reveal>
 
             <Reveal delay={0.08}>
-              <h1 className="max-w-3xl font-inter text-3xl font-semibold leading-[1.15] tracking-tight text-white sm:text-4xl lg:text-[2.5rem] xl:text-[2.75rem]">
+              <h1 className="max-w-3xl font-inter text-3xl font-semibold leading-normal tracking-tight text-white sm:text-4xl lg:text-[2.5rem] xl:text-[2.75rem]">
                 Systems we have built for clients, and what changed for them
               </h1>
             </Reveal>

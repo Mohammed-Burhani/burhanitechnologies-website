@@ -1,4 +1,4 @@
-import { Montserrat } from "next/font/google";
+import { Lora } from "next/font/google";
 import "./globals.css";
 import ProtectedComponent from "@/components/ProtectedComponent";
 import ConsentLinkGuard from "@/components/ConsentLinkGuard";
@@ -9,8 +9,8 @@ import {
   localBusinessSchema,
 } from "@/utils/schema";
 
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
+const lora = Lora({
+  variable: "--font-lora",
   weight: "variable",
   style: ["normal", "italic"],
   subsets: ["latin"],
@@ -126,7 +126,7 @@ export default function RootLayout({ children }) {
           `}
         </Script>
       </head>
-      <body className={`${montserrat.variable} font-sans antialiased bg-black`}>
+      <body className={`${lora.variable} font-sans antialiased bg-black`}>
         <ConsentLinkGuard />
         <ProtectedComponent>{children}</ProtectedComponent>
         {/* Google Analytics */}

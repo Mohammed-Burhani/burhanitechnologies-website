@@ -61,7 +61,7 @@ const Hero = () => {
               Service
             </span>
 
-            <h1 className="max-w-xl text-3xl font-semibold leading-[1.15] tracking-tight text-white sm:text-4xl lg:text-[2.75rem] xl:text-5xl">
+            <h1 className="max-w-xl text-3xl font-semibold leading-normal tracking-tight text-white sm:text-4xl lg:text-[2.75rem] xl:text-5xl">
               Cloud migration and infrastructure that fit your workload
             </h1>
 

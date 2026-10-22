@@ -52,7 +52,7 @@ const ServicesHero = () => {
               Services
             </span>
 
-            <h1 className="max-w-xl text-3xl font-semibold leading-[1.15] tracking-tight text-white sm:text-4xl lg:text-[2.75rem] xl:text-5xl">
+            <h1 className="max-w-xl text-3xl font-semibold leading-normal tracking-tight text-white sm:text-4xl lg:text-[2.75rem] xl:text-5xl">
               Software development services built around the workflow you
               already run
             </h1>

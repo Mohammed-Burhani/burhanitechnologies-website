@@ -175,7 +175,7 @@ export default function CaseStudiesCTA({ images = [] }) {
 
               <div className="relative grid grid-cols-1 gap-10 px-6 py-12 sm:px-10 sm:py-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-14 lg:px-14 lg:py-20">
                 <div>
-                  <h2 className="max-w-xl font-inter text-3xl font-semibold leading-[1.12] tracking-tight text-white sm:text-4xl lg:text-5xl">
+                  <h2 className="max-w-xl font-inter text-3xl font-semibold leading-normal tracking-tight text-white sm:text-4xl lg:text-5xl">
                     Your system could be the{" "}
                     <span className="text-[#B79CE8]">next case study</span>
                   </h2>

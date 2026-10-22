@@ -2,7 +2,7 @@
 .hero::before { content:""; position:absolute; inset:0; pointer-events:none; background:radial-gradient(ellipse at 90% 35%,#6f36d21f,transparent 60%); }
 .heroGrid { display:grid; align-items:center; gap:3rem; }
 .eyebrow { font-size:.8125rem; font-weight:600; letter-spacing:.025em; color:#c7b0ef; }
-.heroTitle { margin-top:1.35rem; max-width:14em; font-size:clamp(2rem,3.5vw,3.25rem); font-weight:600; line-height:1.1; letter-spacing:-.045em; text-wrap:balance; }
+.heroTitle { margin-top:1.35rem; max-width:14em; font-size:clamp(2rem,3.5vw,3.25rem); font-weight:600; line-height:1.5; letter-spacing:-.045em; text-wrap:balance; }
 .heroBody { margin-top:1.5rem; max-width:60ch; font-size:1rem; line-height:1.75; color:#bcbac8; text-wrap:pretty; }
 .heroActions { display:flex; flex-wrap:wrap; align-items:center; gap:1.3rem; margin-top:1.75rem; }
 .primaryLink { display:inline-flex; align-items:center; justify-content:center; gap:1.1rem; padding:.95rem 1.25rem; border-radius:.6rem; background:#6f36d2; font-size:.9375rem; font-weight:600; transition:background .2s,transform .2s; }
@@ -43,7 +43,7 @@
 .serviceRow:hover { background:#f8f6fb; }
 .serviceHeading { display:flex; align-items:flex-start; gap:1rem; }
 .serviceHeading>span { padding-top:.35rem; color:#80669f; font-size:.7rem; font-variant-numeric:tabular-nums; }
-.serviceHeading h3 { font-size:1.2rem; line-height:1.4; font-weight:600; color:#27222f; }
+.serviceHeading h3 { font-size:1.2rem; line-height:1.5; font-weight:600; color:#27222f; }
 .serviceDescription p { max-width:66ch; color:#625c6c; font-size:.9375rem; line-height:1.7; }
 .serviceDescription>span { display:inline-flex; align-items:center; gap:.6rem; margin-top:.85rem; font-size:.8125rem; font-weight:500; color:#6631ba; }
 .serviceRow:hover .serviceDescription>span { text-decoration:underline; text-underline-offset:.3em; }
@@ -51,11 +51,11 @@
 .caseLink { display:flex; flex-direction:column; gap:.85rem; padding:1.6rem 0 1.85rem; border-top:1px solid #ffffff24; }
 .caseMedia { position:relative; display:block; width:100%; aspect-ratio:16/9; overflow:hidden; border-radius:.65rem; background:#24212d; margin-bottom:.45rem; }
 .caseImage { object-fit:cover; transition:transform .3s ease; }
-.caseImageLabel { position:absolute; right:.75rem; bottom:.75rem; border-radius:.25rem; background:#101017e6; padding:.35rem .5rem; color:#e9e2f3; font-size:.625rem; line-height:1.4; }
+.caseImageLabel { position:absolute; right:.75rem; bottom:.75rem; border-radius:.25rem; background:#101017e6; padding:.35rem .5rem; color:#e9e2f3; font-size:.625rem; line-height:1.5; }
 .caseLink:hover .caseImage { transform:scale(1.025); }
 @media(prefers-reduced-motion:reduce) { .caseImage { transition:none; } .caseLink:hover .caseImage { transform:none; } }
 .caseLabel { color:#b9a3dc; font-size:.7rem; letter-spacing:.055em; }
-.caseLink h3 { max-width:28ch; color:#f1edf7; font-size:1.25rem; line-height:1.4; font-weight:600; text-wrap:balance; }
+.caseLink h3 { max-width:28ch; color:#f1edf7; font-size:1.25rem; line-height:1.5; font-weight:600; text-wrap:balance; }
 .caseLink p { color:#b4adbf; font-size:.9375rem; line-height:1.7; }
 .caseAction { display:flex; align-items:center; gap:.5rem; margin-top:auto; padding-top:.4rem; color:#d6c5ee; font-size:.8125rem; }
 .caseLink:hover h3 { color:#c9aff1; }

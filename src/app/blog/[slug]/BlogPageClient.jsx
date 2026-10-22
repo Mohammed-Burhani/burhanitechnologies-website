@@ -414,7 +414,7 @@ const BlogPageClient = ({ blogDetails, relatedBlogs = [] }) => {
                   </div>
                 )}
 
-                <h1 id={titleAnchor} className="max-w-2xl scroll-mt-8 text-3xl font-bold !leading-[1.1] tracking-tight text-white sm:text-4xl lg:text-[2.75rem] xl:text-[3.25rem]">
+                <h1 id={titleAnchor} className="max-w-2xl scroll-mt-8 text-3xl font-bold !leading-normal tracking-tight text-white sm:text-4xl lg:text-[2.75rem] xl:text-[3.25rem]">
                   {blogDetails.title}
                 </h1>
 
