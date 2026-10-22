@@ -69,11 +69,12 @@ const config = {
   				'5': 'hsl(var(--chart-5))'
   			}
   		},
-  		fontFamily: {
-  			inter: [
-  				'var(--font-inter)'
-  			]
-  		},
+      fontFamily: {
+        sans: ['var(--font-montserrat)', 'Arial', 'sans-serif'],
+        montserrat: ['var(--font-montserrat)', 'Arial', 'sans-serif'],
+        // Preserve existing component utilities while using the site-wide font.
+        inter: ['var(--font-montserrat)', 'Arial', 'sans-serif']
+      },
   		fontSize: {
   			smallText: 'clamp(0.75rem, 0.75rem + 0vw, 0.75rem)',
   			body: 'clamp(0.875rem, 0.7647rem + 0.9902vw, 1rem)',

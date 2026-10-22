@@ -1,4 +1,4 @@
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import ProtectedComponent from "@/components/ProtectedComponent";
 import ConsentLinkGuard from "@/components/ConsentLinkGuard";
@@ -9,10 +9,12 @@ import {
   localBusinessSchema,
 } from "@/utils/schema";
 
-const inter = Inter({
-  variable: "--font-inter",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  weight: "variable",
+  style: ["normal", "italic"],
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata = {
@@ -124,7 +126,7 @@ export default function RootLayout({ children }) {
           `}
         </Script>
       </head>
-      <body className={`${inter.variable} antialiased bg-black`}>
+      <body className={`${montserrat.variable} font-sans antialiased bg-black`}>
         <ConsentLinkGuard />
         <ProtectedComponent>{children}</ProtectedComponent>
         {/* Google Analytics */}
