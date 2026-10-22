@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "test:seo": "node --test scripts/seo-regression.test.mjs",
+    "test:article-presentation": "node --test scripts/article-presentation.test.cjs",
     "lint": "next lint"
   },
   "dependencies": {

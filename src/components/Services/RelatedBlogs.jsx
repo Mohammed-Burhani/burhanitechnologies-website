@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Container from "@/components/constants/Container";
 import { client } from "@/sanity/lib/client";
-import { urlForImage } from "@/sanity/lib/image";
+import { getArticleArtwork } from "@/lib/articleArtwork";
 import { Calendar, Clock, ArrowRight } from "iconsax-react";
 import { formatPublicationDate } from "@/lib/publicationDate";
 import { getServiceArticleSlugs } from "@/lib/serviceArticles";
@@ -42,18 +42,18 @@ const RelatedBlogs = async ({ serviceSlug }) => {
   return (
     <Container className="bg-gray-50 py-16">
       <div className="max-w-6xl mx-auto">
-        <div className="flex items-center justify-between mb-8">
+        <div className="mb-8 flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
           <h2 className="font-inter text-captionLarge xl:text-mdcaptionLarge 4xl:text-lgcaptionLarge 7xl:mdtext-captionLarge leading-snug font-bold text-[#180030]">Related Blog Posts</h2>
           <Link
             href="/blog"
-            className="text-[#6622DC] hover:underline flex items-center gap-2 font-semibold"
+            className="inline-flex min-h-11 shrink-0 items-center gap-2 whitespace-nowrap font-semibold text-[#6622DC] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#6F36D2]"
           >
             View All Blogs
             <ArrowRight size={20} />
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {blogs.map((blog) => (
             <BlogCard key={blog._id} blog={blog} />
           ))}
@@ -66,19 +66,20 @@ const RelatedBlogs = async ({ serviceSlug }) => {
 export default RelatedBlogs;
 
 const BlogCard = ({ blog }) => {
+  const artwork = getArticleArtwork(blog);
   return (
     <Link
       href={`/blog/${blog.slug.current}`}
-      className="group block bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+      className="group flex h-full flex-col overflow-hidden rounded-lg bg-white shadow-md transition-shadow duration-300 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#6F36D2]"
     >
-      <div className="relative overflow-hidden">
-        {blog.mainImage && urlForImage(blog.mainImage) ? (
+      <div className="relative shrink-0 overflow-hidden">
+        {artwork ? (
           <Image
-            src={urlForImage(blog.mainImage)}
-            alt={blog.title}
+            src={artwork.src}
+            alt={artwork.alt}
             width={400}
             height={250}
-            className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+            className={`w-full h-48 ${artwork.preserveFrame ? "object-contain" : "object-cover group-hover:scale-105 transition-transform duration-300"}`}
           />
         ) : (
           <div className="w-full h-48 bg-gradient-to-br from-purple-400 to-indigo-600 flex items-center justify-center">
@@ -89,7 +90,7 @@ const BlogCard = ({ blog }) => {
         )}
       </div>
 
-      <div className="p-6">
+      <div className="flex flex-1 flex-col p-6">
         {/* Categories */}
         {blog.categories && blog.categories.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-3">
@@ -133,7 +134,7 @@ const BlogCard = ({ blog }) => {
           </div>
         </div>
 
-        <div className="flex items-center text-[#6622DC] font-semibold text-sm">
+        <div className="mt-auto flex items-center text-sm font-semibold text-[#6622DC]">
           <span>Read Article</span>
           <ArrowRight
             size={16}

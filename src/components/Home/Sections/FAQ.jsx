@@ -44,7 +44,7 @@ const faqData = [
 
 export const FAQ = () => {
 return (
-    <section className="relative overflow-hidden bg-white py-5 sm:py-6">
+    <section data-reveal className="relative overflow-hidden bg-white py-5 sm:py-6">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -right-32 top-10 h-[380px] w-[380px] rounded-full bg-[#6F36D2]/[0.07] blur-[120px]"

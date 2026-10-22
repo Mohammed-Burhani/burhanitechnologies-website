@@ -51,7 +51,7 @@ const caseStudies = [
 ];
 
 export default function CaseStudiesShowcase() {
-  return <section id="client-projects" className="border-t border-white/5 bg-[#101017] py-5 text-white sm:py-6">
+  return <section id="client-projects" data-reveal className="border-t border-white/5 bg-[#101017] py-5 text-white sm:py-6">
     <Container>
       <div className="flex flex-wrap items-end justify-between gap-6">
         <div><p className="text-xs font-medium tracking-wide text-[#B79CE8]">Client projects</p><h2 className="mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-tight lg:text-4xl">Six systems, and what each one replaced</h2></div>

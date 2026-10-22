@@ -79,6 +79,7 @@ const FieldError = ({ name }) => (
   <ErrorMessage name={name}>
     {(message) => (
       <p
+        id={`${name}-error`}
         role="alert"
         className="flex items-center gap-1.5 font-inter text-sm text-red-600"
       >
@@ -166,6 +167,11 @@ function ContactForm() {
       {({ errors, touched, values, isSubmitting }) => {
         const cls = (name, extra = "") =>
           `${fieldBase} ${errors[name] && touched[name] ? fieldBad : fieldOk} ${extra}`;
+        const accessibility = (name) => ({
+          required: true,
+          "aria-invalid": Boolean(errors[name] && touched[name]),
+          "aria-describedby": errors[name] && touched[name] ? `${name}-error` : undefined,
+        });
 
         return (
           <Form className="flex flex-col gap-5" noValidate>
@@ -214,7 +220,7 @@ function ContactForm() {
                   as="select"
                   id="service"
                   name="service"
-                  aria-invalid={Boolean(errors.service && touched.service)}
+                  {...accessibility("service")}
                   className={cls(
                     "service",
                     `appearance-none pr-12 ${values.service ? "" : "text-zinc-500"}`,
@@ -252,7 +258,7 @@ function ContactForm() {
                 id="problem"
                 name="problem"
                 rows={4}
-                aria-invalid={Boolean(errors.problem && touched.problem)}
+                {...accessibility("problem")}
                 placeholder="Describe what happens today, who it affects and what is slowing the work down."
                 className={cls("problem", "resize-y")}
               />
@@ -267,8 +273,8 @@ function ContactForm() {
                 as="textarea"
                 id="outcome"
                 name="outcome"
-                rows={3}
-                aria-invalid={Boolean(errors.outcome && touched.outcome)}
+                rows={4}
+                {...accessibility("outcome")}
                 placeholder="For example: customers can order online and your team can track each order without re-entering it."
                 className={cls("outcome", "resize-y")}
               />
@@ -285,7 +291,7 @@ function ContactForm() {
                   name="name"
                   type="text"
                   autoComplete="name"
-                  aria-invalid={Boolean(errors.name && touched.name)}
+                  {...accessibility("name")}
                   className={cls("name")}
                 />
                 <FieldError name="name" />
@@ -299,7 +305,7 @@ function ContactForm() {
                   name="email"
                   type="email"
                   autoComplete="email"
-                  aria-invalid={Boolean(errors.email && touched.email)}
+                  {...accessibility("email")}
                   className={cls("email")}
                 />
                 <FieldError name="email" />
@@ -315,7 +321,7 @@ function ContactForm() {
                 name="company"
                 type="text"
                 autoComplete="organization"
-                aria-invalid={Boolean(errors.company && touched.company)}
+                {...accessibility("company")}
                 className={cls("company")}
               />
               <FieldError name="company" />
@@ -330,7 +336,7 @@ function ContactForm() {
                 name="phone"
                 type="tel"
                 autoComplete="tel"
-                aria-invalid={Boolean(errors.phone && touched.phone)}
+                {...accessibility("phone")}
                 className={cls("phone")}
               />
               <FieldError name="phone" />

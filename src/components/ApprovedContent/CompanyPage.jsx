@@ -16,6 +16,11 @@ const allowedTags = new Set([
 function ApprovedElement({ node, cardImages }) {
   if (typeof node === "string") return node;
   const children = node.children.map((child, index) => <ApprovedElement key={index} node={child} cardImages={cardImages} />);
+  if (node.tag === "details") return <details {...node.attrs} className={`${node.attrs?.className || ""} group/disclosure`}>{children}</details>;
+  if (node.tag === "summary") return <summary {...node.attrs} className={`${node.attrs?.className || ""} min-h-11 cursor-pointer rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#6F36D2] [&::-webkit-details-marker]:hidden`}>
+    {children}
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="shrink-0 text-[#6F36D2] transition-transform group-open/disclosure:rotate-180 motion-reduce:transition-none"><path d="m6 9 6 6 6-6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+  </summary>;
   if (node.tag === "a") {
     const { href, ...attrs } = node.attrs;
     const isCaseCard = href?.startsWith("/case-studies/") && node.children.some(child => ["h2", "h3"].includes(child.tag));

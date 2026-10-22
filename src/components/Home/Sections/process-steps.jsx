@@ -27,7 +27,7 @@ const steps = [
 
 const ProcessSteps = () => {
   return (
-    <section className="relative overflow-hidden border-t border-white/5 bg-[#0B0B10] py-5 sm:py-6">
+    <section data-reveal className="relative overflow-hidden border-t border-white/5 bg-[#0B0B10] py-5 sm:py-6">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-[0.5]"
@@ -47,24 +47,24 @@ const ProcessSteps = () => {
           From your first workflow to a working system
         </h2>
 
-        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4 lg:gap-6">
+        <ol className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4 lg:gap-6">
           {steps.map((step) => (
-            <div
+            <li
               key={step.index}
-              className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-6 sm:p-7"
+              className="grid grid-cols-[2rem_minmax(0,1fr)] gap-x-4 gap-y-3 rounded-2xl border border-white/10 bg-white/[0.02] p-6 sm:flex sm:flex-col sm:gap-4 sm:p-7"
             >
-              <span className="font-inter text-3xl font-bold text-[#6F36D2]">
+              <span aria-hidden="true" className="row-span-2 font-inter text-2xl font-semibold tabular-nums text-[#B79CE8] sm:text-3xl">
                 {step.index}
               </span>
-              <h3 className="text-lg font-semibold text-white">
+              <h3 className="col-start-2 text-lg font-semibold leading-7 text-white sm:min-h-14">
                 {step.heading}
               </h3>
-              <p className="text-sm leading-relaxed text-zinc-400">
+              <p className="col-start-2 text-sm leading-relaxed text-zinc-400">
                 {step.body}
               </p>
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </Container>
     </section>
   );

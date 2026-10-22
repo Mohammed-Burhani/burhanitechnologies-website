@@ -1,14 +1,14 @@
 "use client";
 
 import Container from "@/components/constants/Container";
-import { Clock, EnvelopeSimple, MapPin, Phone } from "@phosphor-icons/react";
+import { ArrowUpRight, Clock, MapPin, Phone } from "@phosphor-icons/react";
 
 const VisitOffice = () => {
   return (
-    <section className="relative overflow-hidden border-t border-zinc-200 bg-white py-5 sm:py-6">
+    <section data-reveal className="relative overflow-hidden border-t border-zinc-200 bg-white py-5 sm:py-6">
       <Container className="relative">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-8">
-          <div className="flex flex-col gap-3">
+          <div className="flex min-w-0 flex-col gap-3">
             <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[#6F36D2]/20 bg-[#6F36D2]/[0.06]">
               <MapPin size={20} weight="bold" className="text-[#6F36D2]" />
             </div>
@@ -22,9 +22,17 @@ const VisitOffice = () => {
               <br />
               Chennai, Tamil Nadu 600001
             </p>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Burhani+Technologies+48+Moore+Street+Chennai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-11 w-fit items-center gap-2 text-sm font-medium text-[#6F36D2] underline-offset-4 hover:underline"
+            >
+              Get directions <ArrowUpRight size={16} aria-hidden="true" />
+            </a>
           </div>
 
-          <div className="flex flex-col gap-3">
+          <div className="flex min-w-0 flex-col gap-3">
             <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[#6F36D2]/20 bg-[#6F36D2]/[0.06]">
               <Phone size={20} weight="bold" className="text-[#6F36D2]" />
             </div>
@@ -34,20 +42,20 @@ const VisitOffice = () => {
             <p className="flex flex-col gap-1 text-sm leading-relaxed text-zinc-500 sm:text-base">
               <a
                 href="tel:+917299002152"
-                className="transition-colors duration-200 hover:text-[#6F36D2]"
+                className="inline-flex min-h-11 w-fit items-center transition-colors duration-200 hover:text-[#6F36D2]"
               >
                 +91 72990 02152
               </a>
               <a
                 href="mailto:connect@burhanitechnologies.com"
-                className="transition-colors duration-200 hover:text-[#6F36D2]"
+                className="inline-flex min-h-11 w-fit items-center break-all transition-colors duration-200 hover:text-[#6F36D2]"
               >
                 connect@burhanitechnologies.com
               </a>
             </p>
           </div>
 
-          <div className="flex flex-col gap-3">
+          <div className="flex min-w-0 flex-col gap-3">
             <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[#6F36D2]/20 bg-[#6F36D2]/[0.06]">
               <Clock size={20} weight="bold" className="text-[#6F36D2]" />
             </div>
@@ -60,20 +68,6 @@ const VisitOffice = () => {
               Saturday, 09:00 to 13:00 IST
             </p>
           </div>
-        </div>
-
-        <div className="mt-12 flex items-center gap-2 rounded-xl border border-zinc-200 overflow-hidden">
-          <iframe
-            title="Burhani Technologies office location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.1418227785625!2d80.28746827569132!3d13.090196912265775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526f458172cdb1%3A0x7218069a220fa332!2sBurhani%20Technologies!5e0!3m2!1sen!2sin!4v1761984836983!5m2!1sen!2sin"
-            width="100%"
-            height="320"
-            style={{ border: 0 }}
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="grayscale transition-all duration-300 hover:grayscale-0"
-          />
         </div>
       </Container>
     </section>

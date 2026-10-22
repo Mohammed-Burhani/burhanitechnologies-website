@@ -5,7 +5,7 @@ import Container from "@/components/constants/Container";
 
 const StartWithRecords = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-16 sxl:py-24">
+    <section data-reveal className="relative overflow-hidden bg-white py-16 sxl:py-24">
       <Container className="!py-0">
         {/* Two symmetric columns divided by a hairline, distinct from the
            single-column numbered rail used for three-part explanations

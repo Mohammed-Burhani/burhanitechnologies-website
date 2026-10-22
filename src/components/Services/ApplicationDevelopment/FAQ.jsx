@@ -7,7 +7,7 @@ import { applicationDevelopmentFaqs } from "./faqData";
 
 const FAQ = () => {
 return (
-    <section className="relative overflow-hidden bg-white py-16 sxl:py-24">
+    <section data-reveal className="relative overflow-hidden bg-white py-16 sxl:py-24">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -right-32 top-10 h-[380px] w-[380px] rounded-full bg-[#6F36D2]/[0.07] blur-[120px]"

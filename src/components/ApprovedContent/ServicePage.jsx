@@ -29,7 +29,8 @@ export default function ServicePage({ page, showRelatedArticles = true }) {
     {page.decision && <div data-reveal><ApprovedSection>
       <h2 className="max-w-4xl text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl">{page.decision.heading}</h2>
       <p className="mt-5 max-w-3xl leading-relaxed text-zinc-600">{page.decision.intro}</p>
-      <div role="region" aria-label={page.decision.heading} tabIndex={0} className="mt-9 overflow-x-auto rounded-2xl border border-zinc-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#6F36D2]">
+      <p id={`decision-scroll-${page.slug}`} className="mt-6 text-sm leading-relaxed text-zinc-600 md:hidden">On small screens, scroll horizontally to compare both options.</p>
+      <div role="region" aria-label={page.decision.heading} aria-describedby={`decision-scroll-${page.slug}`} tabIndex={0} className="mt-3 overflow-x-auto rounded-2xl border border-zinc-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#6F36D2] md:mt-9">
         <table className="w-full min-w-[640px] border-collapse text-left">
           <caption className="sr-only">{page.decision.heading}</caption>
           <thead className="bg-[#15111E] text-white"><tr><th scope="col" className="p-4">Decision</th><th scope="col" className="p-4">{page.decision.packagedLabel}</th><th scope="col" className="p-4">{page.decision.customLabel}</th></tr></thead>

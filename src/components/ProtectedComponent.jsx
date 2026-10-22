@@ -11,7 +11,7 @@ import ScrollReveal from "./ScrollReveal";
 
 const ProtectedComponent = ({ children }) => {
   return (
-    <div>
+    <div id="site-top">
       <a href="#site-content" className="skip-link">Skip to content</a>
       <Navbar />
       <ScrollReveal />

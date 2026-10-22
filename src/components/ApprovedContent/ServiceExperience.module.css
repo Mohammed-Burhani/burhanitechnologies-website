@@ -26,7 +26,7 @@
 .facts li>span { color:#b590e9; }
 .sectionNav { position:sticky; top:4rem; z-index:20; border-bottom:1px solid #ded7e6; background:#ffffffef; backdrop-filter:blur(12px); }
 .sectionNav>.container { display:flex; align-items:center; gap:2rem; }
-.sectionNav ul { display:flex; flex:1; overflow-x:auto; gap:.2rem; }
+.sectionNav ul { display:flex; flex:1; overflow-x:auto; gap:.2rem; padding-inline:.25rem; scroll-padding-inline:.25rem; }
 .sectionNav li { flex-shrink:0; }
 .sectionNav li a { display:block; padding:1.1rem .85rem; border-bottom:2px solid transparent; color:#544b60; font-size:.8125rem; font-weight:500; }
 .sectionNav li a:hover,.sectionNav li a:focus-visible { border-bottom-color:#6f36d2; color:#5e2b9c; background:#f5f0fb; }
@@ -96,3 +96,5 @@ details[open]>summary>.disclosureMark::after { transform:rotate(0); }
 @media(min-width:640px) { .container { width:min(100% - 5rem,80rem); } .problemGrid { grid-template-columns:repeat(2,minmax(0,1fr)); } .heroVisual { max-width:29rem; } .stackGrid,.engagementGrid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media(min-width:1024px) { .container { width:min(100% - 7rem,80rem); } .hero { padding-top:8.5rem; } .heroGrid { grid-template-columns:minmax(0,1.25fr) minmax(0,.85fr); gap:3.5rem; } .heroVisual { justify-self:end; } .sectionNav { top:4.5rem; } .sectionNav li a { padding-inline:1rem; } .navCta { display:inline-flex; } .problemGrid { grid-template-columns:repeat(3,minmax(0,1fr)); } .scopeGrid,.deliveryGrid { grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); gap:4rem; } .detailArticle { grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:4rem; padding-block:2.5rem; } .projectGrid { grid-template-columns:1fr 1fr; gap:3.5rem; } .engagementGrid { grid-template-columns:repeat(3,minmax(0,1fr)); } .section { padding-block:4.5rem; } }
 @media(prefers-reduced-motion:reduce) { .button,.disclosureMark::after { transition:none; } }
+@media(max-width:639px) { .sectionNav li a { padding-inline:.5rem; font-size:.75rem; } }
+@media(min-width:1024px) { .problemGrid[data-count="2"],.problemGrid[data-count="4"] { grid-template-columns:repeat(2,minmax(0,1fr)); } }

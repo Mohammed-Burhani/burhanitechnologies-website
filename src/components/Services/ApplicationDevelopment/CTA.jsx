@@ -6,7 +6,7 @@ import { ArrowUpRight, WhatsappLogo } from "@phosphor-icons/react";
 
 const CTA = () => {
   return (
-    <section className="relative overflow-hidden border-t border-white/5 bg-[#0B0B10] py-16 sm:py-20">
+    <section data-reveal className="relative overflow-hidden border-t border-white/5 bg-[#0B0B10] py-16 sm:py-20">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-[0.5]"

@@ -29,10 +29,6 @@ const ConnectAndMaintain = () => {
           Connect and maintain your cloud environment
         </h2>
 
-        {/* Two large photo panels side by side: with only two items, a
-           balanced half-and-half split reads better than a scaled-down
-           bento or a divided row, and stays distinct from the other
-           two-and-four-card treatments on sibling pillar pages */}
         <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:mt-14 lg:gap-6">
           {options.map((option) => {
             const Icon = option.icon;
@@ -40,7 +36,7 @@ const ConnectAndMaintain = () => {
               <Link
                 key={option.href}
                 href={option.href}
-                className="group relative flex flex-col overflow-hidden rounded-2xl bg-[#14111d]"
+                className="group relative flex flex-col overflow-hidden rounded-2xl bg-[#14111d] outline-offset-4 transition-shadow duration-200 hover:shadow-[0_8px_24px_rgba(70,40,100,0.18)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#6F36D2]"
               >
                 <img
                   src={`/illustrations/${option.image}.svg`}
@@ -48,7 +44,7 @@ const ConnectAndMaintain = () => {
                   alt={`Conceptual process illustration for ${option.heading}`}
                   className="h-auto max-h-80 w-full object-contain"
                 />
-                <div className="relative flex flex-col gap-3 p-6 sm:p-8">
+                <div className="relative flex flex-1 flex-col gap-3 p-6 sm:p-8">
                   <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10">
                     <Icon size={20} weight="bold" className="text-white" />
                   </div>
@@ -58,7 +54,7 @@ const ConnectAndMaintain = () => {
                   <p className="text-sm leading-relaxed text-zinc-300 sm:text-base">
                     {option.body}
                   </p>
-                  <span className="mt-1 inline-flex w-fit items-center gap-1.5 text-sm font-medium text-[#B79CE8] transition-colors duration-200 group-hover:text-white">
+                  <span className="mt-auto inline-flex w-fit items-center gap-1.5 pt-1 text-sm font-medium text-[#B79CE8] transition-colors duration-200 group-hover:text-white">
                     Explore
                     <ArrowUpRight
                       size={14}

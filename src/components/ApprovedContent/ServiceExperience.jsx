@@ -1,16 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import { caseStudyImages } from "@/content/caseStudyImages";
+import { serviceConceptImages } from "@/content/conceptImages";
 import styles from "./ServiceExperience.module.css";
+import ServiceSectionLinks from "./ServiceSectionLinks";
 
 const illustrations = {
-  "cms-based-website-development": "application",
-  "cross-platform-enterprise-applications": "integration",
+  "cms-based-website-development": "cms",
+  "cross-platform-enterprise-applications": "cross-platform",
   "line-of-business-lob-applications": "erp",
   "integration-services": "integration",
   "rapid-application-development": "discovery",
-  "data-analysis-and-reporting": "erp",
-  "process-automation": "automation",
+  "data-analysis-and-reporting": "reporting",
+  "process-automation": "process-flow",
   "workflow-automation": "automation",
   "robotic-process-automation-rpa": "automation",
   "custom-automation-tools": "automation",
@@ -18,7 +20,8 @@ const illustrations = {
 };
 
 export function ServiceIntro({ page, parentLabel, breadcrumbs }) {
-  const caseImage = caseStudyImages[page.caseStudy];
+  const conceptImage = serviceConceptImages[page.slug];
+  const caseImage = conceptImage || caseStudyImages[page.caseStudy];
   return <section className={styles.hero}>
     <div className={styles.container}>
       <nav aria-label="Breadcrumb" className={styles.breadcrumb}>
@@ -38,7 +41,7 @@ export function ServiceIntro({ page, parentLabel, breadcrumbs }) {
           </div>
         </div>
         <figure className={styles.heroVisual}>
-          <div className={caseImage ? styles.heroPhoto : styles.heroDiagram}>
+          <div className={caseImage ? styles.heroPhoto : styles.heroDiagram} style={caseImage?.aspectRatio ? { aspectRatio: caseImage.aspectRatio } : undefined}>
             <Image
               src={caseImage?.src || `/illustrations/${illustrations[page.slug] || "application"}.svg`}
               alt={caseImage?.alt || `Conceptual process illustration for ${page.navLabel}`}
@@ -48,7 +51,7 @@ export function ServiceIntro({ page, parentLabel, breadcrumbs }) {
               className={caseImage ? styles.coverImage : styles.containImage}
             />
           </div>
-          <figcaption>{caseImage ? "Project illustration" : "Conceptual workflow illustration"}</figcaption>
+          {caseImage && <figcaption>{caseImage.label || "Project illustration"}</figcaption>}
         </figure>
       </div>
       {page.heroStats?.length > 0 && <ul className={styles.facts}>{page.heroStats.map(stat => <li key={stat}><span aria-hidden="true">✓</span>{stat}</li>)}</ul>}
@@ -59,7 +62,7 @@ export function ServiceIntro({ page, parentLabel, breadcrumbs }) {
 export function ServiceSectionNav({ hasProject }) {
   const links = [["Overview", "service-overview"], ["Scope", "service-scope"], ["In detail", "service-details"], ["Delivery", "service-delivery"], ...(hasProject ? [["Client project", "service-project"]] : []), ["Questions", "service-questions"]];
   return <nav className={styles.sectionNav} aria-label="Service sections"><div className={styles.container}>
-    <ul>{links.map(([label, id]) => <li key={id}><a href={`#${id}`}>{label}</a></li>)}</ul>
+    <ServiceSectionLinks>{links.map(([label, id]) => <li key={id}><a href={`#${id}`}>{label}</a></li>)}</ServiceSectionLinks>
     <Link href="/contact" className={styles.navCta}>Discuss your requirements <span aria-hidden="true">→</span></Link>
   </div></nav>;
 }
@@ -68,7 +71,7 @@ export function ServiceProblems({ heading, items }) {
   return <section id="service-overview" className={styles.section} data-reveal>
     <div className={styles.container}>
       <div className={styles.sectionHeading}><p className={styles.kicker}>The starting point</p><h2>{heading}</h2></div>
-      <div className={styles.problemGrid}>{items.map((item, index) => <article key={item.q} className={styles.problem}>
+      <div className={styles.problemGrid} data-count={items.length}>{items.map((item, index) => <article key={item.q} className={styles.problem}>
         <span className={styles.number} aria-hidden="true">{String(index + 1).padStart(2, "0")}</span><h3>{item.q}</h3><p>{item.a}</p>
       </article>)}</div>
     </div>
@@ -124,7 +127,7 @@ export function ServiceDelivery({ heading, steps, slug }) {
 export function ServiceProject({ page }) {
   const image = caseStudyImages[page.caseStudy];
   return <section id="service-project" className={`${styles.section} ${styles.projectSection}`} data-reveal><div className={`${styles.container} ${styles.projectGrid}`}>
-    {image && <figure className={styles.projectVisual}><Image src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 45vw, calc(100vw - 48px)" loading="lazy" className={styles.coverImage} /><figcaption>Project illustration</figcaption></figure>}
+    {image && <figure className={styles.projectVisual} style={image.aspectRatio ? { aspectRatio: image.aspectRatio } : undefined}><Image src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 45vw, calc(100vw - 48px)" loading="lazy" className={styles.coverImage} /><figcaption>{image.label || "Project illustration"}</figcaption></figure>}
     <div><p className={styles.eyebrow}>Client project</p><h2>{page.caseStudyTitle}</h2><dl className={styles.projectFacts}>{page.caseStudyFacts.map(fact => <div key={fact.label}><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}</dl><Link href={`/case-studies/${page.caseStudy}`} className={styles.button}>Read the case study <span aria-hidden="true">→</span></Link></div>
   </div></section>;
 }

@@ -101,8 +101,8 @@ export function ApprovedHero({ eyebrow, title, lede, breadcrumbs, primaryLabel, 
           </div>}
           </div>
           {media && <figure className="relative overflow-hidden rounded-xl border border-white/15 bg-[#24212D]">
-            <div className="relative aspect-[4/3]"><Image src={media.src} alt={media.alt} fill sizes="(min-width: 1440px) 560px, (min-width: 1024px) 43vw, 90vw" className="object-cover" /></div>
-            <figcaption className="border-t border-white/10 px-5 py-3 text-xs text-zinc-300">Project illustration</figcaption>
+            <div className="relative" style={{ aspectRatio: media.aspectRatio || "4 / 3" }}><Image src={media.src} alt={media.alt} fill sizes="(min-width: 1440px) 560px, (min-width: 1024px) 43vw, 90vw" className="object-cover" /></div>
+            <figcaption className="border-t border-white/10 px-5 py-3 text-xs text-zinc-300">{media.label || "Project illustration"}</figcaption>
           </figure>}
           {!media && stats.length > 0 && <aside className="rounded-xl border border-[#B79CE8]/20 bg-[#B79CE8]/[0.05] p-6 lg:mb-1" aria-label="At a glance">
             <p className="mb-5 border-b border-white/10 pb-4 text-xs font-medium tracking-wide text-[#B79CE8]">At a glance</p>
@@ -170,7 +170,7 @@ export function ApprovedApproach({ heading, body, scope }) {
 export function ApprovedRelated({ heading, cards }) {
   return <ApprovedSection className="bg-[#F7F5FB]">
     <h2 className={`${headingClass} text-zinc-900`}>{heading}</h2>
-    <div className="mt-9 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+    <div className={`mt-9 grid gap-6 ${cards.length === 1 ? "md:grid-cols-1" : cards.length === 2 || cards.length === 4 ? "md:grid-cols-2" : "md:grid-cols-2 xl:grid-cols-3"}`}>
       {cards.map(card => <Link key={card.href} href={card.href} className="group flex flex-col rounded-2xl border border-zinc-200 bg-white p-6 transition-colors hover:border-[#6F36D2]/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#6F36D2]">
         <h3 className="font-inter text-lg font-semibold text-zinc-900 group-hover:text-[#6F36D2]">{card.title}</h3>
         {card.description && <p className={`${paragraphClass} mt-3 flex-1 text-zinc-600`}>{card.description}</p>}
@@ -183,7 +183,7 @@ export function ApprovedRelated({ heading, cards }) {
 export function ApprovedProcess({ heading, steps }) {
   return <ApprovedSection>
     <h2 className={`${headingClass} max-w-3xl text-zinc-900`}>{heading}</h2>
-    <ol className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+    <ol className={`mt-10 grid gap-6 md:grid-cols-2 ${steps.length === 4 ? "xl:grid-cols-2" : "xl:grid-cols-3"}`}>
       {steps.map(step => <li key={step.n} className="rounded-2xl border border-zinc-200 p-6">
         <span className="font-inter text-sm font-semibold text-[#6F36D2]">{step.n}</span>
         <h3 className="mt-3 font-inter text-lg font-semibold text-zinc-900">{step.title}</h3>

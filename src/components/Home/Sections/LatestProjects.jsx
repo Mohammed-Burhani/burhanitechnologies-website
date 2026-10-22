@@ -45,7 +45,7 @@ const clients = [
 
 const ClientReferences = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-5 sm:py-6">
+    <section data-reveal className="relative overflow-hidden bg-white py-5 sm:py-6">
       {/* Tech-grid backdrop: same restrained-accent language as the hero, not decoration for its own sake */}
       <div
         aria-hidden="true"
@@ -71,9 +71,9 @@ const ClientReferences = () => {
             <span className="h-1.5 w-1.5 rounded-full bg-[#6F36D2]" />
             In production today
           </span>
-          <p className="font-inter text-body md:text-mdbody text-center font-medium text-zinc-700">
+          <h2 className="font-inter text-body md:text-mdbody text-center font-medium text-zinc-700">
             Businesses running on software we built
-          </p>
+          </h2>
         </div>
 
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 sxl:grid-cols-6 sxl:gap-5">
@@ -83,7 +83,7 @@ const ClientReferences = () => {
               href={client.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative block overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-[#6F36D2]/40 hover:shadow-lg hover:shadow-[#6F36D2]/[0.08]"
+              className="group relative block overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-[#6F36D2]/40 hover:shadow-lg hover:shadow-[#6F36D2]/[0.08] motion-reduce:transform-none motion-reduce:transition-none"
             >
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-zinc-100">
                 <Image
@@ -93,7 +93,7 @@ const ClientReferences = () => {
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
                   className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.025]"
                 />
-                <span className="absolute right-2 top-2 flex h-7 w-7 items-center justify-center rounded-full bg-white/90 text-zinc-500 opacity-0 shadow-sm backdrop-blur-sm transition-all duration-200 group-hover:opacity-100 group-hover:text-[#6F36D2]">
+                <span aria-hidden="true" className="absolute right-2 top-2 flex h-7 w-7 items-center justify-center rounded-full bg-white/90 text-zinc-600 shadow-sm backdrop-blur-sm transition-all duration-200 group-hover:text-[#6F36D2] sm:opacity-0 sm:group-hover:opacity-100 sm:group-focus-visible:opacity-100">
                   <ArrowUpRight size={14} weight="bold" />
                 </span>
               </div>
@@ -101,7 +101,7 @@ const ClientReferences = () => {
                 <span className="font-inter text-smallText md:text-mdsmallText font-medium text-zinc-800 transition-colors duration-200 group-hover:text-[#6F36D2]">
                   {client.name}
                 </span>
-                <span className="font-inter text-[11px] text-zinc-400">
+                <span className="font-inter text-xs leading-relaxed text-zinc-600">
                   {client.category}
                 </span>
               </div>

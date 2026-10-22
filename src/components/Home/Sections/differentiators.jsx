@@ -47,7 +47,7 @@ const points = [
 
 export const Differentiators = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-5 sm:py-6">
+    <section data-reveal className="relative overflow-hidden bg-white py-5 sm:py-6">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-[0.35]"

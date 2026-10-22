@@ -31,20 +31,20 @@ const ChangingDemand = () => {
         </h2>
 
         {/* Numbered examples of infrastructure requirements */}
-        <div className="mt-12 divide-y divide-zinc-200 border-t border-zinc-200 lg:mt-16">
+        <div className="mt-10 grid grid-cols-1 divide-y divide-zinc-200 border-t border-zinc-200 lg:grid-cols-3 lg:divide-y-0 lg:divide-x">
           {signals.map((item) => (
-            <div key={item.index} className="relative overflow-hidden py-10 lg:py-12">
+            <div key={item.index} className="relative min-w-0 py-8 lg:px-8 lg:first:pl-0 lg:last:pr-0">
               <span
                 aria-hidden="true"
-                className="mb-4 block font-inter text-sm font-semibold text-[#6F36D2]"
+                className="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#6F36D2]/20 bg-[#6F36D2]/[0.06] font-inter text-sm font-semibold text-[#6F36D2]"
               >
                 {item.index}
               </span>
               <div className="relative max-w-2xl">
-                <h3 className="text-lg font-semibold leading-snug text-zinc-900 sm:text-xl">
+                <h3 className="text-balance text-lg font-semibold leading-snug text-zinc-900 sm:text-xl">
                   {item.quote}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-zinc-500 sm:text-base">
+                <p className="mt-4 text-sm leading-relaxed text-zinc-600 sm:text-base">
                   {item.body}
                 </p>
               </div>

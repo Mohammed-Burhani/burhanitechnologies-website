@@ -23,7 +23,7 @@ const pillars = [
 
 const EngineeringApproach = () => {
   return (
-    <section className="relative overflow-hidden border-t border-white/5 bg-[#0B0B10] py-5 sm:py-6">
+    <section data-reveal className="relative overflow-hidden border-t border-white/5 bg-[#0B0B10] py-5 sm:py-6">
       {/* Tech-grid backdrop, dark-mode counterpart of the client-strip pattern */}
       <div
         aria-hidden="true"
@@ -78,7 +78,7 @@ const EngineeringApproach = () => {
                 </p>
                 <Link
                   href={pillar.href}
-                  className="group/link relative mt-2 inline-flex w-fit items-center gap-1.5 text-sm font-medium text-[#B79CE8] transition-colors duration-200 hover:text-white sm:text-base"
+                  className="group/link relative mt-auto inline-flex min-h-11 w-fit items-center gap-1.5 pt-2 text-sm font-medium text-[#B79CE8] transition-colors duration-200 hover:text-white sm:text-base"
                 >
                   {pillar.linkLabel}
                   <ArrowRight

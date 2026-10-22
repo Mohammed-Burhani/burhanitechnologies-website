@@ -12,7 +12,7 @@ const stats = [
 
 const AtAGlance = () => {
   return (
-    <section id="company-facts" className="relative overflow-hidden border-y border-white/10 bg-[#14101D] py-10 sm:py-12">
+    <section id="company-facts" data-reveal className="relative overflow-hidden border-y border-white/10 bg-[#14101D] py-10 sm:py-12">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -right-32 bottom-0 h-[380px] w-[380px] rounded-full bg-[#6F36D2]/[0.1] blur-[130px]"

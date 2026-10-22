@@ -2223,7 +2223,7 @@ export const companyPages = {
                           {
                             "tag": "span",
                             "attrs": {
-                              "className": "font-inter text-3xl font-semibold text-[#6F36D2]/40"
+                              "className": "font-inter text-3xl font-semibold text-[#6F36D2]"
                             },
                             "children": [
                               "01"
@@ -2319,7 +2319,7 @@ export const companyPages = {
                           {
                             "tag": "span",
                             "attrs": {
-                              "className": "font-inter text-3xl font-semibold text-[#6F36D2]/40"
+                              "className": "font-inter text-3xl font-semibold text-[#6F36D2]"
                             },
                             "children": [
                               "02"
@@ -2415,7 +2415,7 @@ export const companyPages = {
                           {
                             "tag": "span",
                             "attrs": {
-                              "className": "font-inter text-3xl font-semibold text-[#6F36D2]/40"
+                              "className": "font-inter text-3xl font-semibold text-[#6F36D2]"
                             },
                             "children": [
                               "03"
@@ -2511,7 +2511,7 @@ export const companyPages = {
                           {
                             "tag": "span",
                             "attrs": {
-                              "className": "font-inter text-3xl font-semibold text-[#6F36D2]/40"
+                              "className": "font-inter text-3xl font-semibold text-[#6F36D2]"
                             },
                             "children": [
                               "04"
@@ -2607,7 +2607,7 @@ export const companyPages = {
                           {
                             "tag": "span",
                             "attrs": {
-                              "className": "font-inter text-3xl font-semibold text-[#6F36D2]/40"
+                              "className": "font-inter text-3xl font-semibold text-[#6F36D2]"
                             },
                             "children": [
                               "05"
@@ -2703,7 +2703,7 @@ export const companyPages = {
                           {
                             "tag": "span",
                             "attrs": {
-                              "className": "font-inter text-3xl font-semibold text-[#6F36D2]/40"
+                              "className": "font-inter text-3xl font-semibold text-[#6F36D2]"
                             },
                             "children": [
                               "06"

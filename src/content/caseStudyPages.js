@@ -660,7 +660,7 @@ export const caseStudyPages = {
                       {
                         "tag": "div",
                         "attrs": {
-                          "className": "p-6 border-b border-r border-zinc-200"
+                          "className": "p-6 border-b border-r border-zinc-200 xl:col-span-2"
                         },
                         "children": [
                           " ",
@@ -689,7 +689,7 @@ export const caseStudyPages = {
                       {
                         "tag": "div",
                         "attrs": {
-                          "className": "p-6 border-b border-r border-zinc-200"
+                          "className": "p-6 border-b border-r border-zinc-200 md:col-span-2 xl:col-span-1"
                         },
                         "children": [
                           " ",
@@ -1730,7 +1730,7 @@ export const caseStudyPages = {
                       {
                         "tag": "div",
                         "attrs": {
-                          "className": "p-6 border-b border-r border-zinc-200"
+                          "className": "p-6 border-b border-r border-zinc-200 xl:col-span-2"
                         },
                         "children": [
                           " ",
@@ -1759,7 +1759,7 @@ export const caseStudyPages = {
                       {
                         "tag": "div",
                         "attrs": {
-                          "className": "p-6 border-b border-r border-zinc-200"
+                          "className": "p-6 border-b border-r border-zinc-200 md:col-span-2 xl:col-span-1"
                         },
                         "children": [
                           " ",
@@ -1957,14 +1957,14 @@ export const caseStudyPages = {
               {
                 "tag": "div",
                 "attrs": {
-                  "className": "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mt-12"
+                  "className": "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-6 gap-6 mt-12"
                 },
                 "children": [
                   " ",
                   {
                     "tag": "div",
                     "attrs": {
-                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6"
+                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6 xl:col-span-2"
                     },
                     "children": [
                       " ",
@@ -1993,7 +1993,7 @@ export const caseStudyPages = {
                   {
                     "tag": "div",
                     "attrs": {
-                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6"
+                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6 xl:col-span-2"
                     },
                     "children": [
                       " ",
@@ -2022,7 +2022,7 @@ export const caseStudyPages = {
                   {
                     "tag": "div",
                     "attrs": {
-                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6"
+                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6 xl:col-span-2"
                     },
                     "children": [
                       " ",
@@ -2051,7 +2051,7 @@ export const caseStudyPages = {
                   {
                     "tag": "div",
                     "attrs": {
-                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6"
+                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6 xl:col-span-3"
                     },
                     "children": [
                       " ",
@@ -2080,7 +2080,7 @@ export const caseStudyPages = {
                   {
                     "tag": "div",
                     "attrs": {
-                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6"
+                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6 xl:col-span-3 md:col-span-2"
                     },
                     "children": [
                       " ",
@@ -2829,7 +2829,7 @@ export const caseStudyPages = {
                       {
                         "tag": "div",
                         "attrs": {
-                          "className": "p-6 border-b border-r border-zinc-200"
+                          "className": "p-6 border-b border-r border-zinc-200 xl:col-span-2"
                         },
                         "children": [
                           " ",
@@ -2858,7 +2858,7 @@ export const caseStudyPages = {
                       {
                         "tag": "div",
                         "attrs": {
-                          "className": "p-6 border-b border-r border-zinc-200"
+                          "className": "p-6 border-b border-r border-zinc-200 md:col-span-2 xl:col-span-1"
                         },
                         "children": [
                           " ",
@@ -3056,14 +3056,14 @@ export const caseStudyPages = {
               {
                 "tag": "div",
                 "attrs": {
-                  "className": "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mt-12"
+                  "className": "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-6 gap-6 mt-12"
                 },
                 "children": [
                   " ",
                   {
                     "tag": "div",
                     "attrs": {
-                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6"
+                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6 xl:col-span-2"
                     },
                     "children": [
                       " ",
@@ -3092,7 +3092,7 @@ export const caseStudyPages = {
                   {
                     "tag": "div",
                     "attrs": {
-                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6"
+                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6 xl:col-span-2"
                     },
                     "children": [
                       " ",
@@ -3121,7 +3121,7 @@ export const caseStudyPages = {
                   {
                     "tag": "div",
                     "attrs": {
-                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6"
+                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6 xl:col-span-2"
                     },
                     "children": [
                       " ",
@@ -3150,7 +3150,7 @@ export const caseStudyPages = {
                   {
                     "tag": "div",
                     "attrs": {
-                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6"
+                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6 xl:col-span-3"
                     },
                     "children": [
                       " ",
@@ -3179,7 +3179,7 @@ export const caseStudyPages = {
                   {
                     "tag": "div",
                     "attrs": {
-                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6"
+                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6 xl:col-span-3 md:col-span-2"
                     },
                     "children": [
                       " ",
@@ -3928,7 +3928,7 @@ export const caseStudyPages = {
                       {
                         "tag": "div",
                         "attrs": {
-                          "className": "p-6 border-b border-r border-zinc-200"
+                          "className": "p-6 border-b border-r border-zinc-200 xl:col-span-2"
                         },
                         "children": [
                           " ",
@@ -3957,7 +3957,7 @@ export const caseStudyPages = {
                       {
                         "tag": "div",
                         "attrs": {
-                          "className": "p-6 border-b border-r border-zinc-200"
+                          "className": "p-6 border-b border-r border-zinc-200 md:col-span-2 xl:col-span-1"
                         },
                         "children": [
                           " ",
@@ -4155,14 +4155,14 @@ export const caseStudyPages = {
               {
                 "tag": "div",
                 "attrs": {
-                  "className": "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mt-12"
+                  "className": "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-6 gap-6 mt-12"
                 },
                 "children": [
                   " ",
                   {
                     "tag": "div",
                     "attrs": {
-                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6"
+                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6 xl:col-span-2"
                     },
                     "children": [
                       " ",
@@ -4191,7 +4191,7 @@ export const caseStudyPages = {
                   {
                     "tag": "div",
                     "attrs": {
-                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6"
+                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6 xl:col-span-2"
                     },
                     "children": [
                       " ",
@@ -4220,7 +4220,7 @@ export const caseStudyPages = {
                   {
                     "tag": "div",
                     "attrs": {
-                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6"
+                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6 xl:col-span-2"
                     },
                     "children": [
                       " ",
@@ -4249,7 +4249,7 @@ export const caseStudyPages = {
                   {
                     "tag": "div",
                     "attrs": {
-                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6"
+                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6 xl:col-span-3"
                     },
                     "children": [
                       " ",
@@ -4278,7 +4278,7 @@ export const caseStudyPages = {
                   {
                     "tag": "div",
                     "attrs": {
-                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6"
+                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6 xl:col-span-3 md:col-span-2"
                     },
                     "children": [
                       " ",
@@ -5027,7 +5027,7 @@ export const caseStudyPages = {
                       {
                         "tag": "div",
                         "attrs": {
-                          "className": "p-6 border-b border-r border-zinc-200"
+                          "className": "p-6 border-b border-r border-zinc-200 xl:col-span-2"
                         },
                         "children": [
                           " ",
@@ -5056,7 +5056,7 @@ export const caseStudyPages = {
                       {
                         "tag": "div",
                         "attrs": {
-                          "className": "p-6 border-b border-r border-zinc-200"
+                          "className": "p-6 border-b border-r border-zinc-200 md:col-span-2 xl:col-span-1"
                         },
                         "children": [
                           " ",
@@ -6155,7 +6155,7 @@ export const caseStudyPages = {
                       {
                         "tag": "div",
                         "attrs": {
-                          "className": "p-6 border-b border-r border-zinc-200"
+                          "className": "p-6 border-b border-r border-zinc-200 xl:col-span-2"
                         },
                         "children": [
                           " ",
@@ -6184,7 +6184,7 @@ export const caseStudyPages = {
                       {
                         "tag": "div",
                         "attrs": {
-                          "className": "p-6 border-b border-r border-zinc-200"
+                          "className": "p-6 border-b border-r border-zinc-200 md:col-span-2 xl:col-span-1"
                         },
                         "children": [
                           " ",
@@ -6382,14 +6382,14 @@ export const caseStudyPages = {
               {
                 "tag": "div",
                 "attrs": {
-                  "className": "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mt-12"
+                  "className": "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-6 gap-6 mt-12"
                 },
                 "children": [
                   " ",
                   {
                     "tag": "div",
                     "attrs": {
-                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6"
+                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6 xl:col-span-2"
                     },
                     "children": [
                       " ",
@@ -6418,7 +6418,7 @@ export const caseStudyPages = {
                   {
                     "tag": "div",
                     "attrs": {
-                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6"
+                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6 xl:col-span-2"
                     },
                     "children": [
                       " ",
@@ -6447,7 +6447,7 @@ export const caseStudyPages = {
                   {
                     "tag": "div",
                     "attrs": {
-                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6"
+                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6 xl:col-span-2"
                     },
                     "children": [
                       " ",
@@ -6476,7 +6476,7 @@ export const caseStudyPages = {
                   {
                     "tag": "div",
                     "attrs": {
-                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6"
+                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6 xl:col-span-3"
                     },
                     "children": [
                       " ",
@@ -6505,7 +6505,7 @@ export const caseStudyPages = {
                   {
                     "tag": "div",
                     "attrs": {
-                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6"
+                      "className": "rounded-2xl bg-white/[.04] border border-white/10 p-6 xl:col-span-3 md:col-span-2"
                     },
                     "children": [
                       " ",

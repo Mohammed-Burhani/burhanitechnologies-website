@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="640" viewBox="0 0 800 640" role="img" aria-labelledby="title" aria-describedby="description application option-1 option-2 option-3 option-4 option-5 option-6 option-7">
+  <title id="title">Seven cloud migration options for an application</title>
+  <desc id="description">A conceptual comparison diagram. A single application branches to seven alternatives, shown as equally sized labelled panels.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#312b43" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="640" fill="#14111d"/>
+  <rect width="800" height="640" fill="url(#grid)" opacity=".4"/>
+  <g font-family="Arial, sans-serif">
+    <text x="48" y="65" fill="#f5f3fa" font-size="43" font-weight="600">Cloud migration options</text>
+    <text x="48" y="108" fill="#c5bdcf" font-size="28">Choose per application</text>
+
+    <g fill="none" stroke="#b79ce8" stroke-width="3">
+      <path d="M288 364H350M350 184V544"/>
+      <path d="M350 184H418M350 244H418M350 304H418M350 364H418M350 424H418M350 484H418M350 544H418"/>
+    </g>
+    <g fill="#b79ce8">
+      <circle cx="350" cy="184" r="4"/>
+      <circle cx="350" cy="244" r="4"/>
+      <circle cx="350" cy="304" r="4"/>
+      <circle cx="350" cy="364" r="4"/>
+      <circle cx="350" cy="424" r="4"/>
+      <circle cx="350" cy="484" r="4"/>
+      <circle cx="350" cy="544" r="4"/>
+    </g>
+
+    <rect x="48" y="282" width="240" height="164" rx="16" fill="#201a2e" stroke="#8d70bc" stroke-width="2"/>
+    <g fill="none" stroke="#b79ce8" stroke-width="3">
+      <rect x="136" y="310" width="64" height="15" rx="3"/>
+      <rect x="136" y="334" width="64" height="15" rx="3"/>
+      <path d="M148 317.5H157M148 341.5H157"/>
+    </g>
+    <text id="application" x="168" y="402" text-anchor="middle" fill="#f5f3fa" font-size="35" font-weight="600">Application</text>
+
+    <g fill="#201a2e" stroke="#514360" stroke-width="1.5">
+      <rect x="418" y="160" width="334" height="48" rx="10"/>
+      <rect x="418" y="220" width="334" height="48" rx="10"/>
+      <rect x="418" y="280" width="334" height="48" rx="10"/>
+      <rect x="418" y="340" width="334" height="48" rx="10"/>
+      <rect x="418" y="400" width="334" height="48" rx="10"/>
+      <rect x="418" y="460" width="334" height="48" rx="10"/>
+      <rect x="418" y="520" width="334" height="48" rx="10"/>
+    </g>
+    <g fill="#f5f3fa" font-size="38" font-weight="600">
+      <text id="option-1" x="442" y="197">Retire</text>
+      <text id="option-2" x="442" y="257">Retain</text>
+      <text id="option-3" x="442" y="317">Rehost</text>
+      <text id="option-4" x="442" y="377">Relocate</text>
+      <text id="option-5" x="442" y="437">Repurchase</text>
+      <text id="option-6" x="442" y="497">Replatform</text>
+      <text id="option-7" x="442" y="557">Refactor</text>
+    </g>
+    <path d="M48 600H752" stroke="#514360"/>
+    <text x="48" y="629" fill="#c5bdcf" font-size="23">Conceptual comparison diagram</text>
+  </g>
+</svg>

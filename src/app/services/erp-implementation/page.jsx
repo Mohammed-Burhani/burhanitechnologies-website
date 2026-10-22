@@ -1,6 +1,7 @@
 import { servicePages } from "@/content/servicePages";
 import RelatedBlogs from "@/components/Services/RelatedBlogs";
 import Hero from "@/components/Services/ErpImplementation/Hero";
+import PageNavigation from "@/components/Services/ErpImplementation/PageNavigation";
 import DifferentRecords from "@/components/Services/ErpImplementation/DifferentRecords";
 import OperationalRecord from "@/components/Services/ErpImplementation/OperationalRecord";
 import StartWithRecords from "@/components/Services/ErpImplementation/StartWithRecords";
@@ -72,6 +73,7 @@ const ErpImplementationPage = () => {
 
       <div>
         <Hero />
+        <PageNavigation />
         <DifferentRecords />
         <OperationalRecord />
         <StartWithRecords />

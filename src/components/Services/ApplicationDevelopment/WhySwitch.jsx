@@ -25,7 +25,7 @@ const objections = [
 
 const WhySwitch = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-16 sxl:py-24">
+    <section data-reveal className="relative overflow-hidden bg-white py-16 sxl:py-24">
       <Container className="!py-0">
         <h2 className="max-w-2xl text-2xl font-semibold leading-tight tracking-tight text-zinc-900 sm:text-3xl lg:text-4xl">
           When your software no longer fits the business
@@ -37,16 +37,16 @@ const WhySwitch = () => {
           {objections.map((item) => (
             <div
               key={item.index}
-              className="grid grid-cols-1 gap-3 py-9 sm:grid-cols-[auto_1fr] sm:gap-8 lg:py-12"
+              className="grid grid-cols-1 gap-3 py-9 sm:grid-cols-[auto_1fr] sm:gap-8 lg:grid-cols-[4rem_1fr_1.1fr] lg:items-start lg:gap-10 lg:py-10"
             >
               <span className="font-inter text-4xl font-bold leading-none text-zinc-500 sm:text-5xl">
                 {item.index}
               </span>
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-3 lg:contents">
                 <h3 className="text-lg font-semibold leading-snug text-zinc-900 sm:text-xl">
                   {item.quote}
                 </h3>
-                <p className="max-w-2xl text-sm leading-relaxed text-zinc-500 sm:text-base">
+                <p className="max-w-2xl text-sm leading-relaxed text-zinc-600 sm:text-base">
                   {item.body}
                 </p>
               </div>

@@ -45,7 +45,7 @@ export default function UtilityPage({ page, pathname, schemaType = "WebPage" }) 
           <p className="mt-4 font-inter text-base leading-relaxed text-zinc-600">{card.body}</p>
         </div>)}
       </div>}
-      {section.links && <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {section.links && <ul className={`mt-8 grid gap-4 sm:grid-cols-2 ${section.links.length === 1 ? "lg:grid-cols-1" : section.links.length === 2 || section.links.length === 4 ? "lg:grid-cols-2" : "lg:grid-cols-3"}`}>
         {section.links.map(link => <li key={link.href}>
           <Link href={link.href} className="block rounded-xl border border-zinc-200 px-5 py-4 font-inter font-medium text-[#5C27BB] transition-colors hover:border-[#6F36D2] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#6F36D2]">{link.label}</Link>
         </li>)}

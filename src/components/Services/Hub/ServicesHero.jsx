@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Container from "@/components/constants/Container";
-import { ArrowRight, CaretRight } from "@phosphor-icons/react";
+import { ArrowDown, ArrowRight, CaretRight } from "@phosphor-icons/react";
 
 const facts = [
   { label: "Since 2010" },
@@ -12,7 +12,7 @@ const facts = [
 
 const ServicesHero = () => {
   return (
-    <section className="relative overflow-hidden bg-[#0B0B10] pt-8 lg:pt-10">
+    <section className="relative overflow-hidden bg-[#0B0B10] pt-16 lg:pt-10">
       {/* Brand accent: one restrained glow, matching the homepage hero */}
       <div
         aria-hidden="true"
@@ -25,11 +25,11 @@ const ServicesHero = () => {
 
       <Container className="relative z-10">
         <nav aria-label="Breadcrumb" className="mb-6">
-          <ol className="flex flex-wrap items-center gap-1.5 font-inter text-smallText text-zinc-500">
+          <ol className="flex flex-wrap items-center gap-1.5 font-inter text-smallText text-zinc-400">
             <li>
               <Link
                 href="/"
-                className="transition-colors duration-200 hover:text-zinc-300"
+                className="rounded-sm transition-colors duration-200 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C9B5EC]"
               >
                 Home
               </Link>
@@ -45,7 +45,7 @@ const ServicesHero = () => {
           </ol>
         </nav>
 
-        <div className="grid grid-cols-1 items-center gap-10 xl:grid-cols-[1.15fr_0.85fr] xl:gap-8">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.15fr_0.85fr] xl:gap-8">
           {/* Left: message */}
           <div className="flex flex-col gap-5 xl:gap-6">
             <span className="text-sm font-medium tracking-wide text-[#B79CE8]">
@@ -68,10 +68,17 @@ const ServicesHero = () => {
             <div className="mt-1 flex flex-col gap-3 sm:flex-row sm:items-center">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#6F36D2] px-5 py-3 text-sm font-medium text-white shadow-[0_1px_0_rgba(255,255,255,0.08)_inset] transition-transform duration-200 hover:bg-[#7C43E0] active:scale-[0.98] sm:text-base"
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[#6F36D2] px-5 py-3 text-sm font-medium text-white shadow-[0_1px_0_rgba(255,255,255,0.08)_inset] transition-colors duration-200 hover:bg-[#7C43E0] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C9B5EC] sm:text-base"
               >
                 Book a free consultation
                 <ArrowRight size={18} weight="bold" />
+              </Link>
+              <Link
+                href="#service-practices"
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-zinc-300 transition-colors duration-200 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C9B5EC]"
+              >
+                What we build
+                <ArrowDown size={16} aria-hidden="true" />
               </Link>
             </div>
           </div>

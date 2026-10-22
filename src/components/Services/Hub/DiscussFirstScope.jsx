@@ -26,7 +26,7 @@ const DiscussFirstScope = () => {
             <div className="mt-1">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#6F36D2] px-5 py-3 text-sm font-medium text-white shadow-[0_1px_0_rgba(255,255,255,0.08)_inset] transition-transform duration-200 hover:bg-[#7C43E0] active:scale-[0.98] sm:text-base"
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[#6F36D2] px-5 py-3 text-sm font-medium text-white shadow-[0_1px_0_rgba(255,255,255,0.08)_inset] transition-colors duration-200 hover:bg-[#7C43E0] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#6F36D2] sm:text-base"
               >
                 Book a free consultation
                 <ArrowRight size={18} weight="bold" />

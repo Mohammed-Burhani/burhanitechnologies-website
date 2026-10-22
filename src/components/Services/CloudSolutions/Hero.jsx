@@ -55,7 +55,7 @@ const Hero = () => {
           </ol>
         </nav>
 
-        <div className="grid grid-cols-1 items-center gap-10 xl:grid-cols-[1.15fr_0.85fr] xl:gap-8">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1.15fr_0.85fr]">
           <div className="flex flex-col gap-5 xl:gap-6">
             <span className="text-sm font-medium tracking-wide text-[#B79CE8]">
               Service
@@ -91,7 +91,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="relative hidden aspect-[16/11] w-full overflow-hidden rounded-2xl border border-white/10 lg:block xl:aspect-auto xl:h-full xl:max-h-[420px]">
+          <div className="relative aspect-[16/11] max-h-80 w-full overflow-hidden rounded-2xl border border-white/10 lg:aspect-auto lg:h-full lg:max-h-[420px]">
             <img width="800" height="640"
               src="/illustrations/cloud.svg"
               alt="Conceptual illustration: plan the environment to fit"

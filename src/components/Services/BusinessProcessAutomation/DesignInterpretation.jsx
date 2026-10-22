@@ -48,7 +48,7 @@ const DesignInterpretation = () => {
             </p>
           </div>
 
-          <div className="flex flex-col gap-4 border-t border-zinc-200 pt-14 sm:ml-auto sm:items-end sm:text-right lg:pt-16">
+          <div className="flex flex-col gap-4 border-t border-zinc-200 pt-14 lg:pt-16">
             <span
               aria-hidden="true"
               className="h-2 w-2 rounded-sm bg-[#6F36D2]"

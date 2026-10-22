@@ -6,7 +6,7 @@ export const WhatsAppFAB = () => {
   const whatsappUrl = `https://wa.me/${phoneNumber}`;
 
   return (
-    <div className="fixed right-4 bottom-4 z-40 sm:right-7 sm:bottom-7">
+    <div className="fixed bottom-7 right-7 z-40 hidden sm:block">
       <a
         href={whatsappUrl}
         target="_blank"

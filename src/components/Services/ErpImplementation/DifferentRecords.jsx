@@ -19,7 +19,7 @@ const signals = [
 
 const DifferentRecords = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-16 sxl:py-24">
+    <section data-reveal className="relative overflow-hidden bg-white py-16 sxl:py-24">
       <Container className="!py-0">
         <h2 className="max-w-2xl text-2xl font-semibold leading-tight tracking-tight text-zinc-900 sm:text-3xl lg:text-4xl">
           When departments work from different records

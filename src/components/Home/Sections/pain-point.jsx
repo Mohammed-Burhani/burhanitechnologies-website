@@ -36,7 +36,7 @@ const pains = [
 
 const PainPoints = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-5 sm:py-6">
+    <section data-reveal className="relative overflow-hidden bg-white py-5 sm:py-6">
       {/* Tech-grid backdrop, light-mode, same system as the client strip */}
       <div
         aria-hidden="true"

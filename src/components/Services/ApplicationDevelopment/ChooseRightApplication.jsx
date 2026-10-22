@@ -45,7 +45,7 @@ const options = [
 
 const ChooseRightApplication = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-16 sxl:py-24">
+    <section data-reveal className="relative overflow-hidden bg-white py-16 sxl:py-24">
       <Container className="!py-0">
         <h2 className="max-w-2xl text-2xl font-semibold leading-tight tracking-tight text-zinc-900 sm:text-3xl lg:text-4xl">
           Choose the right application for your team
@@ -53,14 +53,14 @@ const ChooseRightApplication = () => {
 
         {/* Filled tinted tiles instead of the bordered-white-card treatment
            used elsewhere on the site, so this grid reads as its own moment */}
-        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:mt-14 lg:gap-6">
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:mt-14 lg:grid-cols-6 lg:gap-6">
           {options.map((option, i) => {
             const Icon = option.icon;
             return (
               <Link
                 key={option.href}
                 href={option.href}
-                className={`group flex flex-col gap-4 rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 sm:p-8 ${
+                className={`group flex flex-col gap-4 rounded-2xl p-7 transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#6F36D2] sm:p-8 ${i < 2 ? "lg:col-span-3" : "lg:col-span-2"} ${i === options.length - 1 ? "sm:col-span-2" : ""} ${
                   i % 2 === 0
                     ? "bg-[#6F36D2]/[0.05] hover:bg-[#6F36D2]/[0.09]"
                     : "bg-zinc-900 hover:bg-zinc-800"
@@ -100,7 +100,7 @@ const ChooseRightApplication = () => {
                   <ArrowUpRight
                     size={14}
                     weight="bold"
-                    className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                    className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transform-none motion-reduce:transition-none"
                   />
                 </span>
               </Link>

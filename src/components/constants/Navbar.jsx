@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { List, X } from "@phosphor-icons/react";
+import { List, X, WhatsappLogo } from "@phosphor-icons/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useAtom } from "jotai";
 import { usePathname } from "next/navigation";
@@ -60,6 +60,59 @@ const SmallDropdown = ({ label, links, pathname, onNavigate, onToggle, viewAll }
     </div>
   </details>
 );
+
+/* eslint-disable @next/next/no-html-link-for-pages -- Native fallback links are parsed only when JavaScript is disabled. */
+const NoScriptNavigation = ({ pathname }) => (
+  <noscript>
+    <details className={styles.noScriptNavigation}>
+      <summary className={styles.noScriptTrigger}>
+        <List size={23} weight="bold" aria-hidden="true" />
+        <span className="sr-only">Open navigation</span>
+      </summary>
+      <nav aria-label="Website navigation" className={styles.noScriptPanel}>
+        <ul className={styles.mobileList}>
+          <li><a href="/" className={styles.mobileDirect} aria-current={pathname === "/" ? "page" : undefined}>Home</a></li>
+          <li>
+            <details className={styles.mobileSection} name="fallback-navigation">
+              <summary>Why Burhani<Chevron /></summary>
+              <ul className={styles.mobileDestinations}>
+                {companyNavigation.map((link) => <li key={link.href}><a href={link.href} className={styles.destination}>{link.label}</a></li>)}
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details className={styles.mobileSection} name="fallback-navigation">
+              <summary>Services<Chevron /></summary>
+              <a href="/services" className={styles.mobileViewAll}>View all services<NavArrow /></a>
+              <div className={styles.mobileServiceGroups}>
+                {serviceNavigation.map((group) => (
+                  <details className={styles.mobileGroup} key={group.label}>
+                    <summary>{group.label}<Chevron /></summary>
+                    <ul className={styles.mobileDestinations}>
+                      {group.links.map((link) => <li key={link.href}><a href={link.href} className={styles.compactLink} aria-current={pathname === link.href ? "page" : undefined}>{link.label}</a></li>)}
+                    </ul>
+                  </details>
+                ))}
+              </div>
+            </details>
+          </li>
+          <li>
+            <details className={styles.mobileSection} name="fallback-navigation">
+              <summary>Industries<Chevron /></summary>
+              <ul className={styles.mobileDestinations}>
+                {industryNavigation.map((link) => <li key={link.href}><a href={link.href} className={styles.destination}>{link.label}</a></li>)}
+              </ul>
+              <a href="/industries" className={styles.mobileViewAll}>View all industries<NavArrow /></a>
+            </details>
+          </li>
+          {primaryNavigation.map((link) => <li key={link.href}><a href={link.href} className={styles.mobileDirect} aria-current={pathname === link.href ? "page" : undefined}>{link.label}</a></li>)}
+          <li><a href="/contact" className={styles.contactLink}>Book a free consultation<NavArrow /></a></li>
+        </ul>
+      </nav>
+    </details>
+  </noscript>
+);
+/* eslint-enable @next/next/no-html-link-for-pages */
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -223,7 +276,9 @@ const Navbar = () => {
         </nav>
         <div className={styles.headerActions}>
           <div className={styles.desktopContact}><ContactLink onNavigate={onNavigate} /></div>
+          <a href="https://wa.me/917299002152" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" className={styles.mobileWhatsApp}><WhatsappLogo size={24} weight="regular" aria-hidden="true" /></a>
           <button type="button" onClick={openMobileMenu} aria-label="Open navigation" aria-haspopup="dialog" aria-controls="mobile-navigation" aria-expanded={isMobileMenuOpen} className={styles.mobileButton}><List size={23} weight="bold" /></button>
+          <NoScriptNavigation pathname={pathname} />
         </div>
       </div>
       <dialog id="mobile-navigation" ref={mobileDialogRef} aria-labelledby="mobile-navigation-title" className={styles.mobileDialog} onCancel={(event) => { event.preventDefault(); closeMobileMenu(); }} onClose={closeMobileMenu} onClick={onDialogClick} onKeyDown={onDialogKeyDown}>

@@ -90,7 +90,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="relative hidden aspect-[16/11] w-full overflow-hidden rounded-2xl border border-white/10 lg:block xl:aspect-auto xl:h-full xl:max-h-[420px]">
+          <div className="relative mx-auto aspect-[5/4] w-full max-w-xl overflow-hidden rounded-2xl border border-white/10 sm:aspect-[16/11] xl:aspect-auto xl:h-full xl:max-h-[420px]">
             <img width="800" height="640"
               src="/illustrations/application.svg"
               alt="Conceptual illustration: software around your process"

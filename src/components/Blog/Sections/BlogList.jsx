@@ -2,7 +2,7 @@
 import React from "react";
 import Container from "@/components/constants/Container";
 import Image from "next/image";
-import { urlForImage } from "@/sanity/lib/image";
+import { getArticleArtwork } from "@/lib/articleArtwork";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -69,16 +69,16 @@ const BlogList = ({ blogs = [] }) => {
 export default BlogList;
 
 const CardMedia = ({ blog, className }) => {
-  const image = blog.mainImage && urlForImage(blog.mainImage);
+  const image = getArticleArtwork(blog);
 
   if (image) {
     return (
       <Image
-        src={image}
-        alt={blog.mainImage.alt || blog.title}
+        src={image.src}
+        alt={image.alt}
         width={900}
         height={600}
-        className={`h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 ${className}`}
+        className={`h-full w-full ${image.preserveFrame ? "object-contain" : "object-cover transition-transform duration-500 group-hover:scale-105"} ${className}`}
       />
     );
   }
@@ -93,7 +93,7 @@ const CardMedia = ({ blog, className }) => {
 };
 
 const CardMeta = ({ blog }) => (
-  <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-zinc-500">
+    <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-zinc-400">
     {blog.publishedDateLabel && (
       <span className="inline-flex items-center gap-1.5">
         <CalendarBlank size={14} weight="regular" />
@@ -191,7 +191,7 @@ const BlogCard = ({ blog }) => {
           </span>
         )}
 
-        <h3 className="line-clamp-2 text-lg font-semibold leading-snug text-white transition-colors duration-200 group-hover:text-[#B79CE8]">
+        <h3 className="line-clamp-none text-lg font-semibold leading-snug text-white transition-colors duration-200 group-hover:text-[#B79CE8] sm:line-clamp-2">
           {blog.title}
         </h3>
 

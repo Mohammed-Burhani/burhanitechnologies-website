@@ -8,6 +8,8 @@
 .control:focus-visible { outline:2px solid #7e43ca; outline-offset:4px; }
 .control:disabled { visibility:hidden; }
 .rows { --gap:.875rem; width:min(100% - 3rem,80rem); margin:2rem auto 0; display:grid; gap:var(--gap); }
+.section[data-enhanced="false"] .rows { grid-template-columns:repeat(auto-fit,minmax(9rem,1fr)); }
+.section[data-enhanced="false"] .window,.section[data-enhanced="false"] .track,.section[data-enhanced="false"] .group[data-copy="0"] { display:contents; }
 .window { border-radius:.65rem; }
 .track { display:flex; width:100%; }
 .group { display:grid; grid-template-columns:repeat(auto-fit,minmax(9rem,1fr)); flex-shrink:0; width:100%; gap:var(--gap); }
@@ -31,4 +33,4 @@
 @media(max-width:639px) { .section { --tile-width:10.25rem; } .header { align-items:flex-start; flex-direction:column; gap:1rem; } .intro { font-size:.9375rem; } .item { min-height:4.75rem; padding:.85rem; gap:.7rem; font-size:.8125rem; } .logo { width:2.1rem; height:2.1rem; } .rows { margin-top:1.5rem; --gap:.65rem; } .section[data-enhanced="true"] .window { mask-image:linear-gradient(to right,transparent,#000 1rem,#000 calc(100% - 1rem),transparent); } }
 @media(min-width:640px) { .container,.rows { width:min(100% - 5rem,80rem); } }
 @media(min-width:1024px) { .section { padding-block:4.5rem; } .container,.rows { width:min(100% - 7rem,80rem); } }
-@media(prefers-reduced-motion:reduce) { .section[data-enhanced="true"] .track { width:100%; animation:none; transform:none; will-change:auto; } .section[data-enhanced="true"] .group { display:grid; width:100%; padding:0; } .section[data-enhanced="true"] .group[data-copy="1"],.section[data-enhanced="true"] .item[data-tech-repeat="true"] { display:none; } .section[data-enhanced="true"] .item { width:auto; } .section[data-enhanced="true"] .window { overflow:visible; mask-image:none; } .control { display:none; transition:none; } .motionHint { display:block; } }
+@media(prefers-reduced-motion:reduce) { .rows { grid-template-columns:repeat(auto-fit,minmax(9rem,1fr)); } .section[data-enhanced="true"] .track { display:contents; width:100%; animation:none; transform:none; will-change:auto; } .section[data-enhanced="true"] .group { width:100%; padding:0; } .section[data-enhanced="true"] .group[data-copy="0"] { display:contents; } .section[data-enhanced="true"] .group[data-copy="1"],.section[data-enhanced="true"] .item[data-tech-repeat="true"] { display:none; } .section[data-enhanced="true"] .item { width:auto; } .section[data-enhanced="true"] .window { display:contents; overflow:visible; mask-image:none; } .control { display:none; transition:none; } .motionHint { display:block; } }

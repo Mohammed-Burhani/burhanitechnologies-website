@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="640" viewBox="0 0 800 640" role="img" aria-labelledby="title desc">
+  <title id="title">Traceable reporting: process illustration</title>
+  <desc id="desc">Source records pass through checks and validation into reports and dashboards. Source traceability connects the reported figures back to their records. A conceptual process illustration.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#312b43" stroke-width="1"/>
+    </pattern>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto">
+      <path d="M1 1L7 4L1 7" fill="none" stroke="#b79ce8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="800" height="640" fill="#14111d"/>
+  <rect width="800" height="640" fill="url(#grid)" opacity=".45"/>
+  <g font-family="Arial, sans-serif">
+    <text x="48" y="57" fill="#b79ce8" font-size="16" letter-spacing="3">BURHANI / PROCESS DESIGN</text>
+    <text x="48" y="105" fill="#f5f3fa" font-size="36" font-weight="600">Traceable reporting</text>
+
+    <g fill="none" stroke="#b79ce8" stroke-width="3" marker-end="url(#arrow)">
+      <path d="M374 249H426"/>
+      <path d="M592 340V376"/>
+      <path d="M426 467H374"/>
+      <path d="M208 376V340" stroke-dasharray="6 5"/>
+    </g>
+
+    <g fill="#201a2e" stroke="#514360">
+      <rect x="48" y="164" width="320" height="170" rx="12"/>
+      <rect x="432" y="164" width="320" height="170" rx="12"/>
+      <rect x="432" y="382" width="320" height="170" rx="12"/>
+      <rect x="48" y="382" width="320" height="170" rx="12"/>
+    </g>
+
+    <g fill="#f5f3fa" font-size="34" font-weight="600">
+      <text x="74" y="212"><tspan x="74">Source</tspan><tspan x="74" dy="42">records</tspan></text>
+      <text x="458" y="212"><tspan x="458">Checks &amp;</tspan><tspan x="458" dy="42">validation</tspan></text>
+      <text x="458" y="430"><tspan x="458">Reports &amp;</tspan><tspan x="458" dy="42">dashboards</tspan></text>
+      <text x="74" y="430"><tspan x="74">Source</tspan><tspan x="74" dy="42">traceability</tspan></text>
+    </g>
+
+    <g fill="none" stroke="#b79ce8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="75" y="282" width="31" height="28" rx="3"/>
+      <path d="M83 290H98M83 300H98"/>
+      <rect x="120" y="282" width="31" height="28" rx="3"/>
+      <path d="M128 290H143M128 300H143"/>
+      <rect x="165" y="282" width="31" height="28" rx="3"/>
+      <path d="M173 290H188M173 300H188"/>
+
+      <path d="M460 296L468 304L483 286M498 290H565M498 302H543"/>
+
+      <rect x="459" y="499" width="102" height="30" rx="3"/>
+      <path d="M471 520V511M484 520V506M497 520V510M517 509H548M517 519H541"/>
+
+      <circle cx="91" cy="513" r="13"/>
+      <path d="M101 503L114 490M114 490H124M114 490V500M108 513H161M161 513L153 505M161 513L153 521"/>
+    </g>
+    <path d="M48 586H752" stroke="#514360"/>
+    <text x="48" y="621" fill="#c5bdcf" font-size="22" letter-spacing="1">CONCEPTUAL WORKFLOW ILLUSTRATION</text>
+  </g>
+</svg>

@@ -23,6 +23,8 @@ import {
 } from "@phosphor-icons/react";
 import { formatPublicationDate } from "@/lib/publicationDate";
 import { getArticleServiceLinks } from "@/lib/serviceArticles";
+import { ArticleWorksheet } from "@/components/Blog/ArticleWorksheet";
+import { getArticleArtwork } from "@/lib/articleArtwork";
 
 // Local PortableText renderers, scoped to the article body only. This
 // project has no @tailwindcss/typography plugin installed, so the `prose`
@@ -40,7 +42,7 @@ const blogPortableTextComponents = {
     h1: ({ children, value }) => (
       <h2
         id={headingId(value)}
-        className="mb-4 mt-12 scroll-mt-32 text-2xl font-semibold tracking-tight text-zinc-900 first:mt-0 sm:text-3xl"
+        className="mb-4 mt-12 scroll-mt-8 text-2xl font-semibold tracking-tight text-zinc-900 first:mt-0 sm:text-3xl"
       >
         {children}
       </h2>
@@ -48,7 +50,7 @@ const blogPortableTextComponents = {
     h2: ({ children, value }) => (
       <h2
         id={headingId(value)}
-        className="mb-4 mt-12 scroll-mt-32 text-2xl font-semibold tracking-tight text-zinc-900 first:mt-0 sm:text-3xl"
+        className="mb-4 mt-12 scroll-mt-8 text-2xl font-semibold tracking-tight text-zinc-900 first:mt-0 sm:text-3xl"
       >
         {children}
       </h2>
@@ -56,7 +58,7 @@ const blogPortableTextComponents = {
     h3: ({ children, value }) => (
       <h3
         id={headingId(value)}
-        className="mb-3 mt-10 scroll-mt-32 text-xl font-semibold tracking-tight text-zinc-900 sm:text-2xl"
+        className="mb-3 mt-10 scroll-mt-8 text-xl font-semibold tracking-tight text-zinc-900 sm:text-2xl"
       >
         {children}
       </h3>
@@ -64,7 +66,7 @@ const blogPortableTextComponents = {
     h4: ({ children, value }) => (
       <h4
         id={headingId(value)}
-        className="mb-2 mt-8 scroll-mt-32 text-lg font-semibold text-zinc-900"
+        className="mb-2 mt-8 scroll-mt-8 text-lg font-semibold text-zinc-900"
       >
         {children}
       </h4>
@@ -122,6 +124,16 @@ const blogPortableTextComponents = {
     },
   },
   types: {
+    articleNumberedList: ({ value }) => (
+      <ol role="list" className="mb-6 flex list-none flex-col gap-4 last:mb-0">
+        {value.items.map((item) => (
+          <li key={item._key} className="rounded-xl border border-zinc-200 bg-zinc-50 p-5 [&_p]:!m-0">
+            <PortableText value={[item]} components={blogPortableTextComponents} />
+          </li>
+        ))}
+      </ol>
+    ),
+    articleWorksheet: ({ value }) => <ArticleWorksheet value={value} components={blogPortableTextComponents} />,
     image: ({ value }) => {
       const imgUrl = value && urlForImage(value);
       if (!imgUrl) return null;
@@ -150,6 +162,18 @@ const blogPortableTextComponents = {
 const getBlockText = (block) =>
   (block.children || []).map((span) => span.text || "").join("");
 
+// This article's non-interactive benefit and process labels were underlined
+// in the CMS. Present them as labels so they do not resemble links.
+const azurePortableTextComponents = {
+  ...blogPortableTextComponents,
+  marks: {
+    ...blogPortableTextComponents.marks,
+    underline: ({ children }) => (
+      <strong className="font-semibold text-zinc-900">{children}</strong>
+    ),
+  },
+};
+
 const ReadingProgressBar = () => {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -168,12 +192,46 @@ const ReadingProgressBar = () => {
   );
 };
 
+const ArticleContents = ({ items, activeHeading }) => (
+  <nav aria-label="Article sections" className="flex max-h-[60vh] flex-col gap-1 overflow-y-auto overscroll-contain">
+    {items.map((item) => {
+      const isActive = activeHeading === `h-${item.key}`;
+      return <a
+        key={item.key}
+        href={`#h-${item.key}`}
+        aria-current={isActive ? "location" : undefined}
+        className={`flex min-h-11 shrink-0 items-center rounded-lg px-3 py-2 text-sm !leading-snug transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-[#6F36D2] ${item.depth ? "ml-3" : ""} ${isActive ? "bg-[#6F36D2]/10 font-medium text-[#6F36D2]" : "text-zinc-600 hover:text-zinc-900"}`}
+      >{item.text}</a>;
+    })}
+  </nav>
+);
+
 const BlogPageClient = ({ blogDetails, relatedBlogs = [] }) => {
   const [activeHeading, setActiveHeading] = useState(null);
   const [copied, setCopied] = useState(false);
+  const articleComponents = blogDetails?.slug?.current === "custom-software-development-with-devops-on-azure-cloud"
+    ? azurePortableTextComponents : blogPortableTextComponents;
+  const { articleBody, titleAnchor } = useMemo(
+    () => {
+      const body = blogDetails?.body;
+      const first = body?.[0];
+      // The hero supplies an exact repeated first title and retains its anchor.
+      // Keep differing introductions and any annotated or non-text content.
+      const repeatsTitle = first?._type === "block" &&
+        ["h1", "h2"].includes(first.style) && !first.listItem &&
+        !(first.markDefs || []).length && first.children?.every((span) => span._type === "span") &&
+        getBlockText(first).trim() === blogDetails?.title?.trim();
+      return {
+        articleBody: repeatsTitle ? body.slice(1) : body,
+        titleAnchor: repeatsTitle ? headingId(first) : undefined,
+      };
+    },
+    [blogDetails],
+  );
   const tableOfContents = useMemo(() => {
-    if (!blogDetails?.body) return [];
-    return blogDetails.body
+    if (!articleBody) return [];
+    return articleBody
+      .flatMap((block) => block._type === "articleWorksheet" ? block.rows.map((row) => row.heading) : [block])
       .filter(
         (block) =>
           block._type === "block" && (block.style === "h2" || block.style === "h3")
@@ -184,28 +242,53 @@ const BlogPageClient = ({ blogDetails, relatedBlogs = [] }) => {
         text: getBlockText(block),
       }))
       .filter((item) => item.text.trim().length > 0);
-  }, [blogDetails]);
+  }, [articleBody]);
 
   useEffect(() => {
     if (!tableOfContents.length) return undefined;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveHeading(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: "-112px 0px -70% 0px" }
-    );
-
-    tableOfContents.forEach((item) => {
-      const el = document.getElementById(`h-${item.key}`);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
+    const headings = tableOfContents.map((item) =>
+      document.getElementById(`h-${item.key}`)
+    ).filter(Boolean);
+    const updateCurrentHeading = () => {
+      const padding = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+      const margin = headings[0] ? parseFloat(getComputedStyle(headings[0]).scrollMarginTop) || 0 : 0;
+      // Use document order and the anchor landing position. Observer entry
+      // batches can contain several rows and do not define reading order.
+      const current = [...headings].reverse().find((heading) =>
+        heading.getBoundingClientRect().top <= padding + margin + 1
+      );
+      setActiveHeading(current?.id || null);
+    };
+    const handleHashChange = () => {
+      const target = headings.find((heading) => `#${heading.id}` === window.location.hash);
+      if (target) setActiveHeading(target.id);
+      else updateCurrentHeading();
+    };
+    let scrollFrame = null;
+    const handleScroll = () => {
+      if (scrollFrame !== null) return;
+      scrollFrame = window.requestAnimationFrame(() => {
+        scrollFrame = null;
+        updateCurrentHeading();
+      });
+    };
+    const observer = new IntersectionObserver(updateCurrentHeading,
+      { rootMargin: "-112px 0px -70% 0px" });
+    headings.forEach((heading) => observer.observe(heading));
+    updateCurrentHeading();
+    handleHashChange();
+    window.addEventListener("hashchange", handleHashChange);
+    // Large jumps can leave every observed heading outside the observer band.
+    // Recalculate from the settled scroll position once per animation frame.
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("hashchange", handleHashChange);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+      if (scrollFrame !== null) window.cancelAnimationFrame(scrollFrame);
+    };
   }, [tableOfContents]);
 
   const handleShare = (platform) => {
@@ -252,15 +335,14 @@ const BlogPageClient = ({ blogDetails, relatedBlogs = [] }) => {
 
   const publishedLabel = formatPublicationDate(blogDetails.publishedAt);
   const serviceLinks = getArticleServiceLinks(blogDetails.slug?.current);
+  const mainArtwork = getArticleArtwork(blogDetails);
 
   return (
     <main className="bg-white">
       <ReadingProgressBar />
 
-      {/* Hero: compact editorial split, breadcrumb + pills + tight headline
-         + inline author line on the left, a real duotone photo on the
-         right, no separate fact strip padding it out further. */}
-      <section className="relative overflow-hidden bg-[#0B0B10] pb-10 pt-6 sm:pb-12 lg:pt-8">
+      {/* Editorial hero with the article's complete supporting artwork. */}
+      <section className="relative overflow-hidden bg-[#0B0B10] pb-10 pt-16 sm:pb-12 lg:pt-[72px]">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -top-40 right-[-10%] h-[560px] w-[560px] rounded-full bg-[#6F36D2] opacity-[0.18] blur-[140px]"
@@ -279,7 +361,7 @@ const BlogPageClient = ({ blogDetails, relatedBlogs = [] }) => {
           }}
         />
 
-        <Container className="relative z-10">
+        <Container className="relative z-10 !py-8 lg:!py-12">
           <motion.div
             initial={false}
             animate={{ opacity: 1, y: 0 }}
@@ -287,7 +369,7 @@ const BlogPageClient = ({ blogDetails, relatedBlogs = [] }) => {
           >
             <nav
               aria-label="Breadcrumb"
-              className="mb-5 flex flex-wrap items-center gap-1.5 text-sm text-zinc-500"
+              className="mb-5 flex flex-wrap items-center gap-1.5 text-sm text-zinc-400"
             >
               <Link
                 href="/"
@@ -332,7 +414,7 @@ const BlogPageClient = ({ blogDetails, relatedBlogs = [] }) => {
                   </div>
                 )}
 
-                <h1 className="max-w-2xl text-3xl font-bold leading-[1.1] tracking-tight text-white sm:text-4xl lg:text-[2.75rem] xl:text-[3.25rem]">
+                <h1 id={titleAnchor} className="max-w-2xl scroll-mt-8 text-3xl font-bold !leading-[1.1] tracking-tight text-white sm:text-4xl lg:text-[2.75rem] xl:text-[3.25rem]">
                   {blogDetails.title}
                 </h1>
 
@@ -361,9 +443,9 @@ const BlogPageClient = ({ blogDetails, relatedBlogs = [] }) => {
                       <span className="text-sm font-semibold text-white">
                         {blogDetails.author.name}
                       </span>
-                      <span className="text-xs text-zinc-500">
+                      <span className="text-xs text-zinc-400">
                         {publishedLabel}
-                        {publishedLabel && blogDetails.readTime && " Â· "}
+                        {publishedLabel && blogDetails.readTime && " · "}
                         {blogDetails.readTime &&
                           `${blogDetails.readTime} min read`}
                       </span>
@@ -372,23 +454,18 @@ const BlogPageClient = ({ blogDetails, relatedBlogs = [] }) => {
                 )}
               </div>
 
-              {/* Right: single supporting visual, a purple duotone wash on
-                 the photo so it reads as this brand rather than a generic
-                 stock crop, with a real height of its own at each
-                 breakpoint instead of shrinking to match a short title. */}
-              <div className="relative hidden w-full overflow-hidden rounded-2xl border border-white/10 lg:block lg:h-[360px] xl:h-[420px]">
-                {blogDetails.mainImage && urlForImage(blogDetails.mainImage) ? (
+              {/* Keep diagram labels visible without cropping or tinting. */}
+              <div className="relative hidden aspect-video w-full self-center overflow-hidden rounded-2xl border border-white/10 bg-[#14111D] lg:block" style={mainArtwork?.aspectRatio ? { aspectRatio: mainArtwork.aspectRatio } : undefined}>
+                {mainArtwork ? (
                   <>
                     <Image
-                      src={urlForImage(blogDetails.mainImage)}
-                      alt={blogDetails.mainImage.alt || blogDetails.title}
+                      src={mainArtwork.src}
+                      alt={mainArtwork.alt}
                       fill
-                      sizes="(max-width: 1280px) 45vw, 35vw"
-                      className="object-cover"
+                      sizes="(min-width: 1280px) 40vw, (min-width: 1024px) calc(100vw - 80px), 100vw"
+                      className="object-contain"
                       priority
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B10] via-[#2A1657]/40 to-[#6F36D2]/10 mix-blend-multiply" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B10]/60 via-transparent to-transparent" />
                   </>
                 ) : (
                   <div className="flex h-full w-full items-center justify-center bg-[#6F36D2]/10">
@@ -407,17 +484,23 @@ const BlogPageClient = ({ blogDetails, relatedBlogs = [] }) => {
       <Container className="py-14 sm:py-20">
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-14">
           <div className="lg:col-span-2">
+            {tableOfContents.length > 1 && <details className="mb-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5 lg:hidden">
+              <summary className="min-h-11 cursor-pointer rounded-sm py-2 text-sm font-semibold text-zinc-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#6F36D2]">
+                <span className="inline-flex items-center gap-2 align-middle"><ListBullets size={16} weight="bold" aria-hidden="true" />On this page</span>
+              </summary>
+              <div className="mt-3"><ArticleContents items={tableOfContents} activeHeading={activeHeading} /></div>
+            </details>}
             {/* The main image already appears in the hero visual on lg+
                screens; on mobile, where that visual is hidden, it runs here
                instead so the image is never lost, and never duplicated. */}
-            {blogDetails.mainImage && urlForImage(blogDetails.mainImage) && (
-              <div className="relative mb-10 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-zinc-200 lg:hidden">
+            {mainArtwork && (
+              <div className="relative mb-10 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-zinc-200 lg:hidden" style={mainArtwork.aspectRatio ? { aspectRatio: mainArtwork.aspectRatio } : undefined}>
                 <Image
-                  src={urlForImage(blogDetails.mainImage)}
-                  alt={blogDetails.mainImage.alt || blogDetails.title}
+                  src={mainArtwork.src}
+                  alt={mainArtwork.alt}
                   fill
                   sizes="100vw"
-                  className="object-cover"
+                  className="object-contain"
                   priority
                 />
               </div>
@@ -426,8 +509,8 @@ const BlogPageClient = ({ blogDetails, relatedBlogs = [] }) => {
             <article className="font-inter max-w-none">
               {blogDetails.body ? (
                 <PortableText
-                  value={blogDetails.body}
-                  components={blogPortableTextComponents}
+                  value={articleBody}
+                  components={articleComponents}
                 />
               ) : (
                 <p className="text-zinc-500">No content available.</p>
@@ -460,31 +543,12 @@ const BlogPageClient = ({ blogDetails, relatedBlogs = [] }) => {
               {/* Table of contents, built from the article's own h2/h3
                  blocks. Skipped entirely when the article is short. */}
               {tableOfContents.length > 1 && (
-                <div className="rounded-2xl border border-zinc-200 p-6">
+                <div className="hidden rounded-2xl border border-zinc-200 p-6 lg:block">
                   <span className="mb-4 flex items-center gap-2 text-sm font-semibold text-zinc-900">
                     <ListBullets size={16} weight="bold" />
                     On this page
                   </span>
-                  <nav className="flex flex-col gap-1">
-                    {tableOfContents.map((item) => {
-                      const isActive = activeHeading === `h-${item.key}`;
-                      return (
-                        <a
-                          key={item.key}
-                          href={`#h-${item.key}`}
-                          className={`rounded-lg px-3 py-1.5 text-sm leading-snug transition-colors duration-200 ${
-                            item.depth ? "ml-3" : ""
-                          } ${
-                            isActive
-                              ? "bg-[#6F36D2]/10 font-medium text-[#6F36D2]"
-                              : "text-zinc-500 hover:text-zinc-900"
-                          }`}
-                        >
-                          {item.text}
-                        </a>
-                      );
-                    })}
-                  </nav>
+                  <ArticleContents items={tableOfContents} activeHeading={activeHeading} />
                 </div>
               )}
 
@@ -612,9 +676,9 @@ const BlogPageClient = ({ blogDetails, relatedBlogs = [] }) => {
 
               {/* Sidebar CTA */}
               <div className="rounded-2xl bg-[#0B0B10] p-6">
-                <h4 className="text-lg font-semibold text-white">
+                <h2 className="text-lg font-semibold text-white">
                   Have a similar problem?
-                </h4>
+                </h2>
                 <p className="mt-2 text-sm leading-relaxed text-zinc-400">
                   Talk to our engineers about what it would take to build this
                   for your business.
@@ -748,6 +812,7 @@ const BlogPageClient = ({ blogDetails, relatedBlogs = [] }) => {
 export default BlogPageClient;
 
 const RelatedBlogCard = ({ blog }) => {
+  const artwork = getArticleArtwork(blog);
   const publishedLabel = formatPublicationDate(blog.publishedAt, "short");
 
   return (
@@ -756,14 +821,14 @@ const RelatedBlogCard = ({ blog }) => {
       className="group block overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] transition-all duration-300 hover:-translate-y-1 hover:border-[#6F36D2]/40 hover:bg-white/[0.04]"
     >
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-zinc-900">
-        {blog.mainImage && urlForImage(blog.mainImage) ? (
+        {artwork ? (
           <>
             <Image
-              src={urlForImage(blog.mainImage)}
-              alt={blog.mainImage.alt || blog.title}
+              src={artwork.src}
+              alt={artwork.alt}
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
+              className={artwork.preserveFrame ? "object-contain" : "object-cover transition-transform duration-300 group-hover:scale-105"}
             />
             {/* Purple duotone wash, brand's own version of the reference's
                tinted-photo treatment */}
@@ -786,7 +851,7 @@ const RelatedBlogCard = ({ blog }) => {
       </div>
 
       <div className="p-6">
-        <h3 className="line-clamp-2 text-lg font-semibold text-white transition-colors duration-200 group-hover:text-[#B79CE8]">
+        <h3 className="line-clamp-none text-lg font-semibold text-white transition-colors duration-200 group-hover:text-[#B79CE8] sm:line-clamp-2">
           {blog.title}
         </h3>
         {blog.excerpt && (

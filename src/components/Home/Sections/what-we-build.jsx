@@ -49,7 +49,7 @@ const services = [
 ];
 
 export default function WhatWeBuild() {
-  return <section className="bg-white py-5 sm:py-6">
+  return <section data-reveal className="bg-white py-5 sm:py-6">
     <Container>
       <div className="flex flex-wrap items-end justify-between gap-5">
         <h2 className="text-3xl font-semibold tracking-tight text-zinc-900 lg:text-4xl">What we build</h2>

@@ -36,8 +36,8 @@ export const Footer = () => {
               Town, Chennai, Tamil Nadu 600001
             </Body>
 
-            <Body className="mt-6 max-w-md text-gray-300 text-center md:text-start">
-              connect@burhanitechnologies.com
+            <Body className="mt-6 max-w-md break-all text-gray-300 text-center md:text-start">
+              <a href="mailto:connect@burhanitechnologies.com" className="underline-offset-4 hover:underline">connect@burhanitechnologies.com</a>
             </Body>
           </div>
 
@@ -70,7 +70,7 @@ export const Footer = () => {
             </li>
 
             <li>
-              <Link className="text-white transition hover:text-white/75" href="/#projects">
+              <Link className="text-white transition hover:text-white/75" href="/#client-projects">
                 <Body>Projects</Body>
               </Link>
             </li>
@@ -96,7 +96,7 @@ export const Footer = () => {
         </div>
 
         <div className="mt-10 flex flex-wrap items-center justify-between gap-6 border-t border-gray-700 py-7">
-          <nav aria-label="Legal" className="flex flex-wrap gap-6 text-sm text-zinc-300"><Link href="/privacy-policy" className="hover:text-white">Privacy policy</Link><Link href="/terms-of-service" className="hover:text-white">Terms of service</Link></nav>
+          <nav aria-label="Legal and page controls" className="flex flex-wrap gap-6 text-sm text-zinc-300"><Link href="/privacy-policy" className="hover:text-white">Privacy policy</Link><Link href="/terms-of-service" className="hover:text-white">Terms of service</Link><a href="#site-top" className="hover:text-white">Back to top</a></nav>
           <Body className="text-center text-sm text-white lg:text-right">
             Copyright &copy; {moment().format("YYYY")}. All rights reserved.
           </Body>
