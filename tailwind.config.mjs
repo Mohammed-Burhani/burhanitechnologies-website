@@ -70,11 +70,10 @@ const config = {
   			}
   		},
       fontFamily: {
-        sans: ['var(--font-space-mono)', 'Courier New', 'monospace'],
-        mono: ['var(--font-space-mono)', 'Courier New', 'monospace'],
-        'space-mono': ['var(--font-space-mono)', 'Courier New', 'monospace'],
+        sans: ['var(--font-montserrat)', 'Arial', 'sans-serif'],
+        montserrat: ['var(--font-montserrat)', 'Arial', 'sans-serif'],
         // Preserve existing component utilities while using the site-wide font.
-        inter: ['var(--font-space-mono)', 'Courier New', 'monospace']
+        inter: ['var(--font-montserrat)', 'Arial', 'sans-serif']
       },
   		fontSize: {
   			smallText: 'clamp(0.75rem, 0.75rem + 0vw, 0.75rem)',

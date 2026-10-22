@@ -1,4 +1,4 @@
-import { Space_Mono } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import ProtectedComponent from "@/components/ProtectedComponent";
 import ConsentLinkGuard from "@/components/ConsentLinkGuard";
@@ -9,14 +9,12 @@ import {
   localBusinessSchema,
 } from "@/utils/schema";
 
-const spaceMono = Space_Mono({
-  variable: "--font-space-mono",
-  weight: ["400", "700"],
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  weight: "variable",
   style: ["normal", "italic"],
   subsets: ["latin"],
   display: "swap",
-  fallback: ["Courier New", "monospace"],
-  adjustFontFallback: false,
 });
 
 export const metadata = {
@@ -128,7 +126,7 @@ export default function RootLayout({ children }) {
           `}
         </Script>
       </head>
-      <body className={`${spaceMono.variable} font-sans antialiased bg-black`}>
+      <body className={`${montserrat.variable} font-sans antialiased bg-black`}>
         <ConsentLinkGuard />
         <ProtectedComponent>{children}</ProtectedComponent>
         {/* Google Analytics */}

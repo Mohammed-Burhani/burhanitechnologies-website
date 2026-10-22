@@ -19,7 +19,7 @@ The page review found 15 missing routes in the original 49-page handoff and 24 p
 - Puts mobile article navigation before the body, fixes multiline contents-link focus boxes and title spacing, and shows complete mobile card titles. Removes a repeated first body title only when it exactly matches the title already shown in the hero, retaining its original fragment anchor. Contents highlighting follows both section links and scroll position.
 - Shows explanatory graphics in full, aligns selected article graphics with their subject and labels, and keeps social previews consistent with those corrected images.
 - Removes redundant boundary line breaks in two legacy articles, preserving intentional internal breaks, emphasis and links while letting the paragraph and heading margins control spacing.
-- Applies Space Mono throughout the interface, including existing text components and forms. Regular and bold weights, each with genuine italics, are served with the site using swap loading and a monospace fallback. Space Mono is free for commercial use under the SIL Open Font License; the notice is retained in `licenses/Space-Mono-OFL.txt`.
+- Applies Montserrat throughout the interface, including existing text components and forms. Normal and italic variable fonts are served with the site, with swap loading and adjusted fallback metrics. Montserrat is free for commercial use under the SIL Open Font License; the notice is retained in `licenses/Montserrat-OFL.txt`.
 
 ## Search and rendering behavior
 
@@ -49,7 +49,7 @@ All 100 pages received individual visual reviews at desktop and mobile widths. T
 
 All 36 navigation interaction checks pass. Eight JavaScript-enabled/disabled menu cases verify native mobile/tablet navigation, all 18 service destinations and the desktop fallback. Three return-to-top cases confirm that article contents highlighting clears correctly. Lint reports no errors and 16 advisories for image elements and an existing legacy carousel effect.
 
-Font changes are checked for loading, consistent text families and reflow across desktop and mobile layouts. Navigation and JavaScript-disabled menus receive additional checks at narrow and desktop widths.
+The Montserrat revision repeats the 200 page/viewport checks, confirming font loading and consistent text families without layout failures. Normal and italic variable fonts load successfully. Navigation and JavaScript-disabled menu checks are repeated after the font change.
 
 Scroll effects run with the normal motion preference and stay disabled with reduced motion. Content and native service disclosures remain available without JavaScript. Source comparisons confirm the service-layout changes retain the approved copy and links.
 
