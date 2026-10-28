@@ -12,7 +12,7 @@ export default function Banner() {
       <div className={styles.heroGrid}>
         <div>
           <p className={styles.eyebrow}>Business software expertise since 2010</p>
-          <h1 className={styles.heroTitle}>Our engineers build custom software around the way your business works.</h1>
+          <h1 className={styles.heroTitle}>Custom Software Development &amp; ERP Solutions | Burhani Technologies</h1>
           <p className={styles.heroBody}>Since 2010, Burhani Technologies has designed, developed and integrated business software. Our engineers bring experience from healthcare systems, apparel ERP, warehouse operations, lending and events to your requirements. We use AI to expedite development, and build AI capabilities into workflows where they help your team complete the work.</p>
           <div className={styles.heroActions}>
             <Link href="/contact" className={styles.primaryLink}>Book a free consultation <ArrowMark /></Link>

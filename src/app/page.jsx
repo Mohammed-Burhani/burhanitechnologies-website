@@ -57,9 +57,9 @@ const homepageFAQs = [
 
 export const metadata = {
   metadataBase: new URL("https://burhanitechnologies.com"),
-  title: "Burhani Technologies | Custom Software Development, Chennai",
+  title: "Custom Software Development & ERP Solutions | Burhani Technologies",
   description:
-    "Custom software engineering since 2010. Burhani builds applications, ERP and automation around your operations, with experience across real client projects.",
+    "Burhani Technologies delivers custom software, ERP solutions and workflow automation to help businesses streamline operations and improve efficiency.",
   authors: [{ name: "Burhani Technologies" }],
   creator: "Burhani Technologies",
   publisher: "Burhani Technologies",
@@ -73,15 +73,15 @@ export const metadata = {
     locale: "en_IN",
     url: "https://burhanitechnologies.com",
     siteName: "Burhani Technologies",
-    title: "Burhani Technologies | Custom Software Development, Chennai",
+    title: "Custom Software Development & ERP Solutions | Burhani Technologies",
     description:
-      "Custom software engineering since 2010. Burhani builds applications, ERP and automation around your operations, with experience across real client projects.",
+      "Burhani Technologies delivers custom software, ERP solutions and workflow automation to help businesses streamline operations and improve efficiency.",
   },
   twitter: {
     card: "summary",
-    title: "Burhani Technologies | Custom Software Development, Chennai",
+    title: "Custom Software Development & ERP Solutions | Burhani Technologies",
     description:
-      "Custom software engineering since 2010. Burhani builds applications, ERP and automation around your operations, with experience across real client projects.",
+      "Burhani Technologies delivers custom software, ERP solutions and workflow automation to help businesses streamline operations and improve efficiency.",
   },
   robots: {
     index: true,

@@ -20,6 +20,7 @@ The page review found 15 missing routes in the original 49-page handoff and 24 p
 - Shows explanatory graphics in full, aligns selected article graphics with their subject and labels, and keeps social previews consistent with those corrected images.
 - Removes redundant boundary line breaks in two legacy articles, preserving intentional internal breaks, emphasis and links while letting the paragraph and heading margins control spacing.
 - Applies Lora throughout the interface, including existing text components and forms. Normal and italic variable fonts are served with the site using swap loading and adjusted fallback metrics. Text uses a minimum 1.5 line-height, retaining roomier paragraph styles. Lora is free for commercial use under the SIL Open Font License; the notice is retained in `licenses/Lora-OFL.txt`.
+- Applies the approved homepage heading and search title, “Custom Software Development & ERP Solutions | Burhani Technologies”, and the description, “Burhani Technologies delivers custom software, ERP solutions and workflow automation to help businesses streamline operations and improve efficiency.” Open Graph and Twitter previews use the same wording so shared previews match the page.
 
 ## Search and rendering behavior
 
@@ -43,7 +44,7 @@ The existing business-enquiry form and separate career-enquiry email link are re
 
 ## Validation
 
-The final production build and 13 regression tests pass: five SEO tests and eight article-presentation tests. The SEO audit passes across 100 pages, 96 sitemap URLs, 50 published articles, 98 internal destinations and 54 rendering assets.
+Baseline acceptance was completed on 22 October 2026. The production build and 13 regression tests pass: five SEO tests and eight article-presentation tests. The SEO audit passes across 100 pages, 96 sitemap URLs, 50 published articles, 98 internal destinations and 54 rendering assets.
 
 All 100 pages received individual visual reviews at desktop and mobile widths. The site-wide serial sweep passes 200 page/viewport checks, with no document overflow, broken visible images, browser runtime errors or violations in the sampled accessibility scans. An additional 69 article integration cases verify heading navigation, comparison tables, fragment targets, overflow cues and matching social assets. After the final two-article spacing correction, 11 targeted cases recheck table edges, both article layouts at desktop/mobile widths, section navigation and the retained title fragment. Tablet and 320px checks supplement the main 1440px/390px sweep.
 
@@ -56,3 +57,7 @@ Scroll effects run with the normal motion preference and stay disabled with redu
 The technology carousel passes 109 targeted checks covering original technology labels, local SVG loading, alternating movement, matching loop copies, pause/resume controls, keyboard and hover behaviour, and static fallbacks. Checks include desktop, tablet, 390px and 320px layouts; sampled accessibility scans report no violations.
 
 These checks verify the local build. Production indexing, traffic and real-user performance require measurement after an approved deployment.
+
+On 28 October 2026, the approved homepage wording received a fresh production build, all 13 regression tests and the full HTTP SEO audit with the same route, article, destination and asset counts; all passed. The exact H1, title, description, canonical and social metadata were verified in the rendered page. Reflow checks at 1280px, 768px, 390px and 320px found no document overflow, clipped heading or broken visible images. The local homepage browser check recorded no runtime errors.
+
+A previous published review environment recorded a recoverable HTML hydration warning on direct page loads. Its cause remains unconfirmed; the latest local checks do not establish a fix for that separate observation. Privacy and terms still require owner review before release, and no valid enquiry has been submitted as an end-to-end delivery test.
