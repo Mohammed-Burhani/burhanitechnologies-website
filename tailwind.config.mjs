@@ -1,3 +1,12 @@
+import defaultTheme from "tailwindcss/defaultTheme.js";
+
+const readableFontSizes = Object.fromEntries(
+  Object.entries(defaultTheme.fontSize).map(([name, [size, options]]) => [
+    name,
+    [size, { ...options, lineHeight: '1.5' }],
+  ]),
+);
+
 /** @type {import('tailwindcss').Config} */
 const config = {
     darkMode: ["class"],
@@ -5,6 +14,7 @@ const config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/content/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
   	screens: {
@@ -68,12 +78,17 @@ const config = {
   				'5': 'hsl(var(--chart-5))'
   			}
   		},
-  		fontFamily: {
-  			inter: [
-  				'var(--font-inter)'
-  			]
-  		},
+      fontFamily: {
+        sans: ['var(--font-lora)', 'Georgia', 'serif'],
+        serif: ['var(--font-lora)', 'Georgia', 'serif'],
+        lora: ['var(--font-lora)', 'Georgia', 'serif'],
+        // Preserve existing component utilities while using the site-wide font.
+        inter: ['var(--font-lora)', 'Georgia', 'serif']
+      },
+      // Compact text utilities share the minimum readable leading.
+      lineHeight: { none: '1.5', tight: '1.5', snug: '1.5', normal: '1.5' },
   		fontSize: {
+        ...readableFontSizes,
   			smallText: 'clamp(0.75rem, 0.75rem + 0vw, 0.75rem)',
   			body: 'clamp(0.875rem, 0.7647rem + 0.9902vw, 1rem)',
   			button: 'clamp(1rem, 0.8897rem + 0.6902vw, 1.125rem)',

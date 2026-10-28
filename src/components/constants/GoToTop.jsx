@@ -18,13 +18,14 @@ export const GoToTop = () => {
 
   return (
     <div
-      className={` ${isScrolled ? "fixed" : "hidden"}  right-7 bottom-24 z-50`}
+      className={`${isScrolled ? "hidden sm:fixed sm:block" : "hidden"} bottom-24 right-7 z-40`}
     >
       <a
-        className="inline-block rounded-full bg-[#8000FF] p-4 text-white shadow transition hover:bg-[#8000FF]/70 "
-        href="#"
+        className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#6F36D2] text-white shadow transition hover:bg-[#5C27BB] sm:h-12 sm:w-12"
+        href="#site-top"
+        aria-label="Back to top"
       >
-        <ArrowUp2 color="#fff" size={28} />
+        <ArrowUp2 color="#fff" size={22} aria-hidden="true" />
       </a>
     </div>
   );

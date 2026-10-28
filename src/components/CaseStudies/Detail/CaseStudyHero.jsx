@@ -92,7 +92,7 @@ export default function CaseStudyHero({
             </Reveal>
 
             <Reveal delay={0.16}>
-              <h1 className="mt-4 max-w-3xl font-inter text-3xl font-semibold leading-[1.15] tracking-tight text-white sm:text-4xl lg:text-[2.5rem] xl:text-[2.75rem]">
+              <h1 className="mt-4 max-w-3xl font-inter text-3xl font-semibold leading-normal tracking-tight text-white sm:text-4xl lg:text-[2.5rem] xl:text-[2.75rem]">
                 {title}
               </h1>
             </Reveal>

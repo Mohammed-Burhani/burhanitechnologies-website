@@ -1,46 +1,11 @@
-import Success from "@/components/constants/Success";
-import { Testimonials } from "@/components/Home/Sections/Testimonials";
-import { Banner } from "@/components/Values/Sections/Banner";
-import { Client } from "@/components/Values/Sections/Client";
-import { Expertise } from "@/components/Values/Sections/Expertise";
-import ValuesSection from "@/components/Values/Sections/Values";
-import WorkWithUs from "@/components/Values/Sections/WorkWithUs";
-import React from "react";
+import CompanyPage from "@/components/ApprovedContent/CompanyPage";
+import { approvedMetadata } from "@/components/ApprovedContent/ApprovedPage";
+import { companyPages } from "@/content/companyPages";
 
-export const metadata = {
-  title: "Our Values & Mission | Burhani Technologies - Client-First Approach",
-  description:
-    "Discover the core values that guide Burhani Technologies: Innovation, Quality, Client Success, and Excellence in Software Development & Business Automation.",
-  keywords: [
-    "company values",
-    "mission vision",
-    "technology company culture",
-    "innovation",
-    "client success",
-  ],
-  openGraph: {
-    title: "Our Values & Mission | Burhani Technologies",
-    description:
-      "Discover the core values that guide Burhani Technologies: Innovation, Quality, Client Success, and Excellence.",
-    url: "https://burhanitechnologies.com/values",
-  },
-  alternates: {
-    canonical: "https://burhanitechnologies.com/values",
-  },
-};
+const page = companyPages["values"];
 
-const Values = () => {
-  return (
-    <div>
-      <Banner />
-      <Client />
-      <WorkWithUs />
-      <Expertise />
-      <ValuesSection />
-      <Testimonials />
-      <Success />
-    </div>
-  );
-};
+export const metadata = approvedMetadata(page, page.pathname);
 
-export default Values;
+export default function Page() {
+  return <CompanyPage page={page} schemaType="WebPage" />;
+}

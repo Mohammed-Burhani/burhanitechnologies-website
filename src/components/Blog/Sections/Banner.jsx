@@ -14,7 +14,7 @@ export const Banner = () => {
           Our blog
         </span>
 
-        <h1 className="mt-4 max-w-2xl text-3xl font-semibold leading-[1.15] tracking-tight text-white sm:text-4xl lg:text-[2.75rem] xl:text-5xl">
+        <h1 className="mt-4 max-w-2xl text-3xl font-semibold leading-normal tracking-tight text-white sm:text-4xl lg:text-[2.75rem] xl:text-5xl">
           Notes from the engineering team
         </h1>
 

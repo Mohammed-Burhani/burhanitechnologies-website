@@ -27,13 +27,13 @@ const rows = [
 
 const ComparisonTable = () => {
   return (
-    <section className="relative overflow-hidden border-t border-white/5 bg-[#0B0B10] py-16 sxl:py-24">
+    <section data-reveal className="relative overflow-hidden border-t border-white/5 bg-[#0B0B10] py-16 sxl:py-24">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -left-32 bottom-0 h-[380px] w-[380px] rounded-full bg-[#6F36D2]/[0.1] blur-[130px]"
       />
 
-      <Container className="relative">
+      <Container className="relative !py-0">
         <div className="max-w-2xl">
           <h2 className="text-2xl font-semibold leading-tight tracking-tight text-white sm:text-3xl lg:text-4xl">
             Compare a packaged product with a custom application
@@ -94,7 +94,7 @@ const ComparisonTable = () => {
               </h3>
               <div className="mt-4 flex flex-col gap-3">
                 <div>
-                  <span className="font-inter text-smallText font-semibold uppercase tracking-wide text-zinc-500">
+                  <span className="font-inter text-smallText font-semibold uppercase tracking-wide text-zinc-400">
                     Packaged product
                   </span>
                   <p className="mt-1 text-sm leading-relaxed text-zinc-400">

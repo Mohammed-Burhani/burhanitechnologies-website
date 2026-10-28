@@ -1,7 +1,6 @@
 "use client";
 import Container from "@/components/constants/Container";
 import { Body } from "@/components/textComponents/Body";
-import { LargeHeading } from "@/components/textComponents/LargeHeading";
 import Image from "next/image";
 import { ContactModal } from "@/components/constants/ContactModal";
 
@@ -20,12 +19,12 @@ export const ServiceHero = ({ title, description }) => {
 
         <div className="flex flex-col justify-center items-center h-full pt-36 relative z-10">
           <div className="max-w-5xl mx-auto text-center">
-            <LargeHeading 
-              className="font-inter font-bold text-5xl md:text-6xl lg:text-7xl text-white mb-6"
+            <h1
+              className="font-inter text-xlcaptionLarge sm:text-mdsubTitle 7xl:text-title leading-snug font-extrabold font-inter font-bold text-5xl md:text-6xl lg:text-7xl text-white mb-6"
               data-aos="fade-up"
             >
               {title}
-            </LargeHeading>
+            </h1>
 
             <Body
               className="mt-6 max-w-3xl mx-auto text-gray-200 text-lg md:text-xl !font-light"

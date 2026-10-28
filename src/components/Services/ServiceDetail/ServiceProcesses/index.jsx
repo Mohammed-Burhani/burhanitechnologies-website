@@ -1,6 +1,6 @@
 import Container from "@/components/constants/Container";
 import { Body } from "@/components/textComponents/Body";
-import { Heading } from "@/components/textComponents/Heading";
+import { ServiceSectionHeading as Heading } from "../ServiceSectionHeading";
 import { ProcessCard } from "./ProcessCard";
 
 export const ServiceProcesses = ({ title, description, processes }) => {

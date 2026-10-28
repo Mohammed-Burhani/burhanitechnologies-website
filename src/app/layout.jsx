@@ -1,6 +1,7 @@
-import { Inter } from "next/font/google";
+import { Lora } from "next/font/google";
 import "./globals.css";
 import ProtectedComponent from "@/components/ProtectedComponent";
+import ConsentLinkGuard from "@/components/ConsentLinkGuard";
 import Script from "next/script";
 import {
   organizationSchema,
@@ -8,18 +9,20 @@ import {
   localBusinessSchema,
 } from "@/utils/schema";
 
-const inter = Inter({
-  variable: "--font-inter",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+const lora = Lora({
+  variable: "--font-lora",
+  weight: "variable",
+  style: ["normal", "italic"],
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata = {
   metadataBase: new URL("https://burhanitechnologies.com"),
   title:
-    "Burhani Technologies | Custom Software Development & Enterprise Automation",
+    "Custom Software Development Company | Burhani Technologies",
   description:
-    "Leading software development company in Chennai with 14+ years of expertise. Specializing in Custom ERP Implementation, AI/ML Automation, Microsoft Power Platform, DevOps/Azure, and Business Process Automation serving healthcare, manufacturing, and enterprise clients globally.",
+    "Custom software engineering since 2010. Burhani builds applications, ERP and automation around your operations, with experience across real client projects.",
   keywords: [
     "custom software development Chennai",
     "ERP implementation",
@@ -49,24 +52,15 @@ export const metadata = {
     url: "https://burhanitechnologies.com",
     siteName: "Burhani Technologies",
     title:
-      "Burhani Technologies | Custom Software Development & Enterprise Automation",
+      "Custom Software Development Company | Burhani Technologies",
     description:
-      "Leading software development company in Chennai with 14+ years of expertise in Custom ERP Implementation, AI/ML Automation, Microsoft Power Platform, DevOps/Azure, and Business Process Automation.",
-    images: [
-      {
-        url: "/BT-Logo.svg",
-        width: 1200,
-        height: 630,
-        alt: "Burhani Technologies Logo",
-      },
-    ],
+      "Custom software engineering since 2010. Burhani builds applications, ERP and automation around your operations, with experience across real client projects.",
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Burhani Technologies | Custom Software Development & Enterprise Automation",
+    card: "summary",
+    title: "Custom Software Development Company | Burhani Technologies",
     description:
-      "Leading software development company with 14+ years of expertise specializing in Custom ERP, AI/ML Automation, Microsoft Power Platform, and Business Process Automation.",
-    images: ["/BT-Logo.svg"],
+      "Custom software engineering since 2010. Burhani builds applications, ERP and automation around your operations, with experience across real client projects.",
   },
   robots: {
     index: true,
@@ -100,31 +94,28 @@ export default function RootLayout({ children }) {
           strategy="beforeInteractive"
         />
         {/* Organization Schema */}
-        <Script
+        <script
           id="organization-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
+            __html: JSON.stringify(organizationSchema).replace(/</g, "\\u003c"),
           }}
-          strategy="beforeInteractive"
         />
         {/* Website Schema */}
-        <Script
+        <script
           id="website-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(websiteSchema),
+            __html: JSON.stringify(websiteSchema).replace(/</g, "\\u003c"),
           }}
-          strategy="beforeInteractive"
         />
         {/* Local Business Schema */}
-        <Script
+        <script
           id="local-business-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(localBusinessSchema),
+            __html: JSON.stringify(localBusinessSchema).replace(/</g, "\\u003c"),
           }}
-          strategy="beforeInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
@@ -135,7 +126,8 @@ export default function RootLayout({ children }) {
           `}
         </Script>
       </head>
-      <body className={`${inter.variable} antialiased bg-black`}>
+      <body className={`${lora.variable} font-sans antialiased bg-black`}>
+        <ConsentLinkGuard />
         <ProtectedComponent>{children}</ProtectedComponent>
         {/* Google Analytics */}
         <Script

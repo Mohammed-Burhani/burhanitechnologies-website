@@ -46,7 +46,7 @@ const ConnectCapture = () => {
         className="pointer-events-none absolute -right-32 top-0 h-[420px] w-[420px] rounded-full bg-[#6F36D2]/[0.1] blur-[140px]"
       />
 
-      <Container className="relative">
+      <Container className="relative !py-0">
         <div className="max-w-2xl">
           <h2 className="text-2xl font-semibold leading-tight tracking-tight text-white sm:text-3xl lg:text-4xl">
             Connect capture, decisions and execution
@@ -64,12 +64,12 @@ const ConnectCapture = () => {
            stages of one flow, not a bento grid or card row, matching the
            section's own framing of capture -> decision -> execution */}
         <div className="mt-12 lg:mt-16">
-          <div className="flex flex-col divide-y divide-white/10 lg:flex-row lg:items-stretch lg:divide-x lg:divide-y-0">
+          <div className="grid grid-cols-1 gap-x-8 sm:grid-cols-2 xl:grid-cols-5 xl:gap-x-0">
             {stages.map((stage, i) => {
               const Icon = stage.icon;
               return (
-                <div key={stage.heading} className="flex items-stretch">
-                  <div className="flex flex-1 flex-col gap-3 py-7 lg:px-6 lg:py-2">
+                <div key={stage.heading} className="relative flex min-w-0 items-stretch border-b border-white/10 py-7 last:border-b-0 sm:last:col-span-2 xl:border-b-0 xl:border-r xl:py-0 xl:last:col-span-1 xl:last:border-r-0">
+                  <div className="flex min-w-0 flex-1 flex-col gap-3 xl:px-6 xl:py-2">
                     <Icon size={22} weight="bold" className="text-[#B79CE8]" />
                     <h3 className="text-base font-semibold leading-snug text-white">
                       {stage.heading}
@@ -81,7 +81,7 @@ const ConnectCapture = () => {
                   {i !== stages.length - 1 && (
                     <div
                       aria-hidden="true"
-                      className="hidden shrink-0 items-center px-1 lg:flex"
+                      className="absolute -right-2 top-1/2 hidden -translate-y-1/2 items-center bg-[#0B0B10] xl:flex"
                     >
                       <CaretRight
                         size={16}

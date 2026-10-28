@@ -37,7 +37,7 @@ const sectors = [
 
 const Sectors = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-16 sxl:py-24">
+    <section data-reveal className="relative overflow-hidden bg-white py-5 sm:py-6">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -left-32 top-10 h-[380px] w-[380px] rounded-full bg-[#6F36D2]/[0.07] blur-[120px]"
@@ -85,7 +85,7 @@ const Sectors = () => {
                   {sector.body}
                 </p>
 
-                <span className="relative mt-auto flex items-center gap-1.5 pt-2 text-xs font-medium uppercase tracking-wide text-zinc-400 transition-colors duration-200 group-hover:text-[#6F36D2]">
+                <span className="relative mt-auto flex items-center gap-1.5 pt-2 text-xs font-medium uppercase tracking-wide text-zinc-600 transition-colors duration-200 group-hover:text-[#6F36D2]">
                   {sector.tag}
                   <ArrowUpRight
                     size={14}

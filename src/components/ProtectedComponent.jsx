@@ -1,40 +1,23 @@
 "use client";
-import React, { useEffect, useState } from "react";
 import Navbar from "./constants/Navbar";
 import { GoToTop } from "./constants/GoToTop";
 import { WhatsAppFAB } from "./constants/WhatsAppFAB";
 import { Footer } from "./constants/Footer";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import ChatBot from "./ChatBot";
 import Script from "next/script";
 import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 import { Toaster } from "@/components/ui/toaster";
+import ScrollReveal from "./ScrollReveal";
 
 const ProtectedComponent = ({ children }) => {
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    AOS.init({
-      easing: "ease-out-cubic",
-      once: true,
-      offset: 50,
-    });
-  }, []);
-
-  useEffect(() => {
-    setLoading(true);
-  }, []);
-
   return (
-    // {!loading ?
-    //   : ""
-    // }
-    <div>
+    <div id="site-top">
+      <a href="#site-content" className="skip-link">Skip to content</a>
       <Navbar />
+      <ScrollReveal />
       <WhatsAppFAB />
       <GoToTop />
-      {children}
+      <div id="site-content" tabIndex={-1}>{children}</div>
       <ProgressBar
         height="4px"
         color="#4f39f6"

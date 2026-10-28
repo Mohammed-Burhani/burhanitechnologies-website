@@ -1,5 +1,7 @@
-import Script from "next/script";
+import { servicePages } from "@/content/servicePages";
+import RelatedBlogs from "@/components/Services/RelatedBlogs";
 import Hero from "@/components/Services/ErpImplementation/Hero";
+import PageNavigation from "@/components/Services/ErpImplementation/PageNavigation";
 import DifferentRecords from "@/components/Services/ErpImplementation/DifferentRecords";
 import OperationalRecord from "@/components/Services/ErpImplementation/OperationalRecord";
 import StartWithRecords from "@/components/Services/ErpImplementation/StartWithRecords";
@@ -11,7 +13,7 @@ import CaseStudyFeature from "@/components/Services/ErpImplementation/CaseStudyF
 import FAQ from "@/components/Services/ErpImplementation/FAQ";
 import { erpImplementationFaqs } from "@/components/Services/ErpImplementation/faqData";
 import CTA from "@/components/Services/ErpImplementation/CTA";
-import { generateBreadcrumbSchema, generateFAQSchema } from "@/utils/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/utils/schema";
 
 export const metadata = {
   title: "ERP Implementation Services | Burhani",
@@ -26,7 +28,7 @@ export const metadata = {
       "Custom ERP implementation connecting sales, stock, production and dispatch. Scope the first module, integrations and rollout with Burhani.",
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "ERP Implementation Services | Burhani",
     description:
       "Custom ERP implementation connecting sales, stock, production and dispatch. Scope the first module, integrations and rollout with Burhani.",
@@ -49,26 +51,29 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   },
 ]);
 
+const approvedService = servicePages.find(page => page.slug === "erp-implementation");
+const serviceSchema = generateServiceSchema({ title: approvedService.navLabel, slug: approvedService.slug, description: approvedService.metaDescription });
+
 const faqSchema = generateFAQSchema(erpImplementationFaqs);
 
 const ErpImplementationPage = () => {
   return (
-    <>
-      <Script
+    <main id="main">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema).replace(/</g, "\\u003c") }} />
+      <script
         id="erp-implementation-breadcrumb-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c") }}
       />
-      <Script
+      <script
         id="erp-implementation-faq-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }}
       />
 
       <div>
         <Hero />
+        <PageNavigation />
         <DifferentRecords />
         <OperationalRecord />
         <StartWithRecords />
@@ -78,9 +83,10 @@ const ErpImplementationPage = () => {
         <TechStack />
         <CaseStudyFeature />
         <FAQ />
+        <RelatedBlogs serviceSlug="erp-implementation" />
         <CTA />
       </div>
-    </>
+    </main>
   );
 };
 

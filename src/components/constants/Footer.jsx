@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { Body } from "../textComponents/Body";
 import Container from "./Container";
@@ -9,48 +10,15 @@ export const Footer = () => {
   return (
     <footer className="bg-[#180030]">
       <Container className="relative bg-[#180030]">
-        {/* Map Section */}
-        <div className="mb-12">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold text-white mb-2">Visit Our Office</h3>
-            <Body className="text-gray-300">
-              Located in the heart of Chennai's business district
-            </Body>
+        <div className="mb-12 flex flex-col gap-5 rounded-xl border border-white/15 bg-white/5 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7">
+          <div>
+            <h3 className="text-lg font-semibold text-white">Visit Our Office</h3>
+            <Body className="mt-2 text-sm text-gray-300">Located in the heart of Chennai&apos;s business district</Body>
           </div>
-          
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-            <div className="aspect-video w-full h-80">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.1418227785625!2d80.28746827569132!3d13.090196912265775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526f458172cdb1%3A0x7218069a220fa332!2sBurhani%20Technologies!5e0!3m2!1sen!2sin!4v1761984836983!5m2!1sen!2sin"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="grayscale hover:grayscale-0 transition-all duration-300"
-              ></iframe>
-            </div>
-            
-            {/* Overlay with company info */}
-            {/* <div className="absolute top-4 left-4 bg-black/80 backdrop-blur-sm rounded-lg p-4 max-w-xs">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
-                  <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                <h4 className="text-white font-semibold">Burhani Technologies</h4>
-              </div>
-              <SmallBody className="text-gray-300 text-sm">
-                Vanguard House, Moore St<br />
-                George Town, Chennai
-              </SmallBody>
-            </div> */}
-          </div>
+          <a href="https://www.google.com/maps/search/?api=1&query=Burhani%20Technologies%20Vanguard%20House%20Chennai" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-[#50219D] transition-colors hover:bg-[#F0E9FA]">
+            Get directions <span aria-hidden="true">↗</span>
+          </a>
         </div>
-
         <div className="lg:flex lg:items-end lg:justify-between">
           <div>
             <div className="flex justify-center text-teal-600 lg:justify-start">
@@ -64,16 +32,19 @@ export const Footer = () => {
             </div>
 
             <Body className="mt-6 max-w-xl text-gray-300 text-center md:text-start">
-              1st Floor, Vanguard House, #48, Moore St, Parry's Corner, George
+              1st Floor, Vanguard House, #48, Moore St, Parry&apos;s Corner, George
               Town, Chennai, Tamil Nadu 600001
             </Body>
 
-            <Body className="mt-6 max-w-md text-gray-300 text-center md:text-start">
-              connect@burhanitechnologies.com
+            <Body className="mt-6 max-w-md break-all text-gray-300 text-center md:text-start">
+              <a href="mailto:connect@burhanitechnologies.com" className="underline-offset-4 hover:underline">connect@burhanitechnologies.com</a>
             </Body>
           </div>
 
-          <ul className="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12">
+          <ul className="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:max-w-2xl lg:justify-end lg:gap-8">
+            <li><Link className="text-white transition hover:text-white/75" href="/industries">Industries</Link></li>
+            <li><Link className="text-white transition hover:text-white/75" href="/leadership">Leadership</Link></li>
+            <li><Link className="text-white transition hover:text-white/75" href="/book-a-consultation">Book a consultation</Link></li>
             <li>
               <a className="text-white transition hover:text-white/75" href="/about">
                 <Body>About</Body>
@@ -81,27 +52,39 @@ export const Footer = () => {
             </li>
 
             <li>
-              <a className="text-white transition hover:text-white/75" href="/services">
+              <Link className="text-white transition hover:text-white/75" href="/why-choose-us">
+                <Body>Why Burhani</Body>
+              </Link>
+            </li>
+
+            <li>
+              <Link className="text-white transition hover:text-white/75" href="/values">
+                <Body>Values</Body>
+              </Link>
+            </li>
+
+            <li>
+              <Link className="text-white transition hover:text-white/75" href="/services">
                 <Body>Services</Body>
-              </a>
+              </Link>
             </li>
 
             <li>
-              <a className="text-white transition hover:text-white/75" href="/#projects">
+              <Link className="text-white transition hover:text-white/75" href="/#client-projects">
                 <Body>Projects</Body>
-              </a>
+              </Link>
             </li>
 
             <li>
-              <a className="text-white transition hover:text-white/75" href="/blog">
+              <Link className="text-white transition hover:text-white/75" href="/blog">
                 <Body>Blog</Body>
-              </a>
+              </Link>
             </li>
 
             <li>
-              <a className="text-white transition hover:text-white/75" href="/knowledge-base">
+              <Link className="text-white transition hover:text-white/75" href="/knowledge-base">
                 <Body>Help</Body>
-              </a>
+              </Link>
             </li>
 
             <li>
@@ -112,7 +95,8 @@ export const Footer = () => {
           </ul>
         </div>
 
-        <div className="flex justify-between items-center border-t border-gray-700 mt-10 py-7">
+        <div className="mt-10 flex flex-wrap items-center justify-between gap-6 border-t border-gray-700 py-7">
+          <nav aria-label="Legal and page controls" className="flex flex-wrap gap-6 text-sm text-zinc-300"><Link href="/privacy-policy" className="hover:text-white">Privacy policy</Link><Link href="/terms-of-service" className="hover:text-white">Terms of service</Link><a href="#site-top" className="hover:text-white">Back to top</a></nav>
           <Body className="text-center text-sm text-white lg:text-right">
             Copyright &copy; {moment().format("YYYY")}. All rights reserved.
           </Body>

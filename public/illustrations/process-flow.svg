@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="640" viewBox="0 0 800 640" role="img" aria-labelledby="title desc">
+  <title id="title">Process visibility: from stage events to the next action</title>
+  <desc id="desc">Work enters, waits within, and leaves a process stage. Recorded stage events reveal status, queue age and exceptions, helping the team prioritise, reassign or escalate work. Conceptual workflow illustration.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#312b43" stroke-width="1"/>
+    </pattern>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0 0L6 3L0 6" fill="none" stroke="#b79ce8" stroke-width="1.5"/>
+    </marker>
+  </defs>
+  <rect width="800" height="640" fill="#14111d"/>
+  <rect width="800" height="640" fill="url(#grid)" opacity=".45"/>
+  <g font-family="Arial, sans-serif">
+    <text x="48" y="57" fill="#b79ce8" font-size="20" letter-spacing="2">PROCESS VISIBILITY</text>
+    <text x="48" y="113" fill="#f5f3fa" font-size="44" font-weight="600">Locate the delay</text>
+    <g fill="#201a2e" stroke="#514360" stroke-width="2">
+      <rect x="48" y="173" width="200" height="112" rx="12"/>
+      <rect x="300" y="173" width="200" height="112" rx="12"/>
+      <rect x="552" y="173" width="200" height="112" rx="12"/>
+    </g>
+    <g fill="#f5f3fa" font-size="38" font-weight="600" text-anchor="middle">
+      <text x="148" y="243">Enter</text>
+      <text x="400" y="243">Wait</text>
+      <text x="652" y="243">Leave</text>
+    </g>
+    <g fill="none" stroke="#b79ce8" stroke-width="2" marker-end="url(#arrow)">
+      <path d="M250 229H286"/>
+      <path d="M502 229H538"/>
+      <path d="M400 287V365"/>
+      <path d="M400 462V513"/>
+    </g>
+    <rect x="216" y="309" width="368" height="41" rx="6" fill="#14111d"/>
+    <text x="400" y="339" fill="#c5bdcf" font-size="29" text-anchor="middle">Recorded stage events</text>
+    <rect x="48" y="378" width="704" height="82" rx="12" fill="#292037" stroke="#8d6eb3" stroke-width="2"/>
+    <text x="400" y="431" fill="#f5f3fa" font-size="32" font-weight="600" text-anchor="middle">Status · Queue age · Exceptions</text>
+    <rect x="48" y="525" width="704" height="72" rx="12" fill="#201a2e" stroke="#514360" stroke-width="2"/>
+    <text x="400" y="572" fill="#d9c5f2" font-size="32" text-anchor="middle">Prioritise · Reassign · Escalate</text>
+  </g>
+</svg>

@@ -1,6 +1,6 @@
 import Container from "@/components/constants/Container";
 import { Body } from "@/components/textComponents/Body";
-import { Heading } from "@/components/textComponents/Heading";
+import { ServiceSectionHeading as Heading } from "../ServiceSectionHeading";
 import { client } from "@/sanity/lib/client";
 import { CaseStudyCarousel } from "./CaseStudyCarousel";
 

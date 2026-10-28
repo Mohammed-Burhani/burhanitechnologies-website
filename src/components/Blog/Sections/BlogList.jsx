@@ -1,9 +1,8 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Container from "@/components/constants/Container";
 import Image from "next/image";
-import { client } from "@/sanity/lib/client";
-import { urlForImage } from "@/sanity/lib/image";
+import { getArticleArtwork } from "@/lib/articleArtwork";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -11,63 +10,8 @@ import {
   Clock,
   Article,
 } from "@phosphor-icons/react";
-import { format } from "date-fns";
 
-const BlogList = () => {
-  const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await client.fetch(
-          `*[_type == "blog"] | order(publishedAt desc) {
-            _id,
-            title,
-            slug,
-            excerpt,
-            mainImage {
-              asset,
-              alt,
-              caption
-            },
-            author->{name, image},
-            publishedAt,
-            readTime,
-            categories[]->{title},
-            featured
-          }`
-        );
-        setBlogs(result);
-      } catch (error) {
-        console.error("Error fetching blogs:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  if (loading) {
-    return (
-      <section className="border-t border-white/5 bg-[#0B0B10] py-16 lg:py-20">
-        <Container>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="animate-pulse">
-                <div className="mb-4 aspect-video rounded-2xl bg-white/5" />
-                <div className="mb-2 h-4 w-1/3 rounded bg-white/5" />
-                <div className="mb-2 h-4 w-3/4 rounded bg-white/5" />
-                <div className="h-4 w-1/2 rounded bg-white/5" />
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-    );
-  }
-
+const BlogList = ({ blogs = [] }) => {
   const featuredBlogs = blogs.filter((blog) => blog.featured);
   const regularBlogs = blogs.filter((blog) => !blog.featured);
 
@@ -125,16 +69,16 @@ const BlogList = () => {
 export default BlogList;
 
 const CardMedia = ({ blog, className }) => {
-  const image = blog.mainImage && urlForImage(blog.mainImage);
+  const image = getArticleArtwork(blog);
 
   if (image) {
     return (
       <Image
-        src={image}
-        alt={blog.mainImage.alt || blog.title}
+        src={image.src}
+        alt={image.alt}
         width={900}
         height={600}
-        className={`h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 ${className}`}
+        className={`h-full w-full ${image.preserveFrame ? "object-contain" : "object-cover transition-transform duration-500 group-hover:scale-105"} ${className}`}
       />
     );
   }
@@ -149,11 +93,11 @@ const CardMedia = ({ blog, className }) => {
 };
 
 const CardMeta = ({ blog }) => (
-  <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-zinc-500">
-    {blog.publishedAt && (
+    <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-zinc-400">
+    {blog.publishedDateLabel && (
       <span className="inline-flex items-center gap-1.5">
         <CalendarBlank size={14} weight="regular" />
-        {format(new Date(blog.publishedAt), "MMM d, yyyy")}
+        {blog.publishedDateLabel}
       </span>
     )}
     {blog.readTime && (
@@ -247,7 +191,7 @@ const BlogCard = ({ blog }) => {
           </span>
         )}
 
-        <h3 className="line-clamp-2 text-lg font-semibold leading-snug text-white transition-colors duration-200 group-hover:text-[#B79CE8]">
+        <h3 className="line-clamp-none text-lg font-semibold leading-snug text-white transition-colors duration-200 group-hover:text-[#B79CE8] sm:line-clamp-2">
           {blog.title}
         </h3>
 

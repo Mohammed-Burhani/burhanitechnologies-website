@@ -1,9 +1,9 @@
 // SEO-optimized metadata for all pages
 export const pageMetadata = {
   home: {
-    title: "Burhani Technologies | Custom Software Development & Business Automation Services Chennai",
+    title: "Burhani Technologies | Custom Software Development, Chennai",
     description:
-      "Leading software development company in Chennai specializing in Custom ERP, AI/ML Automation, DevOps/Azure, and Business Process Automation. Transform your business with tailored technology solutions.",
+      "Custom software engineering since 2010. Burhani builds applications, ERP and automation around your operations, with experience across real client projects.",
     keywords: [
       "custom software development Chennai",
       "ERP implementation",
@@ -15,9 +15,9 @@ export const pageMetadata = {
   },
   
   about: {
-    title: "About Burhani Technologies | Software Development Experts Since [Year]",
+    title: "About Burhani Technologies | Software Development Since 2010",
     description:
-      "Learn about Burhani Technologies - Chennai's trusted partner for custom software development, ERP implementation, and business automation. Serving Healthcare, Finance, Manufacturing & Construction industries.",
+      "Business software and automation since 2010. Meet Burhani Technologies, explore our work and understand our approach to building useful systems.",
     keywords: [
       "software development company Chennai",
       "IT services Chennai",
@@ -64,7 +64,7 @@ export const pageMetadata = {
   whyChooseUs: {
     title: "Why Choose Burhani Technologies | Proven Software Development Partner",
     description:
-      "Choose Burhani Technologies for proven expertise in Custom ERP, AI Automation, and DevOps. We deliver measurable results with 90-day post-launch support and industry-specific solutions.",
+      "Understand Burhani's approach to custom business software, from workflow discovery and staged reviews to integration, release and support.",
     keywords: [
       "best software development company",
       "ERP implementation partner",
@@ -78,7 +78,7 @@ export const serviceMetadata = {
   "custom-erp-implementation": {
     title: "Custom ERP Implementation Services | Streamline Operations | Burhani Technologies",
     description:
-      "Custom ERP solutions for Healthcare, Finance, Manufacturing & Construction. Integrate inventory, production, finance systems with minimal downtime. 90-day post-launch support included.",
+      "Custom ERP development to connect inventory, production and finance around your workflows, with discovery, integration, testing and staged delivery.",
     keywords: [
       "custom ERP implementation",
       "ERP integration services",
@@ -104,7 +104,7 @@ export const serviceMetadata = {
   "devops-azure-cloud": {
     title: "DevOps & Azure Cloud Services | CI/CD Pipeline Setup | Burhani Technologies",
     description:
-      "Expert DevOps and Azure cloud services: CI/CD pipeline implementation, cloud migration, infrastructure automation, and 24/7 monitoring. Reduce deployment time by 70%.",
+      "DevOps and Azure cloud services covering CI/CD pipelines, cloud migration, infrastructure automation, deployment planning and application maintenance.",
     keywords: [
       "DevOps services",
       "Azure cloud migration",
@@ -127,7 +127,7 @@ export const serviceMetadata = {
     ],
   },
   
-  "mobile-app-development": {
+  "mobile-application-development": {
     title: "Mobile App Development | iOS & Android Apps | Burhani Technologies",
     description:
       "Custom mobile app development for iOS and Android. Native and cross-platform solutions with seamless performance, intuitive UI, and robust backend integration.",
@@ -179,10 +179,10 @@ export const serviceMetadata = {
     ],
   },
   
-  "line-of-business-(lob)-applications": {
+  "line-of-business-lob-applications": {
     title: "Line of Business (LOB) Applications | Custom Business Software | Burhani Technologies",
     description:
-      "Custom LOB applications tailored to your specific operational needs. Inventory management, CRM, project tracking, and departmental solutions that drive productivity.",
+      "Custom line of business applications for internal processes, including inventory, HR, and financial reconciliation, tailored to your operational needs.",
     keywords: [
       "LOB applications",
       "line of business software",
@@ -195,7 +195,7 @@ export const serviceMetadata = {
   "workflow-automation": {
     title: "Workflow Automation Solutions | Process Optimization | Burhani Technologies",
     description:
-      "Intelligent workflow automation to eliminate manual tasks and optimize business processes. Reduce errors by 85% and improve efficiency with custom automation tools.",
+      "Workflow automation to digitize manual, paper-based, and email-driven processes, coordinate tasks between teams and systems, and streamline approvals.",
     keywords: [
       "workflow automation",
       "process automation",
@@ -231,7 +231,7 @@ export const serviceMetadata = {
     ],
   },
   
-  "robotic-process-automation-(rpa)": {
+  "robotic-process-automation-rpa": {
     title: "Robotic Process Automation (RPA) | Bot Development | Burhani Technologies",
     description:
       "RPA solutions to automate repetitive tasks using software bots. Data entry, invoice processing, report generation, and system integration to free up your team for strategic work.",
@@ -256,40 +256,86 @@ export const serviceMetadata = {
       "integration services",
     ],
   },
+
+  "data-analysis-and-reporting": {
+    title: "Data Analysis and Reporting Services | Burhani Technologies",
+    description:
+      "Collect, clean, analyze, and visualize business data to understand market trends, operational efficiency, and customer behavior.",
+    keywords: ["data analysis", "business reporting", "data visualization"],
+  },
+
+  "devops-and-maintenance": {
+    title: "DevOps and Application Maintenance Services | Burhani Technologies",
+    description:
+      "DevOps and application maintenance services covering CI/CD pipelines, infrastructure optimization, deployment automation, and ongoing software support.",
+    keywords: ["DevOps services", "application maintenance", "CI/CD pipelines"],
+  },
+
+  "process-automation": {
+    title: "Process Automation Services | Burhani Technologies",
+    description:
+      "Digitize repetitive, multi-step processes across HR, finance, and operations with custom software, system integration, and automation tools.",
+    keywords: ["process automation", "business workflows", "system integration"],
+  },
+
+  "ux-ui-design": {
+    title: "UX UI Design Services | Burhani Technologies",
+    description:
+      "UX and UI design services for intuitive, accessible digital interfaces, with a design process focused on user needs and business goals.",
+    keywords: ["UX UI design", "user experience design", "interface design"],
+  },
 };
 
 // Generate metadata for dynamic pages
-export function generateServiceMetadata(slug) {
-  const metadata = serviceMetadata[slug];
-  
-  if (metadata) {
-    return {
-      title: metadata.title,
-      description: metadata.description,
-      keywords: metadata.keywords.join(", "),
-      openGraph: {
-        title: metadata.title,
-        description: metadata.description,
-        type: "website",
-        url: `https://burhanitechnologies.com/services/${slug}`,
-      },
-      twitter: {
-        card: "summary_large_image",
-        title: metadata.title,
-        description: metadata.description,
-      },
-      alternates: {
-        canonical: `https://burhanitechnologies.com/services/${slug}`,
-      },
-    };
-  }
-  
-  // Fallback metadata
+export function generateServiceMetadata(slug, serviceData = {}) {
+  const catalogEntry = serviceMetadata[slug];
+  const title =
+    catalogEntry?.title || `${serviceData.title || "Services"} | Burhani Technologies`;
+  const description =
+    catalogEntry?.description ||
+    serviceData.heroDescription ||
+    serviceData.benefitTitle ||
+    serviceData.title;
+  const canonical = `https://burhanitechnologies.com/services/${slug}`;
+
   return {
-    title: "Services | Burhani Technologies",
-    description: "Explore our comprehensive range of software development and automation services.",
-    alternates: {
-      canonical: `https://burhanitechnologies.com/services/${slug}`,
+    title,
+    description,
+    ...(catalogEntry?.keywords && { keywords: catalogEntry.keywords.join(", ") }),
+    openGraph: {
+      title,
+      description,
+      type: "website",
+      siteName: "Burhani Technologies",
+      url: canonical,
+    },
+    twitter: { card: "summary", title, description },
+    alternates: { canonical },
+  };
+}
+
+export function generateCaseStudyMetadata(caseStudy, imageUrl) {
+  const title = `${caseStudy.title.trim()} | Case Study | Burhani Technologies`;
+  const description = (caseStudy.excerpt || caseStudy.goal || "").trim();
+  const canonical = `https://burhanitechnologies.com/case-studies/${caseStudy.slug.current}`;
+
+  return {
+    title,
+    description,
+    alternates: { canonical },
+    openGraph: {
+      type: "article",
+      siteName: "Burhani Technologies",
+      title,
+      description,
+      url: canonical,
+      ...(imageUrl && { images: [{ url: imageUrl, alt: caseStudy.title.trim() }] }),
+    },
+    twitter: {
+      card: imageUrl ? "summary_large_image" : "summary",
+      title,
+      description,
+      ...(imageUrl && { images: [imageUrl] }),
     },
   };
 }

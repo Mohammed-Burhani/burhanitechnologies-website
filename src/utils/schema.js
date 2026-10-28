@@ -4,16 +4,19 @@
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": "https://burhanitechnologies.com/#organization",
   name: "Burhani Technologies",
   url: "https://burhanitechnologies.com",
   logo: "https://burhanitechnologies.com/BT-Logo.svg",
   description:
-    "Leading software development company with 14+ years of expertise specializing in Custom ERP Implementation, AI/ML Automation, Microsoft Power Platform, DevOps/Azure, and Business Process Automation services. Serving healthcare, manufacturing, automotive, and construction industries globally.",
+    "Custom software engineering since 2010. Burhani builds applications, ERP and automation around business operations, with experience across real client projects.",
   foundingDate: "2010",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "1st Floor, Vanguard House, #48, Moore St, Parry's Corner, George Town",
     addressLocality: "Chennai",
     addressRegion: "Tamil Nadu",
+    postalCode: "600001",
     addressCountry: "IN",
   },
   contactPoint: {
@@ -64,15 +67,13 @@ export const organizationSchema = {
 export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": "https://burhanitechnologies.com/#website",
   name: "Burhani Technologies",
   url: "https://burhanitechnologies.com",
   description:
     "Custom software development and business automation services",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: "https://burhanitechnologies.com/search?q={search_term_string}",
-    "query-input": "required name=search_term_string",
-  },
+  publisher: { "@id": "https://burhanitechnologies.com/#organization" },
+  inLanguage: "en",
 };
 
 // Local Business Schema
@@ -81,29 +82,30 @@ export const localBusinessSchema = {
   "@type": "ProfessionalService",
   name: "Burhani Technologies",
   image: "https://burhanitechnologies.com/BT-Logo.svg",
-  "@id": "https://burhanitechnologies.com",
+  "@id": "https://burhanitechnologies.com/#organization",
   url: "https://burhanitechnologies.com",
   telephone: "+91-72990-02152",
   description:
-    "Professional software development company providing custom ERP, AI automation, and enterprise solutions with 14+ years of experience.",
+    "Software engineering since 2010: custom applications, ERP implementation and business process automation.",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "1st Floor, Vanguard House, #48, Moore St, Parry's Corner, George Town",
     addressLocality: "Chennai",
     addressRegion: "Tamil Nadu",
+    postalCode: "600001",
     addressCountry: "IN",
   },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 13.0827,
-    longitude: 80.2707,
-  },
-  openingHoursSpecification: {
+  openingHoursSpecification: [{
     "@type": "OpeningHoursSpecification",
     dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
     opens: "09:00",
     closes: "18:00",
-  },
-  priceRange: "$$$$",
+  }, {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Saturday"],
+    opens: "09:00",
+    closes: "13:00",
+  }],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Software Development Services",
@@ -156,24 +158,27 @@ export const localBusinessSchema = {
 
 // Service Schema Generator
 export function generateServiceSchema(service) {
+  const url = `https://burhanitechnologies.com/services/${service.slug}`;
   return {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": `${url}#service`,
     name: service.title,
     provider: {
+      "@id": "https://burhanitechnologies.com/#organization",
       "@type": "Organization",
       name: "Burhani Technologies",
       url: "https://burhanitechnologies.com",
     },
     description: service.description || service.title,
-    url: `https://burhanitechnologies.com/services/${service.slug}`,
+    url,
     areaServed: {
       "@type": "Country",
       name: "India",
     },
     availableChannel: {
       "@type": "ServiceChannel",
-      serviceUrl: `https://burhanitechnologies.com/services/${service.slug}`,
+      serviceUrl: url,
       servicePhone: {
         "@type": "ContactPoint",
         telephone: "+91-72990-02152",

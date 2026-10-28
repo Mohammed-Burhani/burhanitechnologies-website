@@ -2,17 +2,17 @@
 import { useState } from "react";
 import Container from "@/components/constants/Container";
 import { Body } from "@/components/textComponents/Body";
-import { Heading } from "@/components/textComponents/Heading";
+import { ServiceSectionHeading as Heading } from "../ServiceSectionHeading";
 import { ServiceList } from "./ServiceList";
 import { ServiceDetails } from "./ServiceDetails";
 
 export const ServiceOfferings = ({ title, description, offerings }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   // Only show if offerings exist in Sanity
   if (!offerings || offerings.length === 0) {
     return null;
   }
-
-  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <Container className="bg-gradient-to-br from-[#180030] via-[#4a1a7d] to-[#6F36D2] relative overflow-hidden py-20">

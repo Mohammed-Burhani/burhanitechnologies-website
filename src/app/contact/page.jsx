@@ -20,6 +20,11 @@ export const metadata = {
   alternates: {
     canonical: "https://burhanitechnologies.com/contact",
   },
+  twitter: {
+    card: "summary",
+    title: "Contact Burhani Technologies | Discuss Your Project",
+    description: "Discuss your website, e-commerce, invoicing or application project with Burhani Technologies. Share your business problem, desired outcome and service needs.",
+  },
 };
 
 export default function ContactPage() {

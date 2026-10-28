@@ -37,6 +37,7 @@ export const Services = () => {
     },
     {
       title: "UX/UI Design",
+      href: "/services/ux-ui-design",
       desc: "Our design services create intuitive interfaces that enhance user experience, making your applications easy to use and visually appealing.",
       icon: "/icons/AppDev.svg",
     },
@@ -70,6 +71,7 @@ export const Services = () => {
               <WhoWeAreCard
                 key={i}
                 title={item?.title}
+                href={item?.href}
                 desc={item?.desc}
                 icon={item?.icon}
               />
@@ -83,6 +85,7 @@ export const Services = () => {
               <WhoWeAreCard
                 key={i}
                 title={item?.title}
+                href={item?.href}
                 desc={item?.desc}
                 icon={item?.icon}
               />

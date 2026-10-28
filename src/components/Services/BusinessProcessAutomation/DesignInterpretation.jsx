@@ -6,7 +6,7 @@ import Container from "@/components/constants/Container";
 const DesignInterpretation = () => {
   return (
     <section className="relative overflow-hidden bg-white py-16 sxl:py-24">
-      <Container>
+      <Container className="!py-0">
         {/* Alternating text alignment, no numeral rail and no symmetric
            columns, so this reads differently from the equivalent deep-dive
            sections on the other pillar pages */}
@@ -48,7 +48,7 @@ const DesignInterpretation = () => {
             </p>
           </div>
 
-          <div className="flex flex-col gap-4 border-t border-zinc-200 pt-14 sm:ml-auto sm:items-end sm:text-right lg:pt-16">
+          <div className="flex flex-col gap-4 border-t border-zinc-200 pt-14 lg:pt-16">
             <span
               aria-hidden="true"
               className="h-2 w-2 rounded-sm bg-[#6F36D2]"
@@ -97,7 +97,7 @@ const DesignInterpretation = () => {
               deterministic validation where the task requires them. An
               invoice may become a structured record, pass required-field
               and duplicate checks, then move into the approval queue. A
-              model's interpretation supplies information; the business
+              model&apos;s interpretation supplies information; the business
               rules determine what can proceed.
             </p>
             <p className="max-w-2xl text-sm leading-relaxed text-zinc-500 sm:text-base">

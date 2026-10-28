@@ -23,7 +23,7 @@ const Hero = () => {
 
       <Container className="relative z-10">
         <nav aria-label="Breadcrumb" className="mb-6">
-          <ol className="flex flex-wrap items-center gap-1.5 font-inter text-smallText text-zinc-500">
+          <ol className="flex flex-wrap items-center gap-1.5 font-inter text-smallText text-zinc-400">
             <li>
               <Link
                 href="/"
@@ -60,8 +60,8 @@ const Hero = () => {
               Service
             </span>
 
-            <h1 className="max-w-xl text-3xl font-semibold leading-[1.15] tracking-tight text-white sm:text-4xl lg:text-[2.75rem] xl:text-5xl">
-              Build custom software around the way your business works
+            <h1 className="max-w-xl text-3xl font-semibold leading-normal tracking-tight text-white sm:text-4xl lg:text-[2.75rem] xl:text-5xl">
+              Custom software development around the way your business works
             </h1>
 
             <p className="max-w-lg text-sm leading-relaxed text-zinc-400 sm:text-base">
@@ -90,14 +90,13 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="relative hidden aspect-[16/11] w-full overflow-hidden rounded-2xl border border-white/10 lg:block xl:aspect-auto xl:h-full xl:max-h-[420px]">
-            <img
-              src="https://picsum.photos/seed/burhani-custom-application-build/900/1125"
-              alt="Burhani Technologies engineers building a custom application"
-              className="h-full w-full object-cover"
+          <div className="relative mx-auto aspect-[5/4] w-full max-w-xl overflow-hidden rounded-2xl border border-white/10 sm:aspect-[16/11] xl:aspect-auto xl:h-full xl:max-h-[420px]">
+            <img width="800" height="640"
+              src="/illustrations/application.svg"
+              alt="Conceptual illustration: software around your process"
+              className="h-full w-full object-contain bg-[#14111d]"
               loading="eager"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B10]/70 via-transparent to-transparent" />
           </div>
         </div>
 

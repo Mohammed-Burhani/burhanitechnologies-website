@@ -33,7 +33,7 @@ const ComparisonTable = () => {
         className="pointer-events-none absolute -left-32 bottom-0 h-[380px] w-[380px] rounded-full bg-[#6F36D2]/[0.1] blur-[130px]"
       />
 
-      <Container className="relative">
+      <Container className="relative !py-0">
         <div className="max-w-2xl">
           <h2 className="text-2xl font-semibold leading-tight tracking-tight text-white sm:text-3xl lg:text-4xl">
             Choose how the automation will be implemented
@@ -91,7 +91,7 @@ const ComparisonTable = () => {
               </h3>
               <div className="mt-4 flex flex-col gap-3">
                 <div>
-                  <span className="font-inter text-smallText font-semibold uppercase tracking-wide text-zinc-500">
+                  <span className="font-inter text-smallText font-semibold uppercase tracking-wide text-zinc-400">
                     Platform configuration
                   </span>
                   <p className="mt-1 text-sm leading-relaxed text-zinc-400">

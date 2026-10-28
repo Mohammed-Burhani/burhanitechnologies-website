@@ -8,7 +8,7 @@ export const TestimonialCard = ({ testimonial, index }) => {
       data-aos-delay={index * 100}
     >
       <Body className="text-white text-lg mb-6 leading-relaxed">
-        "{testimonial.text}"
+        &quot;{testimonial.text}&quot;
       </Body>
       <div className="flex items-center gap-4">
         <div className="w-12 h-12 bg-gradient-to-br from-[#6F36D2] to-[#8000FF] rounded-full flex items-center justify-center text-white font-bold text-xl">

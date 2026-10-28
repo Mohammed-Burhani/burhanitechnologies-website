@@ -23,7 +23,7 @@ const Hero = () => {
 
       <Container className="relative z-10">
         <nav aria-label="Breadcrumb" className="mb-6">
-          <ol className="flex flex-wrap items-center gap-1.5 font-inter text-smallText text-zinc-500">
+          <ol className="flex flex-wrap items-center gap-1.5 font-inter text-smallText text-zinc-400">
             <li>
               <Link
                 href="/"
@@ -60,9 +60,8 @@ const Hero = () => {
               Service
             </span>
 
-            <h1 className="max-w-xl text-3xl font-semibold leading-[1.15] tracking-tight text-white sm:text-4xl lg:text-[2.75rem] xl:text-5xl">
-              Automate document handling, approvals and routine business
-              tasks
+            <h1 className="max-w-xl text-3xl font-semibold leading-normal tracking-tight text-white sm:text-4xl lg:text-[2.75rem] xl:text-5xl">
+              Business process automation for documents, approvals and routine tasks
             </h1>
 
             <p className="max-w-lg text-sm leading-relaxed text-zinc-400 sm:text-base">
@@ -75,7 +74,7 @@ const Hero = () => {
             <div className="mt-1 flex flex-col gap-3 sm:flex-row sm:items-center">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#6F36D2] px-5 py-3 text-sm font-medium text-white shadow-[0_1px_0_rgba(255,255,255,0.08)_inset] transition-transform duration-200 hover:bg-[#7C43E0] active:scale-[0.98] sm:text-base"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#6F36D2] px-5 py-3 text-sm font-medium text-white shadow-[0_1px_0_rgba(255,255,255,0.08)_inset] transition-colors duration-200 hover:bg-[#7C43E0] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#B79CE8] active:scale-[0.98] sm:text-base"
               >
                 Book a free consultation
                 <ArrowRight size={18} weight="bold" />
@@ -83,7 +82,7 @@ const Hero = () => {
 
               <Link
                 href="/case-studies/digitalizing-the-end-to-end-loan-lifecycle"
-                className="inline-flex items-center justify-center gap-2 rounded-lg border border-zinc-700 px-5 py-3 text-sm font-medium text-zinc-200 transition-colors duration-200 hover:border-zinc-500 hover:text-white active:scale-[0.98] sm:text-base"
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-zinc-700 px-5 py-3 text-sm font-medium text-zinc-200 transition-colors duration-200 hover:border-zinc-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#B79CE8] active:scale-[0.98] sm:text-base"
               >
                 Read the client project
                 <ArrowUpRight size={16} weight="bold" />
@@ -91,14 +90,13 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="relative hidden aspect-[16/11] w-full overflow-hidden rounded-2xl border border-white/10 lg:block xl:aspect-auto xl:h-full xl:max-h-[420px]">
-            <img
-              src="https://picsum.photos/seed/burhani-document-capture-automation/900/1125"
-              alt="A document capture workflow feeding a business process automation system"
-              className="h-full w-full object-cover"
+          <div className="relative mx-auto aspect-[5/4] w-full max-w-xl overflow-hidden rounded-2xl border border-white/10 sm:aspect-[16/11] xl:aspect-auto xl:h-full xl:max-h-[420px]">
+            <img width="800" height="640"
+              src="/illustrations/automation.svg"
+              alt="Conceptual illustration: from a document to an action"
+              className="h-full w-full object-contain bg-[#14111d]"
               loading="eager"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B10]/70 via-transparent to-transparent" />
           </div>
         </div>
 

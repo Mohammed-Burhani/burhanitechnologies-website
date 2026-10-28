@@ -5,18 +5,19 @@ import Container from "@/components/constants/Container";
 
 const DeepDive = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-16 sxl:py-24">
-      <Container>
-        {/* Three long-form sections stacked vertically, each headed by its own
-           numeral rather than split into a headline-left / body-right layout */}
-        <div className="mx-auto flex max-w-3xl flex-col divide-y divide-zinc-200">
-          <div className="flex flex-col gap-4 pb-12">
+    <section data-reveal className="relative overflow-hidden bg-white py-16 sxl:py-24">
+      <Container className="!py-0">
+        <div className="flex flex-col divide-y divide-zinc-200">
+          <article className="grid grid-cols-1 gap-6 pb-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16 lg:pb-12">
+            <header className="flex flex-col gap-4">
             <span className="font-inter text-smallText font-semibold text-[#6F36D2]">
               01
             </span>
             <h2 className="text-2xl font-semibold leading-tight tracking-tight text-zinc-900 sm:text-3xl">
               Make the first release a complete piece of work
             </h2>
+            </header>
+            <div className="flex max-w-[65ch] flex-col gap-4">
             <p className="text-sm leading-relaxed text-zinc-500 sm:text-base">
               A useful first release lets someone finish a task. A request
               can be entered, checked, assigned and found again by the right
@@ -37,15 +38,24 @@ const DeepDive = () => {
               </Link>
               .
             </p>
-          </div>
+            </div>
+          </article>
 
-          <div className="flex flex-col gap-4 py-12">
+          <article className="grid grid-cols-1 gap-6 py-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16 lg:py-12">
+            <header className="flex flex-col gap-4">
             <span className="font-inter text-smallText font-semibold text-[#6F36D2]">
               02
             </span>
             <h2 className="text-2xl font-semibold leading-tight tracking-tight text-zinc-900 sm:text-3xl">
               Connect the application to the work around it
             </h2>
+            </header>
+            <div className="flex max-w-[65ch] flex-col gap-4">
+            <p className="text-sm leading-relaxed text-zinc-500 sm:text-base">
+              For a focused engagement built around prototypes and frequent user review, explore our{" "}
+              <Link href="/services/rapid-application-development" className="font-medium text-[#6F36D2] underline decoration-[#6F36D2]/30 underline-offset-2 hover:text-[#4f2496]">rapid application development services</Link>.
+              {" "}The work centres on one agreed first release, with wider application requirements handled through the programme&apos;s scope.
+            </p>
             <p className="text-sm leading-relaxed text-zinc-500 sm:text-base">
               An application may need to receive an approved invoice, update
               a customer record or return a status to another team. Define
@@ -70,15 +80,19 @@ const DeepDive = () => {
               , the browser application brought sales, stock, production and
               dispatch into one shared system.
             </p>
-          </div>
+            </div>
+          </article>
 
-          <div className="flex flex-col gap-4 pt-12">
+          <article className="grid grid-cols-1 gap-6 pt-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16 lg:pt-12">
+            <header className="flex flex-col gap-4">
             <span className="font-inter text-smallText font-semibold text-[#6F36D2]">
               03
             </span>
             <h2 className="text-2xl font-semibold leading-tight tracking-tight text-zinc-900 sm:text-3xl">
               Engineer the AI capability around the task
             </h2>
+            </header>
+            <div className="flex max-w-[65ch] flex-col gap-4">
             <p className="text-sm leading-relaxed text-zinc-500 sm:text-base">
               When an application needs an AI capability, our engineering
               work starts with the task and the information behind it.
@@ -108,7 +122,8 @@ const DeepDive = () => {
               whether the feature is ready to extend beyond the first
               workflow.
             </p>
-          </div>
+            </div>
+          </article>
         </div>
       </Container>
     </section>

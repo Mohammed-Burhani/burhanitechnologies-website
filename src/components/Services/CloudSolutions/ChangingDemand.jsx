@@ -25,28 +25,26 @@ const signals = [
 const ChangingDemand = () => {
   return (
     <section className="relative overflow-hidden bg-white py-16 sxl:py-24">
-      <Container>
+      <Container className="!py-0">
         <h2 className="max-w-2xl text-2xl font-semibold leading-tight tracking-tight text-zinc-900 sm:text-3xl lg:text-4xl">
           When infrastructure struggles with changing demand
         </h2>
 
-        {/* Full-width rows with an oversized watermark numeral behind the
-           text, a fourth distinct treatment for this recurring 3-objection
-           section across the pillar pages */}
-        <div className="mt-12 divide-y divide-zinc-200 border-t border-zinc-200 lg:mt-16">
+        {/* Numbered examples of infrastructure requirements */}
+        <div className="mt-10 grid grid-cols-1 divide-y divide-zinc-200 border-t border-zinc-200 lg:grid-cols-3 lg:divide-y-0 lg:divide-x">
           {signals.map((item) => (
-            <div key={item.index} className="relative overflow-hidden py-10 lg:py-12">
+            <div key={item.index} className="relative min-w-0 py-8 lg:px-8 lg:first:pl-0 lg:last:pr-0">
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute -right-2 -top-6 select-none font-inter text-[7rem] font-bold leading-none text-zinc-100 sm:text-[9rem]"
+                className="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#6F36D2]/20 bg-[#6F36D2]/[0.06] font-inter text-sm font-semibold text-[#6F36D2]"
               >
                 {item.index}
               </span>
               <div className="relative max-w-2xl">
-                <h3 className="text-lg font-semibold italic leading-snug text-zinc-900 sm:text-xl">
-                  &ldquo;{item.quote}&rdquo;
+                <h3 className="text-balance text-lg font-semibold leading-snug text-zinc-900 sm:text-xl">
+                  {item.quote}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-zinc-500 sm:text-base">
+                <p className="mt-4 text-sm leading-relaxed text-zinc-600 sm:text-base">
                   {item.body}
                 </p>
               </div>

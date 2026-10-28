@@ -26,7 +26,7 @@ const signals = [
 const ManualProcessing = () => {
   return (
     <section className="relative overflow-hidden bg-white py-16 sxl:py-24">
-      <Container>
+      <Container className="!py-0">
         <h2 className="max-w-2xl text-2xl font-semibold leading-tight tracking-tight text-zinc-900 sm:text-3xl lg:text-4xl">
           Where manual processing holds up the next step
         </h2>
@@ -45,8 +45,8 @@ const ManualProcessing = () => {
                 }`}
               >
                 <Icon size={24} weight="bold" className="text-[#6F36D2]" />
-                <h3 className="text-lg font-semibold italic leading-snug text-zinc-900 sm:text-xl">
-                  &ldquo;{item.quote}&rdquo;
+                <h3 className="text-lg font-semibold leading-snug text-zinc-900 sm:text-xl">
+                  {item.quote}
                 </h3>
                 <p className="text-sm leading-relaxed text-zinc-500 sm:text-base">
                   {item.body}

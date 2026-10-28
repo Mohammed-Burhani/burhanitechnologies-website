@@ -119,7 +119,7 @@ export const KnowledgeBaseContent = ({ categories = [], faqs = [] }) => {
                 Knowledge Base Coming Soon
               </h2>
               <p className="text-gray-600 mb-8">
-                We're currently setting up our FAQ section. Please check back soon or contact our support team for immediate assistance.
+                We&apos;re currently setting up our FAQ section. Please check back soon or contact our support team for immediate assistance.
               </p>
             </div>
           </div>
@@ -171,7 +171,7 @@ export const KnowledgeBaseContent = ({ categories = [], faqs = [] }) => {
             {searchQuery && (
               <div className="mb-8 text-center">
                 <p className="text-gray-600">
-                  Found <span className="font-semibold text-[#6F36D2]">{filteredFAQs.length}</span> result{filteredFAQs.length !== 1 ? "s" : ""} for "{searchQuery}"
+                  Found <span className="font-semibold text-[#6F36D2]">{filteredFAQs.length}</span> result{filteredFAQs.length !== 1 ? "s" : ""} for &quot;{searchQuery}&quot;
                 </p>
               </div>
             )}
@@ -209,7 +209,7 @@ export const KnowledgeBaseContent = ({ categories = [], faqs = [] }) => {
                   Still need help?
                 </h3>
                 <p className="text-purple-100 mb-8 max-w-2xl mx-auto text-lg">
-                  Can't find what you're looking for? Our support team is here to help you 24/7.
+                  Can&apos;t find what you&apos;re looking for? Our support team is here to help you 24/7.
                 </p>
                 <a
                   href="/contact"

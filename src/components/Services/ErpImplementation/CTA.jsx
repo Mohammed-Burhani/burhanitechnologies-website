@@ -6,7 +6,7 @@ import { ArrowUpRight, WhatsappLogo } from "@phosphor-icons/react";
 
 const CTA = () => {
   return (
-    <section className="relative overflow-hidden border-t border-white/5 bg-[#0B0B10] py-16 sm:py-20">
+    <section data-reveal className="relative overflow-hidden border-t border-white/5 bg-[#0B0B10] py-16 sm:py-20">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-[0.5]"
@@ -25,7 +25,7 @@ const CTA = () => {
         className="pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#6F36D2]/[0.14] blur-[130px]"
       />
 
-      <Container className="relative">
+      <Container className="relative !py-0">
         <div className="mx-auto flex max-w-2xl flex-col items-center gap-5 rounded-2xl border border-white/10 bg-white/[0.02] px-6 py-14 text-center sm:px-14">
           <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
             Plan your first ERP module

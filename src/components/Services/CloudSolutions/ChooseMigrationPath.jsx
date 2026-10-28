@@ -7,16 +7,13 @@ import { Compass, PlugsConnected } from "@phosphor-icons/react";
 const ChooseMigrationPath = () => {
   return (
     <section className="relative overflow-hidden bg-white py-16 sxl:py-24">
-      <Container>
-        {/* Single-column flow with an icon-in-circle marker per block,
-           rather than the numeral rail or symmetric column-split used for
-           the equivalent two-part explanation on the other pillar pages */}
-        <div className="mx-auto flex max-w-3xl flex-col divide-y divide-zinc-200">
-          <div className="flex flex-col gap-4 pb-12">
+      <Container className="!py-0">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-12">
+          <div className="flex min-w-0 flex-col gap-4 border-b border-zinc-200 pb-10 lg:border-b-0 lg:border-r lg:pb-0 lg:pr-12">
             <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[#6F36D2]/20 bg-[#6F36D2]/[0.06]">
               <Compass size={20} weight="bold" className="text-[#6F36D2]" />
             </div>
-            <h2 className="text-2xl font-semibold leading-tight tracking-tight text-zinc-900 sm:text-3xl">
+            <h2 className="text-balance text-2xl font-semibold leading-tight tracking-tight text-zinc-900 sm:text-3xl">
               Choose a migration path from the application&apos;s needs
             </h2>
             <p className="text-sm leading-relaxed text-zinc-500 sm:text-base">
@@ -39,11 +36,11 @@ const ChooseMigrationPath = () => {
             </p>
           </div>
 
-          <div className="flex flex-col gap-4 pt-12">
+          <div className="flex min-w-0 flex-col gap-4">
             <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[#6F36D2]/20 bg-[#6F36D2]/[0.06]">
               <PlugsConnected size={20} weight="bold" className="text-[#6F36D2]" />
             </div>
-            <h2 className="text-2xl font-semibold leading-tight tracking-tight text-zinc-900 sm:text-3xl">
+            <h2 className="text-balance text-2xl font-semibold leading-tight tracking-tight text-zinc-900 sm:text-3xl">
               Plan for every external dependency
             </h2>
             <p className="text-sm leading-relaxed text-zinc-500 sm:text-base">

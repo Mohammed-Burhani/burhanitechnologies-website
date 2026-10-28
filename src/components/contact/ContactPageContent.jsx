@@ -183,7 +183,7 @@ export default function ContactPageContent() {
               </Reveal>
 
               <Reveal delay={0.08}>
-                <h1 className="max-w-3xl font-inter text-3xl font-semibold leading-[1.15] tracking-tight text-white sm:text-4xl lg:text-[2.5rem] xl:text-[2.75rem]">
+                <h1 className="max-w-3xl font-inter text-3xl font-semibold leading-normal tracking-tight text-white sm:text-4xl lg:text-[2.5rem] xl:text-[2.75rem]">
                   What business problem do you want to solve?
                 </h1>
               </Reveal>
@@ -200,13 +200,12 @@ export default function ContactPageContent() {
             <Reveal delay={0.24} className="hidden lg:block">
               <div className="rounded-[2rem] bg-white/[0.04] p-1.5 ring-1 ring-white/10">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-[calc(2rem-0.375rem)]">
-                  <img
-                    src="https://picsum.photos/seed/burhani-discovery-call-chennai/900/675"
-                    alt=""
-                    className="h-full w-full object-cover"
+                  <img width="800" height="640"
+                    src="/illustrations/discovery.svg"
+                    alt="Conceptual illustration: start with one business problem"
+                    className="h-full w-full object-contain bg-[#14111d]"
                     loading="eager"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B10]/60 via-transparent to-transparent" />
                   <div className="absolute inset-0 rounded-[inherit] shadow-[inset_0_1px_1px_rgba(255,255,255,0.12)]" />
                 </div>
               </div>
@@ -255,14 +254,11 @@ export default function ContactPageContent() {
                   />
                   <div className="relative">
                     <p className="font-inter text-xs font-medium uppercase tracking-[0.18em] text-[#B79CE8]">
-                      Technical leadership
+                      Project enquiries
                     </p>
                     <h2 className="mt-4 font-inter text-2xl font-semibold tracking-tight text-white sm:text-3xl">
                       Yusuf Shabbir
                     </h2>
-                    <p className="mt-1 font-inter text-base text-[#B79CE8]">
-                      CTO
-                    </p>
                     <p className="mt-5 font-inter text-base leading-relaxed text-zinc-300">
                       Our technical team reviews the workflow and systems your
                       project needs to connect. We agree your project contacts
@@ -272,7 +268,7 @@ export default function ContactPageContent() {
                     <div className="mt-7 flex flex-col gap-4 border-t border-white/10 pt-7">
                       <a
                         href="mailto:connect@burhanitechnologies.com"
-                        className={darkContactLink}
+                        className={`${darkContactLink} min-w-0`}
                       >
                         <IconWell dark>
                           <EnvelopeSimple
@@ -281,7 +277,7 @@ export default function ContactPageContent() {
                             aria-hidden="true"
                           />
                         </IconWell>
-                        connect@burhanitechnologies.com
+                        <span className="min-w-0 break-all">connect@burhanitechnologies.com</span>
                       </a>
                       <a href="tel:+917299002152" className={darkContactLink}>
                         <IconWell dark>
@@ -349,7 +345,7 @@ export default function ContactPageContent() {
                 </h2>
                 <p className="mt-5 max-w-[46ch] font-inter text-base leading-relaxed text-zinc-600">
                   See the{" "}
-                  <Link href="/book-a-consultation" className={inlineLink}>
+                  <Link href="#consultation-agenda" className={inlineLink}>
                     consultation agenda
                   </Link>{" "}
                   and our{" "}
@@ -364,7 +360,7 @@ export default function ContactPageContent() {
               </Reveal>
             </div>
 
-            <div className="lg:col-span-7">
+            <div id="consultation-agenda" className="scroll-mt-28 lg:col-span-7">
               <ProcessTimeline />
             </div>
           </div>
@@ -417,7 +413,7 @@ export default function ContactPageContent() {
                   <IconWell>
                     <Phone size={20} weight="regular" aria-hidden="true" />
                   </IconWell>
-                  <div>
+                  <div className="min-w-0">
                     <h2 className="font-inter text-xl font-semibold tracking-tight text-zinc-900">
                       Talk to us
                     </h2>
@@ -427,7 +423,7 @@ export default function ContactPageContent() {
                       </a>
                       <a
                         href="mailto:connect@burhanitechnologies.com"
-                        className={lightLink}
+                        className={`${lightLink} break-all`}
                       >
                         connect@burhanitechnologies.com
                       </a>

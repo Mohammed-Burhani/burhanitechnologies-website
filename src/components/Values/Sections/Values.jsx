@@ -10,7 +10,7 @@ const ValuesSection = () => {
       <div className="">
         <SecondaryHeading className="">Our Values</SecondaryHeading>
 
-        <Body className="">Here's what sets us apart from others...</Body>
+        <Body className="">Here&apos;s what sets us apart from others...</Body>
       </div>
 
       <dl className="mt-6 flex flex-wrap 2xl:flex-nowrap gap-4 items-center justify-center">

@@ -23,7 +23,7 @@ const secondary = [
 
 const ChooseTheWork = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-16 sxl:py-24">
+    <section id="choose-your-work" className="relative overflow-hidden bg-white">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-[0.35]"
@@ -43,20 +43,40 @@ const ChooseTheWork = () => {
           Choose the work you need to improve
         </h2>
 
-        {/* Asymmetric bento: the photo-led tile carries the third choice so the
-           grid reads as one composition, not three repeated bordered cards */}
         <div className="mt-10 grid grid-cols-1 gap-5 lg:mt-14 lg:grid-cols-2 lg:gap-6">
           <Link
             href="/services/application-development"
-            className="group relative flex min-h-[320px] flex-col justify-end overflow-hidden rounded-2xl lg:row-span-2"
+            className="group relative flex flex-col overflow-hidden rounded-2xl bg-[#14111d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#6F36D2]"
           >
-            <img
-              src="https://picsum.photos/seed/burhani-custom-build-review/900/1100"
-              alt=""
-              aria-hidden="true"
-              className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B10]/95 via-[#0B0B10]/50 to-transparent" />
+            <div
+              role="img"
+              aria-label="Conceptual illustration connecting records, rules, approvals and reporting"
+              className="border-b border-white/10 p-6 sm:p-8"
+            >
+              <div aria-hidden="true" className="mx-auto max-w-md">
+                <p className="text-xs font-medium uppercase tracking-[0.12em] text-[#C9B5EC]">
+                  Software around your process
+                </p>
+                <div className="mt-4 grid grid-cols-2 gap-3">
+                  {["Records", "Rules", "Approvals", "Reporting"].map((step, index) => (
+                    <div
+                      key={step}
+                      className="flex min-h-16 items-center gap-3 rounded-lg border border-[#514360] bg-[#201A2E] px-3 py-4 sm:px-4"
+                    >
+                      <span className="text-xs font-medium text-[#C9B5EC]">
+                        0{index + 1}
+                      </span>
+                      <span className="text-sm font-semibold text-white sm:text-base">
+                        {step}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                <p className="mt-4 text-xs leading-relaxed text-zinc-300">
+                  Conceptual workflow illustration
+                </p>
+              </div>
+            </div>
             <div className="relative flex flex-col gap-3 p-6 sm:p-8">
               <h3 className="text-xl font-semibold leading-snug text-white sm:text-2xl">
                 The software we have cannot handle what we do now
@@ -75,14 +95,14 @@ const ChooseTheWork = () => {
             </div>
           </Link>
 
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-1 lg:gap-6">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-1 lg:grid-rows-2 lg:gap-6">
             {secondary.map((choice) => {
               const Icon = choice.icon;
               return (
                 <Link
                   key={choice.href}
                   href={choice.href}
-                  className="group flex flex-col gap-3 rounded-2xl border-l-2 border-[#6F36D2]/30 bg-zinc-50 p-6 transition-colors duration-300 hover:border-[#6F36D2] hover:bg-[#6F36D2]/[0.04] sm:p-7"
+                  className="group flex flex-col gap-3 rounded-2xl border-l-2 border-[#6F36D2]/30 bg-zinc-50 p-6 transition-colors duration-300 hover:border-[#6F36D2] hover:bg-[#6F36D2]/[0.04] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#6F36D2] sm:p-7"
                 >
                   <Icon
                     size={22}
@@ -92,10 +112,10 @@ const ChooseTheWork = () => {
                   <h3 className="text-lg font-semibold leading-snug text-zinc-900">
                     {choice.heading}
                   </h3>
-                  <p className="text-sm leading-relaxed text-zinc-500">
+                  <p className="text-sm leading-relaxed text-zinc-600">
                     {choice.body}
                   </p>
-                  <span className="mt-auto inline-flex w-fit items-center gap-1.5 pt-1 text-sm font-medium text-zinc-400 transition-colors duration-200 group-hover:text-[#6F36D2]">
+                  <span className="mt-auto inline-flex w-fit items-center gap-1.5 pt-1 text-sm font-semibold text-[#6530BD] transition-colors duration-200 group-hover:text-[#4F219A]">
                     {choice.tag}
                     <ArrowUpRight
                       size={14}

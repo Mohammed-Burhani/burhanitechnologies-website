@@ -35,13 +35,13 @@ const gridItems = [
 
 const OperationalRecord = () => {
   return (
-    <section className="relative overflow-hidden border-t border-white/5 bg-[#0B0B10] py-16 sxl:py-24">
+    <section id="erp-scope" data-reveal className="relative overflow-hidden border-t border-white/5 bg-[#0B0B10] py-16 sxl:py-24">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -right-32 top-0 h-[420px] w-[420px] rounded-full bg-[#6F36D2]/[0.1] blur-[140px]"
       />
 
-      <Container className="relative">
+      <Container className="relative !py-0">
         <div className="max-w-2xl">
           <h2 className="text-2xl font-semibold leading-tight tracking-tight text-white sm:text-3xl lg:text-4xl">
             One operational record across departments

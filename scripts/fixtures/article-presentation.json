@@ -1,0 +1,1782 @@
+{
+  "cloud": [
+    {
+      "_key": "b0011",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0011_000",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Item"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b0012",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0012_000",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "What to write"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b0013",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0013_000",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Why the quote changes"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b0014",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0014_000",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Item"
+        },
+        {
+          "_key": "s0014_001",
+          "_type": "span",
+          "marks": [],
+          "text": ": "
+        },
+        {
+          "_key": "s0014_002",
+          "_type": "span",
+          "marks": [],
+          "text": "Route per application"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "b0015",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0015_000",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "What to write"
+        },
+        {
+          "_key": "s0015_001",
+          "_type": "span",
+          "marks": [],
+          "text": ": "
+        },
+        {
+          "_key": "s0015_002",
+          "_type": "span",
+          "marks": [],
+          "text": "Lift and shift, replatform or re-architecture, by application"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b0016",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0016_000",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Why the quote changes"
+        },
+        {
+          "_key": "s0016_001",
+          "_type": "span",
+          "marks": [],
+          "text": ": "
+        },
+        {
+          "_key": "s0016_002",
+          "_type": "span",
+          "marks": [],
+          "text": "Re-architecture adds design and test work"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b0017",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0017_000",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Item"
+        },
+        {
+          "_key": "s0017_001",
+          "_type": "span",
+          "marks": [],
+          "text": ": "
+        },
+        {
+          "_key": "s0017_002",
+          "_type": "span",
+          "marks": [],
+          "text": "Downtime window"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "b0018",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0018_000",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "What to write"
+        },
+        {
+          "_key": "s0018_001",
+          "_type": "span",
+          "marks": [],
+          "text": ": "
+        },
+        {
+          "_key": "s0018_002",
+          "_type": "span",
+          "marks": [],
+          "text": "Agreed hours per application"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b0019",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0019_000",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Why the quote changes"
+        },
+        {
+          "_key": "s0019_001",
+          "_type": "span",
+          "marks": [],
+          "text": ": "
+        },
+        {
+          "_key": "s0019_002",
+          "_type": "span",
+          "marks": [],
+          "text": "Shorter windows need a tighter cutover"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b0020",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0020_000",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Item"
+        },
+        {
+          "_key": "s0020_001",
+          "_type": "span",
+          "marks": [],
+          "text": ": "
+        },
+        {
+          "_key": "s0020_002",
+          "_type": "span",
+          "marks": [],
+          "text": "Data transfer"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "b0021",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0021_000",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "What to write"
+        },
+        {
+          "_key": "s0021_001",
+          "_type": "span",
+          "marks": [],
+          "text": ": "
+        },
+        {
+          "_key": "s0021_002",
+          "_type": "span",
+          "marks": [],
+          "text": "Volume, location and format of data to move"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b0022",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0022_000",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Why the quote changes"
+        },
+        {
+          "_key": "s0022_001",
+          "_type": "span",
+          "marks": [],
+          "text": ": "
+        },
+        {
+          "_key": "s0022_002",
+          "_type": "span",
+          "marks": [],
+          "text": "Volume sets transfer method and time"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b0023",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0023_000",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Item"
+        },
+        {
+          "_key": "s0023_001",
+          "_type": "span",
+          "marks": [],
+          "text": ": "
+        },
+        {
+          "_key": "s0023_002",
+          "_type": "span",
+          "marks": [],
+          "text": "Licence portability"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "b0024",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0024_000",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "What to write"
+        },
+        {
+          "_key": "s0024_001",
+          "_type": "span",
+          "marks": [],
+          "text": ": "
+        },
+        {
+          "_key": "s0024_002",
+          "_type": "span",
+          "marks": [],
+          "text": "Which licences allow cloud use"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b0025",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0025_000",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Why the quote changes"
+        },
+        {
+          "_key": "s0025_001",
+          "_type": "span",
+          "marks": [],
+          "text": ": "
+        },
+        {
+          "_key": "s0025_002",
+          "_type": "span",
+          "marks": [],
+          "text": "A licence that cannot move requires a purchase"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b0026",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0026_000",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Item"
+        },
+        {
+          "_key": "s0026_001",
+          "_type": "span",
+          "marks": [],
+          "text": ": "
+        },
+        {
+          "_key": "s0026_002",
+          "_type": "span",
+          "marks": [],
+          "text": "Rollback plan"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "b0027",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0027_000",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "What to write"
+        },
+        {
+          "_key": "s0027_001",
+          "_type": "span",
+          "marks": [],
+          "text": ": "
+        },
+        {
+          "_key": "s0027_002",
+          "_type": "span",
+          "marks": [],
+          "text": "The trigger and the route back"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b0028",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0028_000",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Why the quote changes"
+        },
+        {
+          "_key": "s0028_001",
+          "_type": "span",
+          "marks": [],
+          "text": ": "
+        },
+        {
+          "_key": "s0028_002",
+          "_type": "span",
+          "marks": [],
+          "text": "Rollback needs the old system kept running"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b0029",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0029_000",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Item"
+        },
+        {
+          "_key": "s0029_001",
+          "_type": "span",
+          "marks": [],
+          "text": ": "
+        },
+        {
+          "_key": "s0029_002",
+          "_type": "span",
+          "marks": [],
+          "text": "Re-architecture"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "b0030",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0030_000",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "What to write"
+        },
+        {
+          "_key": "s0030_001",
+          "_type": "span",
+          "marks": [],
+          "text": ": "
+        },
+        {
+          "_key": "s0030_002",
+          "_type": "span",
+          "marks": [],
+          "text": "Applications that must change to run"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b0031",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0031_000",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Why the quote changes"
+        },
+        {
+          "_key": "s0031_001",
+          "_type": "span",
+          "marks": [],
+          "text": ": "
+        },
+        {
+          "_key": "s0031_002",
+          "_type": "span",
+          "marks": [],
+          "text": "Each one is a separate piece of work"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b0032",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0032_000",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Item"
+        },
+        {
+          "_key": "s0032_001",
+          "_type": "span",
+          "marks": [],
+          "text": ": "
+        },
+        {
+          "_key": "s0032_002",
+          "_type": "span",
+          "marks": [],
+          "text": "Post-migration running cost"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "b0033",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0033_000",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "What to write"
+        },
+        {
+          "_key": "s0033_001",
+          "_type": "span",
+          "marks": [],
+          "text": ": "
+        },
+        {
+          "_key": "s0033_002",
+          "_type": "span",
+          "marks": [],
+          "text": "Expected monthly cost and who monitors it"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b0034",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0034_000",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Why the quote changes"
+        },
+        {
+          "_key": "s0034_001",
+          "_type": "span",
+          "marks": [],
+          "text": ": "
+        },
+        {
+          "_key": "s0034_002",
+          "_type": "span",
+          "marks": [],
+          "text": "Running cost outlasts the migration"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "modules": [
+    {
+      "_key": "ae9bdbab3c56",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ab8431299b96",
+          "_type": "span",
+          "marks": [],
+          "text": "Module: Sales and order management"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "a08656d70604",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1cb0940f4fbd",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Business function:"
+        },
+        {
+          "_key": "35f680df4706",
+          "_type": "span",
+          "marks": [],
+          "text": " Taking and confirming customer orders"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "41eb6579b430",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "1b25ea120aea",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Record it owns:"
+        },
+        {
+          "_key": "de6393bfc957",
+          "_type": "span",
+          "marks": [],
+          "text": " Customer order"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "93f17d22a791",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "c4fb7ccaa4ea",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Module that depends on it:"
+        },
+        {
+          "_key": "658fb7cb4394",
+          "_type": "span",
+          "marks": [],
+          "text": " Inventory for the stock check; production planning"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "f9f36e40fed2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b2ef599d5fbd",
+          "_type": "span",
+          "marks": [],
+          "text": "Module: Inventory"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "94b2025dc1ed",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a105f918bbd0",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Business function:"
+        },
+        {
+          "_key": "a7cabef8539e",
+          "_type": "span",
+          "marks": [],
+          "text": " Stock levels and movements"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "3f53e2dc2b54",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ffa2e4a2a224",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Record it owns:"
+        },
+        {
+          "_key": "67ec0d0e026b",
+          "_type": "span",
+          "marks": [],
+          "text": " Stock line and movement"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "7b9d2ce58d85",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e3d92d4d6b7b",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Module that depends on it:"
+        },
+        {
+          "_key": "4c46abcbe1ba",
+          "_type": "span",
+          "marks": [],
+          "text": " Procurement; production planning; dispatch"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "355d2544c6f8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "68ddd578530d",
+          "_type": "span",
+          "marks": [],
+          "text": "Module: Procurement"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "204e32a8f426",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "24e9305e393d",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Business function:"
+        },
+        {
+          "_key": "ce7d68174911",
+          "_type": "span",
+          "marks": [],
+          "text": " Buying materials"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "0c75fd695108",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e50431492c27",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Record it owns:"
+        },
+        {
+          "_key": "991f5805129c",
+          "_type": "span",
+          "marks": [],
+          "text": " Purchase order"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "79795c62d02b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "106e35f8d10b",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Module that depends on it:"
+        },
+        {
+          "_key": "0c83ff9fc6ea",
+          "_type": "span",
+          "marks": [],
+          "text": " Inventory for goods receipt; finance for payables"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "0fcfa95a1da6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "d21ef4ac83e6",
+          "_type": "span",
+          "marks": [],
+          "text": "Module: Production planning"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "94ef9304bc99",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e8c83044c289",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Business function:"
+        },
+        {
+          "_key": "a697c665b0fd",
+          "_type": "span",
+          "marks": [],
+          "text": " Scheduling production runs"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "7819f1e2b5a4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5648300a2630",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Record it owns:"
+        },
+        {
+          "_key": "23bb6e0d5bd3",
+          "_type": "span",
+          "marks": [],
+          "text": " Work order and bill of materials"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b1002be967c8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "87a4e2186905",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Module that depends on it:"
+        },
+        {
+          "_key": "8c792b6a37b1",
+          "_type": "span",
+          "marks": [],
+          "text": " Inventory for material issue; quality"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b70457ca8bfc",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3209d3ab8c99",
+          "_type": "span",
+          "marks": [],
+          "text": "Module: Quality assurance"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "2cc156424a11",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "19de2d78cbb6",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Business function:"
+        },
+        {
+          "_key": "1a6a4ab1b381",
+          "_type": "span",
+          "marks": [],
+          "text": " Inspection before dispatch"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "4a9421716439",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ae34a6536ba5",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Record it owns:"
+        },
+        {
+          "_key": "a0a49bd43c1d",
+          "_type": "span",
+          "marks": [],
+          "text": " Inspection result"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "f8842f84265a",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e3b1dcf72aa7",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Module that depends on it:"
+        },
+        {
+          "_key": "31431cebd2a1",
+          "_type": "span",
+          "marks": [],
+          "text": " Dispatch"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "accab8e24ea4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "fc562b42b355",
+          "_type": "span",
+          "marks": [],
+          "text": "Module: Dispatch"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "07dbaf4c14b0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "7121064dfddf",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Business function:"
+        },
+        {
+          "_key": "6acede2026a2",
+          "_type": "span",
+          "marks": [],
+          "text": " Moving finished goods out"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ab30d51b1f4c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "70d580c03039",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Record it owns:"
+        },
+        {
+          "_key": "9d63d1cc3545",
+          "_type": "span",
+          "marks": [],
+          "text": " Dispatch note"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a00647e5cb41",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "6dfb0f9226a6",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Module that depends on it:"
+        },
+        {
+          "_key": "91791e5286c0",
+          "_type": "span",
+          "marks": [],
+          "text": " Finance for the invoice"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "78e8a7192b76",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "e96a4ca84a59",
+          "_type": "span",
+          "marks": [],
+          "text": "Module: Finance"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "4412c1295f10",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0e2af764dca0",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Business function:"
+        },
+        {
+          "_key": "fc5ceedbd449",
+          "_type": "span",
+          "marks": [],
+          "text": " Ledger entries; receivables; payables"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "7c9be4a0f557",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "5e135ca7842f",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Record it owns:"
+        },
+        {
+          "_key": "8554be067e73",
+          "_type": "span",
+          "marks": [],
+          "text": " Ledger entry and invoice"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a12ada44455b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "17f0db06cff5",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Module that depends on it:"
+        },
+        {
+          "_key": "f5f0ebba4317",
+          "_type": "span",
+          "marks": [],
+          "text": " Management reporting"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "d395e2ee48f9",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "60782419171b",
+          "_type": "span",
+          "marks": [],
+          "text": "Module: HR"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "96c31aa0bffa",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "330e17542191",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Business function:"
+        },
+        {
+          "_key": "9de937c1226b",
+          "_type": "span",
+          "marks": [],
+          "text": " Employee records and payroll"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "a3eb5306e64c",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "553f750ce8fe",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Record it owns:"
+        },
+        {
+          "_key": "ca5382d3959f",
+          "_type": "span",
+          "marks": [],
+          "text": " Employee record"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "19cce02cc764",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "f2163c4db16d",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Module that depends on it:"
+        },
+        {
+          "_key": "443e2a45193f",
+          "_type": "span",
+          "marks": [],
+          "text": " Finance for payroll posting"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "cost": [
+    {
+      "_key": "601a0c951e04",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "bf9f826af35e",
+          "_type": "span",
+          "text": "The Four Things That Move the Estimate"
+        }
+      ],
+      "style": "h2"
+    },
+    {
+      "_key": "916f9a58aa2f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "18bd31955a92",
+          "_type": "span",
+          "text": "1. How much discovery the project needs before anything gets built. A five-screen internal tool needs a fraction of the discovery a system replacing three existing processes does. Discovery time isn't overhead; it's what prevents the mid-project rework that shows up when a decision gets made without it. Skipping this step doesn't remove the cost of finding out later; it just moves it and makes it bigger."
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "c09fbf0344e8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b9fc01d07402",
+          "_type": "span",
+          "text": "2. How the delivery is billed, and what happens when scope changes. Fixed price assumes the scope is locked before work starts, and works well when it genuinely is. Milestone payment adapts as scope gets confirmed stage by stage, which suits a project where some decisions can't reasonably be made up front. Either can work. What matters is knowing which one you're actually in, and what happens the moment scope shifts under it."
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "693aad2f9caa",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a701e07b5076",
+          "_type": "span",
+          "text": "3. What the system has to talk to. A standalone tool costs less to build than one syncing with an existing ERP, CRM, or payment system, because every integration adds its own testing surface and its own way to fail. A system with no integrations and a system with four don't belong in the same estimate, even if the number of screens looks similar on paper."
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "1f9905bf57cd",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ecc4c9379034",
+          "_type": "span",
+          "text": "4. What it costs to own after launch. Licence costs and a maintenance retainer after launch are often left out of the headline number entirely. A custom software development cost estimate that stops at launch day is only telling you about the smaller part of what you'll actually spend across the system's working life. Over a few years, ownership cost on an actively used system routinely adds up to more than the build itself did, which is exactly why it belongs in the conversation up front rather than as a surprise a year in."
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "8f6d6b9abf52",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4edaa5520158",
+          "_type": "span",
+          "text": "The Four Cost Drivers, Side by Side"
+        }
+      ],
+      "style": "h2"
+    }
+  ],
+  "azure": [
+    {
+      "_key": "80bf60206700",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "3a5ff5adb335",
+          "_type": "span",
+          "marks": [],
+          "text": "Off-the-shelf software rarely matches what every company actually needs. More and more, businesses want custom software built for them - and they want it fast, secure, and always getting better. That’s where "
+        },
+        {
+          "_key": "6773fa6f755c",
+          "_type": "span",
+          "marks": [
+            "ea9a60e89f30"
+          ],
+          "text": "DevOps"
+        },
+        {
+          "_key": "a5b453795db8",
+          "_type": "span",
+          "marks": [],
+          "text": " and the Azure Cloud come in.\n\nCustom software lines up with your real goals. Add "
+        },
+        {
+          "_key": "c2c57167e75a",
+          "_type": "span",
+          "marks": [
+            "951c3c832d54"
+          ],
+          "text": "DevOps"
+        },
+        {
+          "_key": "15ca0fc94fe0",
+          "_type": "span",
+          "marks": [],
+          "text": " to the mix, and suddenly your projects move faster, security gets tighter, and improvements just keep rolling in. Together, this setup lets businesses - from finance to healthcare - run their tech without the usual headaches.\n\n"
+        },
+        {
+          "_key": "04fbe9172f4b",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Custom Software Development - What’s the Big Deal?"
+        },
+        {
+          "_key": "1d97dc7baf8c",
+          "_type": "span",
+          "marks": [],
+          "text": "\n\nForget generic programs. Custom software is built just for your business, designed from day one to fit your team, your workflows, and your users.\n\nThe biggest win? It fits like a glove. You don’t have to bend your processes to fit some one-size-fits-all tool. Instead, the software adapts to you. That means less wasted time, higher productivity, and a smoother day-to-day.\n\n"
+        },
+        {
+          "_key": "83a8b08fbadd",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "There’s more, too:"
+        },
+        {
+          "_key": "cbfbd0a5e412",
+          "_type": "span",
+          "marks": [],
+          "text": "\n\n"
+        },
+        {
+          "_key": "8e8c8ecc06f0",
+          "_type": "span",
+          "marks": [
+            "underline"
+          ],
+          "text": "Scalability"
+        },
+        {
+          "_key": "6219cdbeda5e",
+          "_type": "span",
+          "marks": [],
+          "text": ": When your company grows, your software grows along with you. Need new features? Add them - no need to start from scratch.\n\n"
+        },
+        {
+          "_key": "5476a6aa7733",
+          "_type": "span",
+          "marks": [
+            "underline"
+          ],
+          "text": "Security"
+        },
+        {
+          "_key": "e0aa84f386ae",
+          "_type": "span",
+          "marks": [],
+          "text": ": Hackers love targeting widely used software. Custom solutions use unique controls and systems that are much tougher to crack.\n\n"
+        },
+        {
+          "_key": "79004f5bd2e1",
+          "_type": "span",
+          "marks": [
+            "underline"
+          ],
+          "text": "Integration"
+        },
+        {
+          "_key": "f47dabe19895",
+          "_type": "span",
+          "marks": [],
+          "text": ": Custom software brings all your tools together - ERP, CRM, cloud services - so data moves where it should. You cut out double entries and reduce errors.\n\n"
+        },
+        {
+          "_key": "8141f169f154",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Why DevOps Matters\n"
+        },
+        {
+          "_key": "9aa824b7bb88",
+          "_type": "span",
+          "marks": [],
+          "text": "\n"
+        },
+        {
+          "_key": "08ebe562a116",
+          "_type": "span",
+          "marks": [
+            "bd1548fc469e"
+          ],
+          "text": "Building software"
+        },
+        {
+          "_key": "f8c1d5c45e0e",
+          "_type": "span",
+          "marks": [],
+          "text": " is just step one. What really counts is how you launch it, keep it running, and make it better over time. "
+        },
+        {
+          "_key": "18e8c8345b48",
+          "_type": "span",
+          "marks": [
+            "c9c54b6c83bb"
+          ],
+          "text": "DevOps"
+        },
+        {
+          "_key": "faf350dd8157",
+          "_type": "span",
+          "marks": [],
+          "text": " is all about bringing development and operations together so teams can deliver faster with fewer mistakes.\n\nWith "
+        },
+        {
+          "_key": "c0ed0ac44142",
+          "_type": "span",
+          "marks": [
+            "f75d4f21263f"
+          ],
+          "text": "DevOps"
+        },
+        {
+          "_key": "1d8449134cf0",
+          "_type": "span",
+          "marks": [
+            "8fa6c0699bd6"
+          ],
+          "text": ","
+        },
+        {
+          "_key": "6472e7c0fe6f",
+          "_type": "span",
+          "marks": [],
+          "text": " teams automate the boring stuff, test constantly, and keep everything running safely. "
+        },
+        {
+          "_key": "87e50d1e29bd",
+          "_type": "span",
+          "marks": [
+            "c1dfa1a640f5"
+          ],
+          "text": "DevOps"
+        },
+        {
+          "_key": "fa79719461c9",
+          "_type": "span",
+          "marks": [],
+          "text": " consulting and ongoing support help us set up these systems - so your software stays reliable and secure, not just on day one, but every day.\n\n"
+        },
+        {
+          "_key": "b95c2c117fec",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Why Pick Azure Cloud?"
+        },
+        {
+          "_key": "ed20a0e7a6c4",
+          "_type": "span",
+          "marks": [],
+          "text": "\n\nCloud is the future, and Azure is one of the strongest platforms out there. It’s secure, scalable, and flexible - exactly what modern businesses want.\n\nPair "
+        },
+        {
+          "_key": "6857fb5178b8",
+          "_type": "span",
+          "marks": [
+            "f729faab15f7"
+          ],
+          "text": "DevOps"
+        },
+        {
+          "_key": "7e9f42489cd5",
+          "_type": "span",
+          "marks": [],
+          "text": " with Azure, and you get a full system for building, testing, and shipping software. Azure "
+        },
+        {
+          "_key": "313de9d6b7c2",
+          "_type": "span",
+          "marks": [
+            "1086d1f01a0c"
+          ],
+          "text": "DevOps"
+        },
+        {
+          "_key": "213ed25ed238",
+          "_type": "span",
+          "marks": [],
+          "text": " lets teams plan, code, test, and release - all in one place. Updates roll out faster, and routine jobs get automated.\n\nIf you’re in finance, healthcare, or any field with sensitive data, Azure’s security stands out. It encrypts everything, follows industry regulations, and keeps a close eye on your data.\n\n"
+        },
+        {
+          "_key": "84bc814ac1fe",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "How the Process Works at Burhani Technologies"
+        },
+        {
+          "_key": "938303d0a84e",
+          "_type": "span",
+          "marks": [],
+          "text": "\n\nEnd-to-end really means we handle everything. We start with your idea and keep going, through launch and beyond.\n\n"
+        },
+        {
+          "_key": "a71cea31f097",
+          "_type": "span",
+          "marks": [
+            "underline"
+          ],
+          "text": "Understand & Plan"
+        },
+        {
+          "_key": "235d6ca03426",
+          "_type": "span",
+          "marks": [],
+          "text": ": We dig into how your business works and set clear targets.\n\n"
+        },
+        {
+          "_key": "da4d2f01890b",
+          "_type": "span",
+          "marks": [
+            "underline"
+          ],
+          "text": "Design & Build"
+        },
+        {
+          "_key": "5cae96a8499d",
+          "_type": "span",
+          "marks": [],
+          "text": ": We sketch out a simple, user-friendly system and build it with scalable, clean code.\n\n"
+        },
+        {
+          "_key": "35abfd09bb9f",
+          "_type": "span",
+          "marks": [
+            "underline"
+          ],
+          "text": "DevOps & Deploy"
+        },
+        {
+          "_key": "37d402fd0703",
+          "_type": "span",
+          "marks": [],
+          "text": ": Automated testing checks everything works. With Azure "
+        },
+        {
+          "_key": "f7976ee8bb0c",
+          "_type": "span",
+          "marks": [
+            "f699cd4a28c5"
+          ],
+          "text": "DevOps"
+        },
+        {
+          "_key": "409bd8c3aa17",
+          "_type": "span",
+          "marks": [],
+          "text": ", updates roll out smoothly and often.\n\n"
+        },
+        {
+          "_key": "d8bef4a94e14",
+          "_type": "span",
+          "marks": [
+            "underline"
+          ],
+          "text": "Maintain & Support"
+        },
+        {
+          "_key": "13dee425f55a",
+          "_type": "span",
+          "marks": [],
+          "text": ": Our team keeps an eye on the system, handles updates, and makes sure everything stays fast, stable, and secure.\n\nBringing custom software, "
+        },
+        {
+          "_key": "a94dc682d5e7",
+          "_type": "span",
+          "marks": [
+            "34b83d0065ed"
+          ],
+          "text": "DevOps"
+        },
+        {
+          "_key": "555c46afda78",
+          "_type": "span",
+          "marks": [],
+          "text": ", and Azure Cloud together gives your business a digital backbone you can trust. You get faster delivery, fewer problems, and a better experience for your users.\n\nAt "
+        },
+        {
+          "_key": "f7dae577e1d4",
+          "_type": "span",
+          "marks": [
+            "7fdfd0914393"
+          ],
+          "text": "Burhani Technologies"
+        },
+        {
+          "_key": "7062a7e78b16",
+          "_type": "span",
+          "marks": [],
+          "text": ", we build custom software and set up Azure "
+        },
+        {
+          "_key": "9ec7ca92f4c2",
+          "_type": "span",
+          "marks": [
+            "536580674230"
+          ],
+          "text": "DevOps"
+        },
+        {
+          "_key": "ac49f97b3b99",
+          "_type": "span",
+          "marks": [],
+          "text": " so your business gets exactly what it needs - top-notch performance and a seamless user experience, every time."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "ea9a60e89f30",
+          "_type": "link",
+          "href": "https://burhanitechnologies.com/services/devops-and-maintenance"
+        },
+        {
+          "_key": "951c3c832d54",
+          "_type": "link",
+          "href": "https://burhanitechnologies.com/services/devops-and-maintenance"
+        },
+        {
+          "_key": "c9c54b6c83bb",
+          "_type": "link",
+          "href": "https://burhanitechnologies.com/services/devops-and-maintenance"
+        },
+        {
+          "_key": "f729faab15f7",
+          "_type": "link",
+          "href": "https://burhanitechnologies.com/services/devops-and-maintenance"
+        },
+        {
+          "_key": "8fa6c0699bd6",
+          "_type": "link",
+          "href": "https://burhanitechnologies.com/services/devops-and-maintenance"
+        },
+        {
+          "_key": "c1dfa1a640f5",
+          "_type": "link",
+          "href": "https://burhanitechnologies.com/services/devops-and-maintenance"
+        },
+        {
+          "_key": "1086d1f01a0c",
+          "_type": "link",
+          "href": "https://burhanitechnologies.com/services/devops-and-maintenance"
+        },
+        {
+          "_key": "f699cd4a28c5",
+          "_type": "link",
+          "href": "https://burhanitechnologies.com/services/devops-and-maintenance"
+        },
+        {
+          "_key": "536580674230",
+          "_type": "link",
+          "href": "https://burhanitechnologies.com/services/devops-and-maintenance"
+        },
+        {
+          "_key": "34b83d0065ed",
+          "_type": "link",
+          "href": "https://burhanitechnologies.com/services/devops-and-maintenance"
+        },
+        {
+          "_key": "f75d4f21263f",
+          "_type": "link",
+          "href": "https://burhanitechnologies.com/services/devops-and-maintenance"
+        },
+        {
+          "_key": "bd1548fc469e",
+          "_type": "link",
+          "href": "https://burhanitechnologies.com/services/application-development"
+        },
+        {
+          "_key": "7fdfd0914393",
+          "_type": "link",
+          "href": "https://burhanitechnologies.com/"
+        }
+      ],
+      "style": "normal"
+    }
+  ]
+}

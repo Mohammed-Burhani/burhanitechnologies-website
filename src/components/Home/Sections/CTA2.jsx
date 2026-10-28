@@ -23,7 +23,7 @@ export const CTA2 = () => {
             data-aos="fade-down"
             className="font-inter font-bold text-5xl text-white text-center max-w-screen-md leading-snug"
           >
-            Let's Build Something Different
+            Let&apos;s Build Something Different
           </h2>
           <Body
             className={"mt-4 max-w-4xl text-gray-300 !font-light text-center"}

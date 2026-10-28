@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="640" viewBox="0 0 800 640" fill="none">
+<rect width="800" height="640" rx="20" fill="#14111D"/>
+<defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" stroke="#30283E" stroke-opacity=".4"/></pattern><marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="4" orient="auto"><path d="m1 1 6 3-6 3" stroke="#B99AE6" stroke-width="1.5"/></marker></defs>
+<rect width="800" height="640" fill="url(#grid)"/>
+<g font-family="Arial,sans-serif"><text x="48" y="65" fill="#C8A9F3" font-size="17" letter-spacing="2">CONTENT MANAGEMENT</text><text x="48" y="108" fill="#F5F2FA" font-size="31" font-weight="600">From content to a published page</text>
+<g fill="#231B30" stroke="#655076"><rect x="48" y="166" width="312" height="158" rx="12"/><rect x="440" y="166" width="312" height="158" rx="12"/><rect x="440" y="382" width="312" height="158" rx="12"/><rect x="48" y="382" width="312" height="158" rx="12"/></g>
+<g fill="#C8A9F3" font-size="18"><text x="70" y="203">01</text><text x="462" y="203">02</text><text x="462" y="419">03</text><text x="70" y="419">04</text></g>
+<g fill="#FAF7FF" font-size="34" font-weight="600"><text x="70" y="260">Model content</text><text x="462" y="260">Build templates</text><text x="462" y="477">Review preview</text><text x="70" y="477">Publish</text></g>
+<g stroke="#B99AE6" stroke-width="2.5" marker-end="url(#arrow)"><path d="M370 245h58"/><path d="M596 336v34"/><path d="M430 461h-58"/></g>
+<path d="M48 576h704" stroke="#54405E"/><text x="48" y="608" fill="#C8BBD7" font-size="17">CONCEPTUAL CONTENT WORKFLOW</text></g></svg>

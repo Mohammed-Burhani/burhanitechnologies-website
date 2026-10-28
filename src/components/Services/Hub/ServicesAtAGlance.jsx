@@ -1,5 +1,3 @@
-"use client";
-
 import Container from "@/components/constants/Container";
 
 const stats = [
@@ -11,31 +9,25 @@ const stats = [
 
 const ServicesAtAGlance = () => {
   return (
-    <section className="relative overflow-hidden border-t border-zinc-200 bg-white py-16 lg:py-24">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-32 bottom-0 h-[380px] w-[380px] rounded-full bg-[#6F36D2]/[0.06] blur-[130px]"
-      />
-
-      <Container className="relative">
-        <h2 className="text-2xl font-semibold leading-tight tracking-tight text-zinc-900 sm:text-3xl lg:text-4xl">
+    <section id="service-facts" className="border-y border-[#E8E2F1] bg-[#FAF8FD] py-10 sm:py-12">
+      <Container className="!py-0">
+        <div className="grid gap-7 xl:grid-cols-[190px_minmax(0,1fr)] xl:items-center xl:gap-10">
+        <h2 className="text-2xl font-semibold leading-tight tracking-tight text-zinc-900">
           At a glance
         </h2>
-
-        <div className="mt-10 grid grid-cols-1 divide-y divide-zinc-200 border-t border-zinc-200 sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:mt-14 lg:grid-cols-4">
+        <dl className="grid grid-cols-2 gap-x-5 gap-y-7 sm:grid-cols-4 sm:gap-x-6">
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="flex flex-col gap-2 py-8 first:pt-0 sm:px-6 sm:py-0 sm:first:pl-0 lg:px-8"
+              className="flex flex-col gap-3 border-l-2 border-[#D9C7F0] pl-4 sm:pl-5"
             >
-              <span className="font-inter text-4xl font-bold tracking-tight text-[#6F36D2] sm:text-5xl">
-                {stat.value}
-              </span>
-              <span className="max-w-[22ch] text-sm leading-relaxed text-zinc-500 sm:text-base">
+              <dt className="min-h-9 max-w-[22ch] text-xs leading-relaxed text-zinc-600 sm:min-h-10 sm:text-sm">
                 {stat.label}
-              </span>
+              </dt>
+              <dd className="font-inter text-[1.75rem] font-semibold leading-none tracking-tight tabular-nums text-[#5C2A9F] sm:text-3xl">{stat.value}</dd>
             </div>
           ))}
+        </dl>
         </div>
       </Container>
     </section>

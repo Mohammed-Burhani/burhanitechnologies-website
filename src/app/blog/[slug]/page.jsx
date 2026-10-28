@@ -1,13 +1,18 @@
 import { notFound } from "next/navigation";
 import { client } from "@/sanity/lib/client";
-import { urlForImage } from "@/sanity/lib/image";
+import { getArticleArtwork } from "@/lib/articleArtwork";
 import { getBlog, getRelatedBlogs } from "@/sanity/utils/blogData";
+import { presentArticleBody } from "@/content/presentArticleBody";
 import BlogPageClient from "./BlogPageClient";
 
 export const revalidate = 60;
 
 const blogUrl = (slug) => `https://burhanitechnologies.com/blog/${slug}`;
 const serializeSchema = (schema) => JSON.stringify(schema).replace(/</g, "\\u003c");
+const articleArtwork = (blog) => {
+  const artwork = getArticleArtwork(blog);
+  return artwork ? { url: new URL(artwork.socialSrc || artwork.src, "https://burhanitechnologies.com").href, alt: artwork.alt } : null;
+};
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -16,8 +21,9 @@ export async function generateMetadata({ params }) {
 
   const url = blogUrl(blog.slug.current);
   const description = blog.excerpt || blog.title;
-  const image = urlForImage(blog.mainImage);
-  const images = image ? [{ url: image, alt: blog.mainImage?.alt || blog.title }] : [];
+  const artwork = articleArtwork(blog);
+  const image = artwork?.url;
+  const images = artwork ? [artwork] : [];
 
   return {
     title: `${blog.title} | Burhani Technologies Blog`,
@@ -56,7 +62,7 @@ export default async function BlogPost({ params }) {
 
   const relatedBlogs = await getRelatedBlogs(blog);
   const url = blogUrl(blog.slug.current);
-  const image = urlForImage(blog.mainImage);
+  const image = articleArtwork(blog)?.url;
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -107,7 +113,10 @@ export default async function BlogPost({ params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeSchema(breadcrumbSchema) }}
       />
-      <BlogPageClient blogDetails={blog} relatedBlogs={relatedBlogs} />
+      <BlogPageClient
+        blogDetails={{ ...blog, body: presentArticleBody(blog.body, blog.slug.current) }}
+        relatedBlogs={relatedBlogs}
+      />
     </>
   );
 }

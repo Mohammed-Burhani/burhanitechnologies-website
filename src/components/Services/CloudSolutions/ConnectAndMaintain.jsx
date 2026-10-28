@@ -10,29 +10,25 @@ const options = [
     heading: "DevOps & Maintenance",
     body: "Keep releases, monitoring and maintenance organised as your application evolves.",
     href: "/services/devops-and-maintenance",
-    seed: "burhani-devops-release-pipeline-monitor",
+    image: "devops",
   },
   {
     icon: PlugsConnected,
     heading: "Integration Services",
     body: "Keep records moving between Tally, SAP, Salesforce and your internal software.",
     href: "/services/integration-services",
-    seed: "burhani-integration-systems-connected",
+    image: "integration",
   },
 ];
 
 const ConnectAndMaintain = () => {
   return (
     <section className="relative overflow-hidden bg-white py-16 sxl:py-24">
-      <Container>
+      <Container className="!py-0">
         <h2 className="max-w-2xl text-2xl font-semibold leading-tight tracking-tight text-zinc-900 sm:text-3xl lg:text-4xl">
           Connect and maintain your cloud environment
         </h2>
 
-        {/* Two large photo panels side by side: with only two items, a
-           balanced half-and-half split reads better than a scaled-down
-           bento or a divided row, and stays distinct from the other
-           two-and-four-card treatments on sibling pillar pages */}
         <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:mt-14 lg:gap-6">
           {options.map((option) => {
             const Icon = option.icon;
@@ -40,16 +36,15 @@ const ConnectAndMaintain = () => {
               <Link
                 key={option.href}
                 href={option.href}
-                className="group relative flex min-h-[280px] flex-col justify-end overflow-hidden rounded-2xl"
+                className="group relative flex flex-col overflow-hidden rounded-2xl bg-[#14111d] outline-offset-4 transition-shadow duration-200 hover:shadow-[0_8px_24px_rgba(70,40,100,0.18)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#6F36D2]"
               >
                 <img
-                  src={`https://picsum.photos/seed/${option.seed}/900/700`}
-                  alt=""
-                  aria-hidden="true"
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                  src={`/illustrations/${option.image}.svg`}
+                  width="800" height="640" loading="lazy"
+                  alt={`Conceptual process illustration for ${option.heading}`}
+                  className="h-auto max-h-80 w-full object-contain"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B10]/95 via-[#0B0B10]/55 to-transparent" />
-                <div className="relative flex flex-col gap-3 p-6 sm:p-8">
+                <div className="relative flex flex-1 flex-col gap-3 p-6 sm:p-8">
                   <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10">
                     <Icon size={20} weight="bold" className="text-white" />
                   </div>
@@ -59,7 +54,7 @@ const ConnectAndMaintain = () => {
                   <p className="text-sm leading-relaxed text-zinc-300 sm:text-base">
                     {option.body}
                   </p>
-                  <span className="mt-1 inline-flex w-fit items-center gap-1.5 text-sm font-medium text-[#B79CE8] transition-colors duration-200 group-hover:text-white">
+                  <span className="mt-auto inline-flex w-fit items-center gap-1.5 pt-1 text-sm font-medium text-[#B79CE8] transition-colors duration-200 group-hover:text-white">
                     Explore
                     <ArrowUpRight
                       size={14}

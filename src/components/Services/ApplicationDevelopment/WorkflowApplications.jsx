@@ -34,13 +34,13 @@ const secondary = [
 
 const WorkflowApplications = () => {
   return (
-    <section className="relative overflow-hidden border-t border-white/5 bg-[#0B0B10] py-16 sxl:py-24">
+    <section data-reveal className="relative overflow-hidden border-t border-white/5 bg-[#0B0B10] py-16 sxl:py-24">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -right-32 top-0 h-[420px] w-[420px] rounded-full bg-[#6F36D2]/[0.1] blur-[140px]"
       />
 
-      <Container className="relative">
+      <Container className="relative !py-0">
         <div className="max-w-2xl">
           <h2 className="text-2xl font-semibold leading-tight tracking-tight text-white sm:text-3xl lg:text-4xl">
             Applications shaped around your workflow
@@ -58,14 +58,13 @@ const WorkflowApplications = () => {
            the remaining four sit in compact rows, so five items resolve
            into a 1 + 4 composition rather than five identical tiles */}
         <div className="mt-10 grid grid-cols-1 gap-5 lg:mt-14 lg:grid-cols-2 lg:gap-6">
-          <div className="relative flex min-h-[280px] flex-col justify-end overflow-hidden rounded-2xl lg:row-span-2">
-            <img
-              src="https://picsum.photos/seed/burhani-web-application-daily-ops/900/1000"
-              alt=""
-              aria-hidden="true"
-              className="absolute inset-0 h-full w-full object-cover"
+          <div className="relative flex flex-col overflow-hidden rounded-2xl bg-[#14111d]">
+            <img width="800" height="640"
+              src="/illustrations/application.svg"
+              alt="Conceptual illustration connecting records, rules, approvals and reporting"
+              loading="lazy"
+              className="h-auto max-h-80 w-full object-contain"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B10]/95 via-[#0B0B10]/45 to-transparent" />
             <div className="relative flex flex-col gap-3 p-6 sm:p-8">
               <Browser size={24} weight="bold" className="text-[#B79CE8]" />
               <h3 className="text-xl font-semibold leading-snug text-white sm:text-2xl">
@@ -79,7 +78,7 @@ const WorkflowApplications = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:gap-6">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-rows-2 lg:gap-6">
             {secondary.map((item) => {
               const Icon = item.icon;
               return (

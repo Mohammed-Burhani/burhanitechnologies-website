@@ -1,4 +1,5 @@
-import Script from "next/script";
+import { servicePages } from "@/content/servicePages";
+import RelatedBlogs from "@/components/Services/RelatedBlogs";
 import Hero from "@/components/Services/ApplicationDevelopment/Hero";
 import WhySwitch from "@/components/Services/ApplicationDevelopment/WhySwitch";
 import WorkflowApplications from "@/components/Services/ApplicationDevelopment/WorkflowApplications";
@@ -11,7 +12,7 @@ import CaseStudyFeature from "@/components/Services/ApplicationDevelopment/CaseS
 import FAQ from "@/components/Services/ApplicationDevelopment/FAQ";
 import { applicationDevelopmentFaqs } from "@/components/Services/ApplicationDevelopment/faqData";
 import CTA from "@/components/Services/ApplicationDevelopment/CTA";
-import { generateBreadcrumbSchema, generateFAQSchema } from "@/utils/schema";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/utils/schema";
 
 export const metadata = {
   title: "Custom Software Development Services | Burhani",
@@ -26,7 +27,7 @@ export const metadata = {
       "Burhani engineers develop custom software around your workflows, using AI assistance to expedite delivery, with design, integration and testing.",
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Custom Software Development Services | Burhani",
     description:
       "Burhani engineers develop custom software around your workflows, using AI assistance to expedite delivery, with design, integration and testing.",
@@ -49,22 +50,24 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   },
 ]);
 
+const approvedService = servicePages.find(page => page.slug === "application-development");
+const serviceSchema = generateServiceSchema({ title: approvedService.navLabel, slug: approvedService.slug, description: approvedService.metaDescription });
+
 const faqSchema = generateFAQSchema(applicationDevelopmentFaqs);
 
 const ApplicationDevelopmentPage = () => {
   return (
-    <>
-      <Script
+    <main id="main">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema).replace(/</g, "\\u003c") }} />
+      <script
         id="application-development-breadcrumb-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c") }}
       />
-      <Script
+      <script
         id="application-development-faq-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }}
       />
 
       <div>
@@ -78,9 +81,10 @@ const ApplicationDevelopmentPage = () => {
         <TechStack />
         <CaseStudyFeature />
         <FAQ />
+        <RelatedBlogs serviceSlug="application-development" />
         <CTA />
       </div>
-    </>
+    </main>
   );
 };
 
