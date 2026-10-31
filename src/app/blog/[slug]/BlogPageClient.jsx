@@ -25,6 +25,7 @@ import { formatPublicationDate } from "@/lib/publicationDate";
 import { getArticleServiceLinks } from "@/lib/serviceArticles";
 import { ArticleWorksheet } from "@/components/Blog/ArticleWorksheet";
 import { getArticleArtwork } from "@/lib/articleArtwork";
+import AiSummary from "@/components/Blog/BlogAISummary";
 
 // Local PortableText renderers, scoped to the article body only. This
 // project has no @tailwindcss/typography plugin installed, so the `prose`
@@ -506,6 +507,13 @@ const BlogPageClient = ({ blogDetails, relatedBlogs = [] }) => {
               </div>
             )}
 
+            <AiSummary
+              postId={blogDetails._id}
+              title={blogDetails.title}
+              body={blogDetails.body}
+              categories={blogDetails.categories}
+              relatedBlogs={relatedBlogs}
+            />
             <article className="font-inter max-w-none">
               {blogDetails.body ? (
                 <PortableText
