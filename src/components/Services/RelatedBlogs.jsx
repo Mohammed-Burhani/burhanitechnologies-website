@@ -40,8 +40,8 @@ const RelatedBlogs = async ({ serviceSlug }) => {
   }
 
   return (
-    <Container className="bg-gray-50 py-16">
-      <div className="max-w-6xl mx-auto">
+    <section className="bg-gray-50 py-16">
+      <Container>
         <div className="mb-8 flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
           <h2 className="font-inter text-captionLarge xl:text-mdcaptionLarge 4xl:text-lgcaptionLarge 7xl:mdtext-captionLarge leading-snug font-bold text-[#180030]">Related Blog Posts</h2>
           <Link
@@ -58,8 +58,8 @@ const RelatedBlogs = async ({ serviceSlug }) => {
             <BlogCard key={blog._id} blog={blog} />
           ))}
         </div>
-      </div>
-    </Container>
+      </Container>
+    </section>
   );
 };
 

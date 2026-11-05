@@ -38,6 +38,7 @@ export const SITE_PAGES = [
   service("business-process-automation-solutions", "Business process automation", "Automating approvals, handoffs and routine business processes"),
   service("workflow-automation", "Workflow automation", "Automating how work moves between people and systems"),
   service("robotic-process-automation-rpa", "Robotic process automation (RPA)", "Software robots that copy data and handle repetitive clicks"),
+  service("ai-agents-and-assistants", "AI agents and assistants", "Intelligent agents for knowledge retrieval and task execution"),
   service("custom-automation-tools", "Custom automation tools", "Tailor-made tools that remove manual work"),
   service("integration-services", "Integration services", "Connecting your apps, APIs and databases so data flows between them"),
   service("cloud-solutions", "Cloud solutions", "Moving to and running software in the cloud"),

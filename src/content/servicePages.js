@@ -514,9 +514,7 @@ export const servicePages = [
     },
     "children": [
       "robotic-process-automation-rpa",
-      "workflow-automation",
-      "custom-automation-tools",
-      "process-automation"
+      "ai-agents-and-assistants"
     ],
     "caseStudy": "digitalizing-the-end-to-end-loan-lifecycle",
     "decision": {
@@ -2756,6 +2754,129 @@ export const servicePages = [
         "type": "paragraph",
         "parts": [
           "Record completion, failure and the point at which human attention is required. Credentials, permissions and application changes need ongoing management for the automation to remain dependable."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "ai-agents-and-assistants",
+    "title": "AI agents and assistants for intelligent business workflows",
+    "navLabel": "AI Agents & Assistants",
+    "tier": "child",
+    "parent": "business-process-automation-solutions",
+    "order": 24,
+    "metaTitle": "AI Agents & Assistants Development | Burhani",
+    "metaDescription": "Build intelligent AI agents and assistants for knowledge retrieval, task execution, and decision support. Engineered with proper guardrails, validation and human oversight.",
+    "lede": "We build AI agents and intelligent assistants that extend your team's capabilities. From knowledge-based Q&A to task-executing agents, we engineer the AI capability around your requirements, data and guardrails.",
+    "heroStats": [
+      "Built with frontier and specialized models",
+      "Engineered with guardrails and validation",
+      "Human oversight where needed"
+    ],
+    "problems": [
+      {
+        "q": "Our team spends hours searching internal documents for information.",
+        "a": "A knowledge-based assistant can retrieve and synthesize information from your documentation, making expertise accessible to everyone who needs it."
+      },
+      {
+        "q": "We want to use AI but we cannot have it updating records without validation.",
+        "a": "Agents can be built with permission layers and confirmation steps, so updates are proposed rather than executed blindly."
+      }
+    ],
+    "approach": "We define the task, the information sources, the actions permitted and the validation steps required. Model selection follows the requirements rather than the other way round. Agents are tested against representative inputs, edge cases and failure scenarios before deployment.",
+    "scope": [
+      {
+        "title": "Knowledge retrieval assistants",
+        "body": "Query your documentation, technical specs or historical records and get answers grounded in your actual information."
+      },
+      {
+        "title": "Task-executing agents",
+        "body": "Agents that can perform permitted actions like scheduling, record updates or report generation, with validation checkpoints."
+      },
+      {
+        "title": "Decision support systems",
+        "body": "Present options, compare alternatives and highlight considerations based on your rules and historical decisions."
+      },
+      {
+        "title": "Multi-agent workflows",
+        "body": "Coordinated agents where one specializes in research, another in validation, and a third in execution."
+      },
+      {
+        "title": "Guardrails and oversight",
+        "body": "Permission boundaries, output validation, human confirmation steps and audit logs for every AI action."
+      }
+    ],
+    "faq": [
+      {
+        "q": "How do you decide which AI model to use?",
+        "a": "We compare candidate models on representative inputs from your work, measuring accuracy, response time and cost. Frontier models are one option for complex reasoning. Specialized or smaller models may fit simpler tasks better and run cheaper."
+      },
+      {
+        "q": "Can the AI agent update our production records?",
+        "a": "Only with the permissions and validation steps you define. Agents can propose changes for human approval, execute within bounded parameters, or require two-factor confirmation for critical updates. We design the guardrails alongside the capability."
+      },
+      {
+        "q": "What happens when the AI cannot answer or gets it wrong?",
+        "a": "The agent should acknowledge uncertainty rather than guess. We build confidence thresholds, fallback paths to human experts, and validation checks. Every response can be logged for review."
+      },
+      {
+        "q": "How do you keep the AI grounded in our actual information?",
+        "a": "We use retrieval-augmented generation (RAG) to pull from your designated knowledge base before generating responses. The agent cites sources, and you control which documents it can access."
+      },
+      {
+        "q": "Can we have multiple specialized agents working together?",
+        "a": "Yes. One agent retrieves information, another validates it, a third executes based on the result. Multi-agent systems can handle complex workflows where a single model would struggle with the full sequence."
+      }
+    ],
+    "schemaServiceType": "AI Agents and Assistants",
+    "editorial": {
+      "problems": "When information retrieval and routine decisions take too long",
+      "approach": "Engineer AI capabilities with proper boundaries",
+      "related": "Connect AI agents with your existing workflows",
+      "process": "From requirements to deployed agent",
+      "ctaHeading": "Define your first AI agent",
+      "ctaBody": "Bring the task, the information it needs and the actions it should take. We will assess model options, guardrails and validation steps."
+    },
+    "children": [],
+    "stackGroups": [],
+    "showEngagementModels": true,
+    "primaryCtaLabel": "Book a free consultation",
+    "body": [
+      {
+        "type": "heading",
+        "text": "Start with a defined task and clear boundaries"
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          "An effective AI agent knows what it can do, what information it can access, and when to ask for human input. We define the permitted actions, validation rules and escalation path before model selection."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          "Knowledge assistants retrieve from your designated sources. Task-executing agents operate within bounded permissions. Decision support presents options without forcing a choice. Match the agent design to the level of autonomy the task requires."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Test against edge cases and failure scenarios"
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          "Evaluate the agent on complete user tasks, including missing information, conflicting data and requests outside its scope. Those checks determine whether the agent is ready for wider deployment or needs tighter guardrails."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "parts": [
+          "For agents that need to execute actions across systems, ",
+          {
+            "label": "integration services",
+            "href": "/services/integration-services"
+          },
+          " connect the tools and records involved. Guardrails define which actions are permitted and which require confirmation."
         ]
       }
     ]

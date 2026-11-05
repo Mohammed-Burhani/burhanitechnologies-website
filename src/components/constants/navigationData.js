@@ -24,14 +24,12 @@ export const serviceNavigation = [
     ],
   },
   {
-    label: "Automation",
+    label: "AI and Automation",
     description: "Keep routine work moving.",
     links: [
       ["business-process-automation-solutions", "Business Process Automation"],
-      ["workflow-automation", "Workflow Automation"],
-      ["process-automation", "Process Automation"],
       ["robotic-process-automation-rpa", "Robotic Process Automation"],
-      ["custom-automation-tools", "Custom Automation Tools"],
+      ["ai-agents-and-assistants", "AI Agents & Assistants"],
     ],
   },
   {

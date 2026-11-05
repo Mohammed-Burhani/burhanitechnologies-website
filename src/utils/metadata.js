@@ -244,6 +244,20 @@ export const serviceMetadata = {
     ],
   },
   
+  "ai-agents-and-assistants": {
+    title: "AI Agents & Assistants Development | Intelligent Automation | Burhani Technologies",
+    description:
+      "Build intelligent AI agents and assistants for knowledge retrieval, task execution, and decision support. Engineered with guardrails, validation and human oversight.",
+    keywords: [
+      "AI agents",
+      "AI assistants",
+      "intelligent automation",
+      "knowledge retrieval",
+      "task automation",
+      "decision support systems",
+    ],
+  },
+  
   "integration-services": {
     title: "System Integration Services | API Development & Integration | Burhani Technologies",
     description:
