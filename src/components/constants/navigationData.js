@@ -14,7 +14,7 @@ export const serviceNavigation = [
     ],
   },
   {
-    label: "ERP & systems",
+    label: "ERP & Systems",
     description: "Connect teams, records and decisions.",
     links: [
       ["erp-implementation", "ERP Implementation"],
@@ -33,7 +33,7 @@ export const serviceNavigation = [
     ],
   },
   {
-    label: "Cloud & delivery",
+    label: "Cloud & Delivery",
     description: "Run, release and maintain your systems.",
     links: [
       ["cloud-solutions", "Cloud Solutions"],
