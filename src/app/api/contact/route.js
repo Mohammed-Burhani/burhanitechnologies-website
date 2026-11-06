@@ -92,18 +92,20 @@ export async function POST(request) {
     const serviceLabel = SERVICE_LABELS[service] ?? service;
 
     // Verify reCAPTCHA
-    const recaptchaResult = await verifyRecaptcha(recaptchaToken);
-    
-    if (!recaptchaResult.success || recaptchaResult.score < 0.5) {
-      return NextResponse.json(
-        { error: "reCAPTCHA verification failed. Please try again." },
-        { status: 400 }
-      );
+    if (recaptchaToken) {
+      const recaptchaResult = await verifyRecaptcha(recaptchaToken);
+      
+      if (!recaptchaResult.success || recaptchaResult.score < 0.5) {
+        return NextResponse.json(
+          { error: "reCAPTCHA verification failed. Please try again." },
+          { status: 400 }
+        );
+      }
     }
 
     // Prepare attachments array for nodemailer
     const attachments = [];
-    if (attachment && attachment.size > 0) {
+    if (attachment && typeof attachment === 'object' && attachment.size > 0) {
       const buffer = Buffer.from(await attachment.arrayBuffer());
       attachments.push({
         filename: attachment.name,
@@ -132,7 +134,7 @@ Role in project: ${role || "-"}
 Systems already running: ${systems || "-"}
 Expected timeline: ${timing || "-"}
 
-${attachment ? `Attachment: ${attachment.name}` : ""}
+${attachment && typeof attachment === 'object' && attachment.name ? `Attachment: ${attachment.name}` : "No attachment"}
       `,
       attachments,
     };

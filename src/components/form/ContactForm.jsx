@@ -110,22 +110,19 @@ function ContactForm() {
     setSubmitStatus(null);
 
     try {
-      if (!executeRecaptcha) {
-        toast({
-          title: "reCAPTCHA not ready",
-          description: "Please wait a moment and try again.",
-          variant: "destructive",
-        });
-        return;
+      let recaptchaToken = "";
+      
+      if (executeRecaptcha) {
+        recaptchaToken = await executeRecaptcha("contact_form");
       }
-
-      const recaptchaToken = await executeRecaptcha("contact_form");
 
       const formData = new FormData();
       Object.keys(values).forEach((key) => {
-        if (key === "attachment" && values[key]) {
-          formData.append("attachment", values[key]);
-        } else {
+        if (key === "attachment") {
+          if (values[key]) {
+            formData.append("attachment", values[key]);
+          }
+        } else if (values[key]) {
           formData.append(key, values[key]);
         }
       });
@@ -451,7 +448,7 @@ function ContactForm() {
             <div className="mt-2 flex flex-col gap-4">
               <button
                 type="submit"
-                disabled={isSubmitting || !executeRecaptcha}
+                disabled={isSubmitting}
                 className={`group inline-flex w-fit items-center gap-4 rounded-full bg-[#6F36D2] py-2 pl-6 pr-2 font-inter text-base font-medium text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] transition duration-500 ${EASE_CLASS} hover:bg-[#7C43E0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6F36D2] focus-visible:ring-offset-2 focus-visible:ring-offset-white active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50`}
               >
                 <span>{isSubmitting ? "Sending" : "Discuss my project"}</span>
