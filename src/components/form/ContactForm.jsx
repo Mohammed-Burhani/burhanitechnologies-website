@@ -34,12 +34,16 @@ const validationSchema = Yup.object({
   service: Yup.string().required("Please select a service"),
   problem: Yup.string().trim(),
   attachment: Yup.mixed()
+    .nullable()
+    .notRequired()
     .test("fileSize", "File must be less than 10MB", (value) => {
-      if (!value) return true;
+      if (!value || value === null) return true;
+      if (!(value instanceof File)) return true;
       return value.size <= 10 * 1024 * 1024;
     })
     .test("fileType", "Only PDF and image files allowed", (value) => {
-      if (!value) return true;
+      if (!value || value === null) return true;
+      if (!(value instanceof File)) return true;
       return ["application/pdf", "image/jpeg", "image/jpg", "image/png", "image/webp"].includes(value.type);
     }),
   name: Yup.string().trim().required("Name is required"),
@@ -119,14 +123,17 @@ function ContactForm() {
       const formData = new FormData();
       Object.keys(values).forEach((key) => {
         if (key === "attachment") {
-          if (values[key]) {
+          // Only append if file exists
+          if (values[key] && values[key] instanceof File) {
             formData.append("attachment", values[key]);
           }
-        } else if (values[key]) {
+        } else if (key !== "botField" && values[key] !== null && values[key] !== undefined && values[key] !== "") {
           formData.append(key, values[key]);
         }
       });
-      formData.append("recaptchaToken", recaptchaToken);
+      if (recaptchaToken) {
+        formData.append("recaptchaToken", recaptchaToken);
+      }
 
       const response = await fetch("/api/contact", {
         method: "POST",
