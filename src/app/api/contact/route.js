@@ -63,28 +63,26 @@ function escapeHtml(value) {
 
 export async function POST(request) {
   try {
-    const formData = await request.json();
-    const {
-      service,
-      problem,
-      outcome,
-      name,
-      email,
-      company,
-      phone,
-      role,
-      systems,
-      timing,
-      botField,
-      recaptchaToken,
-    } = formData;
+    const formData = await request.formData();
+    const service = formData.get("service");
+    const problem = formData.get("problem");
+    const attachment = formData.get("attachment");
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const company = formData.get("company");
+    const phone = formData.get("phone");
+    const role = formData.get("role");
+    const systems = formData.get("systems");
+    const timing = formData.get("timing");
+    const botField = formData.get("botField");
+    const recaptchaToken = formData.get("recaptchaToken");
 
     // Honeypot: bots fill the hidden field. Pretend success and send nothing.
     if (botField) {
       return NextResponse.json({ success: true }, { status: 200 });
     }
 
-    if (!service || !problem || !outcome || !name || !email || !company || !phone) {
+    if (!service || !name || !email || !company || !phone) {
       return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 },
@@ -103,20 +101,27 @@ export async function POST(request) {
       );
     }
 
+    // Prepare attachments array for nodemailer
+    const attachments = [];
+    if (attachment && attachment.size > 0) {
+      const buffer = Buffer.from(await attachment.arrayBuffer());
+      attachments.push({
+        filename: attachment.name,
+        content: buffer,
+      });
+    }
+
     // Email to admin
     const mailOptions = {
-      from: process.env.SMTP_USER,
-      to: process.env.SMTP_USER,
+      from: `"Website Enquiry" <${process.env.SMTP_USER}>`,
+      to: process.env.ADMIN_EMAIL || process.env.SMTP_USER,
       subject: "New Business Inquiry Form Submission",
       replyTo: email,
       text: `
 Service: ${serviceLabel}
 
 Business problem:
-${problem}
-
-Useful result:
-${outcome}
+${problem || "-"}
 
 Name: ${name}
 Work email: ${email}
@@ -126,12 +131,15 @@ Phone or WhatsApp: ${phone}
 Role in project: ${role || "-"}
 Systems already running: ${systems || "-"}
 Expected timeline: ${timing || "-"}
+
+${attachment ? `Attachment: ${attachment.name}` : ""}
       `,
+      attachments,
     };
 
     // Confirmation email to the client
     const mailOptionsToClient = {
-      from: process.env.SMTP_USER,
+      from: `"Burhani Technologies" <${process.env.SMTP_USER}>`,
       to: email,
       subject: "Thank You for Your Business Inquiry",
       text: `Dear ${name},

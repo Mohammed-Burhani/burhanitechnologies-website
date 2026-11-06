@@ -190,9 +190,8 @@ export default function ContactPageContent() {
 
               <Reveal delay={0.16}>
                 <p className="mt-5 max-w-2xl font-inter text-base leading-relaxed text-zinc-300">
-                  Tell us what needs to work better, the result you want and the
-                  service you need. We can then discuss an approach that fits
-                  your business.
+                  Share requirement details or attach document (PDF/image). Select
+                  service and tell us about your business needs.
                 </p>
               </Reveal>
             </div>
@@ -226,8 +225,8 @@ export default function ContactPageContent() {
                       Start with your business requirement
                     </h2>
                     <p className="mt-3 font-inter text-base leading-relaxed text-zinc-600">
-                      This form is for business projects. Share the problem and
-                      the outcome you are looking for.
+                      This form is for business projects. Share your requirements
+                      or attach a document describing the problem.
                     </p>
                     <p className="mt-3 font-inter text-base leading-relaxed text-zinc-600">
                       Looking for a role?{" "}

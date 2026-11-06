@@ -8,8 +8,10 @@ import {
   CaretDown,
   CheckCircle,
   CircleNotch,
+  Paperclip,
   Plus,
   WarningCircle,
+  X,
 } from "@phosphor-icons/react";
 
 import { useToast } from "@/hooks/use-toast";
@@ -30,8 +32,16 @@ const services = [
 
 const validationSchema = Yup.object({
   service: Yup.string().required("Please select a service"),
-  problem: Yup.string().trim().required("Please describe the business problem"),
-  outcome: Yup.string().trim().required("Please describe a useful result"),
+  problem: Yup.string().trim(),
+  attachment: Yup.mixed()
+    .test("fileSize", "File must be less than 10MB", (value) => {
+      if (!value) return true;
+      return value.size <= 10 * 1024 * 1024;
+    })
+    .test("fileType", "Only PDF and image files allowed", (value) => {
+      if (!value) return true;
+      return ["application/pdf", "image/jpeg", "image/jpg", "image/png", "image/webp"].includes(value.type);
+    }),
   name: Yup.string().trim().required("Name is required"),
   email: Yup.string()
     .email("Invalid email address")
@@ -49,7 +59,7 @@ const validationSchema = Yup.object({
 const initialValues = {
   service: "",
   problem: "",
-  outcome: "",
+  attachment: null,
   name: "",
   email: "",
   company: "",
@@ -94,6 +104,7 @@ function ContactForm() {
   const { toast } = useToast();
   const { executeRecaptcha } = useGoogleReCaptcha();
   const [submitStatus, setSubmitStatus] = React.useState(null);
+  const fileInputRef = React.useRef(null);
 
   const handleSubmit = async (values, { resetForm, setSubmitting }) => {
     setSubmitStatus(null);
@@ -110,10 +121,19 @@ function ContactForm() {
 
       const recaptchaToken = await executeRecaptcha("contact_form");
 
+      const formData = new FormData();
+      Object.keys(values).forEach((key) => {
+        if (key === "attachment" && values[key]) {
+          formData.append("attachment", values[key]);
+        } else {
+          formData.append(key, values[key]);
+        }
+      });
+      formData.append("recaptchaToken", recaptchaToken);
+
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...values, recaptchaToken }),
+        body: formData,
       });
 
       const data = await response.json();
@@ -129,6 +149,9 @@ function ContactForm() {
           description: "We'll get back to you soon.",
         });
         resetForm();
+        if (fileInputRef.current) {
+          fileInputRef.current.value = "";
+        }
       } else {
         setSubmitStatus({
           type: "error",
@@ -164,11 +187,11 @@ function ContactForm() {
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
-      {({ errors, touched, values, isSubmitting }) => {
+      {({ errors, touched, values, isSubmitting, setFieldValue }) => {
         const cls = (name, extra = "") =>
           `${fieldBase} ${errors[name] && touched[name] ? fieldBad : fieldOk} ${extra}`;
-        const accessibility = (name) => ({
-          required: true,
+        const accessibility = (name, required = true) => ({
+          required,
           "aria-invalid": Boolean(errors[name] && touched[name]),
           "aria-describedby": errors[name] && touched[name] ? `${name}-error` : undefined,
         });
@@ -250,15 +273,15 @@ function ContactForm() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label htmlFor="problem" className={labelClass}>
-                What business problem are you trying to solve? <Required />
+              <label htmlFor="problem" className={optionalLabelClass}>
+                What business problem are you trying to solve?
               </label>
               <Field
                 as="textarea"
                 id="problem"
                 name="problem"
                 rows={4}
-                {...accessibility("problem")}
+                {...accessibility("problem", false)}
                 placeholder="Describe what happens today, who it affects and what is slowing the work down."
                 className={cls("problem", "resize-y")}
               />
@@ -266,19 +289,52 @@ function ContactForm() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label htmlFor="outcome" className={labelClass}>
-                What would a useful result look like? <Required />
+              <label htmlFor="attachment" className={optionalLabelClass}>
+                Attach your requirement (PDF or Image)
               </label>
-              <Field
-                as="textarea"
-                id="outcome"
-                name="outcome"
-                rows={4}
-                {...accessibility("outcome")}
-                placeholder="For example: customers can order online and your team can track each order without re-entering it."
-                className={cls("outcome", "resize-y")}
-              />
-              <FieldError name="outcome" />
+              <div className="relative">
+                <input
+                  ref={fileInputRef}
+                  id="attachment"
+                  name="attachment"
+                  type="file"
+                  accept=".pdf,.jpg,.jpeg,.png,.webp"
+                  onChange={(event) => {
+                    const file = event.currentTarget.files?.[0] || null;
+                    setFieldValue("attachment", file);
+                  }}
+                  className="hidden"
+                />
+                <button
+                  type="button"
+                  onClick={() => fileInputRef.current?.click()}
+                  className={`${cls("attachment", "text-left")} flex items-center gap-3`}
+                >
+                  <Paperclip size={20} weight="regular" className="text-zinc-500" aria-hidden="true" />
+                  <span className={values.attachment ? "text-zinc-900" : "text-zinc-500"}>
+                    {values.attachment ? values.attachment.name : "Choose file (Max 10MB)"}
+                  </span>
+                </button>
+                {values.attachment && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setFieldValue("attachment", null);
+                      if (fileInputRef.current) {
+                        fileInputRef.current.value = "";
+                      }
+                    }}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full p-1 text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900"
+                    aria-label="Remove file"
+                  >
+                    <X size={16} weight="bold" aria-hidden="true" />
+                  </button>
+                )}
+              </div>
+              <FieldError name="attachment" />
+              <p className="font-inter text-xs text-zinc-500">
+                PDF, JPG, PNG, or WebP up to 10MB
+              </p>
             </div>
 
             <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
