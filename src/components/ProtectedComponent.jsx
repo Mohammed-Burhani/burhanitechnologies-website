@@ -3,7 +3,9 @@ import Navbar from "./constants/Navbar";
 import { GoToTop } from "./constants/GoToTop";
 import { WhatsAppFAB } from "./constants/WhatsAppFAB";
 import { Footer } from "./constants/Footer";
-import ChatBot from "./ChatBot";
+import dynamic from "next/dynamic";
+
+const Assistant = dynamic(() => import("./Assistant/Assistant"), { ssr: false });
 import Script from "next/script";
 import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 import { Toaster } from "@/components/ui/toaster";
@@ -16,6 +18,7 @@ const ProtectedComponent = ({ children }) => {
       <Navbar />
       <ScrollReveal />
       <WhatsAppFAB />
+      <Assistant />
       <GoToTop />
       <div id="site-content" tabIndex={-1}>{children}</div>
       <ProgressBar

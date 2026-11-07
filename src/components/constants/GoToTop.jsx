@@ -18,7 +18,7 @@ export const GoToTop = () => {
 
   return (
     <div
-      className={`${isScrolled ? "hidden sm:fixed sm:block" : "hidden"} bottom-24 right-7 z-40`}
+      className={`${isScrolled ? "hidden sm:fixed sm:block" : "hidden"} bottom-[172px] right-7 z-40`}
     >
       <a
         className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#6F36D2] text-white shadow transition hover:bg-[#5C27BB] sm:h-12 sm:w-12"
