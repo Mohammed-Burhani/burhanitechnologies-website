@@ -53,7 +53,7 @@ export default function Assistant() {
       .then((k) => {
         knowledge.current = k;
       })
-      .catch(() => {}) // no knowledge: Baybot still answers and points to the team
+      .catch(() => {}) // no knowledge: the assistant still answers and points to the team
       .finally(() => setSync("ready"));
   }, [open, sync]);
 
@@ -179,7 +179,7 @@ export default function Assistant() {
               onClick={() => setOpen(true)}
               className="py-1.5 pr-2 text-left hover:text-white"
             >
-              Ask {ASSISTANT_NAME} about Bay53
+              Ask {ASSISTANT_NAME} about our work
             </button>
             <button
               type="button"
@@ -263,7 +263,7 @@ export default function Assistant() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   disabled={sync !== "ready"}
-                  placeholder={sync === "ready" ? "Ask about our work or Bay53" : "Getting ready"}
+                  placeholder={sync === "ready" ? "Ask about our work or services" : "Getting ready"}
                   autoComplete="off"
                   maxLength={400}
                   className="min-w-0 flex-1 bg-transparent text-[15px] text-zinc-50 outline-none focus-visible:!outline-none placeholder:text-zinc-400 disabled:cursor-not-allowed"
@@ -300,7 +300,7 @@ function Header({ onReset, onClose, canReset }) {
       </div>
       <div className="min-w-0 flex-1">
         <h2 className="text-base font-semibold leading-tight text-white">{ASSISTANT_NAME}</h2>
-        <p className="truncate text-xs text-zinc-400">Bay53 guide from Burhani Technologies</p>
+        <p className="truncate text-xs text-zinc-400">Website assistant from Burhani Technologies</p>
       </div>
       <button
         type="button"
@@ -344,7 +344,7 @@ function Welcome({ onPick, disabled }) {
         Ask {ASSISTANT_NAME} about our work.
       </h3>
       <p className="mt-2 max-w-[34ch] text-[15px] leading-relaxed text-zinc-300">
-        Projects we have shipped, how Bay53 fits, and what a build looks like.
+        Projects we have shipped, the services we offer, and what a build looks like.
       </p>
       <div className="mt-5 flex flex-wrap gap-2">
         {SUGGESTED_PROMPTS.map((p) => {
