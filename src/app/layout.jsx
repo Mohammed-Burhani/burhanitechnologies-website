@@ -1,8 +1,7 @@
 import { Lora } from "next/font/google";
 import "./globals.css";
 import ProtectedComponent from "@/components/ProtectedComponent";
-import ConsentLinkGuard from "@/components/ConsentLinkGuard";
-import Script from "next/script";
+import ConsentManager from "@/components/Consent/ConsentManager";
 import {
   organizationSchema,
   websiteSchema,
@@ -85,14 +84,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        {/* Cookiebot Consent Banner - must be first script in head */}
-        <Script
-          id="Cookiebot"
-          src="https://consent.cookiebot.com/uc.js"
-          data-cbid="9f18f071-2c32-4567-a894-d530d7e5c1cb"
-          data-blockingmode="auto"
-          strategy="beforeInteractive"
-        />
         {/* Organization Schema */}
         <script
           id="organization-schema"
@@ -117,37 +108,12 @@ export default function RootLayout({ children }) {
             __html: JSON.stringify(localBusinessSchema).replace(/</g, "\\u003c"),
           }}
         />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-3B1EB1YBXX');
-          `}
-        </Script>
       </head>
       <body className={`${lora.variable} font-sans antialiased bg-black`}>
-        <ConsentLinkGuard />
+        {/* First in the DOM so keyboard users reach the consent choices immediately.
+            Google Analytics and Marketing Manager load only after consent (see Consent/Trackers). */}
+        <ConsentManager />
         <ProtectedComponent>{children}</ProtectedComponent>
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-3B1EB1YBXX"
-          strategy="afterInteractive"
-        />
-        {/* Marketing Manager Tracking Code Start */}
-        <Script id="marketing-manager-tracking" strategy="afterInteractive">
-          {`!function () { var e, t; e = document.createElement("script"), e.type = "text/javascript",e.async = !0, e.defer = !0, e.src ="https://mkmpages.burhanitechnologies.com/6666?isnew=1&pdn=mkmpages.burhanitechnologies.com&v=" + String((new Date).getMonth() + 1) + String((new Date).getFullYear()) +String(Math.round(parseInt((new Date).getDate() / 7), 0) + 1) +"&encsid=71DEnjHXXHQ,&enccid=xGvuWINf1Fg,&wsid=NzM0&dHJhY2tpbmdVcmw=2PtuCvDuCGT5LwTmxa5wjl35YCAFpwehX6VzxWewIgs,", t =document.getElementsByTagName("head")[0], t.appendChild(e, t) }();`}
-        </Script>
-        <noscript>
-          <p>
-            <img
-              src="https://mkmpages.burhanitechnologies.com/7777?idsite=734"
-              style={{ border: 0 }}
-              alt=""
-            />
-          </p>
-        </noscript>
-        {/* Marketing Manager Tracking Code End */}
       </body>
     </html>
   );

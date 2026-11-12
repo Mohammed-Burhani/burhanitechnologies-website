@@ -1,17 +1,35 @@
 "use client";
 
 import { useEffect } from "react";
-import { removeUnconfiguredDsrLink } from "@/lib/cookiebotLinks";
+import Script from "next/script";
 
-export default function ConsentLinkGuard() {
-  useEffect(() => {
-    const guard = () => removeUnconfiguredDsrLink(document);
-    const events = ["CookiebotOnDialogDisplay", "CookiebotOnLoad"];
-    guard();
-    events.forEach((event) => window.addEventListener(event, guard));
-    return () => events.forEach((event) => window.removeEventListener(event, guard));
-  }, []);
+/*
+ * Third-party trackers. Each one is mounted only while its consent category is
+ * granted, so nothing here is fetched or executed before the visitor opts in.
+ */
 
+const GA_ID = "G-3B1EB1YBXX";
+
+export function AnalyticsTracker() {
+  return (
+    <>
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GA_ID}');
+        `}
+      </Script>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+        strategy="afterInteractive"
+      />
+    </>
+  );
+}
+
+export function MarketingTracker() {
   useEffect(() => {
     const titleMarketingFrame = (element) => {
       if (!element.matches("iframe#mrktFrame__") || element.getAttribute("title")?.trim()) return;
@@ -50,5 +68,9 @@ export default function ConsentLinkGuard() {
     return () => observer.disconnect();
   }, []);
 
-  return null;
+  return (
+    <Script id="marketing-manager-tracking" strategy="afterInteractive">
+      {`!function () { var e, t; e = document.createElement("script"), e.type = "text/javascript",e.async = !0, e.defer = !0, e.src ="https://mkmpages.burhanitechnologies.com/6666?isnew=1&pdn=mkmpages.burhanitechnologies.com&v=" + String((new Date).getMonth() + 1) + String((new Date).getFullYear()) +String(Math.round(parseInt((new Date).getDate() / 7), 0) + 1) +"&encsid=71DEnjHXXHQ,&enccid=xGvuWINf1Fg,&wsid=NzM0&dHJhY2tpbmdVcmw=2PtuCvDuCGT5LwTmxa5wjl35YCAFpwehX6VzxWewIgs,", t =document.getElementsByTagName("head")[0], t.appendChild(e, t) }();`}
+    </Script>
+  );
 }

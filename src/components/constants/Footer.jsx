@@ -5,6 +5,7 @@ import { Body } from "../textComponents/Body";
 import Container from "./Container";
 import moment from "moment";
 import { SmallBody } from "../textComponents/SmallBody";
+import CookieSettingsButton from "../Consent/CookieSettingsButton";
 
 export const Footer = () => {
   return (
@@ -96,7 +97,7 @@ export const Footer = () => {
         </div>
 
         <div className="mt-10 flex flex-wrap items-center justify-between gap-6 border-t border-gray-700 py-7">
-          <nav aria-label="Legal and page controls" className="flex flex-wrap gap-6 text-sm text-zinc-300"><Link href="/privacy-policy" className="hover:text-white">Privacy policy</Link><Link href="/terms-of-service" className="hover:text-white">Terms of service</Link><a href="#site-top" className="hover:text-white">Back to top</a></nav>
+          <nav aria-label="Legal and page controls" className="flex flex-wrap gap-6 text-sm text-zinc-300"><Link href="/privacy-policy" className="hover:text-white">Privacy policy</Link><Link href="/terms-of-service" className="hover:text-white">Terms of service</Link><CookieSettingsButton className="hover:text-white" /><a href="#site-top" className="hover:text-white">Back to top</a></nav>
           <Body className="text-center text-sm text-white lg:text-right">
             Copyright &copy; {moment().format("YYYY")}. All rights reserved.
           </Body>
