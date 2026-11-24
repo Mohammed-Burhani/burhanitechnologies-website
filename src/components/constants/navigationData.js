@@ -48,7 +48,6 @@ export const serviceNavigation = [
 export const companyNavigation = [
   { href: "/about", label: "About Burhani", description: "Our approach to business software" },
   { href: "/why-choose-us", label: "Why work with us", description: "How we approach your requirements" },
-  { href: "/leadership", label: "Leadership", description: "Meet the people behind the work" },
   { href: "/values", label: "Our values", description: "The principles behind our decisions" },
 ];
 

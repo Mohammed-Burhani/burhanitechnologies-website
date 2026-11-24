@@ -103,13 +103,6 @@ export const Differentiators = () => {
               className="font-medium text-[#6F36D2] underline decoration-[#6F36D2]/30 underline-offset-2 transition-colors duration-200 hover:text-[#4f2496] hover:decoration-[#4f2496]"
             >
               Burhani
-            </Link>{" "}
-            and meet our{" "}
-            <Link
-              href="/leadership"
-              className="font-medium text-[#6F36D2] underline decoration-[#6F36D2]/30 underline-offset-2 transition-colors duration-200 hover:text-[#4f2496] hover:decoration-[#4f2496]"
-            >
-              leadership and technical team
             </Link>
             .
           </p>

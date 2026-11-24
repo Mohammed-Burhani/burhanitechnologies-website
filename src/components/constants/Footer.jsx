@@ -44,7 +44,6 @@ export const Footer = () => {
 
           <ul className="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:max-w-2xl lg:justify-end lg:gap-8">
             <li><Link className="text-white transition hover:text-white/75" href="/industries">Industries</Link></li>
-            <li><Link className="text-white transition hover:text-white/75" href="/leadership">Leadership</Link></li>
             <li><Link className="text-white transition hover:text-white/75" href="/book-a-consultation">Book a consultation</Link></li>
             <li>
               <a className="text-white transition hover:text-white/75" href="/about">

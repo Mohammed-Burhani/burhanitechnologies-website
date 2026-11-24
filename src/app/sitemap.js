@@ -16,7 +16,6 @@ const staticRoutes = [
   ["/services/cloud-solutions", "monthly", 0.8],
   ["/services/erp-implementation", "monthly", 0.8],
   ["/services/rapid-application-development", "monthly", 0.8],
-  ["/leadership", "monthly", 0.7],
   ["/values", "monthly", 0.7],
   ["/why-choose-us", "monthly", 0.7],
   ["/contact", "monthly", 0.7],

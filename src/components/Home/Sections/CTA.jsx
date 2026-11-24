@@ -37,7 +37,7 @@ export const CTA = () => {
           className="p-4 bg-[#f75201] px-5 py-2.5 text-lg font-medium text-white shadow flex gap-4 items-center !w-1/4 mt-7 z-50"
           title={"About Us"}
           data-aos="fade-up"
-          onClick={() => router.push("/leadership")}
+          onClick={() => router.push("/about")}
         />
       </div>
     </Container>
