@@ -6,8 +6,8 @@ const stats = [
     value: "4",
     label: "Countries we deliver into: India, the US, the UAE and Australia",
   },
-  { value: "6", label: "Client projects across four industry groups" },
-  { value: "5", label: "Connected service practices" },
+  { value: "100+", label: "Client projects across four industry groups" },
+  { value: "20+", label: "Connected service practices" },
 ];
 
 const AtAGlance = () => {
